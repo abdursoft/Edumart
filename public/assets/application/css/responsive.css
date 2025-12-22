@@ -1,0 +1,21 @@
+@media only screen and (max-width:767px) {
+    #nheader li {
+	display: block;
+	float: none;
+	text-align: center;
+}
+#nheader .nflogo {
+	text-align: center;
+}
+#nheader .nslogo {
+	text-align: center;
+	margin: 15px;
+}
+}
+
+@media only screen and (max-width:479px) {
+    .notice {
+	padding: 20px 0 20px 20px;
+	background: transparent;
+}
+}

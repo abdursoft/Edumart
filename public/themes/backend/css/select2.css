@@ -1,0 +1,30 @@
+.select2-container .select2-selection--single {
+  height: 40px !important;
+  border: 1px solid #d1d5db !important; /* Tailwind gray-300 */
+  border-radius: 0.375rem !important;   /* Tailwind rounded-md */
+  padding: 0.2rem !important;
+}
+.select2-container .select2-selection__rendered {
+  color: #374151 !important; /* gray-700 */
+}
+.select2-container .select2-selection__arrow {
+  top: 7px !important;
+}
+
+/* Hovered option */
+.select2-container--default .select2-results__option--highlighted {
+  background-color: #5f626380 !important; /* Tailwind's blue-600 */
+  color: white !important;
+}
+
+
+    /* Make Quill editor clean and spaced */
+    .quill-editor .ql-container {
+        min-height: 400px;       /* Reduce height */
+
+    }
+
+    .quill-editor {
+        margin-bottom: 80px;     /* <-- THIS FIXES BUTTON OVERLAP */
+    }
+

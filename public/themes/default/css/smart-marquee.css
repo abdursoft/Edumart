@@ -1,0 +1,27 @@
+
+.smartmarquee {
+	position: relative;
+	overflow: hidden;
+}
+.smartmarquee .containers {
+	position: absolute;
+}
+  
+.example {
+    height: 318px;
+    width: 100%;
+    -moz-box-shadow: 1px 1px 5px #999;
+    -webkit-box-shadow: 1px 1px 5px #999;
+    box-shadow: 1px 1px 5px #999;
+}
+.example .containers {
+    margin: 0;
+    padding: 0;
+}
+.example .containers li {
+    width: 285px;
+    font-size: 0.9em;
+    margin: 0 0 0 5px;
+    padding: 5px 0 5px 0;
+    border-bottom: 1px dotted #999
+}

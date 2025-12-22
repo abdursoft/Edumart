@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetFlix</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #myPlayer{
+            margin-top: 50px;
+            width: 600px;
+            height: 380px;
+        }
+    </style>
+</head>
+<body>
+    <div id="myPlayer"></div>
+    <script src="./15.js"></script>
+    <script>
+        let player,files='',captions='',title='';
+        fetch('https://tvembed.xyz/movie?name=The%20Dark%20Knight')
+        .then((response) => response.json())
+        .then((response)=>{
+            if(response.title != '' && response.title != undefined){
+                title = response.title;
+            }
+            if(response != undefined && response.Qualities != undefined && response.Qualities != null){
+                let Qualities = response.Qualities;
+                let Srt = response.Srtfiles;
+                if(Array.isArray(Qualities)){
+                    Qualities.forEach((value,index)=>{
+                        if(value != undefined && value != ''){
+                            files += `[${value.quality}]${value.path},`;
+                        }
+                    });
+                    files = files.substring(0,files.length -1);
+                    console.log(files);
+                }
+                if(Array.isArray(Srt)){
+                    Srt.forEach((item,index)=>{
+                        if(item != undefined && item != ''){
+                            captions += `[${item.caption}]${item.url},`;
+                        }
+                    });
+                    captions = captions.substring(0,captions.length -1);
+                    console.log(captions);
+                }
+                if(files != ''){
+                    makePlayer();
+                }
+            }
+        })
+
+        let backURL='/contact',nextURL='/dashboard';
+        function makePlayer(){
+            player = new Playerjs({
+                id : "myPlayer",
+                title :title,
+                file : files,
+                subtitle : captions
+            });
+        }
+        function setBack(x,y){
+            window.location.href=backURL;
+        }
+        function setNext(x,y){
+            window.location.href = nextURL;
+        }
+    </script>
+</body>
+</html>

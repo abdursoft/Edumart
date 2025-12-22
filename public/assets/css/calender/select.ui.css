@@ -1,0 +1,48 @@
+.select2-container {
+    line-height: 40px;
+}
+
+.select2-container .select2-selection--single {
+    
+}
+
+.select2-container ul {
+    padding: 0;
+    margin: 0;
+}
+
+.select2-container .select2-choice,
+.select2-container .select2-choice:hover {
+    padding: 0;
+    box-shadow: none;
+    text-decoration: none;
+    margin: 0;
+}
+
+.select2-container .select2-choice {
+    border-radius: 0;
+    height: auto;
+}
+
+.select2-container .select2-choice .select2-chosen {
+    padding: 3px 15px;
+    height: auto;
+}
+
+.select2-results {
+    padding: 0;
+}
+
+.select2-results .select2-result {
+    margin: 0;
+}
+
+.select2-results .select2-result-label {
+    padding: 10px 15px;
+}
+
+.select2-results .select2-highlighted {
+    background: #333;
+    color: #fff;
+    border-radius: 0;
+}

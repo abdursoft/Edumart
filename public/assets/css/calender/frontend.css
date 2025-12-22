@@ -1,0 +1,273 @@
+#wp-school-calendar {
+
+}
+
+.wpsc-clear {
+    clear: both;
+    height: 1px;
+}
+
+#wp-school-calendar .wpsc-navigation-section {
+    margin-bottom: 30px;
+    background: #333;
+    color: #fff;
+    padding: 10px 15px;
+}
+
+#wp-school-calendar .wpsc-academic-year-section {
+    float: left;
+    width: auto;
+    display: table;
+}
+
+#wp-school-calendar .wpsc-academic-year-text {
+    display: none;
+}
+
+@media screen and (min-width: 56.875em) {
+    #wp-school-calendar .wpsc-academic-year-text {
+        display: table-cell;
+        padding-right: 20px;
+    }
+}
+
+#wp-school-calendar .wpsc-academic-year-options {
+    display: table-cell;
+    padding-right: 20px;
+}
+
+#wp-school-calendar .wpsc-academic-year-button {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+#wp-school-calendar .wpsc-academic-year-button .wpsc-submit-button {
+    border: none;
+    border-radius: 0;
+    line-height: 1;
+    text-transform: uppercase;
+    width: auto;
+    cursor: pointer;
+    padding: 10px 15px;
+}
+
+#wp-school-calendar .wpsc-academic-year-button .wpsc-button-default {
+    background: #666;
+    color: #fff;
+    height: 42px;
+}
+
+#wp-school-calendar .wpsc-academic-year-button .wpsc-button-default:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+#wp-school-calendar .wpsc-main-calendar-section {
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+
+/* --- Calendar Default --- */
+
+#wp-school-calendar .calendar-default {
+    text-align: center;
+}
+
+#wp-school-calendar .calendar-default .monthly-calendar {
+    width: 100%;
+    padding: 0;
+}
+
+@media screen and (min-width: 56.875em) {
+    #wp-school-calendar .calendar-default .monthly-calendar {
+        width: 300px;
+    }
+}
+
+#wp-school-calendar .calendar-default .monthly-calendar table {
+	border-collapse: separate;
+	border-spacing: 0;
+    border: none;
+	line-height: 1.7;
+	margin: 0;
+	width: 100%;
+	word-break: normal;
+    table-layout: fixed;
+    background: none;
+}
+
+#wp-school-calendar .calendar-default .monthly-calendar table caption {
+    background: none;
+}
+
+#wp-school-calendar .calendar-default .monthly-calendar table tbody {
+    background: #fff;
+}
+
+#wp-school-calendar .calendar-default .monthly-calendar td {
+    padding: 1px;
+    word-wrap: normal;
+	border: none;
+    background: none;
+}
+
+#wp-school-calendar .calendar-default .monthly-calendar .heading {
+    text-align: center;
+    background: none;
+    color: #000;
+    padding: 10px 0;
+}
+
+#wp-school-calendar .calendar-default .monthly-calendar .heading .month-number {
+    display: none;
+}
+
+#wp-school-calendar .calendar-default .monthly-calendar .heading .month-name {
+    margin-right: 10px;
+}
+
+#wp-school-calendar .calendar-default .monthly-calendar .weekday-name,
+#wp-school-calendar .calendar-default .monthly-calendar .prevnext-date,
+#wp-school-calendar .calendar-default .monthly-calendar .general-date {
+    padding: 7px 0;
+}
+
+#wp-school-calendar .calendar-default .monthly-calendar .weekday-name {
+    text-align: center;
+    background: #666;
+    color: #fff;
+}
+
+#wp-school-calendar .calendar-default .monthly-calendar .prevnext-date {
+    text-align: center;
+    background: #eee;
+    color: #000;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+
+#wp-school-calendar .calendar-default .monthly-calendar .general-date {
+    text-align: center;
+    background: #ddd;
+    color: #000;
+}
+
+#wp-school-calendar .calendar-default .monthly-calendar .important-date {
+    color: #fff;
+}
+
+/* --- Important Dates --- */
+
+#wp-school-calendar .wpsc-important-date-categories-section {
+    margin-bottom: 30px;
+}
+
+#wp-school-calendar .important-date-category-title {
+
+}
+
+#wp-school-calendar .important-date-category-list {
+
+}
+
+#wp-school-calendar .important-date-category-item {
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+#wp-school-calendar .important-date-category-item .category-color {
+    float: left;
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+}
+
+#wp-school-calendar .important-date-category-item .category-name {
+    float: left;
+    width: auto;
+}
+
+#wp-school-calendar .wpsc-important-dates-section {
+    margin-bottom: 30px;
+}
+
+#wp-school-calendar .wpsc-important-dates-section .important-date-title {
+
+}
+
+#wp-school-calendar .wpsc-important-dates-section .important-date-list {
+    margin: 10px 0;
+}
+
+#wp-school-calendar .wpsc-important-dates-section .important-date-item {
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+#wp-school-calendar .wpsc-important-dates-section .important-date-item .important-date-range {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#wp-school-calendar .wpsc-important-dates-section .important-date-item .important-date-name {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#wp-school-calendar .important-date-tooltip {
+    cursor: pointer;
+}
+
+#wp-school-calendar .important-date-tooltips-section {
+    display: none;
+}
+
+.wpsc-important-date-tooltip {
+    padding: 10px 0;
+}
+
+.wpsc-important-date-tooltip-item {
+    margin-bottom: 20px;
+}
+
+.wpsc-important-date-tooltip-item:last-child {
+    margin-bottom: 0;
+}
+
+.wpsc-important-date-tooltip-item .wpsc-important-date-range {
+    font-size: 90%;
+    margin-bottom: 5px;
+}
+
+.wpsc-important-date-tooltip-item .wpsc-important-date-name {
+    font-size: 90%;
+}
+
+/* --- Media Screen: >= 910px --- */
+@media screen and (min-width: 56.875em) {
+    #wp-school-calendar .monthly-calendar {
+        display: inline-block;
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }
+
+    #wp-school-calendar .important-date-category-item {
+        display: inline-table;
+        width: 50%;
+    }
+
+    #wp-school-calendar .wpsc-important-dates-section .important-date-item .important-date-range {
+        display: inline-table;
+        width: 280px;
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+
+    #wp-school-calendar .wpsc-important-dates-section .important-date-item .important-date-name {
+        display: inline-table;
+        width: -webkit-calc(100% - 300px);
+        width: calc(100% - 300px);
+        margin-bottom: 0;
+    }
+}
