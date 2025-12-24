@@ -30,7 +30,6 @@ class DatabaseSeeder extends Seeder
             ProfileSeeder::class,
             DepartmentSeeder::class,
             EduClassSeeder::class,
-            StudentSeeder::class,
             DesignationSeeder::class,
             EventSeeder::class,
             HolydaysSeeder::class,
@@ -48,9 +47,7 @@ class DatabaseSeeder extends Seeder
             NotificationSeeder::class,
             CategoriesSeeder::class,
             PostsSeeder::class,
-            StaffSeeder::class,
             AdmissionSeeder::class,
-            AuthorSeeder::class,
             BooksShelfSeeder::class,
             BookCategoriesSeeder::class,
             BooksSeeder::class,
@@ -66,6 +63,7 @@ class DatabaseSeeder extends Seeder
             SiteSettingSeeder::class,
             LanguageSeeder::class,
             MenuSeeder::class,
+            RolePermissionSeeder::class
         ]);
     }
 }

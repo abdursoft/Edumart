@@ -8,6 +8,8 @@ use App\Models\NewsNotice;
 use App\Models\Page;
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class SiteController extends Controller
 {
@@ -62,6 +64,13 @@ class SiteController extends Controller
     }
 
     /**
+     * User register page
+     */
+    public function register(){
+        return view(theme('pages.auth.register'));
+    }
+
+    /**
      * Set localization
      */
     public function lang($lang){
@@ -89,6 +98,16 @@ class SiteController extends Controller
 
         return response()->json([
             'url' => asset('storage/' . $path)
+        ]);
+    }
+
+    public function role($name){
+        Role::create(['name' => $name]);
+    }
+
+    public function permission($permission){
+        Permission::create([
+            'name' => $permission,
         ]);
     }
 }

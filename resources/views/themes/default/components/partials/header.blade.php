@@ -8,8 +8,8 @@
                 <p><a href="tel:{{ site()->contact_phone }}"><i class="ri-phone-line"></i> {{ site()->contact_phone }}</a></p>
             </div>
             <div class="w-1/2 hidden md:flex items-center justify-end gap-3 text-sm">
-                <a href="/invoice" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="solar:login-linear" width="24" height="24"></iconify-icon> Admin Login</a>
-                <a href="/invoice" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="hugeicons:user-add-01" width="24" height="24"></iconify-icon> Register</a>
+                <a href="{{route('login')}}" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="solar:login-linear" width="24" height="24"></iconify-icon> Login</a>
+                <a href="{{route('register')}}" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="hugeicons:user-add-01" width="24" height="24"></iconify-icon> Register</a>
                 <a href="/invoice" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="mage:contact-book" width="24" height="24"></iconify-icon> Contact</a>
                 <a href="/invoice" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="fluent-emoji-high-contrast:e-mail" width="24" height="24"></iconify-icon> Webmail</a>
             </div>

@@ -8,17 +8,18 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('students', function (Blueprint $table) {
+        Schema::create('student_profiles', function (Blueprint $table) {
             $table->id();
 
             // Basic info
             $table->string('name');
-            $table->unsignedBigInteger('student_id')->unique();
+            $table->text('reg_number');
             $table->integer('age')->nullable();
             $table->string('phone')->nullable();
 
             // Relations
-            $table->foreignId('parent_id')->constrained('parent_models')->cascadeOnDelete();
+            $table->foreignId('parent_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('student_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('edu_class_id')->constrained('edu_classes')->cascadeOnDelete();
 
             // Father Info
@@ -42,14 +43,7 @@ return new class extends Migration {
             $table->foreignId('union_id')->nullable()->constrained('unions')->cascadeOnDelete();
             $table->string('post')->nullable();
             $table->text('address')->nullable();
-
-            // Login
-            $table->string('password');
-            $table->string('password_token')->nullable();
-            $table->bigInteger('password_otp')->default(0);
-            $table->string('password_otp_hits')->default(0);
-            $table->string('login_request')->default(0);
-            $table->enum('login_permit', ['allowed', 'blocked'])->default('allowed');
+            $table->text('birth_certificate_number')->nullable();
             $table->timestamps();
         });
     }

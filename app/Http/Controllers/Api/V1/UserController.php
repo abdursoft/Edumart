@@ -21,7 +21,7 @@ class UserController extends Controller
             'name'     => 'required|string|max:255',
             'email'    => 'required|email|unique:users,email',
             'password' => 'required|string|min:6',
-            'role'     => 'nullable|in:admin,teacher,student,parent,staff,governing,comity,accountant,receptionist,librarian',
+            'role'     => 'nullable|in:admin,teacher,student,guardian,staff,governing,comity,accountant,receptionist,librarian,author',
         ]);
 
         $user = User::create($request->all());
@@ -46,7 +46,7 @@ class UserController extends Controller
             'password_otp'        => 'nullable|integer|min:0',
             'password_otp_hits'   => 'nullable|integer|min:0',
             'login_request'       => 'nullable|integer|min:0',
-            'role'                => 'nullable|in:admin,teacher,student,parent,staff,governing,comity,accountant,receptionist,librarian',
+            'role'                => 'nullable|in:admin,teacher,student,guardian,staff,governing,comity,accountant,receptionist,librarian,author',
         ]);
 
         $data = $request->all();

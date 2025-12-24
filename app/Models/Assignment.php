@@ -33,11 +33,6 @@ class Assignment extends Model
         return $this->belongsTo(EduClass::class);
     }
 
-    public function eduGroup()
-    {
-        return $this->belongsTo(EduGroup::class);
-    }
-
     public function subject()
     {
         return $this->belongsTo(Subject::class);

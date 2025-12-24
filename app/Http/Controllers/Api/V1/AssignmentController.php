@@ -40,7 +40,7 @@ class AssignmentController extends Controller
     // Show a single assignment
     public function show(Assignment $assignment)
     {
-        return $assignment->load(['eduClass', 'eduGroup', 'subject', 'teacher']);
+        return $assignment->load(['eduClass', 'subject', 'teacher']);
     }
 
     // Update an assignment
@@ -50,7 +50,6 @@ class AssignmentController extends Controller
             'title'         => 'sometimes|required|string',
             'description'   => 'nullable|string',
             'edu_class_id'  => 'sometimes|required|exists:edu_classes,id',
-            'edu_group_id'  => 'nullable|exists:edu_groups,id',
             'subject_id'    => 'sometimes|required|exists:subjects,id',
             'teacher_id'    => 'sometimes|required|exists:users,id',
             'assigned_date' => 'nullable|date',

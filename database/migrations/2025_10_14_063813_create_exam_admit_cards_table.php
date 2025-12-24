@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('exam_admit_cards', function (Blueprint $table) {
             $table->id();
             $table->foreignId('exam_id')->constrained('exams')->cascadeOnDelete();
-            $table->foreignId('student_id')->nullable()->constrained('students')->cascadeOnDelete(); // Assuming students are in users table
+            $table->foreignId('student_id')->nullable()->constrained('users')->cascadeOnDelete(); // Assuming students are in users table
 
             $table->date('issue_date')->nullable();
             $table->enum('status', ['Issued','Pending','Canceled'])->default('Issued');

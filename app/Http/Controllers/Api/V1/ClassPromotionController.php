@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ClassPromotion;
 use App\Models\EduClass;
 use App\Models\Student;
+use App\Models\StudentProfile;
 use Illuminate\Http\Request;
 
 class ClassPromotionController extends Controller
@@ -36,7 +37,7 @@ class ClassPromotionController extends Controller
         ]);
 
         if($request->student_id == 0){
-            $students = Student::where('edu_class_id', $request->from_class_id)->get();
+            $students = StudentProfile::where('edu_class_id', $request->from_class_id)->get();
             foreach($students as $student){
                 ClassPromotion::create([
                     'student_id'     => $student->id,
@@ -52,7 +53,7 @@ class ClassPromotionController extends Controller
             return back()
                 ->with('success', 'All students promoted successfully.');
         }else{
-            $student = Student::find($request->student_id);
+            $student = StudentProfile::find($request->student_id);
             if(!$student || $student->edu_class_id != $request->from_class_id){
                 return back()
                     ->with('error', 'Selected student does not belong to the from class.');
@@ -130,7 +131,7 @@ class ClassPromotionController extends Controller
 
     // Get students by class
     public function getStudent($id){
-        $students = Student::where('edu_class_id', $id)->select('id','name')->get();
+        $students = StudentProfile::where('edu_class_id', $id)->select('id','name')->get();
         $list = [];
         $list[] = ['id' => '0', 'name' => 'All Student'];
         foreach($students as $student){

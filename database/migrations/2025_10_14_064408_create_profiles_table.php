@@ -13,9 +13,7 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnDelete(); // links to users table
-            $table->foreignId('parent_id')->nullable()->constrained('parent_models')->cascadeOnDelete(); // links to users table
-            $table->foreignId('student_id')->nullable()->constrained('students')->cascadeOnDelete(); // links to users table
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete(); // links to users table
 
             $table->string('avatar')->nullable(); // path to avatar image
             $table->string('first_name');

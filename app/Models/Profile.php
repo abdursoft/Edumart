@@ -30,9 +30,4 @@ class Profile extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-    // Relationship to student
-    public function student(){
-        return $this->belongsTo(Student::class, 'student_id');
-    }
 }

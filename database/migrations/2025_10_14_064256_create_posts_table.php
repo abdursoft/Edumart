@@ -21,7 +21,7 @@ return new class extends Migration
             $table->longText('content')->nullable(); // Full content
 
             $table->foreignId('category_id')->nullable()->constrained('categories')->nullOnDelete();
-            $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete()->comment('post moderator');
 
             $table->string('thumbnail')->nullable(); // Image path or URL
 

@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 
-class Student extends Model
+class StudentProfile extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
         'student_id',
+        'reg_number',
         'age',
         'phone',
         'parent_id',
@@ -39,39 +40,23 @@ class Student extends Model
         'union_id',
         'post',
         'address',
-
-        'password_token',
-        'password_otp',
-        'password_otp_hits',
-        'login_request',
-        'login_permit',
         'birth_certificate_number'
-    ];
-
-    protected $hidden = [
-        'password',
-        'password_token',
-        'password_otp',
-        'password_otp_hits',
-        'login_request',
-        'login_permit',
     ];
 
     /**
      * Relations
      */
+    public function user(){
+        return $this->belongsTo(User::class, 'student_id');
+    }
     public function parent()
     {
-        return $this->belongsTo(ParentModel::class, 'parent_id');
+        return $this->belongsTo(User::class, 'parent_id');
     }
 
     public function eduClass()
     {
         return $this->belongsTo(EduClass::class, 'edu_class_id');
-    }
-
-    public function profile(){
-        return $this->hasOne(Profile::class, 'student_id');
     }
 
     public function division()

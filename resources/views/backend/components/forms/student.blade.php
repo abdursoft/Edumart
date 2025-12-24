@@ -13,8 +13,8 @@
                 'placeholder' => 'e.g. John Doe',
             ],
             [
-                'label' => 'Student ID',
-                'name' => 'student_id',
+                'label' => 'Reg Number',
+                'name' => 'reg_number',
                 'type' => 'number',
                 'placeholder' => 'e.g. 9329',
                 'required' => true,
@@ -38,7 +38,9 @@
                 'type' => 'select',
                 'placeholder' => 'Select a guardian',
                 'required' => true,
-                'options' => $parents->mapWithKeys(fn($p) => [$p->id => $p->name . ' (' . $p->phone . ')'])->toArray(),
+                'options' => $parents
+                    ->mapWithKeys(fn($p) => [$p->id => $p->name . ' (' . $p->profile?->phone . ')'])
+                    ->toArray(),
             ],
             [
                 'label' => 'Class',
@@ -63,10 +65,11 @@
                 'default' => 'allowed',
             ],
             [
-                'label' => '',
-                'name' => '',
-                'type' => 'break',
-                'default' => 1,
+                'label' => 'Birth certificate ID',
+                'name' => 'birth_certificate_number',
+                'type' => 'text',
+                'required' => true,
+                'placeholder' => '1819484785744757555',
             ],
             [
                 'label' => '',
@@ -78,35 +81,35 @@
                 'label' => '',
                 'name' => '',
                 'type' => 'break',
-                'default' => 2
+                'default' => 2,
             ],
             [
                 'label' => PARENTS['name_en'],
                 'name' => 'fa_name_en',
                 'type' => 'text',
                 'required' => true,
-                'placeholder' => 'Jhon Doe'
+                'placeholder' => 'Jhon Doe',
             ],
             [
                 'label' => PARENTS['name_bn'],
                 'name' => 'fa_name_bn',
                 'type' => 'text',
                 'required' => true,
-                'placeholder' => 'Jhon Doe'
+                'placeholder' => 'Jhon Doe',
             ],
             [
                 'label' => PARENTS['mobile'],
                 'name' => 'fa_mobile',
                 'type' => 'text',
                 'required' => true,
-                'placeholder' => '01X-------XXX'
+                'placeholder' => '01X-------XXX',
             ],
             [
                 'label' => PARENTS['nid'],
                 'name' => 'fa_nid',
                 'type' => 'text',
                 'required' => true,
-                'placeholder' => '8515XXXXXX12'
+                'placeholder' => '8515XXXXXX12',
             ],
             [
                 'label' => PARENTS['dob'],
@@ -114,7 +117,6 @@
                 'type' => 'date',
                 'required' => true,
             ],
-
 
             [
                 'label' => '',
@@ -132,35 +134,35 @@
                 'label' => '',
                 'name' => '',
                 'type' => 'break',
-                'default' => 2
+                'default' => 2,
             ],
             [
                 'label' => PARENTS['name_en'],
                 'name' => 'mo_name_en',
                 'type' => 'text',
                 'required' => true,
-                'placeholder' => 'Jhon Doe'
+                'placeholder' => 'Jhon Doe',
             ],
             [
                 'label' => PARENTS['name_bn'],
                 'name' => 'mo_name_bn',
                 'type' => 'text',
                 'required' => true,
-                'placeholder' => 'Jhon Doe'
+                'placeholder' => 'Jhon Doe',
             ],
             [
                 'label' => PARENTS['mobile'],
                 'name' => 'mo_mobile',
                 'type' => 'text',
                 'required' => true,
-                'placeholder' => '01X-------XXX'
+                'placeholder' => '01X-------XXX',
             ],
             [
                 'label' => PARENTS['nid'],
                 'name' => 'mo_nid',
                 'type' => 'text',
                 'required' => true,
-                'placeholder' => '8515XXXXXX12'
+                'placeholder' => '8515XXXXXX12',
             ],
             [
                 'label' => PARENTS['dob'],
@@ -185,15 +187,15 @@
                 'label' => '',
                 'name' => '',
                 'type' => 'break',
-                'default' => 2
+                'default' => 2,
             ],
             [
                 'label' => ADDRESS['division'],
                 'name' => 'division_id',
                 'type' => 'select',
-                'options' => division()->pluck('name','id')->toArray(),
+                'options' => division()->pluck('name', 'id')->toArray(),
                 'required' => true,
-                'placeholder' => 'Jhon Doe'
+                'placeholder' => 'Jhon Doe',
             ],
             [
                 'label' => ADDRESS['district'],
@@ -201,7 +203,7 @@
                 'type' => 'select',
                 'options' => [],
                 'required' => true,
-                'placeholder' => 'Jhon Doe'
+                'placeholder' => 'Jhon Doe',
             ],
             [
                 'label' => ADDRESS['thana'],
@@ -209,7 +211,7 @@
                 'type' => 'select',
                 'options' => [],
                 'required' => true,
-                'placeholder' => '01X-------XXX'
+                'placeholder' => '01X-------XXX',
             ],
             [
                 'label' => ADDRESS['union'],
@@ -217,14 +219,14 @@
                 'type' => 'select',
                 'options' => [],
                 'required' => true,
-                'placeholder' => 'Jhon Doe'
+                'placeholder' => 'Jhon Doe',
             ],
             [
                 'label' => ADDRESS['post'],
                 'name' => 'post',
                 'type' => 'text',
                 'required' => true,
-                'placeholder' => '8515XXXXXX12'
+                'placeholder' => '8515XXXXXX12',
             ],
             [
                 'label' => ADDRESS['address'],
@@ -232,7 +234,6 @@
                 'type' => 'text',
                 'required' => true,
             ],
-
         ]" :form="$student" cols="3" />
 
 
@@ -265,57 +266,64 @@
 
 
 {{-- {!!$student!!} --}}
-@if($student && $student->division_id)
-<script>
-    $(document).ready(function(){
-        const division_id = "{{ $student->division_id }}";
-        const district_id = "{{ $student->district_id }}";
-        const thana_id = "{{ $student->thana_id }}";
+@if ($student && $student->division_id)
+    <script>
+        $(document).ready(function() {
+            const division_id = "{{ $student->division_id }}";
+            const district_id = "{{ $student->district_id }}";
+            const thana_id = "{{ $student->thana_id }}";
 
-        const division_url = `/admin/address/division/${division_id}`;
-        $.ajax({
-            url: division_url,
-            method: 'get',
-            success: (response) => {
-                $("#district_id").empty();
-                response?.district.map((item) => {
-                    const isSelected = item?.id == district_id;
-                    $('#district_id').append(new Option(item?.name, item?.id, isSelected, isSelected));
-                })
+            const division_url = `/admin/address/division/${division_id}`;
+            $.ajax({
+                url: division_url,
+                method: 'get',
+                success: (response) => {
+                    $("#district_id").empty();
+                    response?.district.map((item) => {
+                        const isSelected = item?.id == district_id;
+                        $('#district_id').append(new Option(item?.name, item?.id, isSelected,
+                            isSelected));
+                    })
 
-                const district_url = `/admin/address/district/${district_id}`;
-                $.ajax({
-                    url: district_url,
-                    method: 'get',
-                    success: (response) => {
-                        $("#thana_id").empty();
-                        response?.thana.map((item) => {
-                            const isSelected = item?.id == thana_id;
-                            $('#thana_id').append(new Option(item?.name, item?.id, isSelected, isSelected));
-                        })
+                    const district_url = `/admin/address/district/${district_id}`;
+                    $.ajax({
+                        url: district_url,
+                        method: 'get',
+                        success: (response) => {
+                            $("#thana_id").empty();
+                            response?.thana.map((item) => {
+                                const isSelected = item?.id == thana_id;
+                                $('#thana_id').append(new Option(item?.name, item
+                                    ?.id, isSelected, isSelected));
+                            })
 
-                        const thana_url = `/admin/address/thana/${thana_id}`;
-                        $.ajax({
-                            url: thana_url,
-                            method: 'get',
-                            success: (response) => {
-                                $("#union_id").empty();
-                                response?.union.map((item) => {
-                                    const isSelected = item?.id == "{{ $student->union_id }}";
-                                    $('#union_id').append(new Option(item?.name, item?.id, isSelected, isSelected));
-                                })
-                            }
-                        })
-                    }
-                })
-            }
-        })
-    });
-</script>
+                            const thana_url = `/admin/address/thana/${thana_id}`;
+                            $.ajax({
+                                url: thana_url,
+                                method: 'get',
+                                success: (response) => {
+                                    $("#union_id").empty();
+                                    response?.union.map((item) => {
+                                        const isSelected = item?.id ==
+                                            "{{ $student->union_id }}";
+                                        $('#union_id').append(
+                                            new Option(item?.name,
+                                                item?.id,
+                                                isSelected,
+                                                isSelected));
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
+            })
+        });
+    </script>
 @endif
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         $("#division_id").on('change', (element) => {
             const id = element.target.value;
             const url = `/admin/address/division/${id}`;
@@ -326,7 +334,8 @@
                 success: (response) => {
                     $("#district_id").empty();
                     response?.district.map((item) => {
-                        $('#district_id').append(new Option(item?.name, item?.id, true, true));
+                        $('#district_id').append(new Option(item?.name, item?.id,
+                            true, true));
                     })
                 }
             })
@@ -342,7 +351,8 @@
                 success: (response) => {
                     $("#thana_id").empty();
                     response?.thana.map((item) => {
-                        $('#thana_id').append(new Option(item?.name, item?.id, true, true));
+                        $('#thana_id').append(new Option(item?.name, item?.id, true,
+                            true));
                     })
                 }
             })
@@ -358,7 +368,8 @@
                 success: (response) => {
                     $("#union_id").empty();
                     response?.union.map((item) => {
-                        $('#union_id').append(new Option(item?.name, item?.id, true, true));
+                        $('#union_id').append(new Option(item?.name, item?.id, true,
+                            true));
                     })
                 }
             })

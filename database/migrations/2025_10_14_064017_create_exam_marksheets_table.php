@@ -16,7 +16,7 @@ return new class extends Migration
 
             // Relationships
             $table->foreignId('exam_id')->constrained('exams')->cascadeOnDelete();
-            $table->foreignId('student_id')->constrained('students')->cascadeOnDelete();
+            $table->foreignId('student_id')->constrained('users')->cascadeOnDelete();
 
             // Overall summary for that student in this exam
             $table->integer('total_marks_obtained')->default(0);

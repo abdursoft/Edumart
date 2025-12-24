@@ -29,7 +29,7 @@ class EduClass extends Model
      * Relation with student table
      */
     public function student(){
-        return $this->hasMany(Student::class, 'edu_class_id');
+        return $this->hasMany(StudentProfile::class, 'edu_class_id');
     }
 
     /**

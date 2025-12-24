@@ -25,7 +25,7 @@ class Book extends Model
     // Relationships
     public function author()
     {
-        return $this->belongsTo(Author::class);
+        return $this->belongsTo(User::class, 'author_id');
     }
 
     public function category()

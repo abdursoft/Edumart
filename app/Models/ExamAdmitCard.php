@@ -28,6 +28,6 @@ class ExamAdmitCard extends Model
 
     public function student()
     {
-        return $this->belongsTo(Student::class, 'student_id');
+        return $this->belongsTo(StudentProfile::class, 'student_id');
     }
 }

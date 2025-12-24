@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('password_otp_hits')->default(0);
             $table->string('login_request')->default(0);
             $table->enum('login_permit', ['allowed', 'blocked'])->default('allowed');
-            $table->enum('role', ['super-admin','admin', 'teacher', 'staff','governing','committee','accountant','receptionist','librarian'])->default('staff'); // user role
+            $table->enum('role', ['super-admin','admin', 'teacher', 'staff','governing','committee','accountant','receptionist','librarian','author','student','guardian'])->default('staff'); // user role
             $table->foreignId('designation_id')->nullable()->constrained('designations')->onDelete('set null');
             $table->rememberToken();
             $table->timestamps();

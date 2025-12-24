@@ -14,27 +14,27 @@ class PermissionSeeder extends Seeder
     public function run(): void
     {
         $permissions = [
-            ['name' => 'view_student', 'group' => 'Student'],
-            ['name' => 'create_student', 'group' => 'Student'],
-            ['name' => 'edit_student', 'group' => 'Student'],
-            ['name' => 'delete_student', 'group' => 'Student'],
+            ['name' => 'view_student', 'guard_name' => 'Student'],
+            ['name' => 'create_student', 'guard_name' => 'Student'],
+            ['name' => 'edit_student', 'guard_name' => 'Student'],
+            ['name' => 'delete_student', 'guard_name' => 'Student'],
 
-            ['name' => 'view_teacher', 'group' => 'Teacher'],
-            ['name' => 'create_teacher', 'group' => 'Teacher'],
-            ['name' => 'edit_teacher', 'group' => 'Teacher'],
-            ['name' => 'delete_teacher', 'group' => 'Teacher'],
+            ['name' => 'view_teacher', 'guard_name' => 'Teacher'],
+            ['name' => 'create_teacher', 'guard_name' => 'Teacher'],
+            ['name' => 'edit_teacher', 'guard_name' => 'Teacher'],
+            ['name' => 'delete_teacher', 'guard_name' => 'Teacher'],
 
-            ['name' => 'view_class', 'group' => 'Class'],
-            ['name' => 'create_class', 'group' => 'Class'],
-            ['name' => 'edit_class', 'group' => 'Class'],
-            ['name' => 'delete_class', 'group' => 'Class'],
+            ['name' => 'view_class', 'guard_name' => 'Class'],
+            ['name' => 'create_class', 'guard_name' => 'Class'],
+            ['name' => 'edit_class', 'guard_name' => 'Class'],
+            ['name' => 'delete_class', 'guard_name' => 'Class'],
 
-            ['name' => 'take_attendance', 'group' => 'Attendance'],
-            ['name' => 'view_attendance', 'group' => 'Attendance'],
+            ['name' => 'take_attendance', 'guard_name' => 'Attendance'],
+            ['name' => 'view_attendance', 'guard_name' => 'Attendance'],
 
-            ['name' => 'view_fees', 'group' => 'Finance'],
-            ['name' => 'collect_fees', 'group' => 'Finance'],
-            ['name' => 'view_salary', 'group' => 'Finance'],
+            ['name' => 'view_fees', 'guard_name' => 'Finance'],
+            ['name' => 'collect_fees', 'guard_name' => 'Finance'],
+            ['name' => 'view_salary', 'guard_name' => 'Finance'],
         ];
 
         DB::table('permissions')->insert($permissions);

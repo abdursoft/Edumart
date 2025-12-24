@@ -4,14 +4,14 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Book;
-use App\Models\Author;
 use App\Models\BookCategory;
+use App\Models\User;
 
 class BooksSeeder extends Seeder
 {
     public function run(): void
     {
-        $authors = Author::all();
+        $authors = User::where('role','author')->get();
         $categories = BookCategory::all();
 
         if ($authors->isEmpty() || $categories->isEmpty()) {
@@ -22,7 +22,7 @@ class BooksSeeder extends Seeder
         $books = [
             [
                 'title' => 'Harry Potter and the Philosopher\'s Stone',
-                'author_id' => $authors->where('last_name', 'Rowling')->first()->id,
+                'author_id' => $authors->where('name', 'Cuddy')->first()->id,
                 'category_id' => $categories->where('name', 'Fiction')->first()->id,
                 'isbn' => '9780747532699',
                 'publication_year' => 1997,
@@ -32,7 +32,7 @@ class BooksSeeder extends Seeder
             ],
             [
                 'title' => '1984',
-                'author_id' => $authors->where('last_name', 'Orwell')->first()->id,
+                'author_id' => $authors->where('name', 'Agatha')->first()->id,
                 'category_id' => $categories->where('name', 'Science Fiction')->first()->id,
                 'isbn' => '9780451524935',
                 'publication_year' => 1949,
@@ -42,7 +42,7 @@ class BooksSeeder extends Seeder
             ],
             [
                 'title' => 'Murder on the Orient Express',
-                'author_id' => $authors->where('last_name', 'Christie')->first()->id,
+                'author_id' => $authors->where('name', 'George')->first()->id,
                 'category_id' => $categories->where('name', 'Mystery')->first()->id,
                 'isbn' => '9780007119318',
                 'publication_year' => 1934,

@@ -26,7 +26,7 @@ class Attendance extends Model
     // Relationships
     public function student()
     {
-        return $this->belongsTo(User::class, 'student_id');
+        return $this->belongsTo(StudentProfile::class, 'student_id');
     }
 
     public function eduClass()
@@ -34,10 +34,6 @@ class Attendance extends Model
         return $this->belongsTo(EduClass::class);
     }
 
-    public function eduGroup()
-    {
-        return $this->belongsTo(EduGroup::class);
-    }
 
     public function subject()
     {

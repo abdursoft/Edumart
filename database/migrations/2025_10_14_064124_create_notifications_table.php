@@ -16,8 +16,8 @@ return new class extends Migration
 
             // Who will receive the notification
             $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnDelete();
-            $table->foreignId('student_id')->nullable()->constrained('students')->cascadeOnDelete();
-            $table->foreignId('parent_model_id')->nullable()->constrained('parent_models')->cascadeOnDelete();
+            $table->foreignId('student_id')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('parent_model_id')->nullable()->constrained('users')->cascadeOnDelete();
 
             // Notification content
             $table->string('title');

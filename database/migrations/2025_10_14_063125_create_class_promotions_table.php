@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             // Student
-            $table->foreignId('student_id')->constrained('students')->cascadeOnDelete();
+            $table->foreignId('student_id')->constrained('users')->cascadeOnDelete();
 
             // Previous class & section
             $table->foreignId('from_class_id')->constrained('edu_classes')->cascadeOnDelete();

@@ -11,7 +11,7 @@ class AttendanceController extends Controller
     // List all attendance records
     public function index()
     {
-        return Attendance::with(['student', 'eduClass', 'eduGroup', 'subject'])
+        return Attendance::with(['student', 'eduClass', 'subject'])
             ->orderBy('attendance_date', 'desc')
             ->get();
     }
@@ -22,7 +22,6 @@ class AttendanceController extends Controller
         $request->validate([
             'student_id'      => 'required|exists:users,id',
             'edu_class_id'    => 'required|exists:edu_classes,id',
-            'edu_group_id'    => 'nullable|exists:edu_groups,id',
             'subject_id'      => 'nullable|exists:subjects,id',
             'attendance_date' => 'required|date',
             'status'          => 'required|in:Present,Absent,Late,Excused',
@@ -37,16 +36,15 @@ class AttendanceController extends Controller
     // Show a single attendance record
     public function show(Attendance $attendance)
     {
-        return $attendance->load(['student', 'eduClass', 'eduGroup', 'subject']);
+        return $attendance->load(['student', 'eduClass', 'subject']);
     }
 
     // Update an attendance record
     public function update(Request $request, Attendance $attendance)
     {
         $request->validate([
-            'student_id'      => 'sometimes|required|exists:users,id',
+            'student_id'      => 'sometimes|required|exists:student_profiles,id',
             'edu_class_id'    => 'sometimes|required|exists:edu_classes,id',
-            'edu_group_id'    => 'nullable|exists:edu_groups,id',
             'subject_id'      => 'nullable|exists:subjects,id',
             'attendance_date' => 'nullable|date',
             'status'          => 'nullable|in:Present,Absent,Late,Excused',

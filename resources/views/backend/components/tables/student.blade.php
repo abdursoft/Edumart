@@ -14,7 +14,7 @@
                     <th data-priority="2">Student</th>
                     <th data-priority="2">Age</th>
                     <th data-priority="4">Parent</th>
-                    <th data-priority="3">Student ID</th>
+                    <th data-priority="3">Reg. Number</th>
                     <th data-priority="4">Permit</th>
                     <th data-priority="4">Class</th>
                     <th data-priority="6">Action</th>
@@ -27,8 +27,8 @@
                         <td>{{$student->name}}</td>
                         <td>{{$student->age}}</td>
                         <td>{{$student->parent->name ?? 'N/A'}}</td>
-                        <td>{{$student->student_id}}</td>
-                        <td>{{ucfirst($student->login_permit)}}</td>
+                        <td>{{$student->reg_number}}</td>
+                        <td>{{ucfirst($student?->user?->login_permit)}}</td>
                         <td>{{$student->eduClass->name ?? ''}}</td>
                         <td>
                             <div class="flex items-center gap-3">

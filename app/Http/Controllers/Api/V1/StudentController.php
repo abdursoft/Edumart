@@ -1,11 +1,13 @@
 <?php
+
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\EduClass;
-use App\Models\ParentModel;
-use App\Models\Student;
+use App\Models\StudentProfile;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
@@ -13,9 +15,9 @@ class StudentController extends Controller
     //show student list
     public function index()
     {
-        $students = Student::with('parent')->get();
+        $students = StudentProfile::with('parent','user')->get();
         $student  = null;
-        $parents  = ParentModel::all();
+        $parents  = User::where('role', 'guardian')->get();
         $class    = EduClass::all();
         return view(backend('pages.student'), compact('students', 'student', 'parents', 'class'));
     }
@@ -24,51 +26,64 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'student_id' => 'required|numeric|unique:students,student_id',
-            'age' => 'required|numeric|min:1',
-            'phone' => 'nullable|string|max:20',
-            'parent_id' => 'required|exists:parent_models,id',
-            'edu_class_id' => 'required|exists:edu_classes,id',
-            'password' => 'required|string|min:6',
-            'login_permit' => 'required|in:allowed,blocked',
+            'name'                     => 'required|string|max:255',
+            'reg_number'               => 'required|numeric|unique:student_profiles,reg_number',
+            'age'                      => 'required|numeric|min:1',
+            'phone'                    => 'nullable|string|max:20',
+            'parent_id'                => 'required|exists:users,id',
+            'edu_class_id'             => 'required|exists:edu_classes,id',
+            'birth_certificate_number' => 'required|string',
 
             // Father
-            'fa_name_en' => 'required|string',
-            'fa_name_bn' => 'required|string',
-            'fa_mobile' => 'required|string',
-            'fa_nid' => 'nullable|string',
-            'fa_dob' => 'nullable|date',
+            'fa_name_en'               => 'required|string',
+            'fa_name_bn'               => 'required|string',
+            'fa_mobile'                => 'required|string',
+            'fa_nid'                   => 'nullable|string',
+            'fa_dob'                   => 'nullable|date',
 
             // Mother
-            'mo_name_en' => 'required|string',
-            'mo_name_bn' => 'required|string',
-            'mo_mobile' => 'required|string',
-            'mo_nid' => 'nullable|string',
-            'mo_dob' => 'nullable|date',
+            'mo_name_en'               => 'required|string',
+            'mo_name_bn'               => 'required|string',
+            'mo_mobile'                => 'required|string',
+            'mo_nid'                   => 'nullable|string',
+            'mo_dob'                   => 'nullable|date',
 
             // Address
-            'division_id' => 'required|exists:divisions,id',
-            'district_id' => 'required|exists:districts,id',
-            'thana_id' => 'required|exists:thanas,id',
-            'union_id' => 'required|exists:unions,id',
-            'post' => 'nullable|string|max:255',
-            'address' => 'nullable|string|max:255',
+            'division_id'              => 'required|exists:divisions,id',
+            'district_id'              => 'required|exists:districts,id',
+            'thana_id'                 => 'required|exists:thanas,id',
+            'union_id'                 => 'required|exists:unions,id',
+            'post'                     => 'nullable|string|max:255',
+            'address'                  => 'nullable|string|max:255',
         ]);
 
-        $validated['password'] = Hash::make($validated['password']);
+        try {
+            DB::beginTransaction();
+            $student = User::create([
+                'name'     => $request->name,
+                'password' => Hash::make($request->password ?? '123456'),
+                'role'     => 'student',
+            ]);
 
-        Student::create($validated);
+            $student->assignRole('Student');
 
-        return redirect()->back()->with('success', 'Student created successfully!');
+            $validated['student_id'] = $student->id;
+
+            StudentProfile::create($validated);
+            DB::commit();
+            return redirect()->back()->with('success', 'Student created successfully!');
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return back()->with('error', 'Invalid server error');
+        }
     }
 
     // Show a single student
     public function show($id)
     {
-        $students = Student::with('parent')->get();
-        $student  = Student::with('parent', 'eduClass')->findOrFail($id);
-        $parents  = ParentModel::all();
+        $students = StudentProfile::with('parent')->get();
+        $student  = StudentProfile::with('parent', 'eduClass')->findOrFail($id);
+        $parents  = User::where('role', 'guardian')->get();
         $class    = EduClass::all();
         return view(backend('pages.student'), compact('students', 'student', 'parents', 'class'));
     }
@@ -77,36 +92,35 @@ class StudentController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'student_id' => 'required|numeric|unique:students,student_id,' . $id,
-            'age' => 'required|numeric|min:1',
-            'phone' => 'nullable|string|max:20',
-            'parent_id' => 'required|exists:parent_models,id',
-            'edu_class_id' => 'required|exists:edu_classes,id',
-            'password' => 'nullable|string|min:6',
-            'login_permit' => 'required|in:allowed,blocked',
+            'name'                     => 'required|string|max:255',
+            'reg_number'               => 'required|numeric|unique:student_profiles,reg_number,' . $id,
+            'age'                      => 'required|numeric|min:1',
+            'phone'                    => 'nullable|string|max:20',
+            'parent_id'                => 'required|exists:users,id',
+            'edu_class_id'             => 'required|exists:edu_classes,id',
+            'birth_certificate_number' => 'required|string',
 
             // Father
-            'fa_name_en' => 'required|string',
-            'fa_name_bn' => 'required|string',
-            'fa_mobile' => 'required|string',
-            'fa_nid' => 'nullable|string',
-            'fa_dob' => 'nullable|date',
+            'fa_name_en'               => 'required|string',
+            'fa_name_bn'               => 'required|string',
+            'fa_mobile'                => 'required|string',
+            'fa_nid'                   => 'nullable|string',
+            'fa_dob'                   => 'nullable|date',
 
             // Mother
-            'mo_name_en' => 'required|string',
-            'mo_name_bn' => 'required|string',
-            'mo_mobile' => 'required|string',
-            'mo_nid' => 'nullable|string',
-            'mo_dob' => 'nullable|date',
+            'mo_name_en'               => 'required|string',
+            'mo_name_bn'               => 'required|string',
+            'mo_mobile'                => 'required|string',
+            'mo_nid'                   => 'nullable|string',
+            'mo_dob'                   => 'nullable|date',
 
             // Address
-            'division_id' => 'required|exists:divisions,id',
-            'district_id' => 'required|exists:districts,id',
-            'thana_id' => 'required|exists:thanas,id',
-            'union_id' => 'required|exists:unions,id',
-            'post' => 'nullable|string|max:255',
-            'address' => 'nullable|string|max:255',
+            'division_id'              => 'required|exists:divisions,id',
+            'district_id'              => 'required|exists:districts,id',
+            'thana_id'                 => 'required|exists:thanas,id',
+            'union_id'                 => 'required|exists:unions,id',
+            'post'                     => 'nullable|string|max:255',
+            'address'                  => 'nullable|string|max:255',
         ]);
 
         if ($request->filled('password')) {
@@ -115,7 +129,7 @@ class StudentController extends Controller
             unset($validated['password']);
         }
 
-        $student = Student::findOrFail($id);
+        $student = StudentProfile::findOrFail($id);
 
         $student->update($validated);
 
@@ -125,7 +139,7 @@ class StudentController extends Controller
     // Delete a student
     public function destroy($id)
     {
-        $student = Student::find($id);
+        $student = StudentProfile::find($id);
         if (! $student) {
             return back()->withErrors(['error' => 'Student ID couldn\'t found']);
         }

@@ -5,5 +5,5 @@
 
 @section('content')
     @include(backend('components.forms.student'))
-    {{-- @include(backend('components.tables.student')) --}}
+    @include(backend('components.tables.student'))
 @endsection

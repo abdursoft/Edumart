@@ -19,7 +19,7 @@ return new class extends Migration
             $table->decimal('late_fee', 10, 2)->default(0); // Optional late fee
 
             $table->date('due_date')->nullable();        // Last date to pay without late fee
-            $table->enum('status', ['Active','Inactive'])->default('Active');
+            $table->enum('status', ['Active','Inactive','Terminate'])->default('Active');
 
             $table->timestamps();
         });

@@ -51,6 +51,41 @@ class UserSeeder extends Seeder
                 'email' => 'librarian@example.com',
                 'role' => 'librarian',
             ],
+            [
+                'name' => 'Cuddy',
+                'email'      => 'jk.rowling@example.com',
+                'role'        => 'author',
+            ],
+            [
+                'name' => 'George',
+                'email'      => 'george.orwell@example.com',
+                'role'        => 'author',
+            ],
+            [
+                'name' => 'Agatha',
+                'email'      => 'agatha.christie@example.com',
+                'role'       => 'author'
+            ],
+            [
+                'name' => 'Abdur Rahman',
+                'email' => 'abdur@example.com',
+                'role' => 'student',
+            ],
+            [
+                'name' => 'Beny howel',
+                'email' => 'benny@example.com',
+                'role' => 'student',
+            ],
+            [
+                'name' => 'Monty sing',
+                'email' => 'msing@example.com',
+                'role' => 'student',
+            ],
+            [
+                'name' => 'Sompa islam',
+                'email' => 'silam@example.com',
+                'role' => 'student',
+            ],
         ];
 
         foreach ($users as $data) {
