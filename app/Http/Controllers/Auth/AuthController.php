@@ -27,9 +27,9 @@ class AuthController extends Controller
                 $request->session()->regenerate();
                 $user = auth()->user();
                 $user->assignRole($user->role);
-                return redirect()->route('admin.dashboard')->with('success', 'Login successful!');
+                return redirect()->route($user->role.'.dashboard')->with('success', 'Login successful!');
             }
-            dd($credentials);
+            return redirect()->back()->with('error','Invalid Login Details!');
         } catch (\Throwable $th) {
             dd($th->getMessage());
         }
@@ -120,6 +120,6 @@ class AuthController extends Controller
         if(auth()->user()){
             auth()->logout();
         }
-        return redirect(route('auth.login'));
+        return redirect(route('login'));
     }
 }

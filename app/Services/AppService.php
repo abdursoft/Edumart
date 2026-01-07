@@ -21,6 +21,22 @@ if (!function_exists('site')) {
 }
 
 /**
+ * Get user type and id
+ */
+if(!function_exists('getUsers')){
+    /**
+     *@param $type get users by type
+     *@param $id get users by type and id
+     */
+    function getUsers($type,$id=null){
+        if($type && $id){
+            return \App\Models\User::where('role',$type)->where('id',$id)->first();
+        }
+        return \App\Models\User::where('role',$type)->get();
+    }
+}
+
+/**
  * Get divisions
  */
 if(!function_exists('division')){

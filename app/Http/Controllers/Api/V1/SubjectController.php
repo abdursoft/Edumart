@@ -75,4 +75,11 @@ class SubjectController extends Controller
         $subject->delete();
         return back()->with('success', 'Subject successfully deleted');
     }
+
+    /**
+     * Get subjects by class id
+     */
+    public function getSubjectList($class){
+        return Subject::where('edu_class_id',$class)->get();
+    }
 }

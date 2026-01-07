@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\AddressController;
 use App\Http\Controllers\Api\V1\Admin\AdminController;
+use App\Http\Controllers\Api\V1\AssignmentController;
 use App\Http\Controllers\Api\V1\ClassPromotionController;
 use App\Http\Controllers\Api\V1\ClassRoomController;
 use App\Http\Controllers\Api\V1\ClassRoutineController;
@@ -29,6 +30,7 @@ use App\Http\Controllers\Api\V1\SiteSettingController;
 use App\Http\Controllers\Api\V1\SliderContentController;
 use App\Http\Controllers\Api\V1\SliderController;
 use App\Http\Controllers\Api\V1\UploadController;
+use App\Http\Controllers\Api\V1\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('dashboard',[AdminController::class, 'dashboard'])->name('dashboard');
@@ -126,8 +128,16 @@ Route::prefix('academic/structure')->name('academic.structure.')->group(function
 
 // Learning Activities
 Route::prefix('academic/activities')->name('academic.activities.')->group(function () {
+    // attendance routes
     Route::get('attendance', function () { return 'Attendance'; })->name('attendance');
-    Route::get('assignments', function () { return 'Assignments'; })->name('assignments');
+
+    // assignment routes
+    Route::get('assignments', [AssignmentController::class, 'index'])->name('assignments');
+    Route::post('assignments', [AssignmentController::class, 'store'])->name('assignments.add');
+    Route::get('assignments/{id}/edit', [AssignmentController::class, 'show'])->name('assignments.edit');
+    Route::post('assignments/{id}/update', [AssignmentController::class, 'update'])->name('assignments.update');
+    Route::get('assignments/{id}/delete', [AssignmentController::class, 'destroy'])->name('assignments.delete');
+
     Route::get('homework', function () { return 'Homework'; })->name('homework');
     Route::get('lesson_plan', function () { return 'Lesson Plans'; })->name('lesson_plan');
     Route::get('syllabus', function () { return 'Syllabus'; })->name('syllabus');
@@ -349,6 +359,11 @@ Route::prefix('media')->name('media.')->group(function(){
     });
 });
 
+/**
+ * Get common routes
+ */
+Route::get('get-users/{type}/{id?}', [UserController::class, 'getUserList'])->name('user.list');
+Route::get('get-subjects/{class}', [SubjectController::class, 'getSubjectList'])->name('subject.list');
 
 
 // Public / External Access

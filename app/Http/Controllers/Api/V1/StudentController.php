@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
+use function Symfony\Component\Clock\now;
+
 class StudentController extends Controller
 {
     //show student list
@@ -145,5 +147,20 @@ class StudentController extends Controller
         }
         $student->delete();
         return back()->with('success', 'Student successfully deleted');
+    }
+
+    /**
+     * Student dashboard
+     */
+    public function dashboard(){
+        $profile = auth()->user();
+        $student = auth()->user()->student;
+
+        $routines = $student->eduClass
+            ->routine()
+            ->where('day', now()->format('l'))
+            ->get();
+
+        return view(theme('pages.students.dashboard'), compact('profile','routines'));
     }
 }

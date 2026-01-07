@@ -66,4 +66,12 @@ class UserController extends Controller
         $user->delete();
         return response()->json(null, 204);
     }
+
+
+    /**
+     * Get user by type and id
+     */
+    public function getUserList($type,$id=null){
+        return getUsers($type,$id);
+    }
 }

@@ -22,9 +22,9 @@ class Handler extends ExceptionHandler
 
         // Custom redirect based on guard
         if (in_array('admin', $exception->guards())) {
-            return redirect()->route('auth.login');
+            return redirect()->route('login');
         }
 
-        return redirect()->route('auth.login');
+        return redirect()->route('login');
     }
 }

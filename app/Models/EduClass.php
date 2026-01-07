@@ -38,4 +38,11 @@ class EduClass extends Model
     public function exam(){
         return $this->hasMany(Exam::class, 'edu_class_id');
     }
+
+    /**
+     * Relation with class routine
+     */
+    public function routine(){
+        return $this->hasMany(ClassRoutine::class, 'edu_class_id');
+    }
 }

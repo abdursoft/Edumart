@@ -54,9 +54,7 @@ const MENUS = [
         "activities" => [
             "attendance" => "Attendance",
             "assignments" => "Assignments",
-            "homework" => "Homework",
             "lesson_plan" => "Lesson Plans",
-            "syllabus" => "Syllabus",
         ],
 
         //  Evaluation & Examination
@@ -72,24 +70,24 @@ const MENUS = [
         ],
 
         // Academic Resources
-        "resources" => [
-            "library" => [
-                "author" => "Author",
-                "category" => "Category",
-                "shelf" => "Shelf",
-                "books" => "Books",
-                "book_issue" => "Book Issue",
-                "book_return" => "Book Return",
-            ],
-            "room" => [
-                "rooms" => "Hostel Rooms",
-            ],
-        ],
+        // "resources" => [
+        //     "library" => [
+        //         "author" => "Author",
+        //         "category" => "Category",
+        //         "shelf" => "Shelf",
+        //         "books" => "Books",
+        //         "book_issue" => "Book Issue",
+        //         "book_return" => "Book Return",
+        //     ],
+        //     "room" => [
+        //         "rooms" => "Hostel Rooms",
+        //     ],
+        // ],
     ],
 
     // Administration
     "administration" => [
-        "inventory" => "Inventory Management",
+        // "inventory" => "Inventory Management",
         "assets" => "Asset Register",
         "suppliers" => "Suppliers",
         "leave_management" => "Leave Management",
@@ -128,7 +126,7 @@ const MENUS = [
         "attendance_reports" => "Attendance Reports",
         "exam_reports" => "Exam Reports",
         "finance_reports" => "Finance Reports",
-        "library_reports" => "Library Reports",
+        // "library_reports" => "Library Reports",
     ],
 
     // General Information

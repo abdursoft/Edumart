@@ -13,7 +13,7 @@ class ParentController extends Controller
 {
     //show parent list
     public function index(){
-        $parents = ParentModel::all();
+        $parents = User::where('role','guardian')->get();
         $parent  = null;
         return view(backend('pages.parent'), compact('parent','parents'));
     }
@@ -31,11 +31,10 @@ class ParentController extends Controller
         ]);
 
 
-        ParentModel::create([
+        User::create([
             'name' => $validate['name'],
             'email' => $validate['email'],
-            'phone' => $validate['phone'],
-            'address' => $validate['address'],
+            'role'  => 'guardian',
             'password' => Hash::make($validate['password']),
             'login_permit' => $validate['login_permit']
         ]);
@@ -45,8 +44,8 @@ class ParentController extends Controller
     // Show a single parent
     public function show($id)
     {
-        $parents = ParentModel::all();
-        $parent  = ParentModel::findOrFail($id);
+        $parents = User::where('role','guardian')->get();
+        $parent  = User::findOrFail($id);
         return view(backend('pages.parent'), compact('parent','parents'));
 
     }
@@ -63,7 +62,7 @@ class ParentController extends Controller
             'login_permit' => 'required|in:allowed,blocked',
         ]);
 
-        $parent = ParentModel::find($id);
+        $parent = User::find($id);
         $parent->update([
             'name' => $validate['name'],
             'email' => $validate['email'],
@@ -78,7 +77,7 @@ class ParentController extends Controller
     // Delete a parent
     public function destroy($id)
     {
-        $parent = ParentModel::find($id);
+        $parent = User::find($id);
         if(!$parent){
             return back()->withErrors(['error' => 'Parent ID couldn\'t found']);
         }

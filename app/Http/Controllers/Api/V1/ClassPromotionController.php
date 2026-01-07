@@ -36,6 +36,10 @@ class ClassPromotionController extends Controller
             'promotion_date' => 'nullable|date',
         ]);
 
+        if($request->from_class_id == $request->to_class_id && $request->status == 'promoted'){
+            return back()->with('error','Student couldn\'t promoted in the same class');
+        }
+
         if($request->student_id == 0){
             $students = StudentProfile::where('edu_class_id', $request->from_class_id)->get();
             foreach($students as $student){
@@ -69,7 +73,7 @@ class ClassPromotionController extends Controller
             'promotion_date' => $request->promotion_date,
         ]);
 
-        $student->educ_class_id = $request->to_class_id;
+        $student->edu_class_id = $request->to_class_id;
         $student->save();
 
         return back()
@@ -93,7 +97,7 @@ class ClassPromotionController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'student_id'     => 'required|exists:students,id',
+            'student_id'     => 'required|exists:student_profiles,student_id',
             'from_class_id'  => 'required|exists:edu_classes,id',
             'to_class_id'    => 'required|exists:edu_classes,id',
             'status'         => 'required|in:passed,failed,promoted,repeat',

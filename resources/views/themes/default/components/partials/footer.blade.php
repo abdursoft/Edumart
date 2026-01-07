@@ -3,7 +3,7 @@
     <div class="w-full flex flex-col md:flex-row footer_content">
         <div class="w-full md:w-4/12">
             <div class="pl-2 md:pl-4">
-                <img src="{{ site()->logo }}" alt="" class="footer_logo">
+                <img src="{{ Storage::url(site()->logo) }}" alt="" class="footer_logo">
                 <h4>{{ session('lang') == 'bn' ? site()->name_bn : site()->site_name }}</h4>
                 <p class="mb-1"><i class="ri-map-pin-line"></i> {{ site()->post . ', ' . site()->thana?->name . ', ' . site()->district?->name }}
                 </p>

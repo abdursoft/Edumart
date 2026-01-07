@@ -1,0 +1,115 @@
+@extends(theme('layouts.profile'))
+
+@section('title', 'Student Dashboard')
+
+@section('content')
+
+{{-- @include(theme('components.cards.profile_details')) --}}
+
+<div class="min-h-screen bg-gray-100 p-6">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-bold text-gray-800">Student Dashboard</h1>
+        <button class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
+            Signout
+        </button>
+    </div>
+
+    <!-- Top Cards -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
+        <div class="bg-white p-4 rounded-xl shadow">
+            <p class="text-sm text-gray-500">Program</p>
+            <p class="text-xl font-semibold">BSc in Computer Science</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow">
+            <p class="text-sm text-gray-500">Attendance</p>
+            <p class="text-xl font-semibold">This month 60%</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow">
+            <p class="text-sm text-gray-500">Class Leave</p>
+            <p class="text-xl font-semibold">6 days</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow">
+            <p class="text-sm text-gray-500">Invoice</p>
+            <p class="text-xl font-semibold">6</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow">
+            <p class="text-sm text-gray-500">Admit Cards</p>
+            <p class="text-xl font-semibold">6</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow">
+            <p class="text-sm text-gray-500">Marksheet</p>
+            <p class="text-xl font-semibold">3.72</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow">
+            <p class="text-sm text-gray-500">Certificate</p>
+            <p class="text-xl font-semibold">92%</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow">
+            <p class="text-sm text-gray-500">Class Ranking</p>
+            <p class="text-xl font-semibold">9</p>
+        </div>
+    </div>
+
+    <!-- Profile & Progress -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+        <!-- Profile Card -->
+        <div class="bg-white p-6 rounded-xl shadow">
+            <div class="flex items-center space-x-4">
+                <img src="https://via.placeholder.com/80" class="rounded-full" alt="Profile">
+                <div>
+                    <h2 class="text-lg font-semibold">John Doe</h2>
+                    <p class="text-sm text-gray-500">Student ID: STU-2025-001</p>
+                </div>
+            </div>
+
+            <div class="mt-4 space-y-2 text-sm">
+                <p><span class="font-medium">Email:</span> john@example.com</p>
+                <p><span class="font-medium">Phone:</span> +880 1234 567890</p>
+                <p><span class="font-medium">Semester:</span> 5th</p>
+                <p><span class="font-medium">Status:</span> <span class="text-green-600">Active</span></p>
+            </div>
+        </div>
+
+        <!-- Academic Progress -->
+        <div class="bg-white p-6 rounded-xl shadow lg:col-span-2">
+            <h2 class="text-lg font-semibold mb-4">Today's class</h2>
+
+            <div class="space-y-4">
+                @foreach($routines as $routine)
+                    <div>
+                        <div class="flex gap-3 text-sm mb-1">
+                            <span>{{ $routine->subject->name }}</span>
+                            <span class="text-gray-400">Start {{$routine->start_time}} | End {{$routine->end_time}}</span>
+                        </div>
+                        <p class="text-gray-500">Teacher {{ $routine->subject->teacher->name }}</p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+    <!-- Attendance -->
+    <div class="bg-white p-6 rounded-xl shadow mt-6">
+        <h2 class="text-lg font-semibold mb-4">Attendance</h2>
+        <ul class="space-y-3 text-sm">
+            <li class="p-3 bg-yellow-50 border-l-4 border-yellow-400">Midterm exam starts on 20th March</li>
+            <li class="p-3 bg-blue-50 border-l-4 border-blue-400">Assignment submission deadline tomorrow</li>
+            <li class="p-3 bg-green-50 border-l-4 border-green-400">Fee payment successful</li>
+        </ul>
+    </div>
+
+    <!-- Notifications -->
+    <div class="bg-white p-6 rounded-xl shadow mt-6">
+        <h2 class="text-lg font-semibold mb-4">Notifications</h2>
+        <ul class="space-y-3 text-sm">
+            <li class="p-3 bg-yellow-50 border-l-4 border-yellow-400">Midterm exam starts on 20th March</li>
+            <li class="p-3 bg-blue-50 border-l-4 border-blue-400">Assignment submission deadline tomorrow</li>
+            <li class="p-3 bg-green-50 border-l-4 border-green-400">Fee payment successful</li>
+        </ul>
+    </div>
+
+</div>
+@endsection

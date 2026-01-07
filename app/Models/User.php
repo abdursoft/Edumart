@@ -59,4 +59,12 @@ class User extends Authenticatable
         });
     }
 
+
+    /**
+     * Relations
+     */
+    public function student(){
+        return $this->hasOne(StudentProfile::class, 'student_id');
+    }
+
 }
