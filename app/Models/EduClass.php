@@ -33,6 +33,13 @@ class EduClass extends Model
     }
 
     /**
+     * Relation with attendance
+     */
+    public function attendance(){
+        return $this->hasMany(Attendance::class, 'edu_class_id');
+    }
+
+    /**
      * Relation with exam
      */
     public function exam(){
@@ -44,5 +51,12 @@ class EduClass extends Model
      */
     public function routine(){
         return $this->hasMany(ClassRoutine::class, 'edu_class_id');
+    }
+
+    /**
+     * Relation with certificate
+     */
+    public function certificate(){
+        return $this->hasMany(Certificate::class, 'edu_class_id');
     }
 }

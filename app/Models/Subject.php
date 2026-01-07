@@ -26,11 +26,6 @@ class Subject extends Model
         return $this->belongsTo(EduClass::class);
     }
 
-    public function eduGroup()
-    {
-        return $this->belongsTo(EduGroup::class);
-    }
-
     public function teacher()
     {
         return $this->belongsTo(User::class, 'teacher_id');

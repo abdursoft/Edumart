@@ -23,7 +23,7 @@ class ExamAdmitCard extends Model
     // Relationships
     public function exam()
     {
-        return $this->belongsTo(Exam::class);
+        return $this->belongsTo(Exam::class, 'exam_id');
     }
 
     public function student()

@@ -27,6 +27,13 @@ class Exam extends Model
         return $this->belongsTo(EduClass::class);
     }
 
+    /**
+     * Relation with admit card
+     */
+    public function admitCard(){
+        return $this->hasMany(ExamAdmitCard::class, 'exam_id');
+    }
+
 
     /**
      * Relation with exam

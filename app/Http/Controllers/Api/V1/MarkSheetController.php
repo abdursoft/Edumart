@@ -30,7 +30,7 @@ class MarksheetController extends Controller
 
         $request->validate([
             'exam_id'             => 'required|exists:exams,id',
-            'student_id'          => 'required|exists:students,id',
+            'student_id'          => 'required|exists:users,id',
             'total_marks_obtained'=> 'nullable|integer|min:0',
             'total_full_marks'    => 'nullable|integer|min:0',
             'percentage'          => 'nullable|numeric|min:0|max:100',
@@ -76,7 +76,7 @@ class MarksheetController extends Controller
     {
         $request->validate([
             'exam_id'             => 'sometimes|required|exists:exams,id',
-            'student_id'          => 'sometimes|required|exists:students,id',
+            'student_id'          => 'sometimes|required|exists:users,id',
             'total_marks_obtained'=> 'nullable|integer|min:0',
             'total_full_marks'    => 'nullable|integer|min:0',
             'percentage'          => 'nullable|numeric|min:0|max:100',

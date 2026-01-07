@@ -31,7 +31,7 @@ class Attendance extends Model
 
     public function eduClass()
     {
-        return $this->belongsTo(EduClass::class);
+        return $this->belongsTo(EduClass::class, 'edu_class_id');
     }
 
 

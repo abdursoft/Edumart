@@ -19,36 +19,67 @@
     <!-- Top Cards -->
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
         <div class="bg-white p-4 rounded-xl shadow">
-            <p class="text-sm text-gray-500">Program</p>
-            <p class="text-xl font-semibold">BSc in Computer Science</p>
+            <p class="text-sm text-gray-500">Class in days</p>
+            <div class="flex items-center justify-between w-full">
+                <p class="text-xl font-semibold">{{$attendance['total']}}</p>
+                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+            </div>
         </div>
         <div class="bg-white p-4 rounded-xl shadow">
             <p class="text-sm text-gray-500">Attendance</p>
-            <p class="text-xl font-semibold">This month 60%</p>
+            <div class="flex items-center justify-between w-full">
+                <p class="text-xl font-semibold">{{$attendance['percentage']}}%</p>
+                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+            </div>
         </div>
         <div class="bg-white p-4 rounded-xl shadow">
             <p class="text-sm text-gray-500">Class Leave</p>
-            <p class="text-xl font-semibold">6 days</p>
+            <div class="flex items-center justify-between w-full">
+                <p class="text-xl font-semibold">{{$attendance['leave']}}</p>
+                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+            </div>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow">
+            <p class="text-sm text-gray-500">Class Absent</p>
+            <div class="flex items-center justify-between w-full">
+                <p class="text-xl font-semibold">{{$attendance['absent']}}</p>
+                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+            </div>
         </div>
         <div class="bg-white p-4 rounded-xl shadow">
             <p class="text-sm text-gray-500">Invoice</p>
-            <p class="text-xl font-semibold">6</p>
+            <div class="flex items-center justify-between w-full">
+                <p class="text-xl font-semibold">{{$invoices->count()}}</p>
+                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+            </div>
         </div>
         <div class="bg-white p-4 rounded-xl shadow">
             <p class="text-sm text-gray-500">Admit Cards</p>
-            <p class="text-xl font-semibold">6</p>
+            <div class="flex items-center justify-between w-full">
+                <p class="text-xl font-semibold">{{$admits->count()}}</p>
+                <a href="{{route('student.admit_cards')}}" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+            </div>
         </div>
         <div class="bg-white p-4 rounded-xl shadow">
             <p class="text-sm text-gray-500">Marksheet</p>
-            <p class="text-xl font-semibold">3.72</p>
+            <div class="flex items-center justify-between w-full">
+                <p class="text-xl font-semibold">{{$marksheets->count()}}</p>
+                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+            </div>
         </div>
         <div class="bg-white p-4 rounded-xl shadow">
             <p class="text-sm text-gray-500">Certificate</p>
-            <p class="text-xl font-semibold">92%</p>
+            <div class="flex items-center justify-between w-full">
+                <p class="text-xl font-semibold">{{$certificates->count()}}</p>
+                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+            </div>
         </div>
         <div class="bg-white p-4 rounded-xl shadow">
-            <p class="text-sm text-gray-500">Class Ranking</p>
-            <p class="text-xl font-semibold">9</p>
+            <p class="text-sm text-gray-500">Current class</p>
+            <div class="flex items-center justify-between w-full">
+                <p class="text-xl font-semibold">{{$attendance['percentage']}}</p>
+                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+            </div>
         </div>
     </div>
 
@@ -58,18 +89,18 @@
         <!-- Profile Card -->
         <div class="bg-white p-6 rounded-xl shadow">
             <div class="flex items-center space-x-4">
-                <img src="https://via.placeholder.com/80" class="rounded-full" alt="Profile">
+                <img src="" class="rounded-full" alt="Profile">
                 <div>
-                    <h2 class="text-lg font-semibold">John Doe</h2>
-                    <p class="text-sm text-gray-500">Student ID: STU-2025-001</p>
+                    <h2 class="text-lg font-semibold">{{$student?->name}}</h2>
+                    <p class="text-sm text-gray-500">Student ID: {{$student?->reg_number}}</p>
                 </div>
             </div>
 
             <div class="mt-4 space-y-2 text-sm">
-                <p><span class="font-medium">Email:</span> john@example.com</p>
-                <p><span class="font-medium">Phone:</span> +880 1234 567890</p>
-                <p><span class="font-medium">Semester:</span> 5th</p>
-                <p><span class="font-medium">Status:</span> <span class="text-green-600">Active</span></p>
+                <p><span class="font-medium">Roll:</span> {{ $student?->class_roll }}</p>
+                <p><span class="font-medium">Class:</span> {{$student?->eduClass->name}}</p>
+                <p><span class="font-medium">Department:</span> {{$student?->eduClass?->department?->name ?? 'N/A'}}</p>
+                <p><span class="font-medium">Login Permission:</span> <span class="{{ $profile->login_permit == 'allowed' ? 'text-green-600 ' : 'text-red-600 ' }}">{{ $profile->login_permit == 'allowed' ? 'Active' : 'Inactive' }}</span></p>
             </div>
         </div>
 
@@ -82,9 +113,13 @@
                     <div>
                         <div class="flex gap-3 text-sm mb-1">
                             <span>{{ $routine->subject->name }}</span>
-                            <span class="text-gray-400">Start {{$routine->start_time}} | End {{$routine->end_time}}</span>
+                            <span class="text-gray-400">Start {{ date('H:i A', strtotime($routine->start_time)) }} | End {{ date('H:i A', strtotime($routine->end_time)) }}</span>
                         </div>
-                        <p class="text-gray-500">Teacher {{ $routine->subject->teacher->name }}</p>
+                        <div class="w-full flex items-center gap-3">
+                            <p class="text-gray-500">Teacher <span class="italic font-semibold text-sm">{{ $routine->subject->teacher->name }}</span></p>
+                            <p class="text-gray-500 text-sm font-semibold">| {{ $routine->classRoom?->name }} ({{ $routine->classRoom?->code }})</p>
+                            <p class="text-yellow-500 hidden md:block text-sm font-semibold">{{ $routine->classRoom?->location }}</p>
+                        </div>
                     </div>
                 @endforeach
             </div>

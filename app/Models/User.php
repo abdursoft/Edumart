@@ -67,4 +67,39 @@ class User extends Authenticatable
         return $this->hasOne(StudentProfile::class, 'student_id');
     }
 
+    /**
+     * Relation with subjects for teacher
+     */
+    public function subject(){
+        return $this->hasMany(Subject::class, 'teacher_id');
+    }
+
+    /**
+     * Relation with admitCard
+     */
+    public function admitCard(){
+        return $this->hasMany(ExamAdmitCard::class, 'student_id');
+    }
+
+    /**
+     * Relation with marksheet
+     */
+    public function marksheet(){
+        return $this->hasMany(ExamMarksheet::class,'student_id');
+    }
+
+    /**
+     * Relation with certificates
+     */
+    public function certificate(){
+        return $this->hasMany(Certificate::class, 'user_id');
+    }
+
+    /**
+     * Relation with invoices
+     */
+    public function invoice(){
+        return $this->hasMany(Invoice::class, 'user_id');
+    }
+
 }

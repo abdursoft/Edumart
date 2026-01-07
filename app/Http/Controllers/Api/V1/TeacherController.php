@@ -89,4 +89,14 @@ class TeacherController extends Controller
         $teacher->delete();
         return back()->with('success', 'Teacher successfully deleted');
     }
+
+    /**
+     * Show teacher dashboard
+     */
+    public function dashboard(){
+        $profile = auth()->user();
+        $subject = auth()->user()->subject;
+
+        dd($subject);
+    }
 }

@@ -24,9 +24,9 @@
             alt="">
     </div>
     <div style="text-align:center;margin-bottom:20px;">
-        <h1 style="font-size:18px;font-weight:bold;">{{$institute?->site_name}}</h1>
-        <h2 style="font-size:15px;">{{$exam?->name}}</h2>
-        <p>Held in {{empty($exam->start_date) ? '' : date('M, Y', strtotime($exam->start_date))}}</p>
+        <h1 style="font-size:18px;font-weight:bold;">{{"{$institute?->site_name}, {$institute?->thana->name}, {$institute?->district->name}"}}</h1>
+        <h2 style="font-size:15px;">{{"{$student->eduClass->name} {$exam?->name}, {$exam->session}"}}</h2>
+        <p>Held in {{empty($exam->start_date) ? '' : date('d M, Y', strtotime($exam->start_date))}}</p>
         <div style="font-weight:bold;padding:5px 10px;display:inline-block;margin-top:10px;">ADMIT CARD</div>
     </div>
 
@@ -51,8 +51,8 @@
     <table style="width:100%;border-collapse:collapse;margin-bottom:20px;">
         <thead>
             <tr style="background:#f0f0f0;">
-                <th style="border:1px solid #ccc;padding:8px;text-align:left;">Code</th>
                 <th style="border:1px solid #ccc;padding:8px;text-align:left;">Subject</th>
+                <th style="border:1px solid #ccc;padding:8px;text-align:left;">Code</th>
                 <th style="border:1px solid #ccc;padding:8px;text-align:left;">Date</th>
                 <th style="border:1px solid #ccc;padding:8px;text-align:left;">Room</th>
             </tr>
@@ -60,11 +60,11 @@
         <tbody>
             @foreach($subjects as $subject)
                 <tr>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject?->subject->code}}</td>
                     <td style="border:1px solid #ccc;padding:8px;">{{$subject?->subject->name}}</td>
+                    <td style="border:1px solid #ccc;padding:8px;">{{$subject?->subject->code}}</td>
                     <td style="border:1px solid #ccc;padding:8px;text-align:left;">
-                        <p>{{date('d M, Y', strtotime($subject?->exam_date))}}</p>
-                        <strong>({{date('H:i A', strtotime($subject?->start_time))}})</strong>
+                        <p>{{date('l d M, Y', strtotime($subject?->exam_date))}}</p>
+                        <strong>({{date('H:i A', strtotime($subject?->start_time)). " to ". date('H:i A', strtotime($subject?->end_time))}})</strong>
                     </td>
                     <td style="border:1px solid #ccc;padding:8px;">
                         <p>{{$subject?->classRoom->name ?? 'N/A'}}</p>
@@ -76,7 +76,7 @@
     </table>
 
     <div style="font-size:12px;color:#555;margin-bottom:20px;">
-        <p>1. Students must bring this Admit Card and Registration Card to the exam hall.</p>
+        <p>1. Students must bring this Admit Card to the exam hall.</p>
         <p>2. Mobile phones are strictly prohibited.</p>
     </div>
 

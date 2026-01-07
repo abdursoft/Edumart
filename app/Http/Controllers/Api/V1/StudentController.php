@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\EduClass;
+use App\Models\Exam;
+use App\Models\ExamAdmitCard;
 use App\Models\StudentProfile;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -14,6 +17,7 @@ use function Symfony\Component\Clock\now;
 
 class StudentController extends Controller
 {
+
     //show student list
     public function index()
     {
@@ -154,13 +158,58 @@ class StudentController extends Controller
      */
     public function dashboard(){
         $profile = auth()->user();
-        $student = auth()->user()->student;
+        $student = $profile->student;
+        $admits = $profile->admitCard()->where('status','issued')->orderBy('id','desc')->get();
+
+        $invoices = $profile->invoice();
+        $marksheets = $profile->marksheet()->where('status','published')->orderBy('id','desc')->get();
+        $certificates = $profile->certificate();
+
+        $now = Carbon::now();
+
+        $attendances = $student->eduClass
+        ->attendance()
+        ->where('student_id', $student->student_id)
+        ->whereMonth('created_at', $now->month)
+        ->whereYear('created_at', $now->year)
+        ->get();
+
+        $attendance  = [];
+        $totalDays   = $attendances->count();
+        $attendance['present'] = $attendances->whereIn('status',['Present','Excused'])->count();
+        $attendance['absent']  = $attendances->where('status', 'Absent')->count();
+        $attendance['leave']   = $attendances->where('status', 'Excused')->count();
+        $attendance['total']   = $totalDays;
+
+        $attendance['percentage'] = $totalDays > 0
+        ? round(($attendance['present'] / $totalDays) * 100)
+        : 0;
 
         $routines = $student->eduClass
             ->routine()
             ->where('day', now()->format('l'))
             ->get();
 
-        return view(theme('pages.students.dashboard'), compact('profile','routines'));
+        return view(theme('pages.students.dashboard'), compact('profile','routines','admits','attendance','student','invoices','marksheets','certificates'));
+    }
+
+    /**
+     * Student admit cards
+     */
+    public function admitCard(){
+        $profile = auth()->user();
+        $admits = $profile->admitCard()->where('status','issued')->orderBy('id','desc')->get();
+        return view(theme('pages.students.admitcard'),compact('profile','admits'));
+    }
+
+    /**
+     * Student admit card downloads
+     */
+    public function admitCardDownload($examCode, $admitCard){
+        $admit   = ExamAdmitCard::findOrFail($admitCard);
+        $exam    = Exam::where('code', $examCode)->first();
+        $profile = auth()->user();
+
+        return view(theme('pages.students.admitcard-download'), compact('admit','exam','profile'));
     }
 }
