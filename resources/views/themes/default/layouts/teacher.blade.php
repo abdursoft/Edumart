@@ -36,7 +36,7 @@
         <div class="flex items-start flex-col lg:flex-row gap-2 justify-center lg:justify-between my-5">
             <div class="w-full lg:w-1/4">
                 <!-- Loading Navbar -->
-                @include(theme('components.partials.profile_header'))
+                @include(theme('components.partials.teacher_profile'))
                 @include(theme('components.marquee.news'))
             </div>
             <div class="w-full lg:w-3/4">

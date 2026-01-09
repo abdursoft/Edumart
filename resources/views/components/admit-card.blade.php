@@ -17,10 +17,10 @@
     top:0;
     left:0;
     position:absolute;
-    opacity: .15;
+    opacity: .27;
   ">
         <img class="watermark" src="{{ asset('static/images/watarmark.png') }}"
-            style="width:300px;height:300px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);"
+            style="width:300px;height:300px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;"
             alt="">
     </div>
     <div style="text-align:center;margin-bottom:20px;">

@@ -97,6 +97,6 @@ class TeacherController extends Controller
         $profile = auth()->user();
         $subject = auth()->user()->subject;
 
-        dd($subject);
+        return view(theme('pages.teachers.dashboard'), compact('profile','subject'));
     }
 }

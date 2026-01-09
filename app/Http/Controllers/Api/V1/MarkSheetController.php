@@ -128,12 +128,8 @@ class MarksheetController extends Controller
      */
     public function printMarkSheet($id){
         $marksheet = ExamMarksheet::with('items.subject','student.parent','exam.eduClass')->findOrFail($id);
-
-        $student = $marksheet->student;
-        $exam = $marksheet->exam;
-        $subjects = $marksheet->items;
         // dd($subjects);
-        return view(backend('pages.mark-sheet-print'), compact('marksheet','student','exam','subjects'));
+        return view(backend('pages.mark-sheet-print'), compact('marksheet'));
     }
 
 }

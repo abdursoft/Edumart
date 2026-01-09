@@ -43,7 +43,4 @@
 
 @section('scripts')
 <script src="{{ theme_asset('js/smart-marquee.js') }}"></script>
-<script>
-    console.log('Home page specific script loaded.');
-</script>
 @endsection

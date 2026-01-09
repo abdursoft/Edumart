@@ -34,6 +34,10 @@ Route::get('/get', function () {
     return session('foo', 'no session');
 });
 
+Route::get('test', function(){
+    return view('certificate');
+});
+
 Route::get('page/{slug?}', [SiteController::class, 'page'])->name('page');
 
 Route::post('upload-quill-image', [SiteController::class, 'quillUpload']);

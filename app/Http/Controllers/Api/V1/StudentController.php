@@ -212,4 +212,31 @@ class StudentController extends Controller
 
         return view(theme('pages.students.admitcard-download'), compact('admit','exam','profile'));
     }
+
+    /**
+     * Student marksheet
+     */
+    public function marksheet(){
+        $profile = auth()->user();
+        $marksheets = $profile->marksheet()->where('status','Published')->orderBy('id','desc')->get();
+        return view(theme('pages.students.marksheet'), compact('profile','marksheets'));
+    }
+
+    /**
+     * Student marksheet download
+     */
+    public function markSheetDownload($id){
+        $profile = auth()->user();
+        $marksheet = $profile->marksheet()->where('status','Published')->where('id',$id)->first();
+        return view(theme('pages.students.marksheet-download'), compact('marksheet'));
+    }
+
+    /**
+     * Student certificates
+     */
+    public function certificate(){
+        $profile = auth()->user();
+        $certificates = $profile->certificate()->where('status','active')->orderBy('id','desc')->get();
+        return view(theme('pages.students.certificate'), compact('profile','certificates'));
+    }
 }

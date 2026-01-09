@@ -6,12 +6,10 @@
   border:1px solid #ccc;
   font-family:sans-serif;
   font-size:14px;
-  background:#fff;
+  background:url({{asset('svg/certificate.svg')}}) no-repeat cover;
   color:#333;
-  cursor:none;
-  user-select: none;
   position:relative;
-" onselect="return false" ondragstart="return false" oncontextmenu="return false">
+">
     <div id="watarmark"
         style="
     width:100%;
@@ -27,24 +25,25 @@
     </div>
     <div style="text-align:center;margin-bottom:20px;">
         <h1 style="font-size:18px;font-weight:bold;">{{"{$institute?->site_name}, {$institute?->thana->name}, {$institute?->district->name}"}}</h1>
-        <h2 style="font-size:15px;">{{"{$student?->student->eduClass->name} {$exam?->name}, {$exam->session}"}}</h2>
+        <h2 style="font-size:15px;">{{"{$student->eduClass->name} {$exam?->name}, {$exam->session}"}}</h2>
         <p>Held in {{empty($exam->start_date) ? '' : date('d M, Y', strtotime($exam->start_date))}}</p>
-        <div style="font-weight:bold;padding:5px 10px;display:inline-block;margin-top:10px;">Grade Sheet</div>
+        <div style="font-weight:bold;padding:5px 10px;display:inline-block;margin-top:10px;">ADMIT CARD</div>
     </div>
 
     <div style="display:flex;justify-content:space-between;margin-bottom:20px;">
         <div style="width:60%;">
+            <p><strong>Institute Name:</strong> {{$institute?->site_name}}</p>
             <p><strong>Name of Examinee:</strong> {{$student?->name}}</p>
-            <p><strong>Father's Name:</strong> {{$student?->student->fa_name_en}}</p>
-            <p><strong>Mother's Name:</strong> {{$student->student->mo_name_en}}</p>
-            <p><strong>Class/Technology:</strong> {{$exam?->eduClass->name}}</p>
-            <p><strong>Type:</strong> {{$exam?->type}}</p>
+            <p><strong>Father's Name:</strong> {{$student?->fa_name_en}}</p>
+            <p><strong>Mother's Name:</strong> {{$student?->mo_name_en}}</p>
+            <p><strong>Class/Department:</strong> {{$exam?->eduClass->name}}</p>
+            <p><strong>Semester/Section:</strong> {{$exam?->semester ?? 'N/A'}}</p>
         </div>
         <div style="width:36%;">
-            <p><strong>Roll No:</strong> {{$student?->id}}</p>
-            <p><strong>Registration No:</strong> 1800001771</p>
+            <p><strong>Roll No:</strong> {{$student?->roll ?? '10002'}}</p>
+            <p><strong>Registration No:</strong> {{$student?->student_id}}</p>
             <p><strong>Session:</strong> {{$exam?->session}}</p>
-            <p><strong>Code:</strong> {{$exam?->code}}</p>
+            <p><strong>Type:</strong> {{$exam?->type}}</p>
             <p><strong>Year:</strong> {{$exam?->year}}</p>
         </div>
     </div>
@@ -52,68 +51,44 @@
     <table style="width:100%;border-collapse:collapse;margin-bottom:20px;">
         <thead>
             <tr style="background:#f0f0f0;">
-                <th style="border:1px solid #ccc;padding:8px;text-align:left;">Code</th>
                 <th style="border:1px solid #ccc;padding:8px;text-align:left;">Subject</th>
-                <th style="border:1px solid #ccc;padding:8px;text-align:left;">Marks</th>
-                <th style="border:1px solid #ccc;padding:8px;text-align:left;">Obtain Marks</th>
-                <th style="border:1px solid #ccc;padding:8px;text-align:left;">Grade</th>
-                <th style="border:1px solid #ccc;padding:8px;text-align:left;">Status</th>
+                <th style="border:1px solid #ccc;padding:8px;text-align:left;">Code</th>
+                <th style="border:1px solid #ccc;padding:8px;text-align:left;">Date</th>
+                <th style="border:1px solid #ccc;padding:8px;text-align:left;">Room</th>
             </tr>
         </thead>
         <tbody>
             @foreach($subjects as $subject)
                 <tr>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject?->subject->code}}</td>
                     <td style="border:1px solid #ccc;padding:8px;">{{$subject?->subject->name}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject->total_marks}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject->obtain_marks}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject->grade}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;"><strong>{{($subject->is_passed) ? 'Passed' : 'Failed'}}</strong></td>
+                    <td style="border:1px solid #ccc;padding:8px;">{{$subject?->subject->code}}</td>
+                    <td style="border:1px solid #ccc;padding:8px;text-align:left;">
+                        <p>{{date('l d M, Y', strtotime($subject?->exam_date))}}</p>
+                        <strong>({{date('H:i A', strtotime($subject?->start_time)). " to ". date('H:i A', strtotime($subject?->end_time))}})</strong>
+                    </td>
+                    <td style="border:1px solid #ccc;padding:8px;">
+                        <p>{{$subject?->classRoom->name ?? 'N/A'}}</p>
+                        <small>{{$subject?->classRoom->location}}</small>
+                    </td>
                 </tr>
             @endforeach
-            @foreach($subjects as $subject)
-                <tr>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject?->subject->code}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject?->subject->name}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject->total_marks}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject->obtain_marks}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject->grade}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;"><strong>{{($subject->is_passed) ? 'Passed' : 'Failed'}}</strong></td>
-                </tr>
-            @endforeach
-            @foreach($subjects as $subject)
-                <tr>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject?->subject->code}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject?->subject->name}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject->total_marks}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject->obtain_marks}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject->grade}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;"><strong>{{($subject->is_passed) ? 'Passed' : 'Failed'}}</strong></td>
-                </tr>
-            @endforeach
-            <tr>
-                <td style="border:1px solid #ccc;padding:8px;">Percentage</td>
-                <td style="border:1px solid #ccc;padding:8px;">{{$marksheet?->percentage}}%</td>
-                <td style="border:1px solid #ccc;padding:8px;text-align:right;" colspan="2">Overall</td>
-                <td style="border:1px solid #ccc;padding:8px;" colspan="2"><strong>{{($marksheet?->grade)}}</strong></td>
-            </tr>
         </tbody>
     </table>
 
     <div style="font-size:12px;color:#555;margin-bottom:20px;">
-        <p>Note: {{$marksheet->remarks}}</p>
+        <p>1. Students must bring this Admit Card to the exam hall.</p>
+        <p>2. Mobile phones are strictly prohibited.</p>
     </div>
 
     <div style="text-align:right;">
         <p><strong>Controller of Examinations</strong></p>
-        <p>{{$institute->site_name}}</p>
+        <p>{{$institute?->site_name}}</p>
     </div>
 </div>
 
-
 <div style="text-align:center;margin-top:20px;">
   <button onclick="printSection()" style="background:#2563eb;color:#fff;padding:10px 20px;border:none;border-radius:4px;margin-right:10px;">
-    Print Mark Sheet
+    Print Admit Card
   </button>
   <button onclick="generatePDF()" style="background:#16a34a;color:#fff;padding:10px 20px;border:none;border-radius:4px;">
     Download PDF
@@ -133,7 +108,7 @@
     const width = pdf.internal.pageSize.getWidth();
     const height = (canvas.height * width) / canvas.width;
     pdf.addImage(imgData, 'PNG', 0, 0, width, height);
-    pdf.save('mark-sheet-{{time()}}.pdf');
+    pdf.save('admit-card-{{time()}}.pdf');
   }
 
   function printSection() {
@@ -142,7 +117,7 @@
     printWindow.document.write(`
       <html>
         <head>
-          <title>Mark-sheet-{{time()}}</title>
+          <title>Admit-Card-{{time()}}</title>
           <style>
             body {
               font-family: sans-serif;

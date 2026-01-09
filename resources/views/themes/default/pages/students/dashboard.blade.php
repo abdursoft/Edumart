@@ -19,30 +19,9 @@
     <!-- Top Cards -->
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
         <div class="bg-white p-4 rounded-xl shadow">
-            <p class="text-sm text-gray-500">Class in days</p>
-            <div class="flex items-center justify-between w-full">
-                <p class="text-xl font-semibold">{{$attendance['total']}}</p>
-                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
-            </div>
-        </div>
-        <div class="bg-white p-4 rounded-xl shadow">
             <p class="text-sm text-gray-500">Attendance</p>
             <div class="flex items-center justify-between w-full">
                 <p class="text-xl font-semibold">{{$attendance['percentage']}}%</p>
-                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
-            </div>
-        </div>
-        <div class="bg-white p-4 rounded-xl shadow">
-            <p class="text-sm text-gray-500">Class Leave</p>
-            <div class="flex items-center justify-between w-full">
-                <p class="text-xl font-semibold">{{$attendance['leave']}}</p>
-                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
-            </div>
-        </div>
-        <div class="bg-white p-4 rounded-xl shadow">
-            <p class="text-sm text-gray-500">Class Absent</p>
-            <div class="flex items-center justify-between w-full">
-                <p class="text-xl font-semibold">{{$attendance['absent']}}</p>
                 <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
             </div>
         </div>
@@ -64,21 +43,14 @@
             <p class="text-sm text-gray-500">Marksheet</p>
             <div class="flex items-center justify-between w-full">
                 <p class="text-xl font-semibold">{{$marksheets->count()}}</p>
-                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+                <a href="{{route('student.marksheets')}}" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
             </div>
         </div>
         <div class="bg-white p-4 rounded-xl shadow">
             <p class="text-sm text-gray-500">Certificate</p>
             <div class="flex items-center justify-between w-full">
                 <p class="text-xl font-semibold">{{$certificates->count()}}</p>
-                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
-            </div>
-        </div>
-        <div class="bg-white p-4 rounded-xl shadow">
-            <p class="text-sm text-gray-500">Current class</p>
-            <div class="flex items-center justify-between w-full">
-                <p class="text-xl font-semibold">{{$attendance['percentage']}}</p>
-                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+                <a href="{{route('student.certificates')}}" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
             </div>
         </div>
     </div>
@@ -124,16 +96,6 @@
                 @endforeach
             </div>
         </div>
-    </div>
-
-    <!-- Attendance -->
-    <div class="bg-white p-6 rounded-xl shadow mt-6">
-        <h2 class="text-lg font-semibold mb-4">Attendance</h2>
-        <ul class="space-y-3 text-sm">
-            <li class="p-3 bg-yellow-50 border-l-4 border-yellow-400">Midterm exam starts on 20th March</li>
-            <li class="p-3 bg-blue-50 border-l-4 border-blue-400">Assignment submission deadline tomorrow</li>
-            <li class="p-3 bg-green-50 border-l-4 border-green-400">Fee payment successful</li>
-        </ul>
     </div>
 
     <!-- Notifications -->

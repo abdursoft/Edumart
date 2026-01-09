@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 908.05 636.39">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: url(#Degradado_sin_nombre_52-4);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20, .cls-21, .cls-22, .cls-23, .cls-24, .cls-25, .cls-26, .cls-27, .cls-28, .cls-29, .cls-30, .cls-31, .cls-32, .cls-33, .cls-34, .cls-35, .cls-36, .cls-37, .cls-38, .cls-39, .cls-40, .cls-41, .cls-42, .cls-43, .cls-44, .cls-45, .cls-46, .cls-47, .cls-48, .cls-49, .cls-50, .cls-51, .cls-52, .cls-53, .cls-54, .cls-55, .cls-56, .cls-57, .cls-58, .cls-59, .cls-60, .cls-61, .cls-62, .cls-63, .cls-64, .cls-65, .cls-66, .cls-67, .cls-68, .cls-69, .cls-70, .cls-71, .cls-72, .cls-73, .cls-74, .cls-75, .cls-76, .cls-77, .cls-78, .cls-79, .cls-80, .cls-81, .cls-82, .cls-83, .cls-84, .cls-85, .cls-86, .cls-87, .cls-88, .cls-89 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20, .cls-21, .cls-22, .cls-23, .cls-24, .cls-25, .cls-26, .cls-27, .cls-28, .cls-29, .cls-30, .cls-31, .cls-32, .cls-33, .cls-34, .cls-35, .cls-36, .cls-37, .cls-38, .cls-39, .cls-40, .cls-41, .cls-42, .cls-43, .cls-44, .cls-45, .cls-46, .cls-47, .cls-48, .cls-49, .cls-50, .cls-51, .cls-52, .cls-53, .cls-54, .cls-55, .cls-56, .cls-57, .cls-58, .cls-59, .cls-61, .cls-62, .cls-63, .cls-64, .cls-65, .cls-66, .cls-67, .cls-68, .cls-69, .cls-70, .cls-71, .cls-72, .cls-73, .cls-74, .cls-75, .cls-76, .cls-77, .cls-78, .cls-79, .cls-80, .cls-81, .cls-82, .cls-83, .cls-84, .cls-85, .cls-86, .cls-87, .cls-88, .cls-89 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-18, .cls-19, .cls-20, .cls-21, .cls-22, .cls-23, .cls-24, .cls-25, .cls-26, .cls-27, .cls-28, .cls-29, .cls-30, .cls-31, .cls-32, .cls-33, .cls-34, .cls-35, .cls-36, .cls-37, .cls-38, .cls-39, .cls-41, .cls-42, .cls-43, .cls-44, .cls-45, .cls-46, .cls-48, .cls-49, .cls-50, .cls-51, .cls-52, .cls-53, .cls-54, .cls-55, .cls-56, .cls-57, .cls-58, .cls-59, .cls-61, .cls-62, .cls-63, .cls-64, .cls-65, .cls-66, .cls-67, .cls-68, .cls-69, .cls-70, .cls-71, .cls-72, .cls-73, .cls-74, .cls-75, .cls-76, .cls-77, .cls-78, .cls-79, .cls-81, .cls-82, .cls-83, .cls-84, .cls-85, .cls-86, .cls-87, .cls-88, .cls-89 {
+        stroke-width: 1.09px;
+      }
+
+      .cls-2 {
+        stroke: url(#Degradado_sin_nombre_52-62);
+      }
+
+      .cls-3 {
+        stroke: url(#Degradado_sin_nombre_52-34);
+      }
+
+      .cls-4 {
+        stroke: url(#Degradado_sin_nombre_52-70);
+      }
+
+      .cls-5 {
+        stroke: url(#Degradado_sin_nombre_52-20);
+      }
+
+      .cls-6 {
+        stroke: url(#Degradado_sin_nombre_52-77);
+      }
+
+      .cls-7 {
+        stroke: url(#Degradado_sin_nombre_52-48);
+      }
+
+      .cls-8 {
+        stroke: url(#Degradado_sin_nombre_52-54);
+      }
+
+      .cls-9 {
+        stroke: url(#Degradado_sin_nombre_52-53);
+      }
+
+      .cls-10 {
+        stroke: url(#Degradado_sin_nombre_52-9);
+      }
+
+      .cls-11 {
+        stroke: url(#Degradado_sin_nombre_52);
+      }
+
+      .cls-12 {
+        stroke: url(#Degradado_sin_nombre_52-41);
+      }
+
+      .cls-13 {
+        stroke: url(#Degradado_sin_nombre_52-18);
+      }
+
+      .cls-14 {
+        stroke: url(#Degradado_sin_nombre_52-15);
+      }
+
+      .cls-15 {
+        stroke: url(#Degradado_sin_nombre_52-44);
+      }
+
+      .cls-16 {
+        stroke: url(#Degradado_sin_nombre_52-28);
+      }
+
+      .cls-90 {
+        isolation: isolate;
+      }
+
+      .cls-17 {
+        stroke-width: 4px;
+      }
+
+      .cls-17, .cls-40, .cls-47, .cls-80 {
+        stroke: #ffd58c;
+      }
+
+      .cls-18 {
+        stroke: url(#Degradado_sin_nombre_52-83);
+      }
+
+      .cls-19 {
+        stroke: url(#Degradado_sin_nombre_52-36);
+      }
+
+      .cls-20 {
+        stroke: url(#Degradado_sin_nombre_52-65);
+      }
+
+      .cls-21 {
+        stroke: url(#Degradado_sin_nombre_52-75);
+      }
+
+      .cls-22 {
+        stroke: url(#Degradado_sin_nombre_52-67);
+      }
+
+      .cls-23 {
+        stroke: url(#Degradado_sin_nombre_52-21);
+      }
+
+      .cls-24 {
+        stroke: url(#Degradado_sin_nombre_52-38);
+      }
+
+      .cls-25 {
+        stroke: url(#Degradado_sin_nombre_52-32);
+      }
+
+      .cls-91 {
+        opacity: .15;
+      }
+
+      .cls-91, .cls-92 {
+        mix-blend-mode: multiply;
+      }
+
+      .cls-26 {
+        stroke: url(#Degradado_sin_nombre_52-82);
+      }
+
+      .cls-27 {
+        stroke: url(#Degradado_sin_nombre_52-3);
+      }
+
+      .cls-28 {
+        stroke: url(#Degradado_sin_nombre_52-39);
+      }
+
+      .cls-29 {
+        stroke: url(#Degradado_sin_nombre_52-57);
+      }
+
+      .cls-30 {
+        stroke: url(#Degradado_sin_nombre_52-43);
+      }
+
+      .cls-31 {
+        stroke: url(#Degradado_sin_nombre_52-80);
+      }
+
+      .cls-32 {
+        stroke: url(#Degradado_sin_nombre_52-35);
+      }
+
+      .cls-33 {
+        stroke: url(#Degradado_sin_nombre_52-45);
+      }
+
+      .cls-34 {
+        stroke: url(#Degradado_sin_nombre_52-10);
+      }
+
+      .cls-35 {
+        stroke: url(#Degradado_sin_nombre_52-22);
+      }
+
+      .cls-36 {
+        stroke: url(#Degradado_sin_nombre_52-73);
+      }
+
+      .cls-37 {
+        stroke: url(#Degradado_sin_nombre_52-61);
+      }
+
+      .cls-38 {
+        stroke: url(#Degradado_sin_nombre_52-5);
+      }
+
+      .cls-39 {
+        stroke: url(#Degradado_sin_nombre_52-68);
+      }
+
+      .cls-40 {
+        stroke-width: 1.3px;
+      }
+
+      .cls-41 {
+        stroke: url(#Degradado_sin_nombre_52-26);
+      }
+
+      .cls-42 {
+        stroke: url(#Degradado_sin_nombre_52-31);
+      }
+
+      .cls-43 {
+        stroke: url(#Degradado_sin_nombre_52-47);
+      }
+
+      .cls-44 {
+        stroke: url(#Degradado_sin_nombre_52-79);
+      }
+
+      .cls-45 {
+        stroke: url(#Degradado_sin_nombre_52-23);
+      }
+
+      .cls-46 {
+        stroke: url(#Degradado_sin_nombre_52-56);
+      }
+
+      .cls-47 {
+        stroke-width: .5px;
+      }
+
+      .cls-48 {
+        stroke: url(#Degradado_sin_nombre_52-60);
+      }
+
+      .cls-49 {
+        stroke: url(#Degradado_sin_nombre_52-16);
+      }
+
+      .cls-50 {
+        stroke: url(#Degradado_sin_nombre_52-46);
+      }
+
+      .cls-51 {
+        stroke: url(#Degradado_sin_nombre_52-6);
+      }
+
+      .cls-52 {
+        stroke: url(#Degradado_sin_nombre_52-66);
+      }
+
+      .cls-53 {
+        stroke: url(#Degradado_sin_nombre_52-72);
+      }
+
+      .cls-54 {
+        stroke: url(#Degradado_sin_nombre_52-13);
+      }
+
+      .cls-93 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-55 {
+        stroke: url(#Degradado_sin_nombre_52-71);
+      }
+
+      .cls-56 {
+        stroke: url(#Degradado_sin_nombre_52-40);
+      }
+
+      .cls-57 {
+        stroke: url(#Degradado_sin_nombre_52-52);
+      }
+
+      .cls-58 {
+        stroke: url(#Degradado_sin_nombre_52-59);
+      }
+
+      .cls-59 {
+        stroke: url(#Degradado_sin_nombre_52-12);
+      }
+
+      .cls-61 {
+        stroke: url(#Degradado_sin_nombre_52-11);
+      }
+
+      .cls-62 {
+        stroke: url(#Degradado_sin_nombre_52-74);
+      }
+
+      .cls-63 {
+        stroke: url(#Degradado_sin_nombre_52-27);
+      }
+
+      .cls-64 {
+        stroke: url(#Degradado_sin_nombre_52-37);
+      }
+
+      .cls-94 {
+        fill: #fffbf5;
+      }
+
+      .cls-65 {
+        stroke: url(#Degradado_sin_nombre_52-50);
+      }
+
+      .cls-66 {
+        stroke: url(#Degradado_sin_nombre_52-30);
+      }
+
+      .cls-67 {
+        stroke: url(#Degradado_sin_nombre_52-14);
+      }
+
+      .cls-68 {
+        stroke: url(#Degradado_sin_nombre_52-51);
+      }
+
+      .cls-69 {
+        stroke: url(#Degradado_sin_nombre_52-64);
+      }
+
+      .cls-95 {
+        fill: #ffd58c;
+      }
+
+      .cls-70 {
+        stroke: url(#Degradado_sin_nombre_52-49);
+      }
+
+      .cls-71 {
+        stroke: url(#Degradado_sin_nombre_52-33);
+      }
+
+      .cls-72 {
+        stroke: url(#Degradado_sin_nombre_52-24);
+      }
+
+      .cls-73 {
+        stroke: url(#Degradado_sin_nombre_52-17);
+      }
+
+      .cls-74 {
+        stroke: url(#Degradado_sin_nombre_52-29);
+      }
+
+      .cls-75 {
+        stroke: url(#Degradado_sin_nombre_52-19);
+      }
+
+      .cls-76 {
+        stroke: url(#Degradado_sin_nombre_52-58);
+      }
+
+      .cls-77 {
+        stroke: url(#Degradado_sin_nombre_52-8);
+      }
+
+      .cls-78 {
+        stroke: url(#Degradado_sin_nombre_52-7);
+      }
+
+      .cls-79 {
+        stroke: url(#Degradado_sin_nombre_52-69);
+      }
+
+      .cls-81 {
+        stroke: url(#Degradado_sin_nombre_52-63);
+      }
+
+      .cls-82 {
+        stroke: url(#Degradado_sin_nombre_52-25);
+      }
+
+      .cls-83 {
+        stroke: url(#Degradado_sin_nombre_52-76);
+      }
+
+      .cls-84 {
+        stroke: url(#Degradado_sin_nombre_52-42);
+      }
+
+      .cls-85 {
+        stroke: url(#Degradado_sin_nombre_52-81);
+      }
+
+      .cls-86 {
+        stroke: url(#Degradado_sin_nombre_52-84);
+      }
+
+      .cls-87 {
+        stroke: url(#Degradado_sin_nombre_52-55);
+      }
+
+      .cls-88 {
+        stroke: url(#Degradado_sin_nombre_52-78);
+      }
+
+      .cls-89 {
+        stroke: url(#Degradado_sin_nombre_52-2);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-60" x="19.14" y="6.38" width="869.74" height="623.62"/>
+    </clipPath>
+    <linearGradient id="Degradado_sin_nombre_52" data-name="Degradado sin nombre 52" x1="0" y1="631.24" x2="908.05" y2="631.24" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".27" stop-color="#969696"/>
+      <stop offset=".48" stop-color="#fff"/>
+      <stop offset=".61" stop-color="#9e9e9e"/>
+      <stop offset=".73" stop-color="#fff"/>
+      <stop offset=".84" stop-color="#b9babb"/>
+      <stop offset=".92" stop-color="#dbdbe2"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="Degradado_sin_nombre_52-2" data-name="Degradado sin nombre 52" y1="623.69" y2="623.69" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-3" data-name="Degradado sin nombre 52" x1="0" y1="616.15" x2="908.05" y2="616.15" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-4" data-name="Degradado sin nombre 52" y1="608.61" y2="608.61" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-5" data-name="Degradado sin nombre 52" y1="601.06" y2="601.06" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-6" data-name="Degradado sin nombre 52" y1="593.52" y2="593.52" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-7" data-name="Degradado sin nombre 52" x1="0" y1="585.98" x2="908.05" y2="585.98" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-8" data-name="Degradado sin nombre 52" x1="0" y1="578.43" x2="908.05" y2="578.43" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-9" data-name="Degradado sin nombre 52" y1="570.89" y2="570.89" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-10" data-name="Degradado sin nombre 52" y1="563.35" y2="563.35" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-11" data-name="Degradado sin nombre 52" y1="555.81" y2="555.81" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-12" data-name="Degradado sin nombre 52" x1="0" y1="548.26" x2="908.05" y2="548.26" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-13" data-name="Degradado sin nombre 52" y1="540.72" y2="540.72" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-14" data-name="Degradado sin nombre 52" y1="533.18" y2="533.18" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-15" data-name="Degradado sin nombre 52" y1="525.63" y2="525.63" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-16" data-name="Degradado sin nombre 52" y1="518.09" y2="518.09" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-17" data-name="Degradado sin nombre 52" x1="0" y1="510.55" x2="908.05" y2="510.55" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-18" data-name="Degradado sin nombre 52" y1="503" y2="503" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-19" data-name="Degradado sin nombre 52" y1="495.46" y2="495.46" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-20" data-name="Degradado sin nombre 52" y1="487.92" y2="487.92" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-21" data-name="Degradado sin nombre 52" y1="480.37" y2="480.37" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-22" data-name="Degradado sin nombre 52" x1="0" y1="472.83" x2="908.05" y2="472.83" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-23" data-name="Degradado sin nombre 52" y1="465.29" y2="465.29" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-24" data-name="Degradado sin nombre 52" y1="457.74" y2="457.74" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-25" data-name="Degradado sin nombre 52" y1="450.2" y2="450.2" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-26" data-name="Degradado sin nombre 52" x1="0" y1="442.66" x2="908.05" y2="442.66" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-27" data-name="Degradado sin nombre 52" x1="0" y1="435.11" x2="908.05" y2="435.11" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-28" data-name="Degradado sin nombre 52" y1="427.57" y2="427.57" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-29" data-name="Degradado sin nombre 52" y1="420.03" y2="420.03" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-30" data-name="Degradado sin nombre 52" y1="412.48" y2="412.48" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-31" data-name="Degradado sin nombre 52" x1="0" y1="404.94" x2="908.05" y2="404.94" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-32" data-name="Degradado sin nombre 52" y1="397.4" y2="397.4" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-33" data-name="Degradado sin nombre 52" y1="389.85" y2="389.85" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-34" data-name="Degradado sin nombre 52" y1="382.31" y2="382.31" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-35" data-name="Degradado sin nombre 52" y1="374.77" y2="374.77" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-36" data-name="Degradado sin nombre 52" y1="367.22" y2="367.22" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-37" data-name="Degradado sin nombre 52" x1="0" y1="359.68" x2="908.05" y2="359.68" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-38" data-name="Degradado sin nombre 52" y1="352.14" y2="352.14" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-39" data-name="Degradado sin nombre 52" y1="344.6" y2="344.6" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-40" data-name="Degradado sin nombre 52" x1="0" y1="337.05" x2="908.05" y2="337.05" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-41" data-name="Degradado sin nombre 52" y1="329.51" y2="329.51" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-42" data-name="Degradado sin nombre 52" y1="321.97" y2="321.97" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-43" data-name="Degradado sin nombre 52" y1="314.42" y2="314.42" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-44" data-name="Degradado sin nombre 52" y1="306.88" y2="306.88" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-45" data-name="Degradado sin nombre 52" x1="0" y1="299.34" x2="908.05" y2="299.34" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-46" data-name="Degradado sin nombre 52" y1="291.79" y2="291.79" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-47" data-name="Degradado sin nombre 52" y1="284.25" y2="284.25" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-48" data-name="Degradado sin nombre 52" x1="0" y1="276.71" x2="908.05" y2="276.71" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-49" data-name="Degradado sin nombre 52" y1="269.16" y2="269.16" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-50" data-name="Degradado sin nombre 52" y1="261.62" y2="261.62" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-51" data-name="Degradado sin nombre 52" y1="254.08" y2="254.08" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-52" data-name="Degradado sin nombre 52" y1="246.53" y2="246.53" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-53" data-name="Degradado sin nombre 52" y1="238.99" y2="238.99" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-54" data-name="Degradado sin nombre 52" x1="0" y1="231.45" x2="908.05" y2="231.45" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-55" data-name="Degradado sin nombre 52" y1="223.9" y2="223.9" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-56" data-name="Degradado sin nombre 52" y1="216.36" y2="216.36" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-57" data-name="Degradado sin nombre 52" y1="208.82" y2="208.82" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-58" data-name="Degradado sin nombre 52" x1="0" y1="201.27" x2="908.05" y2="201.27" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-59" data-name="Degradado sin nombre 52" x1="0" y1="193.73" x2="908.05" y2="193.73" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-60" data-name="Degradado sin nombre 52" y1="186.19" y2="186.19" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-61" data-name="Degradado sin nombre 52" y1="178.64" y2="178.64" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-62" data-name="Degradado sin nombre 52" y1="171.1" y2="171.1" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-63" data-name="Degradado sin nombre 52" x1="0" y1="163.56" x2="908.05" y2="163.56" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-64" data-name="Degradado sin nombre 52" y1="156.01" y2="156.01" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-65" data-name="Degradado sin nombre 52" y1="148.47" y2="148.47" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-66" data-name="Degradado sin nombre 52" y1="140.93" y2="140.93" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-67" data-name="Degradado sin nombre 52" y1="133.39" y2="133.39" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-68" data-name="Degradado sin nombre 52" x1="0" y1="125.84" x2="908.05" y2="125.84" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-69" data-name="Degradado sin nombre 52" y1="118.3" y2="118.3" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-70" data-name="Degradado sin nombre 52" y1="110.76" y2="110.76" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-71" data-name="Degradado sin nombre 52" y1="103.21" y2="103.21" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-72" data-name="Degradado sin nombre 52" y1="95.67" y2="95.67" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-73" data-name="Degradado sin nombre 52" x1="0" y1="88.13" x2="908.05" y2="88.13" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-74" data-name="Degradado sin nombre 52" x1="0" y1="80.58" x2="908.05" y2="80.58" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-75" data-name="Degradado sin nombre 52" x1="0" y1="73.04" x2="908.05" y2="73.04" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-76" data-name="Degradado sin nombre 52" y1="65.5" y2="65.5" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-77" data-name="Degradado sin nombre 52" x1="0" y1="57.95" x2="908.05" y2="57.95" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-78" data-name="Degradado sin nombre 52" y1="50.41" y2="50.41" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-79" data-name="Degradado sin nombre 52" y1="42.87" y2="42.87" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-80" data-name="Degradado sin nombre 52" y1="35.32" y2="35.32" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-81" data-name="Degradado sin nombre 52" y1="27.78" y2="27.78" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-82" data-name="Degradado sin nombre 52" x1="0" y1="20.24" x2="908.05" y2="20.24" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-83" data-name="Degradado sin nombre 52" y1="12.69" y2="12.69" xlink:href="#Degradado_sin_nombre_52"/>
+    <linearGradient id="Degradado_sin_nombre_52-84" data-name="Degradado sin nombre 52" y1="5.15" y2="5.15" xlink:href="#Degradado_sin_nombre_52"/>
+  </defs>
+  <g class="cls-90">
+    <g id="PRINT">
+      <g class="cls-93">
+        <rect class="cls-94" x="19.14" y="6.38" width="869.74" height="623.62"/>
+        <g class="cls-91">
+          <g class="cls-92">
+            <polyline class="cls-11" points=".24 626.69 19.14 635.78 38.05 626.69 56.95 635.78 75.85 626.69 94.75 635.78 113.66 626.69 132.56 635.78 151.46 626.69 170.37 635.78 189.27 626.69 208.17 635.78 227.08 626.69 245.98 635.78 264.89 626.69 283.8 635.78 302.7 626.69 321.61 635.78 340.51 626.69 359.42 635.78 378.33 626.69 397.24 635.78 416.14 626.69 435.05 635.78 453.94 626.69 472.84 635.78 491.75 626.69 510.65 635.78 529.55 626.69 548.46 635.78 567.36 626.69 586.27 635.78 605.18 626.69 624.08 635.78 642.99 626.69 661.9 635.78 680.82 626.69 699.73 635.78 718.64 626.69 737.55 635.78 756.47 626.69 775.38 635.78 794.29 626.69 813.2 635.78 832.11 626.69 851.04 635.78 869.95 626.69 888.88 635.78 907.81 626.69"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-89" points=".24 619.15 19.14 628.24 38.05 619.15 56.95 628.24 75.85 619.15 94.75 628.24 113.66 619.15 132.56 628.24 151.46 619.15 170.37 628.24 189.27 619.15 208.17 628.24 227.08 619.15 245.98 628.24 264.89 619.15 283.8 628.24 302.7 619.15 321.61 628.24 340.51 619.15 359.42 628.24 378.33 619.15 397.24 628.24 416.14 619.15 435.05 628.24 453.94 619.15 472.84 628.24 491.75 619.15 510.65 628.24 529.55 619.15 548.46 628.24 567.36 619.15 586.27 628.24 605.18 619.15 624.08 628.24 642.99 619.15 661.9 628.24 680.82 619.15 699.73 628.24 718.64 619.15 737.55 628.24 756.47 619.15 775.38 628.24 794.29 619.15 813.2 628.24 832.11 619.15 851.04 628.24 869.95 619.15 888.88 628.24 907.81 619.15"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-27" points=".24 611.61 19.14 620.69 38.05 611.61 56.95 620.69 75.85 611.61 94.75 620.69 113.66 611.61 132.56 620.69 151.46 611.61 170.37 620.69 189.27 611.61 208.17 620.69 227.08 611.61 245.98 620.69 264.89 611.61 283.8 620.69 302.7 611.61 321.61 620.69 340.51 611.61 359.42 620.69 378.33 611.61 397.24 620.69 416.14 611.61 435.05 620.69 453.94 611.61 472.84 620.69 491.75 611.61 510.65 620.69 529.55 611.61 548.46 620.69 567.36 611.61 586.27 620.69 605.18 611.61 624.08 620.69 642.99 611.61 661.9 620.69 680.82 611.61 699.73 620.69 718.64 611.61 737.55 620.69 756.47 611.61 775.38 620.69 794.29 611.61 813.2 620.69 832.11 611.61 851.04 620.69 869.95 611.61 888.88 620.69 907.81 611.61"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-1" points=".24 604.06 19.14 613.15 38.05 604.06 56.95 613.15 75.85 604.06 94.75 613.15 113.66 604.06 132.56 613.15 151.46 604.06 170.37 613.15 189.27 604.06 208.17 613.15 227.08 604.06 245.98 613.15 264.89 604.06 283.8 613.15 302.7 604.06 321.61 613.15 340.51 604.06 359.42 613.15 378.33 604.06 397.24 613.15 416.14 604.06 435.05 613.15 453.94 604.06 472.84 613.15 491.75 604.06 510.65 613.15 529.55 604.06 548.46 613.15 567.36 604.06 586.27 613.15 605.18 604.06 624.08 613.15 642.99 604.06 661.9 613.15 680.82 604.06 699.73 613.15 718.64 604.06 737.55 613.15 756.47 604.06 775.38 613.15 794.29 604.06 813.2 613.15 832.11 604.06 851.04 613.15 869.95 604.06 888.88 613.15 907.81 604.06"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-38" points=".24 596.52 19.14 605.61 38.05 596.52 56.95 605.61 75.85 596.52 94.75 605.61 113.66 596.52 132.56 605.61 151.46 596.52 170.37 605.61 189.27 596.52 208.17 605.61 227.08 596.52 245.98 605.61 264.89 596.52 283.8 605.61 302.7 596.52 321.61 605.61 340.51 596.52 359.42 605.61 378.33 596.52 397.24 605.61 416.14 596.52 435.05 605.61 453.94 596.52 472.84 605.61 491.75 596.52 510.65 605.61 529.55 596.52 548.46 605.61 567.36 596.52 586.27 605.61 605.18 596.52 624.08 605.61 642.99 596.52 661.9 605.61 680.82 596.52 699.73 605.61 718.64 596.52 737.55 605.61 756.47 596.52 775.38 605.61 794.29 596.52 813.2 605.61 832.11 596.52 851.04 605.61 869.95 596.52 888.88 605.61 907.81 596.52"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-51" points=".24 588.98 19.14 598.07 38.05 588.98 56.95 598.07 75.85 588.98 94.75 598.07 113.66 588.98 132.56 598.07 151.46 588.98 170.37 598.07 189.27 588.98 208.17 598.07 227.08 588.98 245.98 598.07 264.89 588.98 283.8 598.07 302.7 588.98 321.61 598.07 340.51 588.98 359.42 598.07 378.33 588.98 397.24 598.07 416.14 588.98 435.05 598.07 453.94 588.98 472.84 598.07 491.75 588.98 510.65 598.07 529.55 588.98 548.46 598.07 567.36 588.98 586.27 598.07 605.18 588.98 624.08 598.07 642.99 588.98 661.9 598.07 680.82 588.98 699.73 598.07 718.64 588.98 737.55 598.07 756.47 588.98 775.38 598.07 794.29 588.98 813.2 598.07 832.11 588.98 851.04 598.07 869.95 588.98 888.88 598.07 907.81 588.98"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-78" points=".24 581.43 19.14 590.52 38.05 581.43 56.95 590.52 75.85 581.43 94.75 590.52 113.66 581.43 132.56 590.52 151.46 581.43 170.37 590.52 189.27 581.43 208.17 590.52 227.08 581.43 245.98 590.52 264.89 581.43 283.8 590.52 302.7 581.43 321.61 590.52 340.51 581.43 359.42 590.52 378.33 581.43 397.24 590.52 416.14 581.43 435.05 590.52 453.94 581.43 472.84 590.52 491.75 581.43 510.65 590.52 529.55 581.43 548.46 590.52 567.36 581.43 586.27 590.52 605.18 581.43 624.08 590.52 642.99 581.43 661.9 590.52 680.82 581.43 699.73 590.52 718.64 581.43 737.55 590.52 756.47 581.43 775.38 590.52 794.29 581.43 813.2 590.52 832.11 581.43 851.04 590.52 869.95 581.43 888.88 590.52 907.81 581.43"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-77" points=".24 573.89 19.14 582.98 38.05 573.89 56.95 582.98 75.85 573.89 94.75 582.98 113.66 573.89 132.56 582.98 151.46 573.89 170.37 582.98 189.27 573.89 208.17 582.98 227.08 573.89 245.98 582.98 264.89 573.89 283.8 582.98 302.7 573.89 321.61 582.98 340.51 573.89 359.42 582.98 378.33 573.89 397.24 582.98 416.14 573.89 435.05 582.98 453.94 573.89 472.84 582.98 491.75 573.89 510.65 582.98 529.55 573.89 548.46 582.98 567.36 573.89 586.27 582.98 605.18 573.89 624.08 582.98 642.99 573.89 661.9 582.98 680.82 573.89 699.73 582.98 718.64 573.89 737.55 582.98 756.47 573.89 775.38 582.98 794.29 573.89 813.2 582.98 832.11 573.89 851.04 582.98 869.95 573.89 888.88 582.98 907.81 573.89"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-10" points=".24 566.35 19.14 575.44 38.05 566.35 56.95 575.44 75.85 566.35 94.75 575.44 113.66 566.35 132.56 575.44 151.46 566.35 170.37 575.44 189.27 566.35 208.17 575.44 227.08 566.35 245.98 575.44 264.89 566.35 283.8 575.44 302.7 566.35 321.61 575.44 340.51 566.35 359.42 575.44 378.33 566.35 397.24 575.44 416.14 566.35 435.05 575.44 453.94 566.35 472.84 575.44 491.75 566.35 510.65 575.44 529.55 566.35 548.46 575.44 567.36 566.35 586.27 575.44 605.18 566.35 624.08 575.44 642.99 566.35 661.9 575.44 680.82 566.35 699.73 575.44 718.64 566.35 737.55 575.44 756.47 566.35 775.38 575.44 794.29 566.35 813.2 575.44 832.11 566.35 851.04 575.44 869.95 566.35 888.88 575.44 907.81 566.35"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-34" points=".24 558.8 19.14 567.89 38.05 558.8 56.95 567.89 75.85 558.8 94.75 567.89 113.66 558.8 132.56 567.89 151.46 558.8 170.37 567.89 189.27 558.8 208.17 567.89 227.08 558.8 245.98 567.89 264.89 558.8 283.8 567.89 302.7 558.8 321.61 567.89 340.51 558.8 359.42 567.89 378.33 558.8 397.24 567.89 416.14 558.8 435.05 567.89 453.94 558.8 472.84 567.89 491.75 558.8 510.65 567.89 529.55 558.8 548.46 567.89 567.36 558.8 586.27 567.89 605.18 558.8 624.08 567.89 642.99 558.8 661.9 567.89 680.82 558.8 699.73 567.89 718.64 558.8 737.55 567.89 756.47 558.8 775.38 567.89 794.29 558.8 813.2 567.89 832.11 558.8 851.04 567.89 869.95 558.8 888.88 567.89 907.81 558.8"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-61" points=".24 551.26 19.14 560.35 38.05 551.26 56.95 560.35 75.85 551.26 94.75 560.35 113.66 551.26 132.56 560.35 151.46 551.26 170.37 560.35 189.27 551.26 208.17 560.35 227.08 551.26 245.98 560.35 264.89 551.26 283.8 560.35 302.7 551.26 321.61 560.35 340.51 551.26 359.42 560.35 378.33 551.26 397.24 560.35 416.14 551.26 435.05 560.35 453.94 551.26 472.84 560.35 491.75 551.26 510.65 560.35 529.55 551.26 548.46 560.35 567.36 551.26 586.27 560.35 605.18 551.26 624.08 560.35 642.99 551.26 661.9 560.35 680.82 551.26 699.73 560.35 718.64 551.26 737.55 560.35 756.47 551.26 775.38 560.35 794.29 551.26 813.2 560.35 832.11 551.26 851.04 560.35 869.95 551.26 888.88 560.35 907.81 551.26"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-59" points=".24 543.72 19.14 552.81 38.05 543.72 56.95 552.81 75.85 543.72 94.75 552.81 113.66 543.72 132.56 552.81 151.46 543.72 170.37 552.81 189.27 543.72 208.17 552.81 227.08 543.72 245.98 552.81 264.89 543.72 283.8 552.81 302.7 543.72 321.61 552.81 340.51 543.72 359.42 552.81 378.33 543.72 397.24 552.81 416.14 543.72 435.05 552.81 453.94 543.72 472.84 552.81 491.75 543.72 510.65 552.81 529.55 543.72 548.46 552.81 567.36 543.72 586.27 552.81 605.18 543.72 624.08 552.81 642.99 543.72 661.9 552.81 680.82 543.72 699.73 552.81 718.64 543.72 737.55 552.81 756.47 543.72 775.38 552.81 794.29 543.72 813.2 552.81 832.11 543.72 851.04 552.81 869.95 543.72 888.88 552.81 907.81 543.72"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-54" points=".24 536.17 19.14 545.26 38.05 536.17 56.95 545.26 75.85 536.17 94.75 545.26 113.66 536.17 132.56 545.26 151.46 536.17 170.37 545.26 189.27 536.17 208.17 545.26 227.08 536.17 245.98 545.26 264.89 536.17 283.8 545.26 302.7 536.17 321.61 545.26 340.51 536.17 359.42 545.26 378.33 536.17 397.24 545.26 416.14 536.17 435.05 545.26 453.94 536.17 472.84 545.26 491.75 536.17 510.65 545.26 529.55 536.17 548.46 545.26 567.36 536.17 586.27 545.26 605.18 536.17 624.08 545.26 642.99 536.17 661.9 545.26 680.82 536.17 699.73 545.26 718.64 536.17 737.55 545.26 756.47 536.17 775.38 545.26 794.29 536.17 813.2 545.26 832.11 536.17 851.04 545.26 869.95 536.17 888.88 545.26 907.81 536.17"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-67" points=".24 528.63 19.14 537.72 38.05 528.63 56.95 537.72 75.85 528.63 94.75 537.72 113.66 528.63 132.56 537.72 151.46 528.63 170.37 537.72 189.27 528.63 208.17 537.72 227.08 528.63 245.98 537.72 264.89 528.63 283.8 537.72 302.7 528.63 321.61 537.72 340.51 528.63 359.42 537.72 378.33 528.63 397.24 537.72 416.14 528.63 435.05 537.72 453.94 528.63 472.84 537.72 491.75 528.63 510.65 537.72 529.55 528.63 548.46 537.72 567.36 528.63 586.27 537.72 605.18 528.63 624.08 537.72 642.99 528.63 661.9 537.72 680.82 528.63 699.73 537.72 718.64 528.63 737.55 537.72 756.47 528.63 775.38 537.72 794.29 528.63 813.2 537.72 832.11 528.63 851.04 537.72 869.95 528.63 888.88 537.72 907.81 528.63"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-14" points=".24 521.09 19.14 530.18 38.05 521.09 56.95 530.18 75.85 521.09 94.75 530.18 113.66 521.09 132.56 530.18 151.46 521.09 170.37 530.18 189.27 521.09 208.17 530.18 227.08 521.09 245.98 530.18 264.89 521.09 283.8 530.18 302.7 521.09 321.61 530.18 340.51 521.09 359.42 530.18 378.33 521.09 397.24 530.18 416.14 521.09 435.05 530.18 453.94 521.09 472.84 530.18 491.75 521.09 510.65 530.18 529.55 521.09 548.46 530.18 567.36 521.09 586.27 530.18 605.18 521.09 624.08 530.18 642.99 521.09 661.9 530.18 680.82 521.09 699.73 530.18 718.64 521.09 737.55 530.18 756.47 521.09 775.38 530.18 794.29 521.09 813.2 530.18 832.11 521.09 851.04 530.18 869.95 521.09 888.88 530.18 907.81 521.09"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-49" points=".24 513.54 19.14 522.63 38.05 513.54 56.95 522.63 75.85 513.54 94.75 522.63 113.66 513.54 132.56 522.63 151.46 513.54 170.37 522.63 189.27 513.54 208.17 522.63 227.08 513.54 245.98 522.63 264.89 513.54 283.8 522.63 302.7 513.54 321.61 522.63 340.51 513.54 359.42 522.63 378.33 513.54 397.24 522.63 416.14 513.54 435.05 522.63 453.94 513.54 472.84 522.63 491.75 513.54 510.65 522.63 529.55 513.54 548.46 522.63 567.36 513.54 586.27 522.63 605.18 513.54 624.08 522.63 642.99 513.54 661.9 522.63 680.82 513.54 699.73 522.63 718.64 513.54 737.55 522.63 756.47 513.54 775.38 522.63 794.29 513.54 813.2 522.63 832.11 513.54 851.04 522.63 869.95 513.54 888.88 522.63 907.81 513.54"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-73" points=".24 506 19.14 515.09 38.05 506 56.95 515.09 75.85 506 94.75 515.09 113.66 506 132.56 515.09 151.46 506 170.37 515.09 189.27 506 208.17 515.09 227.08 506 245.98 515.09 264.89 506 283.8 515.09 302.7 506 321.61 515.09 340.51 506 359.42 515.09 378.33 506 397.24 515.09 416.14 506 435.05 515.09 453.94 506 472.84 515.09 491.75 506 510.65 515.09 529.55 506 548.46 515.09 567.36 506 586.27 515.09 605.18 506 624.08 515.09 642.99 506 661.9 515.09 680.82 506 699.73 515.09 718.64 506 737.55 515.09 756.47 506 775.38 515.09 794.29 506 813.2 515.09 832.11 506 851.04 515.09 869.95 506 888.88 515.09 907.81 506"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-13" points=".24 498.46 19.14 507.55 38.05 498.46 56.95 507.55 75.85 498.46 94.75 507.55 113.66 498.46 132.56 507.55 151.46 498.46 170.37 507.55 189.27 498.46 208.17 507.55 227.08 498.46 245.98 507.55 264.89 498.46 283.8 507.55 302.7 498.46 321.61 507.55 340.51 498.46 359.42 507.55 378.33 498.46 397.24 507.55 416.14 498.46 435.05 507.55 453.94 498.46 472.84 507.55 491.75 498.46 510.65 507.55 529.55 498.46 548.46 507.55 567.36 498.46 586.27 507.55 605.18 498.46 624.08 507.55 642.99 498.46 661.9 507.55 680.82 498.46 699.73 507.55 718.64 498.46 737.55 507.55 756.47 498.46 775.38 507.55 794.29 498.46 813.2 507.55 832.11 498.46 851.04 507.55 869.95 498.46 888.88 507.55 907.81 498.46"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-75" points=".24 490.92 19.14 500 38.05 490.92 56.95 500 75.85 490.92 94.75 500 113.66 490.92 132.56 500 151.46 490.92 170.37 500 189.27 490.92 208.17 500 227.08 490.92 245.98 500 264.89 490.92 283.8 500 302.7 490.92 321.61 500 340.51 490.92 359.42 500 378.33 490.92 397.24 500 416.14 490.92 435.05 500 453.94 490.92 472.84 500 491.75 490.92 510.65 500 529.55 490.92 548.46 500 567.36 490.92 586.27 500 605.18 490.92 624.08 500 642.99 490.92 661.9 500 680.82 490.92 699.73 500 718.64 490.92 737.55 500 756.47 490.92 775.38 500 794.29 490.92 813.2 500 832.11 490.92 851.04 500 869.95 490.92 888.88 500 907.81 490.92"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-5" points=".24 483.37 19.14 492.46 38.05 483.37 56.95 492.46 75.85 483.37 94.75 492.46 113.66 483.37 132.56 492.46 151.46 483.37 170.37 492.46 189.27 483.37 208.17 492.46 227.08 483.37 245.98 492.46 264.89 483.37 283.8 492.46 302.7 483.37 321.61 492.46 340.51 483.37 359.42 492.46 378.33 483.37 397.24 492.46 416.14 483.37 435.05 492.46 453.94 483.37 472.84 492.46 491.75 483.37 510.65 492.46 529.55 483.37 548.46 492.46 567.36 483.37 586.27 492.46 605.18 483.37 624.08 492.46 642.99 483.37 661.9 492.46 680.82 483.37 699.73 492.46 718.64 483.37 737.55 492.46 756.47 483.37 775.38 492.46 794.29 483.37 813.2 492.46 832.11 483.37 851.04 492.46 869.95 483.37 888.88 492.46 907.81 483.37"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-23" points=".24 475.83 19.14 484.92 38.05 475.83 56.95 484.92 75.85 475.83 94.75 484.92 113.66 475.83 132.56 484.92 151.46 475.83 170.37 484.92 189.27 475.83 208.17 484.92 227.08 475.83 245.98 484.92 264.89 475.83 283.8 484.92 302.7 475.83 321.61 484.92 340.51 475.83 359.42 484.92 378.33 475.83 397.24 484.92 416.14 475.83 435.05 484.92 453.94 475.83 472.84 484.92 491.75 475.83 510.65 484.92 529.55 475.83 548.46 484.92 567.36 475.83 586.27 484.92 605.18 475.83 624.08 484.92 642.99 475.83 661.9 484.92 680.82 475.83 699.73 484.92 718.64 475.83 737.55 484.92 756.47 475.83 775.38 484.92 794.29 475.83 813.2 484.92 832.11 475.83 851.04 484.92 869.95 475.83 888.88 484.92 907.81 475.83"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-35" points=".24 468.29 19.14 477.37 38.05 468.29 56.95 477.37 75.85 468.29 94.75 477.37 113.66 468.29 132.56 477.37 151.46 468.29 170.37 477.37 189.27 468.29 208.17 477.37 227.08 468.29 245.98 477.37 264.89 468.29 283.8 477.37 302.7 468.29 321.61 477.37 340.51 468.29 359.42 477.37 378.33 468.29 397.24 477.37 416.14 468.29 435.05 477.37 453.94 468.29 472.84 477.37 491.75 468.29 510.65 477.37 529.55 468.29 548.46 477.37 567.36 468.29 586.27 477.37 605.18 468.29 624.08 477.37 642.99 468.29 661.9 477.37 680.82 468.29 699.73 477.37 718.64 468.29 737.55 477.37 756.47 468.29 775.38 477.37 794.29 468.29 813.2 477.37 832.11 468.29 851.04 477.37 869.95 468.29 888.88 477.37 907.81 468.29"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-45" points=".24 460.74 19.14 469.83 38.05 460.74 56.95 469.83 75.85 460.74 94.75 469.83 113.66 460.74 132.56 469.83 151.46 460.74 170.37 469.83 189.27 460.74 208.17 469.83 227.08 460.74 245.98 469.83 264.89 460.74 283.8 469.83 302.7 460.74 321.61 469.83 340.51 460.74 359.42 469.83 378.33 460.74 397.24 469.83 416.14 460.74 435.05 469.83 453.94 460.74 472.84 469.83 491.75 460.74 510.65 469.83 529.55 460.74 548.46 469.83 567.36 460.74 586.27 469.83 605.18 460.74 624.08 469.83 642.99 460.74 661.9 469.83 680.82 460.74 699.73 469.83 718.64 460.74 737.55 469.83 756.47 460.74 775.38 469.83 794.29 460.74 813.2 469.83 832.11 460.74 851.04 469.83 869.95 460.74 888.88 469.83 907.81 460.74"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-72" points=".24 453.2 19.14 462.29 38.05 453.2 56.95 462.29 75.85 453.2 94.75 462.29 113.66 453.2 132.56 462.29 151.46 453.2 170.37 462.29 189.27 453.2 208.17 462.29 227.08 453.2 245.98 462.29 264.89 453.2 283.8 462.29 302.7 453.2 321.61 462.29 340.51 453.2 359.42 462.29 378.33 453.2 397.24 462.29 416.14 453.2 435.05 462.29 453.94 453.2 472.84 462.29 491.75 453.2 510.65 462.29 529.55 453.2 548.46 462.29 567.36 453.2 586.27 462.29 605.18 453.2 624.08 462.29 642.99 453.2 661.9 462.29 680.82 453.2 699.73 462.29 718.64 453.2 737.55 462.29 756.47 453.2 775.38 462.29 794.29 453.2 813.2 462.29 832.11 453.2 851.04 462.29 869.95 453.2 888.88 462.29 907.81 453.2"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-82" points=".24 445.66 19.14 454.74 38.05 445.66 56.95 454.74 75.85 445.66 94.75 454.74 113.66 445.66 132.56 454.74 151.46 445.66 170.37 454.74 189.27 445.66 208.17 454.74 227.08 445.66 245.98 454.74 264.89 445.66 283.8 454.74 302.7 445.66 321.61 454.74 340.51 445.66 359.42 454.74 378.33 445.66 397.24 454.74 416.14 445.66 435.05 454.74 453.94 445.66 472.84 454.74 491.75 445.66 510.65 454.74 529.55 445.66 548.46 454.74 567.36 445.66 586.27 454.74 605.18 445.66 624.08 454.74 642.99 445.66 661.9 454.74 680.82 445.66 699.73 454.74 718.64 445.66 737.55 454.74 756.47 445.66 775.38 454.74 794.29 445.66 813.2 454.74 832.11 445.66 851.04 454.74 869.95 445.66 888.88 454.74 907.81 445.66"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-41" points=".24 438.11 19.14 447.2 38.05 438.11 56.95 447.2 75.85 438.11 94.75 447.2 113.66 438.11 132.56 447.2 151.46 438.11 170.37 447.2 189.27 438.11 208.17 447.2 227.08 438.11 245.98 447.2 264.89 438.11 283.8 447.2 302.7 438.11 321.61 447.2 340.51 438.11 359.42 447.2 378.33 438.11 397.24 447.2 416.14 438.11 435.05 447.2 453.94 438.11 472.84 447.2 491.75 438.11 510.65 447.2 529.55 438.11 548.46 447.2 567.36 438.11 586.27 447.2 605.18 438.11 624.08 447.2 642.99 438.11 661.9 447.2 680.82 438.11 699.73 447.2 718.64 438.11 737.55 447.2 756.47 438.11 775.38 447.2 794.29 438.11 813.2 447.2 832.11 438.11 851.04 447.2 869.95 438.11 888.88 447.2 907.81 438.11"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-63" points=".24 430.57 19.14 439.66 38.05 430.57 56.95 439.66 75.85 430.57 94.75 439.66 113.66 430.57 132.56 439.66 151.46 430.57 170.37 439.66 189.27 430.57 208.17 439.66 227.08 430.57 245.98 439.66 264.89 430.57 283.8 439.66 302.7 430.57 321.61 439.66 340.51 430.57 359.42 439.66 378.33 430.57 397.24 439.66 416.14 430.57 435.05 439.66 453.94 430.57 472.84 439.66 491.75 430.57 510.65 439.66 529.55 430.57 548.46 439.66 567.36 430.57 586.27 439.66 605.18 430.57 624.08 439.66 642.99 430.57 661.9 439.66 680.82 430.57 699.73 439.66 718.64 430.57 737.55 439.66 756.47 430.57 775.38 439.66 794.29 430.57 813.2 439.66 832.11 430.57 851.04 439.66 869.95 430.57 888.88 439.66 907.81 430.57"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-16" points=".24 423.03 19.14 432.11 38.05 423.03 56.95 432.11 75.85 423.03 94.75 432.11 113.66 423.03 132.56 432.11 151.46 423.03 170.37 432.11 189.27 423.03 208.17 432.11 227.08 423.03 245.98 432.11 264.89 423.03 283.8 432.11 302.7 423.03 321.61 432.11 340.51 423.03 359.42 432.11 378.33 423.03 397.24 432.11 416.14 423.03 435.05 432.11 453.94 423.03 472.84 432.11 491.75 423.03 510.65 432.11 529.55 423.03 548.46 432.11 567.36 423.03 586.27 432.11 605.18 423.03 624.08 432.11 642.99 423.03 661.9 432.11 680.82 423.03 699.73 432.11 718.64 423.03 737.55 432.11 756.47 423.03 775.38 432.11 794.29 423.03 813.2 432.11 832.11 423.03 851.04 432.11 869.95 423.03 888.88 432.11 907.81 423.03"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-74" points=".24 415.48 19.14 424.57 38.05 415.48 56.95 424.57 75.85 415.48 94.75 424.57 113.66 415.48 132.56 424.57 151.46 415.48 170.37 424.57 189.27 415.48 208.17 424.57 227.08 415.48 245.98 424.57 264.89 415.48 283.8 424.57 302.7 415.48 321.61 424.57 340.51 415.48 359.42 424.57 378.33 415.48 397.24 424.57 416.14 415.48 435.05 424.57 453.94 415.48 472.84 424.57 491.75 415.48 510.65 424.57 529.55 415.48 548.46 424.57 567.36 415.48 586.27 424.57 605.18 415.48 624.08 424.57 642.99 415.48 661.9 424.57 680.82 415.48 699.73 424.57 718.64 415.48 737.55 424.57 756.47 415.48 775.38 424.57 794.29 415.48 813.2 424.57 832.11 415.48 851.04 424.57 869.95 415.48 888.88 424.57 907.81 415.48"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-66" points=".24 407.94 19.14 417.03 38.05 407.94 56.95 417.03 75.85 407.94 94.75 417.03 113.66 407.94 132.56 417.03 151.46 407.94 170.37 417.03 189.27 407.94 208.17 417.03 227.08 407.94 245.98 417.03 264.89 407.94 283.8 417.03 302.7 407.94 321.61 417.03 340.51 407.94 359.42 417.03 378.33 407.94 397.24 417.03 416.14 407.94 435.05 417.03 453.94 407.94 472.84 417.03 491.75 407.94 510.65 417.03 529.55 407.94 548.46 417.03 567.36 407.94 586.27 417.03 605.18 407.94 624.08 417.03 642.99 407.94 661.9 417.03 680.82 407.94 699.73 417.03 718.64 407.94 737.55 417.03 756.47 407.94 775.38 417.03 794.29 407.94 813.2 417.03 832.11 407.94 851.04 417.03 869.95 407.94 888.88 417.03 907.81 407.94"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-42" points=".24 400.4 19.14 409.48 38.05 400.4 56.95 409.48 75.85 400.4 94.75 409.48 113.66 400.4 132.56 409.48 151.46 400.4 170.37 409.48 189.27 400.4 208.17 409.48 227.08 400.4 245.98 409.48 264.89 400.4 283.8 409.48 302.7 400.4 321.61 409.48 340.51 400.4 359.42 409.48 378.33 400.4 397.24 409.48 416.14 400.4 435.05 409.48 453.94 400.4 472.84 409.48 491.75 400.4 510.65 409.48 529.55 400.4 548.46 409.48 567.36 400.4 586.27 409.48 605.18 400.4 624.08 409.48 642.99 400.4 661.9 409.48 680.82 400.4 699.73 409.48 718.64 400.4 737.55 409.48 756.47 400.4 775.38 409.48 794.29 400.4 813.2 409.48 832.11 400.4 851.04 409.48 869.95 400.4 888.88 409.48 907.81 400.4"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-25" points=".24 392.85 19.14 401.94 38.05 392.85 56.95 401.94 75.85 392.85 94.75 401.94 113.66 392.85 132.56 401.94 151.46 392.85 170.37 401.94 189.27 392.85 208.17 401.94 227.08 392.85 245.98 401.94 264.89 392.85 283.8 401.94 302.7 392.85 321.61 401.94 340.51 392.85 359.42 401.94 378.33 392.85 397.24 401.94 416.14 392.85 435.05 401.94 453.94 392.85 472.84 401.94 491.75 392.85 510.65 401.94 529.55 392.85 548.46 401.94 567.36 392.85 586.27 401.94 605.18 392.85 624.08 401.94 642.99 392.85 661.9 401.94 680.82 392.85 699.73 401.94 718.64 392.85 737.55 401.94 756.47 392.85 775.38 401.94 794.29 392.85 813.2 401.94 832.11 392.85 851.04 401.94 869.95 392.85 888.88 401.94 907.81 392.85"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-71" points=".24 385.31 19.14 394.4 38.05 385.31 56.95 394.4 75.85 385.31 94.75 394.4 113.66 385.31 132.56 394.4 151.46 385.31 170.37 394.4 189.27 385.31 208.17 394.4 227.08 385.31 245.98 394.4 264.89 385.31 283.8 394.4 302.7 385.31 321.61 394.4 340.51 385.31 359.42 394.4 378.33 385.31 397.24 394.4 416.14 385.31 435.05 394.4 453.94 385.31 472.84 394.4 491.75 385.31 510.65 394.4 529.55 385.31 548.46 394.4 567.36 385.31 586.27 394.4 605.18 385.31 624.08 394.4 642.99 385.31 661.9 394.4 680.82 385.31 699.73 394.4 718.64 385.31 737.55 394.4 756.47 385.31 775.38 394.4 794.29 385.31 813.2 394.4 832.11 385.31 851.04 394.4 869.95 385.31 888.88 394.4 907.81 385.31"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-3" points=".24 377.77 19.14 386.86 38.05 377.77 56.95 386.86 75.85 377.77 94.75 386.86 113.66 377.77 132.56 386.86 151.46 377.77 170.37 386.86 189.27 377.77 208.17 386.86 227.08 377.77 245.98 386.86 264.89 377.77 283.8 386.86 302.7 377.77 321.61 386.86 340.51 377.77 359.42 386.86 378.33 377.77 397.24 386.86 416.14 377.77 435.05 386.86 453.94 377.77 472.84 386.86 491.75 377.77 510.65 386.86 529.55 377.77 548.46 386.86 567.36 377.77 586.27 386.86 605.18 377.77 624.08 386.86 642.99 377.77 661.9 386.86 680.82 377.77 699.73 386.86 718.64 377.77 737.55 386.86 756.47 377.77 775.38 386.86 794.29 377.77 813.2 386.86 832.11 377.77 851.04 386.86 869.95 377.77 888.88 386.86 907.81 377.77"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-32" points=".24 370.22 19.14 379.31 38.05 370.22 56.95 379.31 75.85 370.22 94.75 379.31 113.66 370.22 132.56 379.31 151.46 370.22 170.37 379.31 189.27 370.22 208.17 379.31 227.08 370.22 245.98 379.31 264.89 370.22 283.8 379.31 302.7 370.22 321.61 379.31 340.51 370.22 359.42 379.31 378.33 370.22 397.24 379.31 416.14 370.22 435.05 379.31 453.94 370.22 472.84 379.31 491.75 370.22 510.65 379.31 529.55 370.22 548.46 379.31 567.36 370.22 586.27 379.31 605.18 370.22 624.08 379.31 642.99 370.22 661.9 379.31 680.82 370.22 699.73 379.31 718.64 370.22 737.55 379.31 756.47 370.22 775.38 379.31 794.29 370.22 813.2 379.31 832.11 370.22 851.04 379.31 869.95 370.22 888.88 379.31 907.81 370.22"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-19" points=".24 362.68 19.14 371.77 38.05 362.68 56.95 371.77 75.85 362.68 94.75 371.77 113.66 362.68 132.56 371.77 151.46 362.68 170.37 371.77 189.27 362.68 208.17 371.77 227.08 362.68 245.98 371.77 264.89 362.68 283.8 371.77 302.7 362.68 321.61 371.77 340.51 362.68 359.42 371.77 378.33 362.68 397.24 371.77 416.14 362.68 435.05 371.77 453.94 362.68 472.84 371.77 491.75 362.68 510.65 371.77 529.55 362.68 548.46 371.77 567.36 362.68 586.27 371.77 605.18 362.68 624.08 371.77 642.99 362.68 661.9 371.77 680.82 362.68 699.73 371.77 718.64 362.68 737.55 371.77 756.47 362.68 775.38 371.77 794.29 362.68 813.2 371.77 832.11 362.68 851.04 371.77 869.95 362.68 888.88 371.77 907.81 362.68"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-64" points=".24 355.14 19.14 364.23 38.05 355.14 56.95 364.23 75.85 355.14 94.75 364.23 113.66 355.14 132.56 364.23 151.46 355.14 170.37 364.23 189.27 355.14 208.17 364.23 227.08 355.14 245.98 364.23 264.89 355.14 283.8 364.23 302.7 355.14 321.61 364.23 340.51 355.14 359.42 364.23 378.33 355.14 397.24 364.23 416.14 355.14 435.05 364.23 453.94 355.14 472.84 364.23 491.75 355.14 510.65 364.23 529.55 355.14 548.46 364.23 567.36 355.14 586.27 364.23 605.18 355.14 624.08 364.23 642.99 355.14 661.9 364.23 680.82 355.14 699.73 364.23 718.64 355.14 737.55 364.23 756.47 355.14 775.38 364.23 794.29 355.14 813.2 364.23 832.11 355.14 851.04 364.23 869.95 355.14 888.88 364.23 907.81 355.14"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-24" points=".24 347.59 19.14 356.68 38.05 347.59 56.95 356.68 75.85 347.59 94.75 356.68 113.66 347.59 132.56 356.68 151.46 347.59 170.37 356.68 189.27 347.59 208.17 356.68 227.08 347.59 245.98 356.68 264.89 347.59 283.8 356.68 302.7 347.59 321.61 356.68 340.51 347.59 359.42 356.68 378.33 347.59 397.24 356.68 416.14 347.59 435.05 356.68 453.94 347.59 472.84 356.68 491.75 347.59 510.65 356.68 529.55 347.59 548.46 356.68 567.36 347.59 586.27 356.68 605.18 347.59 624.08 356.68 642.99 347.59 661.9 356.68 680.82 347.59 699.73 356.68 718.64 347.59 737.55 356.68 756.47 347.59 775.38 356.68 794.29 347.59 813.2 356.68 832.11 347.59 851.04 356.68 869.95 347.59 888.88 356.68 907.81 347.59"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-28" points=".24 340.05 19.14 349.14 38.05 340.05 56.95 349.14 75.85 340.05 94.75 349.14 113.66 340.05 132.56 349.14 151.46 340.05 170.37 349.14 189.27 340.05 208.17 349.14 227.08 340.05 245.98 349.14 264.89 340.05 283.8 349.14 302.7 340.05 321.61 349.14 340.51 340.05 359.42 349.14 378.33 340.05 397.24 349.14 416.14 340.05 435.05 349.14 453.94 340.05 472.84 349.14 491.75 340.05 510.65 349.14 529.55 340.05 548.46 349.14 567.36 340.05 586.27 349.14 605.18 340.05 624.08 349.14 642.99 340.05 661.9 349.14 680.82 340.05 699.73 349.14 718.64 340.05 737.55 349.14 756.47 340.05 775.38 349.14 794.29 340.05 813.2 349.14 832.11 340.05 851.04 349.14 869.95 340.05 888.88 349.14 907.81 340.05"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-56" points=".24 332.51 19.14 341.6 38.05 332.51 56.95 341.6 75.85 332.51 94.75 341.6 113.66 332.51 132.56 341.6 151.46 332.51 170.37 341.6 189.27 332.51 208.17 341.6 227.08 332.51 245.98 341.6 264.89 332.51 283.8 341.6 302.7 332.51 321.61 341.6 340.51 332.51 359.42 341.6 378.33 332.51 397.24 341.6 416.14 332.51 435.05 341.6 453.94 332.51 472.84 341.6 491.75 332.51 510.65 341.6 529.55 332.51 548.46 341.6 567.36 332.51 586.27 341.6 605.18 332.51 624.08 341.6 642.99 332.51 661.9 341.6 680.82 332.51 699.73 341.6 718.64 332.51 737.55 341.6 756.47 332.51 775.38 341.6 794.29 332.51 813.2 341.6 832.11 332.51 851.04 341.6 869.95 332.51 888.88 341.6 907.81 332.51"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-12" points=".24 324.96 19.14 334.05 38.05 324.96 56.95 334.05 75.85 324.96 94.75 334.05 113.66 324.96 132.56 334.05 151.46 324.96 170.37 334.05 189.27 324.96 208.17 334.05 227.08 324.96 245.98 334.05 264.89 324.96 283.8 334.05 302.7 324.96 321.61 334.05 340.51 324.96 359.42 334.05 378.33 324.96 397.24 334.05 416.14 324.96 435.05 334.05 453.94 324.96 472.84 334.05 491.75 324.96 510.65 334.05 529.55 324.96 548.46 334.05 567.36 324.96 586.27 334.05 605.18 324.96 624.08 334.05 642.99 324.96 661.9 334.05 680.82 324.96 699.73 334.05 718.64 324.96 737.55 334.05 756.47 324.96 775.38 334.05 794.29 324.96 813.2 334.05 832.11 324.96 851.04 334.05 869.95 324.96 888.88 334.05 907.81 324.96"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-84" points=".24 317.42 19.14 326.51 38.05 317.42 56.95 326.51 75.85 317.42 94.75 326.51 113.66 317.42 132.56 326.51 151.46 317.42 170.37 326.51 189.27 317.42 208.17 326.51 227.08 317.42 245.98 326.51 264.89 317.42 283.8 326.51 302.7 317.42 321.61 326.51 340.51 317.42 359.42 326.51 378.33 317.42 397.24 326.51 416.14 317.42 435.05 326.51 453.94 317.42 472.84 326.51 491.75 317.42 510.65 326.51 529.55 317.42 548.46 326.51 567.36 317.42 586.27 326.51 605.18 317.42 624.08 326.51 642.99 317.42 661.9 326.51 680.82 317.42 699.73 326.51 718.64 317.42 737.55 326.51 756.47 317.42 775.38 326.51 794.29 317.42 813.2 326.51 832.11 317.42 851.04 326.51 869.95 317.42 888.88 326.51 907.81 317.42"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-30" points=".24 309.88 19.14 318.97 38.05 309.88 56.95 318.97 75.85 309.88 94.75 318.97 113.66 309.88 132.56 318.97 151.46 309.88 170.37 318.97 189.27 309.88 208.17 318.97 227.08 309.88 245.98 318.97 264.89 309.88 283.8 318.97 302.7 309.88 321.61 318.97 340.51 309.88 359.42 318.97 378.33 309.88 397.24 318.97 416.14 309.88 435.05 318.97 453.94 309.88 472.84 318.97 491.75 309.88 510.65 318.97 529.55 309.88 548.46 318.97 567.36 309.88 586.27 318.97 605.18 309.88 624.08 318.97 642.99 309.88 661.9 318.97 680.82 309.88 699.73 318.97 718.64 309.88 737.55 318.97 756.47 309.88 775.38 318.97 794.29 309.88 813.2 318.97 832.11 309.88 851.04 318.97 869.95 309.88 888.88 318.97 907.81 309.88"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-15" points=".24 302.34 19.14 311.42 38.05 302.34 56.95 311.42 75.85 302.34 94.75 311.42 113.66 302.34 132.56 311.42 151.46 302.34 170.37 311.42 189.27 302.34 208.17 311.42 227.08 302.34 245.98 311.42 264.89 302.34 283.8 311.42 302.7 302.34 321.61 311.42 340.51 302.34 359.42 311.42 378.33 302.34 397.24 311.42 416.14 302.34 435.05 311.42 453.94 302.34 472.84 311.42 491.75 302.34 510.65 311.42 529.55 302.34 548.46 311.42 567.36 302.34 586.27 311.42 605.18 302.34 624.08 311.42 642.99 302.34 661.9 311.42 680.82 302.34 699.73 311.42 718.64 302.34 737.55 311.42 756.47 302.34 775.38 311.42 794.29 302.34 813.2 311.42 832.11 302.34 851.04 311.42 869.95 302.34 888.88 311.42 907.81 302.34"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-33" points=".24 294.79 19.14 303.88 38.05 294.79 56.95 303.88 75.85 294.79 94.75 303.88 113.66 294.79 132.56 303.88 151.46 294.79 170.37 303.88 189.27 294.79 208.17 303.88 227.08 294.79 245.98 303.88 264.89 294.79 283.8 303.88 302.7 294.79 321.61 303.88 340.51 294.79 359.42 303.88 378.33 294.79 397.24 303.88 416.14 294.79 435.05 303.88 453.94 294.79 472.84 303.88 491.75 294.79 510.65 303.88 529.55 294.79 548.46 303.88 567.36 294.79 586.27 303.88 605.18 294.79 624.08 303.88 642.99 294.79 661.9 303.88 680.82 294.79 699.73 303.88 718.64 294.79 737.55 303.88 756.47 294.79 775.38 303.88 794.29 294.79 813.2 303.88 832.11 294.79 851.04 303.88 869.95 294.79 888.88 303.88 907.81 294.79"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-50" points=".24 287.25 19.14 296.34 38.05 287.25 56.95 296.34 75.85 287.25 94.75 296.34 113.66 287.25 132.56 296.34 151.46 287.25 170.37 296.34 189.27 287.25 208.17 296.34 227.08 287.25 245.98 296.34 264.89 287.25 283.8 296.34 302.7 287.25 321.61 296.34 340.51 287.25 359.42 296.34 378.33 287.25 397.24 296.34 416.14 287.25 435.05 296.34 453.94 287.25 472.84 296.34 491.75 287.25 510.65 296.34 529.55 287.25 548.46 296.34 567.36 287.25 586.27 296.34 605.18 287.25 624.08 296.34 642.99 287.25 661.9 296.34 680.82 287.25 699.73 296.34 718.64 287.25 737.55 296.34 756.47 287.25 775.38 296.34 794.29 287.25 813.2 296.34 832.11 287.25 851.04 296.34 869.95 287.25 888.88 296.34 907.81 287.25"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-43" points=".24 279.71 19.14 288.79 38.05 279.71 56.95 288.79 75.85 279.71 94.75 288.79 113.66 279.71 132.56 288.79 151.46 279.71 170.37 288.79 189.27 279.71 208.17 288.79 227.08 279.71 245.98 288.79 264.89 279.71 283.8 288.79 302.7 279.71 321.61 288.79 340.51 279.71 359.42 288.79 378.33 279.71 397.24 288.79 416.14 279.71 435.05 288.79 453.94 279.71 472.84 288.79 491.75 279.71 510.65 288.79 529.55 279.71 548.46 288.79 567.36 279.71 586.27 288.79 605.18 279.71 624.08 288.79 642.99 279.71 661.9 288.79 680.82 279.71 699.73 288.79 718.64 279.71 737.55 288.79 756.47 279.71 775.38 288.79 794.29 279.71 813.2 288.79 832.11 279.71 851.04 288.79 869.95 279.71 888.88 288.79 907.81 279.71"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-7" points=".24 272.16 19.14 281.25 38.05 272.16 56.95 281.25 75.85 272.16 94.75 281.25 113.66 272.16 132.56 281.25 151.46 272.16 170.37 281.25 189.27 272.16 208.17 281.25 227.08 272.16 245.98 281.25 264.89 272.16 283.8 281.25 302.7 272.16 321.61 281.25 340.51 272.16 359.42 281.25 378.33 272.16 397.24 281.25 416.14 272.16 435.05 281.25 453.94 272.16 472.84 281.25 491.75 272.16 510.65 281.25 529.55 272.16 548.46 281.25 567.36 272.16 586.27 281.25 605.18 272.16 624.08 281.25 642.99 272.16 661.9 281.25 680.82 272.16 699.73 281.25 718.64 272.16 737.55 281.25 756.47 272.16 775.38 281.25 794.29 272.16 813.2 281.25 832.11 272.16 851.04 281.25 869.95 272.16 888.88 281.25 907.81 272.16"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-70" points=".24 264.62 19.14 273.71 38.05 264.62 56.95 273.71 75.85 264.62 94.75 273.71 113.66 264.62 132.56 273.71 151.46 264.62 170.37 273.71 189.27 264.62 208.17 273.71 227.08 264.62 245.98 273.71 264.89 264.62 283.8 273.71 302.7 264.62 321.61 273.71 340.51 264.62 359.42 273.71 378.33 264.62 397.24 273.71 416.14 264.62 435.05 273.71 453.94 264.62 472.84 273.71 491.75 264.62 510.65 273.71 529.55 264.62 548.46 273.71 567.36 264.62 586.27 273.71 605.18 264.62 624.08 273.71 642.99 264.62 661.9 273.71 680.82 264.62 699.73 273.71 718.64 264.62 737.55 273.71 756.47 264.62 775.38 273.71 794.29 264.62 813.2 273.71 832.11 264.62 851.04 273.71 869.95 264.62 888.88 273.71 907.81 264.62"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-65" points=".24 257.08 19.14 266.16 38.05 257.08 56.95 266.16 75.85 257.08 94.75 266.16 113.66 257.08 132.56 266.16 151.46 257.08 170.37 266.16 189.27 257.08 208.17 266.16 227.08 257.08 245.98 266.16 264.89 257.08 283.8 266.16 302.7 257.08 321.61 266.16 340.51 257.08 359.42 266.16 378.33 257.08 397.24 266.16 416.14 257.08 435.05 266.16 453.94 257.08 472.84 266.16 491.75 257.08 510.65 266.16 529.55 257.08 548.46 266.16 567.36 257.08 586.27 266.16 605.18 257.08 624.08 266.16 642.99 257.08 661.9 266.16 680.82 257.08 699.73 266.16 718.64 257.08 737.55 266.16 756.47 257.08 775.38 266.16 794.29 257.08 813.2 266.16 832.11 257.08 851.04 266.16 869.95 257.08 888.88 266.16 907.81 257.08"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-68" points=".24 249.53 19.14 258.62 38.05 249.53 56.95 258.62 75.85 249.53 94.75 258.62 113.66 249.53 132.56 258.62 151.46 249.53 170.37 258.62 189.27 249.53 208.17 258.62 227.08 249.53 245.98 258.62 264.89 249.53 283.8 258.62 302.7 249.53 321.61 258.62 340.51 249.53 359.42 258.62 378.33 249.53 397.24 258.62 416.14 249.53 435.05 258.62 453.94 249.53 472.84 258.62 491.75 249.53 510.65 258.62 529.55 249.53 548.46 258.62 567.36 249.53 586.27 258.62 605.18 249.53 624.08 258.62 642.99 249.53 661.9 258.62 680.82 249.53 699.73 258.62 718.64 249.53 737.55 258.62 756.47 249.53 775.38 258.62 794.29 249.53 813.2 258.62 832.11 249.53 851.04 258.62 869.95 249.53 888.88 258.62 907.81 249.53"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-57" points=".24 241.99 19.14 251.08 38.05 241.99 56.95 251.08 75.85 241.99 94.75 251.08 113.66 241.99 132.56 251.08 151.46 241.99 170.37 251.08 189.27 241.99 208.17 251.08 227.08 241.99 245.98 251.08 264.89 241.99 283.8 251.08 302.7 241.99 321.61 251.08 340.51 241.99 359.42 251.08 378.33 241.99 397.24 251.08 416.14 241.99 435.05 251.08 453.94 241.99 472.84 251.08 491.75 241.99 510.65 251.08 529.55 241.99 548.46 251.08 567.36 241.99 586.27 251.08 605.18 241.99 624.08 251.08 642.99 241.99 661.9 251.08 680.82 241.99 699.73 251.08 718.64 241.99 737.55 251.08 756.47 241.99 775.38 251.08 794.29 241.99 813.2 251.08 832.11 241.99 851.04 251.08 869.95 241.99 888.88 251.08 907.81 241.99"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-9" points=".24 234.45 19.14 243.53 38.05 234.45 56.95 243.53 75.85 234.45 94.75 243.53 113.66 234.45 132.56 243.53 151.46 234.45 170.37 243.53 189.27 234.45 208.17 243.53 227.08 234.45 245.98 243.53 264.89 234.45 283.8 243.53 302.7 234.45 321.61 243.53 340.51 234.45 359.42 243.53 378.33 234.45 397.24 243.53 416.14 234.45 435.05 243.53 453.94 234.45 472.84 243.53 491.75 234.45 510.65 243.53 529.55 234.45 548.46 243.53 567.36 234.45 586.27 243.53 605.18 234.45 624.08 243.53 642.99 234.45 661.9 243.53 680.82 234.45 699.73 243.53 718.64 234.45 737.55 243.53 756.47 234.45 775.38 243.53 794.29 234.45 813.2 243.53 832.11 234.45 851.04 243.53 869.95 234.45 888.88 243.53 907.81 234.45"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-8" points=".24 226.9 19.14 235.99 38.05 226.9 56.95 235.99 75.85 226.9 94.75 235.99 113.66 226.9 132.56 235.99 151.46 226.9 170.37 235.99 189.27 226.9 208.17 235.99 227.08 226.9 245.98 235.99 264.89 226.9 283.8 235.99 302.7 226.9 321.61 235.99 340.51 226.9 359.42 235.99 378.33 226.9 397.24 235.99 416.14 226.9 435.05 235.99 453.94 226.9 472.84 235.99 491.75 226.9 510.65 235.99 529.55 226.9 548.46 235.99 567.36 226.9 586.27 235.99 605.18 226.9 624.08 235.99 642.99 226.9 661.9 235.99 680.82 226.9 699.73 235.99 718.64 226.9 737.55 235.99 756.47 226.9 775.38 235.99 794.29 226.9 813.2 235.99 832.11 226.9 851.04 235.99 869.95 226.9 888.88 235.99 907.81 226.9"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-87" points=".24 219.36 19.14 228.45 38.05 219.36 56.95 228.45 75.85 219.36 94.75 228.45 113.66 219.36 132.56 228.45 151.46 219.36 170.37 228.45 189.27 219.36 208.17 228.45 227.08 219.36 245.98 228.45 264.89 219.36 283.8 228.45 302.7 219.36 321.61 228.45 340.51 219.36 359.42 228.45 378.33 219.36 397.24 228.45 416.14 219.36 435.05 228.45 453.94 219.36 472.84 228.45 491.75 219.36 510.65 228.45 529.55 219.36 548.46 228.45 567.36 219.36 586.27 228.45 605.18 219.36 624.08 228.45 642.99 219.36 661.9 228.45 680.82 219.36 699.73 228.45 718.64 219.36 737.55 228.45 756.47 219.36 775.38 228.45 794.29 219.36 813.2 228.45 832.11 219.36 851.04 228.45 869.95 219.36 888.88 228.45 907.81 219.36"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-46" points=".24 211.82 19.14 220.9 38.05 211.82 56.95 220.9 75.85 211.82 94.75 220.9 113.66 211.82 132.56 220.9 151.46 211.82 170.37 220.9 189.27 211.82 208.17 220.9 227.08 211.82 245.98 220.9 264.89 211.82 283.8 220.9 302.7 211.82 321.61 220.9 340.51 211.82 359.42 220.9 378.33 211.82 397.24 220.9 416.14 211.82 435.05 220.9 453.94 211.82 472.84 220.9 491.75 211.82 510.65 220.9 529.55 211.82 548.46 220.9 567.36 211.82 586.27 220.9 605.18 211.82 624.08 220.9 642.99 211.82 661.9 220.9 680.82 211.82 699.73 220.9 718.64 211.82 737.55 220.9 756.47 211.82 775.38 220.9 794.29 211.82 813.2 220.9 832.11 211.82 851.04 220.9 869.95 211.82 888.88 220.9 907.81 211.82"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-29" points=".24 204.27 19.14 213.36 38.05 204.27 56.95 213.36 75.85 204.27 94.75 213.36 113.66 204.27 132.56 213.36 151.46 204.27 170.37 213.36 189.27 204.27 208.17 213.36 227.08 204.27 245.98 213.36 264.89 204.27 283.8 213.36 302.7 204.27 321.61 213.36 340.51 204.27 359.42 213.36 378.33 204.27 397.24 213.36 416.14 204.27 435.05 213.36 453.94 204.27 472.84 213.36 491.75 204.27 510.65 213.36 529.55 204.27 548.46 213.36 567.36 204.27 586.27 213.36 605.18 204.27 624.08 213.36 642.99 204.27 661.9 213.36 680.82 204.27 699.73 213.36 718.64 204.27 737.55 213.36 756.47 204.27 775.38 213.36 794.29 204.27 813.2 213.36 832.11 204.27 851.04 213.36 869.95 204.27 888.88 213.36 907.81 204.27"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-76" points=".24 196.73 19.14 205.82 38.05 196.73 56.95 205.82 75.85 196.73 94.75 205.82 113.66 196.73 132.56 205.82 151.46 196.73 170.37 205.82 189.27 196.73 208.17 205.82 227.08 196.73 245.98 205.82 264.89 196.73 283.8 205.82 302.7 196.73 321.61 205.82 340.51 196.73 359.42 205.82 378.33 196.73 397.24 205.82 416.14 196.73 435.05 205.82 453.94 196.73 472.84 205.82 491.75 196.73 510.65 205.82 529.55 196.73 548.46 205.82 567.36 196.73 586.27 205.82 605.18 196.73 624.08 205.82 642.99 196.73 661.9 205.82 680.82 196.73 699.73 205.82 718.64 196.73 737.55 205.82 756.47 196.73 775.38 205.82 794.29 196.73 813.2 205.82 832.11 196.73 851.04 205.82 869.95 196.73 888.88 205.82 907.81 196.73"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-58" points=".24 189.19 19.14 198.27 38.05 189.19 56.95 198.27 75.85 189.19 94.75 198.27 113.66 189.19 132.56 198.27 151.46 189.19 170.37 198.27 189.27 189.19 208.17 198.27 227.08 189.19 245.98 198.27 264.89 189.19 283.8 198.27 302.7 189.19 321.61 198.27 340.51 189.19 359.42 198.27 378.33 189.19 397.24 198.27 416.14 189.19 435.05 198.27 453.94 189.19 472.84 198.27 491.75 189.19 510.65 198.27 529.55 189.19 548.46 198.27 567.36 189.19 586.27 198.27 605.18 189.19 624.08 198.27 642.99 189.19 661.9 198.27 680.82 189.19 699.73 198.27 718.64 189.19 737.55 198.27 756.47 189.19 775.38 198.27 794.29 189.19 813.2 198.27 832.11 189.19 851.04 198.27 869.95 189.19 888.88 198.27 907.81 189.19"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-48" points=".24 181.64 19.14 190.73 38.05 181.64 56.95 190.73 75.85 181.64 94.75 190.73 113.66 181.64 132.56 190.73 151.46 181.64 170.37 190.73 189.27 181.64 208.17 190.73 227.08 181.64 245.98 190.73 264.89 181.64 283.8 190.73 302.7 181.64 321.61 190.73 340.51 181.64 359.42 190.73 378.33 181.64 397.24 190.73 416.14 181.64 435.05 190.73 453.94 181.64 472.84 190.73 491.75 181.64 510.65 190.73 529.55 181.64 548.46 190.73 567.36 181.64 586.27 190.73 605.18 181.64 624.08 190.73 642.99 181.64 661.9 190.73 680.82 181.64 699.73 190.73 718.64 181.64 737.55 190.73 756.47 181.64 775.38 190.73 794.29 181.64 813.2 190.73 832.11 181.64 851.04 190.73 869.95 181.64 888.88 190.73 907.81 181.64"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-37" points=".24 174.1 19.14 183.19 38.05 174.1 56.95 183.19 75.85 174.1 94.75 183.19 113.66 174.1 132.56 183.19 151.46 174.1 170.37 183.19 189.27 174.1 208.17 183.19 227.08 174.1 245.98 183.19 264.89 174.1 283.8 183.19 302.7 174.1 321.61 183.19 340.51 174.1 359.42 183.19 378.33 174.1 397.24 183.19 416.14 174.1 435.05 183.19 453.94 174.1 472.84 183.19 491.75 174.1 510.65 183.19 529.55 174.1 548.46 183.19 567.36 174.1 586.27 183.19 605.18 174.1 624.08 183.19 642.99 174.1 661.9 183.19 680.82 174.1 699.73 183.19 718.64 174.1 737.55 183.19 756.47 174.1 775.38 183.19 794.29 174.1 813.2 183.19 832.11 174.1 851.04 183.19 869.95 174.1 888.88 183.19 907.81 174.1"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-2" points=".24 166.56 19.14 175.65 38.05 166.56 56.95 175.65 75.85 166.56 94.75 175.65 113.66 166.56 132.56 175.65 151.46 166.56 170.37 175.65 189.27 166.56 208.17 175.65 227.08 166.56 245.98 175.65 264.89 166.56 283.8 175.65 302.7 166.56 321.61 175.65 340.51 166.56 359.42 175.65 378.33 166.56 397.24 175.65 416.14 166.56 435.05 175.65 453.94 166.56 472.84 175.65 491.75 166.56 510.65 175.65 529.55 166.56 548.46 175.65 567.36 166.56 586.27 175.65 605.18 166.56 624.08 175.65 642.99 166.56 661.9 175.65 680.82 166.56 699.73 175.65 718.64 166.56 737.55 175.65 756.47 166.56 775.38 175.65 794.29 166.56 813.2 175.65 832.11 166.56 851.04 175.65 869.95 166.56 888.88 175.65 907.81 166.56"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-81" points=".24 159.01 19.14 168.1 38.05 159.01 56.95 168.1 75.85 159.01 94.75 168.1 113.66 159.01 132.56 168.1 151.46 159.01 170.37 168.1 189.27 159.01 208.17 168.1 227.08 159.01 245.98 168.1 264.89 159.01 283.8 168.1 302.7 159.01 321.61 168.1 340.51 159.01 359.42 168.1 378.33 159.01 397.24 168.1 416.14 159.01 435.05 168.1 453.94 159.01 472.84 168.1 491.75 159.01 510.65 168.1 529.55 159.01 548.46 168.1 567.36 159.01 586.27 168.1 605.18 159.01 624.08 168.1 642.99 159.01 661.9 168.1 680.82 159.01 699.73 168.1 718.64 159.01 737.55 168.1 756.47 159.01 775.38 168.1 794.29 159.01 813.2 168.1 832.11 159.01 851.04 168.1 869.95 159.01 888.88 168.1 907.81 159.01"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-69" points=".24 151.47 19.14 160.56 38.05 151.47 56.95 160.56 75.85 151.47 94.75 160.56 113.66 151.47 132.56 160.56 151.46 151.47 170.37 160.56 189.27 151.47 208.17 160.56 227.08 151.47 245.98 160.56 264.89 151.47 283.8 160.56 302.7 151.47 321.61 160.56 340.51 151.47 359.42 160.56 378.33 151.47 397.24 160.56 416.14 151.47 435.05 160.56 453.94 151.47 472.84 160.56 491.75 151.47 510.65 160.56 529.55 151.47 548.46 160.56 567.36 151.47 586.27 160.56 605.18 151.47 624.08 160.56 642.99 151.47 661.9 160.56 680.82 151.47 699.73 160.56 718.64 151.47 737.55 160.56 756.47 151.47 775.38 160.56 794.29 151.47 813.2 160.56 832.11 151.47 851.04 160.56 869.95 151.47 888.88 160.56 907.81 151.47"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-20" points=".24 143.93 19.14 153.02 38.05 143.93 56.95 153.02 75.85 143.93 94.75 153.02 113.66 143.93 132.56 153.02 151.46 143.93 170.37 153.02 189.27 143.93 208.17 153.02 227.08 143.93 245.98 153.02 264.89 143.93 283.8 153.02 302.7 143.93 321.61 153.02 340.51 143.93 359.42 153.02 378.33 143.93 397.24 153.02 416.14 143.93 435.05 153.02 453.94 143.93 472.84 153.02 491.75 143.93 510.65 153.02 529.55 143.93 548.46 153.02 567.36 143.93 586.27 153.02 605.18 143.93 624.08 153.02 642.99 143.93 661.9 153.02 680.82 143.93 699.73 153.02 718.64 143.93 737.55 153.02 756.47 143.93 775.38 153.02 794.29 143.93 813.2 153.02 832.11 143.93 851.04 153.02 869.95 143.93 888.88 153.02 907.81 143.93"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-52" points=".24 136.38 19.14 145.47 38.05 136.38 56.95 145.47 75.85 136.38 94.75 145.47 113.66 136.38 132.56 145.47 151.46 136.38 170.37 145.47 189.27 136.38 208.17 145.47 227.08 136.38 245.98 145.47 264.89 136.38 283.8 145.47 302.7 136.38 321.61 145.47 340.51 136.38 359.42 145.47 378.33 136.38 397.24 145.47 416.14 136.38 435.05 145.47 453.94 136.38 472.84 145.47 491.75 136.38 510.65 145.47 529.55 136.38 548.46 145.47 567.36 136.38 586.27 145.47 605.18 136.38 624.08 145.47 642.99 136.38 661.9 145.47 680.82 136.38 699.73 145.47 718.64 136.38 737.55 145.47 756.47 136.38 775.38 145.47 794.29 136.38 813.2 145.47 832.11 136.38 851.04 145.47 869.95 136.38 888.88 145.47 907.81 136.38"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-22" points=".24 128.84 19.14 137.93 38.05 128.84 56.95 137.93 75.85 128.84 94.75 137.93 113.66 128.84 132.56 137.93 151.46 128.84 170.37 137.93 189.27 128.84 208.17 137.93 227.08 128.84 245.98 137.93 264.89 128.84 283.8 137.93 302.7 128.84 321.61 137.93 340.51 128.84 359.42 137.93 378.33 128.84 397.24 137.93 416.14 128.84 435.05 137.93 453.94 128.84 472.84 137.93 491.75 128.84 510.65 137.93 529.55 128.84 548.46 137.93 567.36 128.84 586.27 137.93 605.18 128.84 624.08 137.93 642.99 128.84 661.9 137.93 680.82 128.84 699.73 137.93 718.64 128.84 737.55 137.93 756.47 128.84 775.38 137.93 794.29 128.84 813.2 137.93 832.11 128.84 851.04 137.93 869.95 128.84 888.88 137.93 907.81 128.84"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-39" points=".24 121.3 19.14 130.39 38.05 121.3 56.95 130.39 75.85 121.3 94.75 130.39 113.66 121.3 132.56 130.39 151.46 121.3 170.37 130.39 189.27 121.3 208.17 130.39 227.08 121.3 245.98 130.39 264.89 121.3 283.8 130.39 302.7 121.3 321.61 130.39 340.51 121.3 359.42 130.39 378.33 121.3 397.24 130.39 416.14 121.3 435.05 130.39 453.94 121.3 472.84 130.39 491.75 121.3 510.65 130.39 529.55 121.3 548.46 130.39 567.36 121.3 586.27 130.39 605.18 121.3 624.08 130.39 642.99 121.3 661.9 130.39 680.82 121.3 699.73 130.39 718.64 121.3 737.55 130.39 756.47 121.3 775.38 130.39 794.29 121.3 813.2 130.39 832.11 121.3 851.04 130.39 869.95 121.3 888.88 130.39 907.81 121.3"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-79" points=".24 113.75 19.14 122.84 38.05 113.75 56.95 122.84 75.85 113.75 94.75 122.84 113.66 113.75 132.56 122.84 151.46 113.75 170.37 122.84 189.27 113.75 208.17 122.84 227.08 113.75 245.98 122.84 264.89 113.75 283.8 122.84 302.7 113.75 321.61 122.84 340.51 113.75 359.42 122.84 378.33 113.75 397.24 122.84 416.14 113.75 435.05 122.84 453.94 113.75 472.84 122.84 491.75 113.75 510.65 122.84 529.55 113.75 548.46 122.84 567.36 113.75 586.27 122.84 605.18 113.75 624.08 122.84 642.99 113.75 661.9 122.84 680.82 113.75 699.73 122.84 718.64 113.75 737.55 122.84 756.47 113.75 775.38 122.84 794.29 113.75 813.2 122.84 832.11 113.75 851.04 122.84 869.95 113.75 888.88 122.84 907.81 113.75"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-4" points=".24 106.21 19.14 115.3 38.05 106.21 56.95 115.3 75.85 106.21 94.75 115.3 113.66 106.21 132.56 115.3 151.46 106.21 170.37 115.3 189.27 106.21 208.17 115.3 227.08 106.21 245.98 115.3 264.89 106.21 283.8 115.3 302.7 106.21 321.61 115.3 340.51 106.21 359.42 115.3 378.33 106.21 397.24 115.3 416.14 106.21 435.05 115.3 453.94 106.21 472.84 115.3 491.75 106.21 510.65 115.3 529.55 106.21 548.46 115.3 567.36 106.21 586.27 115.3 605.18 106.21 624.08 115.3 642.99 106.21 661.9 115.3 680.82 106.21 699.73 115.3 718.64 106.21 737.55 115.3 756.47 106.21 775.38 115.3 794.29 106.21 813.2 115.3 832.11 106.21 851.04 115.3 869.95 106.21 888.88 115.3 907.81 106.21"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-55" points=".24 98.67 19.14 107.76 38.05 98.67 56.95 107.76 75.85 98.67 94.75 107.76 113.66 98.67 132.56 107.76 151.46 98.67 170.37 107.76 189.27 98.67 208.17 107.76 227.08 98.67 245.98 107.76 264.89 98.67 283.8 107.76 302.7 98.67 321.61 107.76 340.51 98.67 359.42 107.76 378.33 98.67 397.24 107.76 416.14 98.67 435.05 107.76 453.94 98.67 472.84 107.76 491.75 98.67 510.65 107.76 529.55 98.67 548.46 107.76 567.36 98.67 586.27 107.76 605.18 98.67 624.08 107.76 642.99 98.67 661.9 107.76 680.82 98.67 699.73 107.76 718.64 98.67 737.55 107.76 756.47 98.67 775.38 107.76 794.29 98.67 813.2 107.76 832.11 98.67 851.04 107.76 869.95 98.67 888.88 107.76 907.81 98.67"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-53" points=".24 91.13 19.14 100.21 38.05 91.13 56.95 100.21 75.85 91.13 94.75 100.21 113.66 91.13 132.56 100.21 151.46 91.13 170.37 100.21 189.27 91.13 208.17 100.21 227.08 91.13 245.98 100.21 264.89 91.13 283.8 100.21 302.7 91.13 321.61 100.21 340.51 91.13 359.42 100.21 378.33 91.13 397.24 100.21 416.14 91.13 435.05 100.21 453.94 91.13 472.84 100.21 491.75 91.13 510.65 100.21 529.55 91.13 548.46 100.21 567.36 91.13 586.27 100.21 605.18 91.13 624.08 100.21 642.99 91.13 661.9 100.21 680.82 91.13 699.73 100.21 718.64 91.13 737.55 100.21 756.47 91.13 775.38 100.21 794.29 91.13 813.2 100.21 832.11 91.13 851.04 100.21 869.95 91.13 888.88 100.21 907.81 91.13"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-36" points=".24 83.58 19.14 92.67 38.05 83.58 56.95 92.67 75.85 83.58 94.75 92.67 113.66 83.58 132.56 92.67 151.46 83.58 170.37 92.67 189.27 83.58 208.17 92.67 227.08 83.58 245.98 92.67 264.89 83.58 283.8 92.67 302.7 83.58 321.61 92.67 340.51 83.58 359.42 92.67 378.33 83.58 397.24 92.67 416.14 83.58 435.05 92.67 453.94 83.58 472.84 92.67 491.75 83.58 510.65 92.67 529.55 83.58 548.46 92.67 567.36 83.58 586.27 92.67 605.18 83.58 624.08 92.67 642.99 83.58 661.9 92.67 680.82 83.58 699.73 92.67 718.64 83.58 737.55 92.67 756.47 83.58 775.38 92.67 794.29 83.58 813.2 92.67 832.11 83.58 851.04 92.67 869.95 83.58 888.88 92.67 907.81 83.58"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-62" points=".24 76.04 19.14 85.13 38.05 76.04 56.95 85.13 75.85 76.04 94.75 85.13 113.66 76.04 132.56 85.13 151.46 76.04 170.37 85.13 189.27 76.04 208.17 85.13 227.08 76.04 245.98 85.13 264.89 76.04 283.8 85.13 302.7 76.04 321.61 85.13 340.51 76.04 359.42 85.13 378.33 76.04 397.24 85.13 416.14 76.04 435.05 85.13 453.94 76.04 472.84 85.13 491.75 76.04 510.65 85.13 529.55 76.04 548.46 85.13 567.36 76.04 586.27 85.13 605.18 76.04 624.08 85.13 642.99 76.04 661.9 85.13 680.82 76.04 699.73 85.13 718.64 76.04 737.55 85.13 756.47 76.04 775.38 85.13 794.29 76.04 813.2 85.13 832.11 76.04 851.04 85.13 869.95 76.04 888.88 85.13 907.81 76.04"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-21" points=".24 68.5 19.14 77.58 38.05 68.5 56.95 77.58 75.85 68.5 94.75 77.58 113.66 68.5 132.56 77.58 151.46 68.5 170.37 77.58 189.27 68.5 208.17 77.58 227.08 68.5 245.98 77.58 264.89 68.5 283.8 77.58 302.7 68.5 321.61 77.58 340.51 68.5 359.42 77.58 378.33 68.5 397.24 77.58 416.14 68.5 435.05 77.58 453.94 68.5 472.84 77.58 491.75 68.5 510.65 77.58 529.55 68.5 548.46 77.58 567.36 68.5 586.27 77.58 605.18 68.5 624.08 77.58 642.99 68.5 661.9 77.58 680.82 68.5 699.73 77.58 718.64 68.5 737.55 77.58 756.47 68.5 775.38 77.58 794.29 68.5 813.2 77.58 832.11 68.5 851.04 77.58 869.95 68.5 888.88 77.58 907.81 68.5"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-83" points=".24 60.95 19.14 70.04 38.05 60.95 56.95 70.04 75.85 60.95 94.75 70.04 113.66 60.95 132.56 70.04 151.46 60.95 170.37 70.04 189.27 60.95 208.17 70.04 227.08 60.95 245.98 70.04 264.89 60.95 283.8 70.04 302.7 60.95 321.61 70.04 340.51 60.95 359.42 70.04 378.33 60.95 397.24 70.04 416.14 60.95 435.05 70.04 453.94 60.95 472.84 70.04 491.75 60.95 510.65 70.04 529.55 60.95 548.46 70.04 567.36 60.95 586.27 70.04 605.18 60.95 624.08 70.04 642.99 60.95 661.9 70.04 680.82 60.95 699.73 70.04 718.64 60.95 737.55 70.04 756.47 60.95 775.38 70.04 794.29 60.95 813.2 70.04 832.11 60.95 851.04 70.04 869.95 60.95 888.88 70.04 907.81 60.95"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-6" points=".24 53.41 19.14 62.5 38.05 53.41 56.95 62.5 75.85 53.41 94.75 62.5 113.66 53.41 132.56 62.5 151.46 53.41 170.37 62.5 189.27 53.41 208.17 62.5 227.08 53.41 245.98 62.5 264.89 53.41 283.8 62.5 302.7 53.41 321.61 62.5 340.51 53.41 359.42 62.5 378.33 53.41 397.24 62.5 416.14 53.41 435.05 62.5 453.94 53.41 472.84 62.5 491.75 53.41 510.65 62.5 529.55 53.41 548.46 62.5 567.36 53.41 586.27 62.5 605.18 53.41 624.08 62.5 642.99 53.41 661.9 62.5 680.82 53.41 699.73 62.5 718.64 53.41 737.55 62.5 756.47 53.41 775.38 62.5 794.29 53.41 813.2 62.5 832.11 53.41 851.04 62.5 869.95 53.41 888.88 62.5 907.81 53.41"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-88" points=".24 45.87 19.14 54.95 38.05 45.87 56.95 54.95 75.85 45.87 94.75 54.95 113.66 45.87 132.56 54.95 151.46 45.87 170.37 54.95 189.27 45.87 208.17 54.95 227.08 45.87 245.98 54.95 264.89 45.87 283.8 54.95 302.7 45.87 321.61 54.95 340.51 45.87 359.42 54.95 378.33 45.87 397.24 54.95 416.14 45.87 435.05 54.95 453.94 45.87 472.84 54.95 491.75 45.87 510.65 54.95 529.55 45.87 548.46 54.95 567.36 45.87 586.27 54.95 605.18 45.87 624.08 54.95 642.99 45.87 661.9 54.95 680.82 45.87 699.73 54.95 718.64 45.87 737.55 54.95 756.47 45.87 775.38 54.95 794.29 45.87 813.2 54.95 832.11 45.87 851.04 54.95 869.95 45.87 888.88 54.95 907.81 45.87"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-44" points=".24 38.32 19.14 47.41 38.05 38.32 56.95 47.41 75.85 38.32 94.75 47.41 113.66 38.32 132.56 47.41 151.46 38.32 170.37 47.41 189.27 38.32 208.17 47.41 227.08 38.32 245.98 47.41 264.89 38.32 283.8 47.41 302.7 38.32 321.61 47.41 340.51 38.32 359.42 47.41 378.33 38.32 397.24 47.41 416.14 38.32 435.05 47.41 453.94 38.32 472.84 47.41 491.75 38.32 510.65 47.41 529.55 38.32 548.46 47.41 567.36 38.32 586.27 47.41 605.18 38.32 624.08 47.41 642.99 38.32 661.9 47.41 680.82 38.32 699.73 47.41 718.64 38.32 737.55 47.41 756.47 38.32 775.38 47.41 794.29 38.32 813.2 47.41 832.11 38.32 851.04 47.41 869.95 38.32 888.88 47.41 907.81 38.32"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-31" points=".24 30.78 19.14 39.87 38.05 30.78 56.95 39.87 75.85 30.78 94.75 39.87 113.66 30.78 132.56 39.87 151.46 30.78 170.37 39.87 189.27 30.78 208.17 39.87 227.08 30.78 245.98 39.87 264.89 30.78 283.8 39.87 302.7 30.78 321.61 39.87 340.51 30.78 359.42 39.87 378.33 30.78 397.24 39.87 416.14 30.78 435.05 39.87 453.94 30.78 472.84 39.87 491.75 30.78 510.65 39.87 529.55 30.78 548.46 39.87 567.36 30.78 586.27 39.87 605.18 30.78 624.08 39.87 642.99 30.78 661.9 39.87 680.82 30.78 699.73 39.87 718.64 30.78 737.55 39.87 756.47 30.78 775.38 39.87 794.29 30.78 813.2 39.87 832.11 30.78 851.04 39.87 869.95 30.78 888.88 39.87 907.81 30.78"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-85" points=".24 23.24 19.14 32.32 38.05 23.24 56.95 32.32 75.85 23.24 94.75 32.32 113.66 23.24 132.56 32.32 151.46 23.24 170.37 32.32 189.27 23.24 208.17 32.32 227.08 23.24 245.98 32.32 264.89 23.24 283.8 32.32 302.7 23.24 321.61 32.32 340.51 23.24 359.42 32.32 378.33 23.24 397.24 32.32 416.14 23.24 435.05 32.32 453.94 23.24 472.84 32.32 491.75 23.24 510.65 32.32 529.55 23.24 548.46 32.32 567.36 23.24 586.27 32.32 605.18 23.24 624.08 32.32 642.99 23.24 661.9 32.32 680.82 23.24 699.73 32.32 718.64 23.24 737.55 32.32 756.47 23.24 775.38 32.32 794.29 23.24 813.2 32.32 832.11 23.24 851.04 32.32 869.95 23.24 888.88 32.32 907.81 23.24"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-26" points=".24 15.69 19.14 24.78 38.05 15.69 56.95 24.78 75.85 15.69 94.75 24.78 113.66 15.69 132.56 24.78 151.46 15.69 170.37 24.78 189.27 15.69 208.17 24.78 227.08 15.69 245.98 24.78 264.89 15.69 283.8 24.78 302.7 15.69 321.61 24.78 340.51 15.69 359.42 24.78 378.33 15.69 397.24 24.78 416.14 15.69 435.05 24.78 453.94 15.69 472.84 24.78 491.75 15.69 510.65 24.78 529.55 15.69 548.46 24.78 567.36 15.69 586.27 24.78 605.18 15.69 624.08 24.78 642.99 15.69 661.9 24.78 680.82 15.69 699.73 24.78 718.64 15.69 737.55 24.78 756.47 15.69 775.38 24.78 794.29 15.69 813.2 24.78 832.11 15.69 851.04 24.78 869.95 15.69 888.88 24.78 907.81 15.69"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-18" points=".24 8.15 19.14 17.24 38.05 8.15 56.95 17.24 75.85 8.15 94.75 17.24 113.66 8.15 132.56 17.24 151.46 8.15 170.37 17.24 189.27 8.15 208.17 17.24 227.08 8.15 245.98 17.24 264.89 8.15 283.8 17.24 302.7 8.15 321.61 17.24 340.51 8.15 359.42 17.24 378.33 8.15 397.24 17.24 416.14 8.15 435.05 17.24 453.94 8.15 472.84 17.24 491.75 8.15 510.65 17.24 529.55 8.15 548.46 17.24 567.36 8.15 586.27 17.24 605.18 8.15 624.08 17.24 642.99 8.15 661.9 17.24 680.82 8.15 699.73 17.24 718.64 8.15 737.55 17.24 756.47 8.15 775.38 17.24 794.29 8.15 813.2 17.24 832.11 8.15 851.04 17.24 869.95 8.15 888.88 17.24 907.81 8.15"/>
+          </g>
+          <g class="cls-92">
+            <polyline class="cls-86" points=".24 .61 19.14 9.69 38.05 .61 56.95 9.69 75.85 .61 94.75 9.69 113.66 .61 132.56 9.69 151.46 .61 170.37 9.69 189.27 .61 208.17 9.69 227.08 .61 245.98 9.69 264.89 .61 283.8 9.69 302.7 .61 321.61 9.69 340.51 .61 359.42 9.69 378.33 .61 397.24 9.69 416.14 .61 435.05 9.69 453.94 .61 472.84 9.69 491.75 .61 510.65 9.69 529.55 .61 548.46 9.69 567.36 .61 586.27 9.69 605.18 .61 624.08 9.69 642.99 .61 661.9 9.69 680.82 .61 699.73 9.69 718.64 .61 737.55 9.69 756.47 .61 775.38 9.69 794.29 .61 813.2 9.69 832.11 .61 851.04 9.69 869.95 .61 888.88 9.69 907.81 .61"/>
+          </g>
+        </g>
+        <g>
+          <rect class="cls-17" x="176.97" y="-82.03" width="554.11" height="800.46" transform="translate(772.22 -135.83) rotate(90)"/>
+          <rect class="cls-80" x="183.78" y="-75.17" width="540.48" height="786.73" transform="translate(772.22 -135.83) rotate(90)"/>
+          <rect class="cls-47" x="186.51" y="-72.43" width="535.03" height="781.24" transform="translate(772.22 -135.83) rotate(90)"/>
+        </g>
+        <g>
+          <g>
+            <path class="cls-95" d="M761,577.9c-5.54-1.77-11.39-7.83-11.95-15.63-.37-5.09,.91-9.62,4.31-13.41,2.31-2.57,5.43-3,8.62-2.28,2.73,.62,4.42,2.6,5.18,5.25,1.29,4.45-.79,9.17-4.92,11.44-.36,.2-.65,.5-1.01,.78,3.61,2.49,7.76,1.68,10.36-2.07,2.57-3.71,3.47-7.82,2.37-12.27-2.17-8.83-12.48-13.1-19.85-8.23-2.12,1.4-3.61,3.33-4.78,5.56-3.52,6.72-4.08,13.7-1.93,20.94,.25,.85,.42,1.71,.63,2.57-3.99-2.82-7.99-4.91-12.77-5.43-4.96-.54-9.15,1.3-13.85,3.78,5.79,3.16,11.13,6.08,16.47,9h23.1Zm3.67-34.41c1.83,1.03,3.65,2.39,4.91,4.04,3.28,4.32,3.08,10.5-1.28,13.52,1.82-4.19,2.77-8.13,.44-12-2.22-3.68-5.46-5.69-10.4-5.29,2.41-1.66,4.53-1.3,6.32-.28Zm-16.72,31.63c-3.85-1.81-7.6-3.79-11.83-4.37-.1,.2-.2,.4-.3,.61,3.06,1.76,6.11,3.51,9.45,5.43-3.59,.56-8.95-1.74-18.33-7.61,6.5-3.54,14.32-1.41,21.01,5.94Z"/>
+            <path class="cls-95" d="M823.15,510.56c1.03-.83,1.9-2.15,2.3-3.41,.66-2.1,.83-4.32-.95-6.17-.36,.28-.58,.38-.67,.55-2.44,4.49-6.68,6.46-11.54,5.35-3.32-.76-5.97-4.23-5.71-7.64,.25-3.28,1.57-5.96,4.52-7.73,3.62-2.18,7.45-3.07,11.69-2.69,7.83,.71,13.83,5.98,15.65,12.88v-23.8c-3.2-5.85-6.11-11.15-9.18-16.76-5.94,10.1-4.9,18.97,3.2,27.54-1.6-.62-2.48-.99-3.37-1.3-8.01-2.82-15.67-1.92-22.93,2.33-4.9,2.87-7.63,8.48-6.27,13.39,3.04,10.95,14.74,14.29,23.26,7.45Zm6.61-43.91c2.68,6.05,7.17,11.25,8.03,18.6-2.8-3-3.9-6.51-6.19-9.92-.6,2.81,.55,4.66,1.28,6.54,.76,1.95,1.79,3.8,2.8,5.92-7.23-5.61-9.97-15.53-5.91-21.15Zm-25.68,31.01c-.28,5.09,1.48,8.46,5.22,10.7,3.73,2.23,7.59,1.36,11.79-.05-3.49,3.8-8.31,4.14-12.84,1.27-4.22-2.68-5.97-7.07-4.17-11.91Z"/>
+            <path class="cls-95" d="M786.38,566.51c-2.25,3.33-5.08,6.11-8.35,8.44-1.94,1.38-3.97,2.34-6.08,2.95h7.08c1.78-1.58,3.39-2.93,4.81-4.43,1.62-1.71,3.2-3.51,4.43-5.5,1.29-2.09,2.29-4.39,3.12-6.7,.83-2.32,1.47-4.74,1.84-7.17,.36-2.32,.39-4.72,.34-7.07-.05-2.45-.38-4.9-.62-7.78,.45,.85,.8,1.38,1.02,1.96,2.24,5.94,2.14,12.04,.86,18.1-1.02,4.83-2.49,9.56-3.75,14.33-.15,.58-.23,1.17-.35,1.75,9.12-6.19,11.8-15.26,12.26-25.64,.71,1.74,1.5,3.46,2.11,5.24,.38,1.1,.98,1.83,2.05,2.29,5.62,2.41,11.23,4.86,16.85,7.28,.25,.11,.58,.05,1.15,.08-.26-.74-.43-1.32-.67-1.87-2.18-5.02-4.42-10.02-6.52-15.08-.67-1.6-1.51-2.69-3.27-3.17-1.72-.46-3.34-1.28-5.01-2.25,10.53,.1,19.67-2.68,26.05-11.83-.76,.15-1.53,.25-2.27,.46-5.78,1.65-11.5,3.53-17.52,4.18-5.75,.62-11.32,.18-16.59-2.5,15.58,2.52,28.96-.91,39.07-14.3v-7.74c-1.74,7.31-6.68,12.34-12.88,16.22-2.04,1.28-4.5,2.11-6.88,2.57-6.63,1.3-13.23,.87-19.79-.9-4.8-1.3-9.33-3.21-13.83-5.26-.62-.28-1.3-.44-2.49-.84,1.28,2.97,2.34,5.39,3.37,7.84,3.5,8.36,5.27,16.98,4.1,26.1-.47,3.7-1.56,7.14-3.64,10.22Zm27.72-19.01c.37,.16,.75,.5,.92,.85,1.73,3.65,3.41,7.33,4.67,11.48-3.63-1.69-7.28-3.36-10.89-5.1-.44-.21-.85-.68-1.05-1.13-1.53-3.42-3.01-6.86-4.79-10.97,4.13,1.8,7.65,3.32,11.15,4.87Zm.04-9.8c4.21-.59,8.41-1.27,12.47-1.89-6.41,4.33-19.6,4.8-25.87,.51,4.73,.94,9.01,2,13.41,1.38Zm-18.62,30.05c.71-3.27,1.48-6.06,1.87-8.9,.41-2.97,.69-5.99,.6-8.97-.08-2.97-.68-5.93-1.09-9.16,4.11,6.64,3.55,18.58-1.39,27.04Z"/>
+            <path class="cls-95" d="M724.9,551.86c-.47-3.09,.13-5.94,.95-8.69,.91-3.07,1.87-6.21,3.37-9.02,5.62-10.49,14.34-16.7,26.35-17.44,6.69-.41,12.64,2,17.54,6.7,7.17,6.89,10.09,15.48,9.94,25.26-.01,.74-.15,1.49-.3,2.22-.08,.39-.29,.76-.64,1.62-.35-1.28-.55-2.07-.77-2.85-1.62-5.77-4.31-10.95-8.45-15.35-2.33-2.49-5.27-3.67-8.56-3.94-6.59-.54-12.79,.81-18.58,4.04-7.22,4.02-13.37,9.3-18.66,15.61-.48,.57-1,1.12-1.51,1.66-.06,.06-.18,.05-.67,.17Zm45.55-27.49c-.38-.34-.72-.72-1.14-1-6.92-4.7-14.45-5.57-22.06-2.45-10.69,4.38-16.88,12.7-19.32,24.03,.34-.14,.59-.17,.71-.31,4.46-5.37,9.96-9.48,16.05-12.72,7.94-4.23,16.29-5.9,25.11-2.79,.37,.13,.77,.2,1.15,.3-6.15-5.64-13.59-6.03-21.34-5.24,2.65-1.57,5.55-1.8,8.38-2.23,4.41-.67,8.3,1.33,12.47,2.42Z"/>
+            <path class="cls-95" d="M812.86,464.52c-2.25,2.03-3.93,3.53-5.6,5.04-5.33,4.78-9.55,10.44-12.94,16.72-2.77,5.13-3.77,10.64-3.67,16.45,.1,5.57,2.77,9.55,7.21,12.55,4.12,2.78,8.47,5.05,13.42,5.98,.38,.07,.72,.36,1.19,.61-2.27,.79-6.77,1.13-9.47,.58-2.41-.5-4.86-.98-7.16-1.85-9.39-3.55-16.16-9.68-18.33-19.87-1.38-6.45-.14-12.59,3.06-18.32,6.43-11.54,16.85-16.62,29.47-18.04,.69-.08,1.41,.07,2.8,.15Zm-7.7,3.37c-.55-.04-.88-.15-1.17-.08-9.5,2.48-16.97,7.68-21.56,16.51-2.64,5.08-3.76,10.51-2.43,16.2,.85,3.64,2.2,7.1,5.22,9.74-3.85-7.01-3.75-14.07-.65-21.23-.83,8.18-.38,16.01,5.56,22.45-.38-1.61-1.1-3.13-1.46-4.73-1.7-7.56-.39-14.77,3.11-21.53,3.18-6.13,7.22-11.69,12.47-16.27,.3-.26,.53-.6,.91-1.05Z"/>
+            <path class="cls-95" d="M777.45,513.49c1.72,.01,3.2,1.6,3.16,3.38-.04,1.69-1.95,3.49-3.61,3.41-1.85-.09-3.21-1.56-3.12-3.37,.09-1.86,1.74-3.44,3.58-3.42Z"/>
+            <path class="cls-95" d="M770.3,512.28c-1.37,.06-2.55-.93-2.62-2.21-.08-1.41,1.13-2.65,2.57-2.65,1.36,0,2.41,1.04,2.42,2.4,0,1.35-1,2.39-2.38,2.46Z"/>
+            <path class="cls-95" d="M761.83,503.41c0-.97,.85-1.82,1.85-1.85,1.06-.04,1.92,.69,1.98,1.69,.07,1.11-.86,2.04-2,2.02-.99-.02-1.83-.87-1.83-1.85Z"/>
+            <path class="cls-95" d="M815.69,555.13c-5.16-1.55-5.89-2.3-6.01-6,2.02,.1,3.67,.63,4.44,2.76,.37,1.04,.96,2,1.57,3.23Z"/>
+          </g>
+          <polyline class="cls-40" points="838.43 447.26 838.43 577.9 561.05 577.9"/>
+        </g>
+        <g>
+          <g>
+            <path class="cls-95" d="M737.9,57.53c-5.34,2.92-10.68,5.84-16.47,9,4.7,2.48,8.89,4.32,13.85,3.78,4.78-.52,8.78-2.61,12.77-5.43-.21,.86-.38,1.73-.63,2.57-2.15,7.24-1.58,14.22,1.93,20.94,1.17,2.23,2.65,4.16,4.78,5.56,7.37,4.86,17.68,.59,19.85-8.23,1.09-4.45,.2-8.56-2.37-12.27-2.6-3.75-6.75-4.57-10.36-2.07,.36,.28,.66,.58,1.01,.78,4.12,2.27,6.2,6.99,4.92,11.44-.76,2.65-2.45,4.64-5.18,5.25-3.19,.72-6.31,.29-8.62-2.28-3.4-3.79-4.68-8.32-4.31-13.41,.56-7.81,6.41-13.86,11.95-15.63h-23.1Zm20.45,34.12c4.93,.4,8.18-1.6,10.4-5.29,2.33-3.87,1.37-7.81-.44-12,4.36,3.03,4.56,9.21,1.28,13.52-1.25,1.65-3.08,3.01-4.91,4.04-1.8,1.02-3.92,1.38-6.32-.28Zm-31.41-25.41c9.38-5.87,14.74-8.17,18.33-7.61-3.34,1.92-6.39,3.67-9.45,5.43,.1,.2,.2,.4,.3,.61,4.23-.58,7.98-2.56,11.83-4.37-6.69,7.35-14.52,9.48-21.01,5.94Z"/>
+            <path class="cls-95" d="M799.88,132.31c-1.36,4.91,1.37,10.52,6.27,13.39,7.26,4.25,14.92,5.15,22.93,2.33,.89-.31,1.77-.68,3.37-1.3-8.1,8.57-9.14,17.45-3.2,27.54,3.07-5.61,5.98-10.91,9.18-16.76v-23.8c-1.82,6.9-7.82,12.18-15.65,12.88-4.24,.38-8.07-.51-11.69-2.69-2.95-1.78-4.27-4.45-4.52-7.73-.26-3.4,2.39-6.87,5.71-7.64,4.86-1.11,9.1,.85,11.54,5.35,.09,.17,.32,.26,.67,.55,1.78-1.85,1.62-4.08,.95-6.18-.4-1.26-1.26-2.59-2.3-3.41-8.53-6.83-20.23-3.49-23.26,7.45Zm35.79,15.31c-1.02,2.12-2.05,3.97-2.8,5.92-.73,1.88-1.88,3.73-1.28,6.54,2.29-3.41,3.39-6.92,6.19-9.92-.86,7.36-5.35,12.55-8.03,18.6-4.06-5.62-1.32-15.54,5.91-21.15Zm-27.43-21.77c4.53-2.88,9.35-2.54,12.84,1.27-4.2-1.41-8.06-2.28-11.79-.05-3.74,2.24-5.5,5.61-5.22,10.7-1.81-4.84-.06-9.23,4.17-11.91Z"/>
+            <path class="cls-95" d="M790.02,79.14c1.17,9.12-.6,17.74-4.1,26.1-1.02,2.44-2.09,4.87-3.37,7.84,1.19-.4,1.87-.56,2.49-.84,4.5-2.04,9.03-3.96,13.83-5.26,6.55-1.78,13.15-2.21,19.79-.9,2.38,.47,4.84,1.3,6.88,2.57,6.2,3.88,11.14,8.91,12.88,16.22v-7.74c-10.11-13.39-23.48-16.81-39.07-14.3,5.27-2.68,10.84-3.12,16.59-2.5,6.02,.65,11.74,2.53,17.52,4.18,.74,.21,1.51,.31,2.27,.46-6.38-9.15-15.52-11.92-26.05-11.83,1.68-.97,3.3-1.78,5.01-2.25,1.77-.48,2.61-1.56,3.27-3.17,2.1-5.06,4.35-10.05,6.52-15.08,.24-.55,.4-1.12,.67-1.87-.57,.03-.9-.03-1.15,.08-5.62,2.42-11.23,4.87-16.85,7.28-1.07,.46-1.67,1.19-2.05,2.29-.62,1.78-1.4,3.49-2.11,5.24-.47-10.38-3.14-19.45-12.26-25.64,.11,.59,.2,1.18,.35,1.75,1.26,4.78,2.73,9.51,3.75,14.33,1.28,6.06,1.38,12.16-.86,18.1-.22,.58-.58,1.11-1.02,1.96,.24-2.88,.57-5.32,.62-7.78,.05-2.36,.02-4.75-.34-7.07-.37-2.43-1.01-4.85-1.84-7.17-.83-2.31-1.83-4.62-3.12-6.7-1.23-1.99-2.81-3.8-4.43-5.5-1.42-1.5-3.03-2.85-4.81-4.43h-7.08c2.11,.61,4.14,1.57,6.08,2.95,3.27,2.33,6.1,5.11,8.35,8.44,2.08,3.08,3.16,6.52,3.64,10.22Zm12.93,13.66c1.79-4.11,3.26-7.55,4.79-10.97,.2-.45,.62-.92,1.05-1.13,3.61-1.73,7.26-3.41,10.89-5.1-1.26,4.15-2.94,7.83-4.67,11.48-.17,.35-.55,.69-.92,.85-3.5,1.56-7.02,3.07-11.15,4.87Zm-2.21,6.31c6.27-4.28,19.46-3.82,25.87,.51-4.06-.62-8.26-1.3-12.47-1.89-4.4-.62-8.67,.44-13.41,1.38Zm-3.82-4.39c.41-3.23,1-6.19,1.09-9.16,.08-2.99-.19-6.01-.6-8.97-.4-2.84-1.17-5.64-1.87-8.9,4.94,8.46,5.5,20.4,1.39,27.04Z"/>
+            <path class="cls-95" d="M725.57,83.73c.51,.55,1.03,1.09,1.51,1.66,5.3,6.31,11.45,11.59,18.66,15.61,5.79,3.23,11.99,4.58,18.58,4.04,3.29-.27,6.23-1.46,8.56-3.94,4.13-4.4,6.82-9.57,8.45-15.35,.22-.78,.43-1.57,.77-2.85,.35,.87,.56,1.23,.64,1.62,.14,.73,.29,1.48,.3,2.22,.15,9.78-2.77,18.37-9.94,25.26-4.89,4.7-10.85,7.12-17.54,6.7-12.01-.74-20.73-6.95-26.35-17.44-1.5-2.81-2.46-5.94-3.37-9.02-.81-2.75-1.42-5.6-.95-8.69,.49,.12,.61,.11,.67,.17Zm32.42,29.74c-2.83-.43-5.73-.66-8.38-2.23,7.75,.79,15.19,.4,21.34-5.24-.38,.1-.78,.16-1.15,.3-8.82,3.11-17.17,1.44-25.11-2.79-6.09-3.24-11.59-7.36-16.05-12.72-.11-.14-.36-.17-.71-.31,2.45,11.33,8.63,19.65,19.32,24.03,7.62,3.12,15.14,2.25,22.06-2.45,.41-.28,.76-.67,1.14-1-4.16,1.08-8.05,3.09-12.47,2.42Z"/>
+            <path class="cls-95" d="M810.06,171.05c-12.63-1.43-23.04-6.51-29.47-18.04-3.2-5.73-4.44-11.86-3.06-18.32,2.17-10.19,8.94-16.32,18.33-19.87,2.29-.87,4.74-1.35,7.16-1.85,2.7-.56,7.2-.21,9.47,.58-.47,.25-.81,.54-1.19,.61-4.95,.93-9.31,3.2-13.42,5.98-4.44,3-7.11,6.98-7.21,12.55-.1,5.8,.9,11.31,3.67,16.45,3.39,6.28,7.6,11.94,12.94,16.72,1.68,1.5,3.35,3.01,5.6,5.04-1.39,.08-2.1,.23-2.8,.15Zm-5.81-4.56c-5.26-4.58-9.3-10.14-12.47-16.27-3.5-6.76-4.81-13.97-3.11-21.53,.36-1.6,1.08-3.13,1.46-4.73-5.94,6.44-6.38,14.27-5.56,22.45-3.1-7.16-3.2-14.23,.65-21.23-3.01,2.64-4.37,6.1-5.22,9.74-1.33,5.69-.21,11.12,2.43,16.2,4.59,8.83,12.06,14.03,21.56,16.51,.28,.07,.62-.04,1.17-.08-.39-.45-.61-.79-.91-1.05Z"/>
+            <path class="cls-95" d="M777.45,121.94c1.72-.01,3.2-1.6,3.16-3.38-.04-1.69-1.95-3.49-3.61-3.41-1.85,.1-3.21,1.56-3.12,3.37,.09,1.86,1.74,3.44,3.58,3.42Z"/>
+            <path class="cls-95" d="M770.3,123.15c-1.37-.06-2.55,.93-2.62,2.21-.08,1.41,1.13,2.65,2.57,2.65,1.36,0,2.41-1.04,2.42-2.4,0-1.35-1-2.39-2.38-2.46Z"/>
+            <path class="cls-95" d="M761.83,132.02c0,.97,.85,1.82,1.85,1.85,1.06,.04,1.92-.69,1.98-1.69,.07-1.11-.86-2.04-2-2.02-.99,.02-1.83,.87-1.83,1.85Z"/>
+            <path class="cls-95" d="M815.69,80.3c-5.16,1.55-5.89,2.3-6.01,6,2.02-.1,3.67-.63,4.44-2.76,.37-1.04,.96-2,1.57-3.23Z"/>
+          </g>
+          <polyline class="cls-40" points="838.43 466.65 838.43 57.53 557.27 57.53"/>
+        </g>
+        <g>
+          <g>
+            <path class="cls-95" d="M173.11,577.9c5.34-2.92,10.68-5.84,16.47-9-4.7-2.48-8.89-4.32-13.85-3.78-4.78,.52-8.78,2.61-12.77,5.43,.21-.86,.38-1.73,.63-2.57,2.15-7.24,1.58-14.22-1.93-20.94-1.17-2.23-2.65-4.16-4.78-5.56-7.37-4.86-17.68-.59-19.85,8.23-1.09,4.45-.2,8.56,2.37,12.27,2.6,3.75,6.75,4.57,10.36,2.07-.36-.28-.66-.58-1.01-.78-4.12-2.27-6.2-6.99-4.92-11.44,.76-2.65,2.45-4.64,5.18-5.25,3.19-.72,6.31-.29,8.62,2.28,3.4,3.79,4.68,8.32,4.31,13.41-.56,7.81-6.41,13.86-11.95,15.63h23.1Zm-20.45-34.12c-4.93-.4-8.18,1.6-10.4,5.29-2.33,3.87-1.37,7.81,.44,12-4.36-3.03-4.56-9.21-1.28-13.52,1.25-1.65,3.08-3.01,4.91-4.04,1.8-1.02,3.92-1.38,6.32,.28Zm31.41,25.41c-9.38,5.87-14.74,8.17-18.33,7.61,3.34-1.92,6.39-3.67,9.45-5.43-.1-.2-.2-.4-.3-.61-4.23,.58-7.98,2.56-11.83,4.37,6.69-7.35,14.52-9.48,21.01-5.94Z"/>
+            <path class="cls-95" d="M111.12,503.11c1.36-4.91-1.37-10.52-6.27-13.39-7.26-4.25-14.92-5.15-22.93-2.33-.89,.31-1.77,.68-3.37,1.3,8.1-8.57,9.14-17.45,3.2-27.54-3.07,5.61-5.98,10.91-9.18,16.76v23.8c1.82-6.9,7.82-12.18,15.65-12.88,4.24-.38,8.07,.51,11.69,2.69,2.95,1.78,4.27,4.46,4.52,7.73,.26,3.4-2.39,6.87-5.71,7.64-4.86,1.11-9.1-.85-11.54-5.35-.09-.17-.32-.26-.67-.55-1.78,1.85-1.62,4.08-.95,6.17,.4,1.26,1.26,2.59,2.3,3.41,8.53,6.83,20.23,3.49,23.26-7.45Zm-35.79-15.31c1.02-2.12,2.05-3.97,2.8-5.92,.73-1.88,1.88-3.73,1.28-6.54-2.29,3.41-3.39,6.92-6.2,9.92,.86-7.36,5.35-12.55,8.03-18.6,4.06,5.62,1.32,15.54-5.91,21.15Zm27.43,21.77c-4.53,2.88-9.35,2.54-12.84-1.27,4.2,1.41,8.06,2.28,11.79,.05,3.74-2.24,5.5-5.61,5.22-10.7,1.81,4.84,.06,9.23-4.17,11.91Z"/>
+            <path class="cls-95" d="M120.98,556.28c-1.17-9.12,.6-17.74,4.1-26.1,1.02-2.44,2.09-4.87,3.37-7.84-1.19,.4-1.87,.56-2.49,.84-4.5,2.04-9.03,3.96-13.83,5.26-6.55,1.78-13.15,2.21-19.79,.9-2.38-.47-4.84-1.3-6.88-2.57-6.2-3.88-11.14-8.91-12.88-16.22v7.74c10.11,13.39,23.48,16.81,39.07,14.3-5.27,2.68-10.84,3.12-16.59,2.5-6.02-.65-11.74-2.53-17.52-4.18-.74-.21-1.51-.31-2.27-.46,6.38,9.15,15.52,11.92,26.05,11.83-1.68,.96-3.3,1.78-5.01,2.25-1.77,.48-2.61,1.56-3.27,3.17-2.1,5.06-4.35,10.05-6.52,15.08-.24,.55-.4,1.12-.67,1.87,.57-.03,.9,.03,1.15-.08,5.62-2.42,11.23-4.87,16.85-7.28,1.07-.46,1.67-1.19,2.05-2.29,.62-1.78,1.4-3.49,2.11-5.24,.47,10.38,3.14,19.45,12.26,25.64-.11-.59-.2-1.18-.35-1.75-1.26-4.78-2.73-9.51-3.75-14.33-1.28-6.06-1.38-12.16,.86-18.1,.22-.58,.58-1.11,1.02-1.96-.24,2.88-.57,5.32-.62,7.78-.05,2.36-.02,4.75,.34,7.07,.37,2.43,1.01,4.85,1.84,7.17,.83,2.31,1.83,4.62,3.12,6.7,1.23,1.99,2.81,3.8,4.43,5.5,1.42,1.5,3.03,2.85,4.81,4.43h7.08c-2.11-.61-4.14-1.57-6.08-2.95-3.27-2.33-6.1-5.11-8.35-8.44-2.08-3.08-3.16-6.52-3.64-10.22Zm-12.93-13.66c-1.79,4.11-3.26,7.55-4.79,10.97-.2,.45-.62,.92-1.05,1.13-3.61,1.73-7.26,3.41-10.89,5.1,1.26-4.15,2.94-7.83,4.67-11.48,.17-.35,.56-.69,.92-.85,3.5-1.56,7.02-3.07,11.15-4.87Zm2.21-6.31c-6.27,4.28-19.46,3.82-25.87-.51,4.06,.62,8.26,1.3,12.47,1.89,4.4,.62,8.67-.44,13.41-1.38Zm3.82,4.39c-.41,3.23-1,6.19-1.09,9.16-.08,2.99,.19,6.01,.6,8.97,.4,2.84,1.17,5.64,1.87,8.9-4.94-8.46-5.5-20.4-1.39-27.04Z"/>
+            <path class="cls-95" d="M185.43,551.69c-.51-.55-1.03-1.09-1.51-1.66-5.3-6.31-11.45-11.59-18.66-15.61-5.79-3.23-11.99-4.58-18.58-4.04-3.29,.27-6.23,1.46-8.56,3.94-4.13,4.4-6.82,9.58-8.45,15.35-.22,.78-.43,1.57-.77,2.85-.35-.87-.56-1.23-.64-1.62-.14-.73-.29-1.48-.3-2.22-.15-9.78,2.77-18.37,9.94-25.26,4.89-4.7,10.85-7.12,17.54-6.7,12.01,.74,20.73,6.95,26.35,17.44,1.5,2.81,2.46,5.94,3.37,9.02,.81,2.75,1.42,5.6,.95,8.69-.49-.12-.61-.11-.67-.17Zm-32.41-29.74c2.83,.43,5.73,.66,8.38,2.23-7.75-.79-15.19-.4-21.34,5.24,.38-.1,.78-.16,1.15-.3,8.82-3.11,17.17-1.44,25.11,2.79,6.09,3.24,11.59,7.36,16.05,12.72,.11,.14,.36,.17,.71,.31-2.45-11.33-8.63-19.65-19.32-24.03-7.62-3.12-15.14-2.25-22.06,2.45-.41,.28-.76,.67-1.14,1,4.16-1.08,8.05-3.09,12.47-2.42Z"/>
+            <path class="cls-95" d="M100.94,464.37c12.63,1.43,23.04,6.51,29.48,18.04,3.2,5.73,4.44,11.86,3.06,18.32-2.17,10.19-8.94,16.32-18.33,19.87-2.29,.87-4.74,1.35-7.16,1.85-2.7,.56-7.2,.21-9.47-.58,.47-.25,.81-.54,1.19-.61,4.95-.93,9.31-3.2,13.42-5.98,4.44-3,7.11-6.98,7.21-12.55,.1-5.8-.9-11.31-3.67-16.45-3.39-6.28-7.6-11.94-12.94-16.72-1.68-1.5-3.35-3.01-5.6-5.04,1.39-.08,2.1-.23,2.8-.15Zm5.81,4.56c5.26,4.58,9.3,10.14,12.47,16.27,3.5,6.76,4.81,13.97,3.11,21.53-.36,1.6-1.08,3.13-1.46,4.73,5.94-6.44,6.38-14.27,5.56-22.45,3.1,7.16,3.2,14.23-.65,21.23,3.01-2.64,4.37-6.1,5.22-9.74,1.33-5.69,.21-11.12-2.43-16.2-4.59-8.83-12.06-14.03-21.56-16.51-.28-.07-.62,.04-1.17,.08,.39,.45,.61,.79,.91,1.05Z"/>
+            <path class="cls-95" d="M133.55,513.49c-1.72,.01-3.2,1.6-3.16,3.38,.04,1.69,1.95,3.49,3.61,3.41,1.85-.09,3.21-1.56,3.12-3.37-.09-1.86-1.74-3.44-3.58-3.42Z"/>
+            <path class="cls-95" d="M140.7,512.28c1.37,.06,2.55-.93,2.62-2.21,.08-1.41-1.13-2.65-2.57-2.65-1.36,0-2.41,1.04-2.42,2.4,0,1.35,1,2.39,2.38,2.46Z"/>
+            <path class="cls-95" d="M149.18,503.41c0-.97-.85-1.82-1.85-1.85-1.06-.04-1.92,.69-1.98,1.69-.07,1.11,.86,2.04,2,2.02,.99-.02,1.83-.87,1.83-1.85Z"/>
+            <path class="cls-95" d="M95.31,555.13c5.16-1.55,5.89-2.3,6.01-6-2.02,.1-3.66,.63-4.44,2.76-.37,1.04-.96,2-1.57,3.23Z"/>
+          </g>
+          <polyline class="cls-40" points="72.57 447.26 72.57 577.9 577.19 577.9"/>
+        </g>
+        <g>
+          <g>
+            <path class="cls-95" d="M150,57.53c5.54,1.77,11.39,7.83,11.95,15.63,.37,5.09-.91,9.62-4.31,13.41-2.31,2.57-5.43,3-8.62,2.28-2.73-.62-4.42-2.6-5.18-5.25-1.29-4.45,.79-9.17,4.92-11.44,.36-.2,.65-.5,1.01-.78-3.61-2.49-7.76-1.68-10.36,2.07-2.57,3.71-3.47,7.82-2.37,12.27,2.17,8.83,12.48,13.1,19.85,8.23,2.12-1.4,3.61-3.33,4.78-5.56,3.52-6.72,4.08-13.7,1.93-20.94-.25-.85-.42-1.71-.63-2.57,3.99,2.82,7.99,4.91,12.77,5.43,4.96,.54,9.15-1.3,13.85-3.78-5.79-3.16-11.13-6.08-16.47-9h-23.1Zm-3.67,34.41c-1.83-1.03-3.65-2.39-4.91-4.04-3.28-4.32-3.08-10.5,1.28-13.52-1.82,4.19-2.77,8.13-.44,12,2.22,3.68,5.46,5.69,10.4,5.29-2.41,1.66-4.53,1.3-6.32,.28Zm16.72-31.63c3.85,1.81,7.6,3.79,11.83,4.37,.1-.2,.2-.4,.3-.61-3.06-1.76-6.11-3.51-9.45-5.43,3.59-.56,8.95,1.74,18.33,7.61-6.5,3.54-14.32,1.41-21.01-5.94Z"/>
+            <path class="cls-95" d="M87.86,124.86c-1.03,.83-1.9,2.15-2.3,3.41-.66,2.1-.83,4.32,.95,6.18,.36-.28,.58-.38,.67-.55,2.44-4.49,6.68-6.46,11.54-5.35,3.32,.76,5.97,4.23,5.71,7.64-.25,3.28-1.57,5.96-4.52,7.73-3.62,2.18-7.45,3.07-11.69,2.69-7.83-.71-13.83-5.98-15.65-12.88v23.8c3.2,5.85,6.11,11.15,9.18,16.76,5.94-10.1,4.9-18.97-3.2-27.54,1.6,.62,2.48,.99,3.37,1.3,8.01,2.82,15.67,1.92,22.93-2.33,4.9-2.87,7.63-8.48,6.27-13.39-3.04-10.95-14.74-14.29-23.26-7.45Zm-6.61,43.91c-2.68-6.05-7.17-11.25-8.03-18.6,2.8,3,3.9,6.51,6.2,9.92,.6-2.81-.55-4.66-1.28-6.54-.76-1.95-1.79-3.8-2.8-5.92,7.23,5.61,9.97,15.53,5.91,21.15Zm25.68-31.01c.29-5.09-1.48-8.46-5.22-10.7-3.73-2.23-7.59-1.36-11.79,.05,3.49-3.8,8.31-4.14,12.84-1.27,4.22,2.68,5.97,7.07,4.17,11.91Z"/>
+            <path class="cls-95" d="M124.62,68.92c2.25-3.33,5.08-6.11,8.35-8.44,1.94-1.38,3.97-2.34,6.08-2.95h-7.08c-1.78,1.58-3.39,2.93-4.81,4.43-1.62,1.71-3.2,3.51-4.43,5.5-1.29,2.09-2.29,4.39-3.12,6.7-.83,2.32-1.47,4.74-1.84,7.17-.36,2.32-.39,4.72-.34,7.07,.05,2.45,.38,4.9,.62,7.78-.45-.85-.8-1.38-1.02-1.96-2.24-5.94-2.14-12.03-.86-18.1,1.02-4.82,2.49-9.56,3.75-14.33,.15-.58,.23-1.17,.35-1.75-9.12,6.19-11.8,15.26-12.26,25.64-.71-1.74-1.5-3.46-2.11-5.24-.38-1.1-.98-1.83-2.05-2.29-5.62-2.41-11.23-4.86-16.85-7.28-.25-.11-.58-.05-1.15-.08,.26,.74,.43,1.32,.67,1.87,2.18,5.02,4.42,10.02,6.52,15.08,.67,1.6,1.51,2.69,3.27,3.17,1.72,.46,3.34,1.28,5.01,2.25-10.53-.1-19.67,2.68-26.05,11.83,.76-.15,1.53-.25,2.27-.46,5.78-1.65,11.5-3.53,17.52-4.18,5.75-.62,11.32-.18,16.59,2.5-15.58-2.52-28.96,.91-39.07,14.3v7.74c1.74-7.31,6.68-12.34,12.88-16.22,2.04-1.28,4.5-2.11,6.88-2.57,6.63-1.3,13.23-.87,19.79,.9,4.8,1.3,9.33,3.21,13.83,5.26,.62,.28,1.3,.44,2.49,.84-1.28-2.97-2.34-5.39-3.37-7.84-3.5-8.36-5.27-16.98-4.1-26.1,.47-3.7,1.56-7.14,3.64-10.22Zm-27.72,19.01c-.37-.16-.75-.5-.92-.85-1.73-3.65-3.41-7.33-4.67-11.48,3.63,1.69,7.28,3.36,10.89,5.1,.44,.21,.85,.68,1.05,1.13,1.53,3.42,3.01,6.86,4.79,10.97-4.13-1.8-7.65-3.32-11.15-4.87Zm-.04,9.8c-4.21,.59-8.41,1.27-12.47,1.89,6.41-4.33,19.6-4.8,25.87-.51-4.74-.94-9.01-2-13.41-1.38Zm18.62-30.05c-.71,3.27-1.48,6.06-1.87,8.9-.41,2.97-.69,5.99-.6,8.97,.08,2.97,.68,5.93,1.09,9.16-4.11-6.64-3.55-18.58,1.39-27.04Z"/>
+            <path class="cls-95" d="M186.1,83.56c.47,3.09-.13,5.94-.95,8.69-.91,3.07-1.87,6.21-3.37,9.02-5.62,10.49-14.34,16.7-26.35,17.44-6.69,.41-12.64-2-17.54-6.7-7.17-6.89-10.09-15.48-9.94-25.26,.01-.74,.15-1.49,.3-2.22,.08-.39,.29-.76,.64-1.62,.35,1.28,.55,2.07,.77,2.85,1.62,5.77,4.31,10.95,8.45,15.35,2.33,2.49,5.27,3.67,8.56,3.94,6.59,.54,12.79-.81,18.58-4.04,7.22-4.02,13.37-9.3,18.66-15.61,.48-.57,1-1.12,1.51-1.66,.06-.06,.18-.05,.67-.17Zm-45.55,27.49c.38,.34,.72,.72,1.14,1,6.92,4.7,14.45,5.57,22.06,2.45,10.69-4.38,16.88-12.7,19.32-24.03-.34,.14-.59,.17-.71,.31-4.46,5.37-9.96,9.48-16.05,12.72-7.94,4.23-16.29,5.9-25.11,2.79-.37-.13-.77-.2-1.15-.3,6.15,5.64,13.59,6.03,21.34,5.24-2.65,1.57-5.55,1.8-8.38,2.23-4.41,.67-8.3-1.34-12.47-2.42Z"/>
+            <path class="cls-95" d="M98.15,170.9c2.25-2.03,3.93-3.53,5.6-5.04,5.33-4.78,9.55-10.44,12.94-16.72,2.77-5.13,3.77-10.64,3.67-16.45-.1-5.57-2.77-9.55-7.21-12.55-4.12-2.78-8.47-5.05-13.42-5.98-.38-.07-.72-.36-1.19-.61,2.27-.79,6.77-1.13,9.47-.58,2.41,.5,4.86,.98,7.16,1.85,9.39,3.55,16.16,9.68,18.33,19.87,1.38,6.45,.14,12.59-3.06,18.32-6.43,11.54-16.85,16.62-29.48,18.04-.69,.08-1.41-.07-2.8-.15Zm7.7-3.37c.55,.04,.88,.15,1.17,.08,9.5-2.48,16.97-7.68,21.56-16.51,2.64-5.08,3.76-10.51,2.43-16.2-.85-3.64-2.2-7.1-5.22-9.74,3.85,7.01,3.75,14.07,.65,21.23,.83-8.18,.38-16.01-5.56-22.45,.38,1.61,1.1,3.13,1.46,4.73,1.7,7.56,.39,14.77-3.11,21.53-3.18,6.13-7.22,11.69-12.47,16.27-.3,.26-.53,.6-.91,1.05Z"/>
+            <path class="cls-95" d="M133.55,121.94c-1.72-.01-3.2-1.6-3.16-3.38,.04-1.69,1.95-3.49,3.61-3.41,1.85,.1,3.21,1.56,3.12,3.37-.09,1.86-1.74,3.44-3.58,3.42Z"/>
+            <path class="cls-95" d="M140.7,123.15c1.37-.06,2.55,.93,2.62,2.21,.08,1.41-1.13,2.65-2.57,2.65-1.36,0-2.41-1.04-2.42-2.4,0-1.35,1-2.39,2.38-2.46Z"/>
+            <path class="cls-95" d="M149.18,132.02c0,.97-.85,1.82-1.85,1.85-1.06,.04-1.92-.69-1.98-1.69-.07-1.11,.86-2.04,2-2.02,.99,.02,1.83,.87,1.83,1.85Z"/>
+            <path class="cls-95" d="M95.31,80.3c5.16,1.55,5.89,2.3,6.01,6-2.02-.1-3.66-.63-4.44-2.76-.37-1.04-.96-2-1.57-3.23Z"/>
+          </g>
+          <polyline class="cls-40" points="72.57 453.2 72.57 57.53 579.37 57.53"/>
+        </g>
+        <g>
+          <path class="cls-95" d="M83.36,190.94c-4.11,1.17-7.5,3.34-9.72,7.1-.38,.63-.78,1.25-1.32,2.11-.01-.05-.54,1.25-.72,1.97-.13,.56-.22,1.12-.31,1.69-.1,.74-.18,1.48-.22,2.22-.12,2.09,.03,7.26,.04,7.59,0,2.58,0,5.15,.02,7.73,.05,10.43,.1,20.85,.17,31.28,.03,4.04,.13,8.09,.16,12.13,.03,4.05,.01,8.1,0,12.16,0,.64-.08,1.28-.15,1.92-.25,2.19-.3,4.37,.03,6.55,.08,.51,.12,1.02,.12,1.54,.03,4.64,.05,9.27,.06,13.91,.01,3.41,.04,6.83,.01,10.24-.04,3.46,.23,6.91,.14,10.39-.19,7.4-.11,14.81-.16,22.22-.02,2.38,.02,4.77-.18,7.14-.17,1.93-.23,3.85-.12,5.78,.11,1.99,.17,3.98,.24,5.97,.02,.71,0,1.41,0,2.12,0,2.64,.01,5.27,0,7.91-.02,2.31-.09,4.62-.1,6.93-.01,1.99,.06,3.98,.04,5.96-.04,3.08-.18,6.17-.19,9.25-.04,8.7-.03,17.39-.05,26.09,0,1.16-.14,5.66-.1,6.53,.12,2.51,.65,5.01,1.31,7.42,.25,.91,1.2,3.32,1.38,3.61,2.44,3.98,6.12,6.15,10.55,7.18,1.17,.27,1.89,.07,2.09-.47,.21-.57-.14-.99-1.2-1.69-3.72-2.46-6.85-5.5-8.61-9.67-.98-2.3-1.75-4.7-2.42-7.12-.42-1.54-.56-3.17-.69-4.77-.15-1.92-.16-3.85-.21-5.77,0-.07,.16-.14,.32-.27,.3,.32,.57,.68,.91,.95,.86,.67,1.68,1.43,2.64,1.92,2.99,1.55,5.99,1.18,8.89-.31,3.35-1.72,5.6-4.49,7.08-7.89,2.34-5.37,2.44-10.86,.72-16.41-1.16-3.74-3.06-7.08-5.59-10.07-1.74-2.06-3.47-4.13-5.28-6.28,.63-.88,.79-1.78,.14-2.7-.71-1.01-1.81-.72-2.76-.75-2.11-3.11-3.85-6.3-5.2-9.76,.23-.02,.31-.04,.33-.02,.4,.41,.8,.83,1.2,1.24,2.6,2.68,5.7,4.38,9.44,4.8,4.02,.45,7.52-.75,10.41-3.55,.67-.65,1.07-1.59,1.49-2.45,.28-.56-.26-1.22-.89-1.13-.43,.07-.84,.28-1.26,.43-3.91,1.42-7.9,2.39-12.1,1.71-4.57-.75-7.85-3.07-9.1-7.75-.08-.31-.18-.62-.26-.93-.67-2.93-.68-5.89-.28-8.84,.28-2.15,.83-4.26,1.96-6.2-.06,2.2,.26,4.33,.91,6.41,1.08,3.42,2.91,6.3,5.98,8.27,.37,.24,.77,.47,1.19,.61,.51,.17,1.19-.11,1.3-.56,.07-.32-.01-.8-.22-1.03-1.04-1.18-1.81-2.5-2.41-3.94-1.86-4.52-2.48-9.19-1.42-13.99,.78-3.52,2.49-6.59,4.89-9.2,2.32,.22,3.71,.2,3.25-3.3,.77-.66,1.57-1.39,2.42-2.08,2.12-1.71,4.41-3.13,6.97-4.09,.38-.14,.78-.38,.69-.79-.07-.31-.42-.58-.69-.82-.13-.12-.35-.14-.53-.21-2.67-1.05-5-2.65-7.18-4.47-.63-.53-1.21-1.12-1.77-1.64,.08-.41,.16-.66,.18-.91,.13-1.48-.47-2.18-1.92-2.25-.44-.02-.89,0-1.42,0-3.03-3.32-4.94-7.21-5.28-11.71-.41-5.61,.62-10.9,4.26-15.43,.26-.32,.47-.73,.16-1.04-.29-.29-.76-.55-1.14-.55-.41,0-.83,.32-1.2,.55-3.16,1.98-5.03,4.9-6.13,8.39-.64,2.03-.95,4.1-.75,6.68-.37-.59-.54-.77-.62-.99-.9-2.43-1.59-4.9-1.68-7.5-.1-2.84,.01-5.66,.89-8.41,1.25-3.89,4.08-6,7.86-6.93,3.26-.8,6.53-.42,9.74,.43,1.42,.38,2.79,.96,4.19,1.44,.45,.15,.97,.17,1.22-.27,.16-.28,.19-.78,.04-1.07-.41-.79-.82-1.64-1.44-2.25-1.54-1.5-3.34-2.62-5.47-3.11-3.04-.7-5.99-.5-8.89,.7-2.07,.85-3.8,2.15-5.36,3.72-.42,.42-.86,.83-1.29,1.25,1.12-3.57,2.82-6.77,4.9-9.66,2.99-.15,3.63-1.03,2.77-3.66,.21-.28,.42-.59,.67-.89,1.49-1.77,2.99-3.54,4.49-5.31,2.02-2.38,3.62-5,4.8-7.89,2.48-6.12,2.71-12.28,.12-18.41-1.75-4.14-4.56-7.33-8.95-8.78-3.2-1.06-6.23-.67-8.87,1.61-.66,.57-1.3,1.18-2.14,1.96,0-.76-.03-1.27,0-1.77,.12-1.86,.26-3.72,.4-5.58,.3-3.9,1.51-7.56,3.09-11.1,1.79-4.01,4.86-6.92,8.41-9.37,.32-.22,.76-.32,.98-.6,.21-.26,.3-.7,.28-1.05-.03-.45-.45-.62-.86-.59-.7,.05-1.43,.06-2.1,.25Zm-4.05,250.2c-4.01-2.79-6.18-6.64-6.34-11.58,1.36,4.26,2.94,8.4,6.34,11.58Zm-4.43-34.45c-.76,4.04-.77,6.78,4.37,10.52-3.78-.19-7.5-6.94-4.37-10.52Zm.89-36.11c.91,1.55,1.77,3.14,2.72,4.84-.12,.31-.31,.71-.45,1.12-.39,1.15,.03,2.02,1.2,2.42,.42,.15,.87,.21,1.35,.32,2.31,4.7,4.44,9.46,5.09,14.7,.47,3.79,.44,7.59-.91,11.25-.18,.48-.36,.97-.48,1.47-.13,.5-.19,1.02,.33,1.4,.67,.11,1.04-.38,1.45-.77,2.02-1.94,3.15-4.36,3.72-7.06,.76-3.57,.27-7.04-.89-10.44-.18-.53-.42-1.05-.53-1.62,1.49,1.77,2.38,3.87,3.1,6.02,1.53,4.59,1.52,9.23,.11,13.86-.67,2.19-1.79,4.14-3.32,5.83-2.17,2.39-4.37,2.82-7.91,1.47-2.48-.94-3.99-3.78-3.67-6.61,.19-1.68,.97-3.05,2.49-3.92,.22-.13,.47-.22,.69-.34,.35-.19,.74-.48,.54-.88-.14-.28-.57-.55-.9-.6-1.87-.27-3.57,.24-5.09,1.34-.46,.33-.87,.73-1.51,1.27,.05-6.82,.1-13.41,.15-19.99,.05-6.63,.09-13.26,.13-20.24,1.17,1.8,1.66,3.6,2.58,5.17Zm11.8,21.04c1.09,3.03,1.3,6.11,.44,9.23-.03,.1-.13,.18-.21,.26,.13-3.17,.25-6.33-.24-9.49Zm.2,9.61c-.02,.19-.03,.39-.05,.58-.07-.02-.14-.04-.2-.06,.08-.17,.17-.35,.25-.52Zm2.7-33.19c-2.14,.63-5.31,.31-7.71-.79,1.05,.11,1.85,.22,2.66,.26,1.99,.11,3.95-.17,5.91-.5,.61-.1,1.22-.16,1.83-.24-.75,.74-1.74,.98-2.69,1.26Zm-9.69-16.14c-.86-.75-1.09-1.47-1.37-2.13-.89-2.08-1.41-4.28-1.48-6.51-.05-1.66,.1-3.38,.86-4.98-.73,4.62,.08,9.02,1.99,13.62Zm3.1-41.88c-.06,.43-.15,.81-.15,1.19-.01,1.4,1.01,2.36,2.35,2.02,.92-.23,1.55,.01,2.31,.5,1.95,1.24,3.98,2.36,5.99,3.52,.49,.28,1.01,.53,1.56,.81-2.97,1.72-5.83,3.38-8.93,5.17-.68-.01-1.67-.73-2.61,.21-.81,.81-.74,1.72-.46,2.77-4.44,4.39-7.95,9.43-10.59,15.54v-46.7c2.65,5.64,6.16,10.6,10.54,14.98Zm-5.81-18.08c.22-2.12,.73-4.15,1.66-6.06,.17-.36,.46-.67,.7-1-.42,1.43-.88,2.86-1.23,4.31-.64,2.63-.86,5.29-.39,7.98,.08,.46,.08,.94,.1,1.42-.88-2.13-1.08-4.35-.85-6.64Zm10.35-23.05c-1.56-.11-3.13-.02-4.69-.02,3.27-1.43,6.41-1.25,9.8,.74-1.96-.29-3.53-.6-5.11-.72Zm-3.69-48.6c1.27,.12,2.29,.82,3.17,1.71,1.63,1.62,2.83,3.54,3.53,5.7,2.15,6.61,1.39,12.95-2,18.98-.2,.35-.53,.63-.81,.93,.46-1.84,1.08-3.66,1.34-5.53,.69-4.95-.26-9.49-3.94-13.16-.4-.4-.77-.91-1.49-.68-.5,.57-.28,1.17-.08,1.8,.36,1.1,.76,2.2,.99,3.32,1.07,5.25,.44,10.39-1.28,15.4-.98,2.85-2.17,5.64-3.57,8.26-2.93,.57-3.14,1.45-2.1,3.89-.89,1.59-1.84,3.2-2.69,4.85-.85,1.63-1.61,3.32-2.58,5.33-.1-13.7-.19-26.98-.29-40.53,1.13,1.06,2.1,2.01,3.41,2.36,.8,.21,1.63,.37,2.45,.47,.36,.04,.76-.1,1.12-.23,.22-.08,.39-.28,.53-.39,.07-.68-.35-.88-.76-1.08-2.32-1.13-3.25-3.07-2.98-5.54,.27-2.56,1.57-4.44,4.04-5.41,1.29-.51,2.65-.58,4-.45Zm2.93,24.19c.41-3.16,.25-6.31,.16-9.46,.91,2.1,.8,4.3,.57,6.5-.1,1-.39,1.99-.74,2.96Zm-7.78-25.61c-4.66,2.66-5.9,5.28-4.97,10.84-3.28-3.94,.74-10.78,4.97-10.84Zm-.49-23.69c-.11,.14-.27,.24-.41,.36-.44,.54-.86,1.11-1.32,1.63-1.83,2.04-2.86,4.51-3.8,7.03-.21,.56-.48,1.1-.73,1.64-.08-3.3,1.43-5.98,3.44-8.42,.63-.77,1.52-1.34,2.29-2,.09-.16,.18-.32,.29-.47,.03-.04,.16-.06,.16-.05,.04,.09,.12,.23,.09,.28Z"/>
+          <path class="cls-95" d="M93.39,366.7s-.05,.02-.08,.02c.06-.04,.12-.08,.18-.13-.03,.03-.06,.08-.1,.1Z"/>
+          <path class="cls-95" d="M79.07,299.33c-.03-.18-.07-.35-.1-.53,.08,.16,.16,.31,.24,.47-.05,.02-.09,.04-.14,.06Z"/>
+          <path class="cls-95" d="M87.78,234.86c-.09-.15-.18-.31-.27-.46,.07-.03,.14-.05,.2-.08,.02,.18,.05,.36,.07,.53Z"/>
+          <path class="cls-95" d="M72.86,206.5c.08-.17,.16-.33,.24-.5-.02,.18-.03,.37-.05,.55-.06-.02-.12-.04-.19-.06Z"/>
+          <path class="cls-95" d="M66.49,191.55c-.05-.05-.11-.1-.16-.15-.01-.02,.03-.08,.04-.12,.04,.09,.08,.19,.12,.28Z"/>
+          <polygon class="cls-95" points="87.2 390.38 87.27 390.39 87.24 390.27 87.2 390.38"/>
+          <polygon class="cls-95" points="79.13 336.87 79.05 337.02 79.16 337.04 79.13 336.87"/>
+        </g>
+        <g>
+          <path class="cls-95" d="M825.51,190.69c-.41-.03-.83,.14-.86,.59-.02,.35,.07,.78,.28,1.05,.22,.28,.66,.38,.98,.6,3.56,2.44,6.62,5.36,8.41,9.37,1.58,3.54,2.79,7.2,3.09,11.1,.14,1.86,.28,3.72,.4,5.58,.03,.5,0,1.01,0,1.77-.84-.77-1.48-1.38-2.14-1.96-2.64-2.28-5.66-2.67-8.87-1.61-4.39,1.45-7.2,4.65-8.95,8.78-2.59,6.13-2.36,12.29,.12,18.41,1.17,2.89,2.78,5.51,4.8,7.89,1.5,1.77,3,3.54,4.49,5.31,.25,.29,.46,.61,.67,.89-.86,2.63-.22,3.51,2.77,3.66,2.08,2.89,3.78,6.09,4.9,9.66-.43-.42-.87-.83-1.29-1.25-1.56-1.57-3.29-2.87-5.36-3.72-2.9-1.2-5.86-1.4-8.89-.7-2.13,.49-3.93,1.61-5.47,3.11-.62,.61-1.03,1.46-1.44,2.25-.15,.28-.12,.79,.04,1.07,.25,.44,.76,.42,1.22,.27,1.4-.48,2.77-1.06,4.19-1.44,3.2-.86,6.48-1.23,9.74-.43,3.79,.93,6.61,3.04,7.86,6.93,.88,2.75,.99,5.56,.89,8.41-.09,2.6-.78,5.08-1.68,7.5-.08,.22-.25,.4-.62,.99,.2-2.58-.12-4.65-.75-6.68-1.1-3.49-2.97-6.41-6.13-8.39-.38-.24-.8-.55-1.2-.55-.38,0-.85,.26-1.14,.55-.31,.31-.1,.72,.16,1.04,3.64,4.53,4.68,9.82,4.26,15.43-.33,4.5-2.24,8.4-5.28,11.71-.53,0-.98-.02-1.42,0-1.45,.07-2.05,.77-1.92,2.25,.02,.25,.1,.5,.18,.91-.56,.52-1.14,1.11-1.77,1.64-2.18,1.83-4.52,3.42-7.18,4.47-.18,.07-.4,.09-.53,.21-.27,.24-.62,.51-.69,.82-.09,.41,.31,.65,.69,.79,2.56,.96,4.85,2.37,6.97,4.09,.85,.69,1.65,1.42,2.42,2.08-.46,3.5,.93,3.52,3.25,3.3,2.4,2.62,4.1,5.68,4.89,9.2,1.07,4.8,.45,9.47-1.42,13.99-.59,1.44-1.37,2.76-2.4,3.94-.21,.24-.3,.72-.22,1.03,.1,.45,.79,.73,1.3,.56,.42-.14,.82-.37,1.19-.61,3.07-1.98,4.91-4.85,5.98-8.27,.65-2.08,.97-4.21,.91-6.41,1.13,1.94,1.68,4.05,1.96,6.2,.39,2.94,.38,5.91-.28,8.84-.07,.31-.17,.62-.26,.93-1.24,4.68-4.53,7-9.1,7.75-4.19,.69-8.18-.29-12.1-1.71-.42-.15-.83-.37-1.26-.43-.63-.1-1.17,.56-.89,1.13,.42,.86,.82,1.8,1.49,2.45,2.89,2.8,6.39,4.01,10.41,3.55,3.74-.42,6.85-2.12,9.44-4.8,.4-.41,.8-.83,1.2-1.24,.02-.02,.1,0,.33,.02-1.36,3.46-3.09,6.65-5.2,9.76-.95,.03-2.05-.26-2.76,.75-.65,.92-.49,1.82,.14,2.7-1.81,2.15-3.54,4.22-5.28,6.28-2.52,2.99-4.43,6.33-5.59,10.07-1.72,5.55-1.62,11.04,.72,16.41,1.48,3.4,3.73,6.17,7.08,7.89,2.9,1.49,5.89,1.86,8.89,.31,.96-.5,1.78-1.25,2.64-1.92,.34-.27,.61-.63,.91-.95,.16,.13,.32,.2,.32,.27-.05,1.92-.06,3.85-.21,5.77-.13,1.6-.27,3.23-.69,4.77-.67,2.41-1.44,4.81-2.42,7.12-1.77,4.17-4.89,7.21-8.61,9.67-1.06,.7-1.41,1.12-1.2,1.69,.2,.53,.91,.74,2.09,.47,4.44-1.03,8.12-3.2,10.55-7.18,.18-.29,1.13-2.7,1.38-3.61,.67-2.41,1.2-4.92,1.31-7.42,.04-.87-.09-5.37-.1-6.53-.02-8.7-.01-17.39-.05-26.09-.01-3.08-.15-6.17-.19-9.25-.03-1.99,.05-3.98,.04-5.96-.01-2.31-.08-4.62-.1-6.93-.02-2.64,0-5.27,0-7.91,0-.71-.03-1.41,0-2.12,.07-1.99,.13-3.98,.24-5.97,.1-1.93,.04-3.85-.12-5.78-.2-2.37-.17-4.76-.18-7.14-.05-7.41,.04-14.82-.16-22.22-.09-3.47,.17-6.92,.14-10.39-.03-3.41,0-6.83,.01-10.24,.02-4.64,.03-9.27,.06-13.91,0-.51,.04-1.03,.12-1.54,.33-2.18,.27-4.37,.03-6.55-.07-.64-.15-1.28-.15-1.92-.01-4.05-.03-8.1,0-12.16,.03-4.04,.13-8.09,.16-12.13,.07-10.43,.12-20.85,.17-31.28,.01-2.58,.01-5.15,.02-7.73,0-.32,.15-5.5,.04-7.59-.04-.74-.12-1.48-.22-2.22-.09-.56-.18-1.13-.31-1.69-.17-.72-.7-2.02-.72-1.97-.54-.86-.94-1.48-1.32-2.11-2.23-3.76-5.62-5.93-9.72-7.1-.67-.19-1.4-.2-2.1-.25Zm12.49,238.87c-.16,4.94-2.33,8.79-6.34,11.58,3.4-3.18,4.98-7.32,6.34-11.58Zm-6.28-12.35c5.14-3.74,5.14-6.49,4.37-10.52,3.13,3.58-.59,10.33-4.37,10.52Zm6.06-51.8c.05,6.98,.09,13.61,.13,20.24,.05,6.58,.1,13.17,.15,19.99-.64-.54-1.05-.94-1.51-1.27-1.52-1.1-3.22-1.61-5.09-1.34-.33,.05-.76,.31-.9,.6-.2,.4,.19,.69,.54,.88,.22,.12,.47,.22,.69,.34,1.52,.87,2.3,2.23,2.49,3.92,.32,2.83-1.2,5.67-3.67,6.61-3.55,1.35-5.74,.92-7.91-1.47-1.53-1.69-2.65-3.64-3.32-5.83-1.41-4.63-1.41-9.26,.11-13.86,.72-2.15,1.61-4.25,3.1-6.02-.11,.57-.35,1.09-.53,1.62-1.16,3.41-1.65,6.87-.89,10.44,.58,2.71,1.7,5.12,3.72,7.06,.41,.39,.78,.88,1.45,.77,.52-.39,.46-.9,.33-1.4-.12-.5-.3-.98-.48-1.47-1.35-3.67-1.38-7.46-.91-11.25,.65-5.25,2.78-10,5.09-14.7,.49-.11,.93-.17,1.35-.32,1.16-.4,1.58-1.27,1.2-2.42-.14-.41-.32-.81-.45-1.12,.95-1.7,1.81-3.29,2.72-4.84,.92-1.57,1.4-3.36,2.58-5.17Zm-14.61,35.7c-.08-.09-.18-.16-.21-.26-.86-3.12-.65-6.19,.44-9.23-.48,3.16-.36,6.32-.24,9.49Zm.28,.64c-.07,.02-.14,.04-.2,.06-.02-.19-.03-.39-.05-.58,.08,.17,.17,.35,.25,.52Zm-5.64-34.96c.61,.08,1.22,.14,1.83,.24,1.96,.33,3.92,.6,5.91,.5,.81-.04,1.61-.16,2.66-.26-2.39,1.1-5.56,1.42-7.71,.79-.95-.28-1.94-.52-2.69-1.26Zm14.37-28.5c.76,1.59,.91,3.32,.86,4.98-.07,2.23-.6,4.43-1.48,6.51-.28,.66-.5,1.38-1.37,2.13,1.91-4.59,2.72-8.99,1.99-13.62Zm5.45-43.23v46.7c-2.64-6.11-6.15-11.15-10.59-15.54,.28-1.05,.35-1.96-.46-2.77-.94-.93-1.94-.22-2.61-.21-3.1-1.79-5.97-3.45-8.93-5.17,.55-.29,1.07-.53,1.56-.81,2.01-1.16,4.04-2.27,5.99-3.52,.76-.48,1.39-.73,2.31-.5,1.34,.33,2.36-.62,2.35-2.02,0-.38-.09-.75-.15-1.19,4.38-4.37,7.89-9.34,10.54-14.98Zm-5.58,3.53c.02-.47,.02-.95,.1-1.42,.47-2.69,.25-5.35-.39-7.98-.35-1.45-.81-2.87-1.23-4.31,.24,.33,.53,.64,.7,1,.93,1.92,1.44,3.94,1.66,6.06,.24,2.29,.04,4.5-.85,6.64Zm-14.61-28.97c3.38-2,6.52-2.18,9.8-.74-1.56,0-3.14-.09-4.69,.02-1.58,.12-3.14,.43-5.11,.72Zm12.8-48.87c2.46,.97,3.77,2.85,4.04,5.41,.26,2.48-.67,4.41-2.98,5.54-.41,.2-.82,.4-.76,1.08,.14,.11,.31,.31,.53,.39,.36,.13,.76,.27,1.12,.23,.83-.1,1.65-.25,2.45-.47,1.32-.35,2.28-1.3,3.41-2.36-.1,13.55-.19,26.83-.29,40.53-.97-2.02-1.73-3.7-2.58-5.33-.86-1.65-1.8-3.26-2.69-4.85,1.03-2.44,.83-3.32-2.1-3.89-1.4-2.63-2.59-5.41-3.57-8.26-1.72-5.01-2.35-10.15-1.28-15.4,.23-1.13,.63-2.22,.99-3.32,.2-.62,.42-1.22-.08-1.8-.72-.22-1.09,.29-1.49,.68-3.68,3.68-4.63,8.21-3.94,13.16,.26,1.87,.88,3.69,1.34,5.53-.28-.3-.62-.58-.81-.93-3.4-6.04-4.16-12.37-2-18.98,.7-2.16,1.91-4.08,3.53-5.7,.89-.88,1.9-1.59,3.17-1.71,1.35-.13,2.71-.06,4,.45Zm-7.67,20.78c-.23-2.2-.34-4.4,.57-6.5-.09,3.15-.25,6.3,.16,9.46-.34-.98-.63-1.96-.74-2.96Zm13.49-11.81c.93-5.56-.31-8.18-4.97-10.84,4.23,.07,8.24,6.9,4.97,10.84Zm-4.39-34.81s.14,.01,.16,.05c.11,.15,.19,.31,.29,.47,.77,.66,1.65,1.23,2.29,2,2,2.44,3.51,5.12,3.44,8.42-.25-.55-.52-1.08-.73-1.64-.93-2.52-1.96-4.99-3.8-7.03-.47-.52-.88-1.09-1.32-1.63-.14-.12-.3-.22-.41-.36-.04-.04,.04-.19,.09-.28Z"/>
+          <path class="cls-95" d="M817.49,366.6c.06,.04,.12,.08,.18,.13-.03,0-.05-.01-.08-.02-.04-.02-.07-.07-.1-.1Z"/>
+          <path class="cls-95" d="M831.77,299.27c.08-.16,.16-.31,.24-.47-.03,.18-.07,.35-.1,.53-.05-.02-.09-.04-.14-.06Z"/>
+          <path class="cls-95" d="M823.26,234.33c.07,.03,.14,.05,.2,.08-.09,.15-.18,.31-.27,.46,.02-.18,.05-.36,.07-.53Z"/>
+          <path class="cls-95" d="M837.93,206.55c-.02-.18-.03-.37-.05-.55,.08,.17,.16,.33,.24,.5-.06,.02-.12,.04-.19,.06Z"/>
+          <path class="cls-95" d="M844.6,191.27s.06,.11,.04,.12c-.05,.06-.1,.1-.16,.15,.04-.09,.08-.19,.12-.28Z"/>
+          <polygon class="cls-95" points="823.73 390.27 823.7 390.39 823.78 390.38 823.73 390.27"/>
+          <polygon class="cls-95" points="831.81 337.04 831.93 337.02 831.84 336.87 831.81 337.04"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

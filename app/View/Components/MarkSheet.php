@@ -16,12 +16,12 @@ class MarkSheet extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct($exam, $student, $marksheet, $subjects)
+    public function __construct($marksheet)
     {
-        $this->exam = $exam;
-        $this->student = $student;
+        $this->exam = $marksheet->exam;
+        $this->student = $marksheet->student;
         $this->marksheet = $marksheet;
-        $this->subjects = $subjects;
+        $this->subjects = $marksheet->items;
         $this->institute = site();
     }
 
