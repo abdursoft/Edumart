@@ -102,4 +102,11 @@ class User extends Authenticatable
         return $this->hasMany(Invoice::class, 'user_id');
     }
 
+    /**
+     * Relation with assignments
+     */
+    public function assignments(){
+        return $this->hasMany(Assignment::class, 'teacher_id');
+    }
+
 }

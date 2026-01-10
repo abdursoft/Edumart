@@ -13,7 +13,6 @@
     <script src="{{ theme_asset('js/sweet.js') }}"></script>
     <link rel="stylesheet" href="{{ theme_asset('css/sweet.css') }}">
     <link rel="stylesheet" href="{{ theme_asset('css/owl.css') }}" />
-    <link rel="stylesheet" href="{{ theme_asset('css/style.css') }}">
 
     {{-- Vite assets --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])

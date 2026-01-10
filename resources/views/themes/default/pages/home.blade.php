@@ -6,7 +6,6 @@
     {{ metaContent('Home Page', 'This is the home page of the website.', theme_asset('images/home-banner.jpg'), 'home, page, website') }}
 @endsection
 
-
 @section('content')
 @if(!empty($page->slider))
 <x-hero-slider :slider="$page->slider"></x-hero-slider>

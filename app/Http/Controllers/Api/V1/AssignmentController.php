@@ -12,6 +12,7 @@ use PhpParser\Node\Expr\Assign;
 
 class AssignmentController extends Controller
 {
+
     // List all assignments
     public function index()
     {

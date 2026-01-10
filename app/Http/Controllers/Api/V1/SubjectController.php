@@ -80,6 +80,9 @@ class SubjectController extends Controller
      * Get subjects by class id
      */
     public function getSubjectList($class){
-        return Subject::where('edu_class_id',$class)->get();
+        if(isRole('admin')){
+            return Subject::where('edu_class_id',$class)->get();
+        }
+        return Subject::where('edu_class_id',$class)->where('teacher_id', $this->profile->id)->get();
     }
 }

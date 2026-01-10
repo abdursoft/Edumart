@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use App\Models\NewsNotice;
 use Illuminate\Support\Facades\Auth;
@@ -23,10 +24,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+        // set timezone
+        date_default_timezone_set('Asia/Dhaka');
+
         // set auth session and life time
         Auth::viaRemember();
         config(['session.lifetime' => 60 * 24 * 365]);
-
 
         // Share "Main Menu" globally
         View::composer('*', function ($view) {

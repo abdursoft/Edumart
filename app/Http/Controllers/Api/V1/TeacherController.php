@@ -3,10 +3,18 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Models\Assignment;
+use App\Models\Attendance;
+use App\Models\ClassRoutine;
 use App\Models\Designation;
+use App\Models\EduClass;
+use App\Models\Subject;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+
+use function Symfony\Component\Clock\now;
 
 class TeacherController extends Controller
 {
@@ -94,9 +102,70 @@ class TeacherController extends Controller
      * Show teacher dashboard
      */
     public function dashboard(){
-        $profile = auth()->user();
-        $subject = auth()->user()->subject;
+        $profile = $this->profile;
+        $now = Carbon::now();
 
-        return view(theme('pages.teachers.dashboard'), compact('profile','subject'));
+        $routines = ClassRoutine::where('day', $now->format('l'))
+        ->orderBy('start_time','asc')
+        ->get()
+        ->filter(function($routine) use ($profile){
+            $subject = $routine->subject;
+            return $subject->teacher_id == $profile->id;
+        });
+
+        $assignments = $profile->assignments;
+
+        $subjects = Subject::where('teacher_id', $profile->id)->orderBy('edu_class_id')->get()->groupBy('edu_class_id');
+
+        return view(theme('pages.teachers.dashboard'), compact('profile','subjects', 'routines', 'assignments'));
+    }
+
+    /**
+     * Show subjects according the teacher profile
+     */
+    public function subjects(){
+        $profile = $this->profile;
+        return view(theme('pages.teachers.subjects'), compact('profile'));
+    }
+
+    /**
+     * Show assignments according the teacher profile
+     */
+    public function assignments(){
+        $profile = $this->profile;
+        return view(theme('pages.teachers.assignment'), compact('profile'));
+    }
+
+    /**
+     * Create new assignment
+     */
+    public function assignmentNew(Request $request, $assignment = null){
+        if($assignment != null){
+            $assignment = Assignment::findOrFail($assignment);
+        }
+        $classes = EduClass::orderBy('order')->get();
+        $profile = $this->profile;
+
+        return view(theme('pages.teachers.assignment-create'), compact('assignment', 'classes', 'profile'));
+    }
+
+    /**
+     * Take attendance view
+     */
+    public function takeAttendance($sub, $class){
+        $profile = $this->profile;
+        $class = EduClass::findOrFail($class);
+        $subject = Subject::findOrFail($sub);
+        $students = $class->student()->orderBy('student_id')->get();
+        $routine = ClassRoutine::where('subject_id',$sub)
+                ->where('edu_class_id', $class->id)
+                ->first();
+        $attendance = Attendance::where('subject_id', $sub)
+                    ->where('attendance_date', now()->format('Y-m-d'))
+                    ->where('teacher_id', $profile->id)
+                    ->where('edu_class_id', $class->id)
+                    ->first();
+        return view(theme('pages.teachers.attendance'), compact('profile','class', 'subject', 'students','attendance','routine'));
     }
 }
+

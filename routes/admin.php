@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V1\AddressController;
 use App\Http\Controllers\Api\V1\Admin\AdminController;
 use App\Http\Controllers\Api\V1\AssignmentController;
+use App\Http\Controllers\Api\V1\AttendanceController;
 use App\Http\Controllers\Api\V1\ClassPromotionController;
 use App\Http\Controllers\Api\V1\ClassRoomController;
 use App\Http\Controllers\Api\V1\ClassRoutineController;
@@ -26,6 +27,7 @@ use App\Http\Controllers\Api\V1\MenuController;
 use App\Http\Controllers\Api\V1\MenuItemController;
 use App\Http\Controllers\Api\V1\NewsNoticeController;
 use App\Http\Controllers\Api\V1\PageController;
+use App\Http\Controllers\Api\V1\RoleAndPermissionController;
 use App\Http\Controllers\Api\V1\SiteSettingController;
 use App\Http\Controllers\Api\V1\SliderContentController;
 use App\Http\Controllers\Api\V1\SliderController;
@@ -129,7 +131,11 @@ Route::prefix('academic/structure')->name('academic.structure.')->group(function
 // Learning Activities
 Route::prefix('academic/activities')->name('academic.activities.')->group(function () {
     // attendance routes
-    Route::get('attendance', function () { return 'Attendance'; })->name('attendance');
+    Route::get('attendance', [AttendanceController::class, 'index'])->name('attendance');
+    Route::post('attendance', [AttendanceController::class, 'store'])->name('attendance.add');
+    Route::get('attendance/{id}/edit', [AttendanceController::class, 'show'])->name('attendance.edit');
+    Route::get('attendance/{id}/update', [AttendanceController::class, 'update'])->name('attendance.update');
+    Route::get('attendance/{id}/delete', [AttendanceController::class, 'destroy'])->name('attendance.destroy');
 
     // assignment routes
     Route::get('assignments', [AssignmentController::class, 'index'])->name('assignments');
@@ -300,7 +306,18 @@ Route::prefix('information')->name('information.')->group(function () {
 
 // System Settings
 Route::prefix('settings')->name('settings.')->group(function () {
-    Route::get('user_roles', function () { return 'User Roles & Permissions'; })->name('user_roles');
+    Route::get('/roles', [RoleAndPermissionController::class, 'index'])->name('role_permission');
+    Route::get('/roles/create', [RoleAndPermissionController::class, 'create'])->name('roles.create');
+    Route::post('/roles', [RoleAndPermissionController::class, 'store'])->name('roles.store');
+    Route::get('/roles/{role}/edit', [RoleAndPermissionController::class, 'edit'])->name('roles.edit');
+    Route::put('/roles/{role}', [RoleAndPermissionController::class, 'update'])->name('roles.update');
+    Route::delete('/roles/{role}', [RoleAndPermissionController::class, 'destroy'])->name('roles.destroy');
+
+    Route::post('/permissions', [RoleAndPermissionController::class, 'storePermission'])->name('permissions.store');
+    Route::delete('/permissions/{permission}', [RoleAndPermissionController::class, 'destroyPermission'])->name('permissions.destroy');
+
+
+
     Route::get('users', function () { return 'User Management'; })->name('users');
     Route::get('academic_year', function () { return 'Academic Year'; })->name('academic_year');
     Route::get('system_settings', function () { return 'System Settings'; })->name('system_settings');

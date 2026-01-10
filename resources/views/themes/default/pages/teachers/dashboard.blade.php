@@ -7,36 +7,29 @@
 <div class="min-h-screen bg-gray-100 p-6">
 
 <!-- Main Content -->
-<main class="max-w-7xl mx-auto">
+<main class="w-full">
 
     <!-- Stats -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
         <div class="bg-white p-6 rounded-xl shadow">
-            <p class="text-gray-500">Total Classes</p>
+            <p class="text-gray-500">Total Subjects</p>
             <div class="flex items-center justify-between w-full">
-                <p class="text-xl font-semibold">8</p>
-                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
-            </div>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow">
-            <p class="text-gray-500">Total Students</p>
-            <div class="flex items-center justify-between w-full">
-                <p class="text-xl font-semibold">8</p>
-                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+                <p class="text-xl font-semibold">{{ count($subjects) }}</p>
+                <a href="{{route('teacher.subjects')}}" class="p-1 md:p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
             </div>
         </div>
         <div class="bg-white p-6 rounded-xl shadow">
             <p class="text-gray-500">Assignments</p>
             <div class="flex items-center justify-between w-full">
-                <p class="text-xl font-semibold">8</p>
-                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+                <p class="text-xl font-semibold">{{count($assignments)}}</p>
+                <a href="{{route('teacher.assignments')}}" class="p-1 md:p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
             </div>
         </div>
         <div class="bg-white p-6 rounded-xl shadow">
             <p class="text-gray-500">Pending Reviews</p>
             <div class="flex items-center justify-between w-full">
                 <p class="text-xl font-semibold">8</p>
-                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+                <a href="" class="p-1 md:p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
             </div>
         </div>
     </div>
@@ -47,34 +40,30 @@
         <!-- Class Schedule -->
         <div class="lg:col-span-2 bg-white rounded-xl shadow p-6">
             <h3 class="text-xl font-semibold mb-4">Today's Classes</h3>
-            <table class="w-full text-left">
+            <table class="w-full text-left stripe hover" id="todayClass">
                 <thead>
                     <tr class="text-gray-500 border-b">
                         <th class="py-2">Class</th>
                         <th>Subject</th>
                         <th>Time</th>
                         <th>Room</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="border-b">
-                        <td class="py-2">Class 9</td>
-                        <td>Mathematics</td>
-                        <td>9:00 AM - 10:00 AM</td>
-                        <td>201</td>
-                    </tr>
-                    <tr class="border-b">
-                        <td class="py-2">Class 10</td>
-                        <td>Physics</td>
-                        <td>11:00 AM - 12:00 PM</td>
-                        <td>305</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2">Class 8</td>
-                        <td>General Science</td>
-                        <td>2:00 PM - 3:00 PM</td>
-                        <td>104</td>
-                    </tr>
+                    @foreach($routines as $key => $routine)
+                        <tr>
+                            <td class="py-2">{{$routine?->eduClass->name}}</td>
+                            <td>{{$routine?->subject->name}}</td>
+                            <td>{{date('H:i A', strtotime($routine?->start_time))}} - {{date('H:i A', strtotime($routine?->end_time))}}</td>
+                            <td>{{$routine->classRoom->name}}</td>
+                            <td>{{ (classRunning($routine?->start_time, $routine->end_time)) ? "Running" : "Schedule" }}</td>
+                            <td>
+                                <a href="{{route('teacher.attendance', ['sub' => $routine->subject->id, 'class' => $routine->eduClass->id])}}" class="bg-orange-400 text-sm text-white rounded-md shadow-md py-1 px-2">Take Attendance</a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -93,42 +82,6 @@
                 </li>
             </ul>
         </div>
-
-    </div>
-
-    <!-- Recent Assignments -->
-    <div class="bg-white rounded-xl shadow p-6 mt-8">
-        <h3 class="text-xl font-semibold mb-4">Recent Assignments</h3>
-        <table class="w-full">
-            <thead>
-                <tr class="text-gray-500 border-b">
-                    <th class="py-2">Title</th>
-                    <th>Class</th>
-                    <th>Due Date</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="border-b">
-                    <td class="py-2">Algebra Worksheet</td>
-                    <td>Class 9</td>
-                    <td>12 Feb 2026</td>
-                    <td class="text-green-600 font-medium">Active</td>
-                </tr>
-                <tr class="border-b">
-                    <td class="py-2">Motion & Force</td>
-                    <td>Class 10</td>
-                    <td>14 Feb 2026</td>
-                    <td class="text-green-600 font-medium">Active</td>
-                </tr>
-                <tr>
-                    <td class="py-2">Plant Cell</td>
-                    <td>Class 8</td>
-                    <td>10 Feb 2026</td>
-                    <td class="text-gray-500 font-medium">Closed</td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 
 </main>
@@ -144,4 +97,30 @@
     </div>
 
 </div>
+@endsection
+
+@section('styles')
+{{tableStyle()}}
+@endsection
+
+@section('scripts')
+	<!--Datatables -->
+	{{ tableScript() }}
+	<script>
+		$(document).ready(function() {
+
+			var table = $('#example').DataTable( {
+					responsive: true
+				} )
+				.columns.adjust()
+				.responsive.recalc();
+
+            $('#todayClass').DataTable( {
+					responsive: true
+				} )
+				.columns.adjust()
+				.responsive.recalc();
+		} );
+
+	</script>
 @endsection

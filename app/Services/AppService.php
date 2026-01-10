@@ -21,6 +21,66 @@ if (!function_exists('site')) {
 }
 
 /**
+ * get signin profile
+ */
+if(!function_exists('profile')){
+    function profile(){
+        return auth('web')->user();
+    }
+}
+
+/**
+ * Check the user is permitted for the action
+ */
+if(!function_exists('permitted')){
+    /**
+     * @param $permission name of the actions | permissions
+     */
+    function permitted($permission){
+        $action = profile()?->can($permission);
+        if(!$action){
+            return abort(403, "You are not allowed to browse this page");
+        }
+        return $action;
+    }
+}
+
+
+/**
+ * Checking the role
+ */
+if(!function_exists('isRole')){
+    /**
+     * @param $role name of the user role
+     */
+    function isRole($role){
+        return profile()->hasRole($role);
+    }
+}
+
+/**
+ * Check class is running or not
+ */
+if(!function_exists('classRunning')){
+    /**
+     * @param $date class date
+     * @param $start class start time
+     * @param $end class end time
+     */
+    function classRunning($start, $end)
+    {
+        $carbon = \Carbon\Carbon::class;
+
+        $now = $carbon::now();
+
+        $startTime = $carbon::createFromFormat('H:i:s', $start);
+        $endTime   = $carbon::createFromFormat('H:i:s', $end);
+
+        return $now->between($startTime, $endTime);
+    }
+}
+
+/**
  * Get user type and id
  */
 if(!function_exists('getUsers')){

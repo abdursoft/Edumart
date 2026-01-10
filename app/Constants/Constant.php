@@ -139,6 +139,7 @@ const MENUS = [
 
     // System Settings
     "settings" => [
+        'role_permission' => "Role & Permissions",
         "system_settings" => "System Settings",
         "email_sms_settings" => "Email/SMS Configuration",
         "backup" => "Database Backup",

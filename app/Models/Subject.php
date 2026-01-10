@@ -30,4 +30,11 @@ class Subject extends Model
     {
         return $this->belongsTo(User::class, 'teacher_id');
     }
+
+    /**
+     * Relation with class routine
+     */
+    public function routine(){
+        return $this->hasMany(ClassRoutine::class, 'subject_id');
+    }
 }

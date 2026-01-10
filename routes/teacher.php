@@ -9,4 +9,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(TeacherController::class)->group(function(){
     Route::get('dashboard', 'dashboard')->name('dashboard');
+    Route::get('subjects', 'subjects')->name('subjects');
+    Route::get('assignments', 'assignments')->name('assignments');
+    Route::get('assignment-process/{assignment?}', 'assignmentNew')->name('assignments.new');
+    Route::get('attendance/{sub}/{class}', 'takeAttendance')->name('attendance');
 });

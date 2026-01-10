@@ -731,7 +731,6 @@ hr {
 table,
 th,
 td {
-    border: 1px solid rgb(172, 159, 159);
     border-collapse: collapse;
 }
 

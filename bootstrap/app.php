@@ -25,7 +25,7 @@ return Application::configure(basePath: dirname(__DIR__))
             Route::prefix('install')->name('install.')->middleware(['web'])->group(base_path('routes/install.php'));
             Route::prefix('admin')
                 ->name('admin.')
-                ->middleware(['auth', 'role:admin'])
+                ->middleware(['auth', 'role_or_permission:admin|teacher|moderator|accountant'])
                 ->group(base_path('routes/admin.php'));
 
             Route::prefix('teacher')
