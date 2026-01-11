@@ -176,3 +176,42 @@ const LANGUAGE = [
     "bn" => "বাংলা",
     "en" => "English"
 ];
+
+
+const TIMEZONES = [
+    // Asia
+    'Asia/Dhaka' => 'Asia/Dhaka',
+    'Asia/Kolkata' => 'Asia/Kolkata',
+    'Asia/Karachi' => 'Asia/Karachi',
+    'Asia/Kathmandu' => 'Asia/Kathmandu',
+    'Asia/Dubai' => 'Asia/Dubai',
+    'Asia/Riyadh' => 'Asia/Riyadh',
+    'Asia/Singapore' => 'Asia/Singapore',
+    'Asia/Tokyo' => 'Asia/Tokyo',
+    'Asia/Shanghai' => 'Asia/Shanghai',
+
+    // Europe
+    'Europe/London' => 'Europe/London',
+    'Europe/Paris' => 'Europe/Paris',
+    'Europe/Berlin' => 'Europe/Berlin',
+    'Europe/Rome' => 'Europe/Rome',
+    'Europe/Moscow' => 'Europe/Moscow',
+
+    // Africa
+    'Africa/Cairo' => 'Africa/Cairo',
+    'Africa/Nairobi' => 'Africa/Nairobi',
+    'Africa/Johannesburg' => 'Africa/Johannesburg',
+
+    // America
+    'America/New_York' => 'America/New_York',
+    'America/Chicago' => 'America/Chicago',
+    'America/Denver' => 'America/Denver',
+    'America/Los_Angeles' => 'America/Los_Angeles',
+    'America/Toronto' => 'America/Toronto',
+    'America/Sao_Paulo' => 'America/Sao_Paulo',
+
+    // Australia
+    'Australia/Sydney' => 'Australia/Sydney',
+    'Australia/Melbourne' => 'Australia/Melbourne',
+    'Australia/Perth' => 'Australia/Perth',
+];

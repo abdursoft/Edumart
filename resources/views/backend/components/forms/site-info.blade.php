@@ -119,6 +119,48 @@
                 'type' => 'text',
                 'required' => true,
             ],
+            [
+                'label' => 'Timezone',
+                'name' => 'set_timezone',
+                'type' => 'select',
+                'options' => TIMEZONES,
+                'required' => true,
+            ],
+
+            [
+                'label' => '',
+                'name' => '',
+                'type' => 'break',
+                'default' => 1,
+            ],
+            [
+                'label' => '',
+                'name' => '',
+                'type' => 'break',
+                'margin' => '20',
+                'default' => 3,
+            ],
+
+            [
+                'label' => 'Header color',
+                'name' => 'header_color',
+                'type' => 'color',
+            ],
+            [
+                'label' => 'Navbar color',
+                'name' => 'navbar_color',
+                'type' => 'color',
+            ],
+            [
+                'label' => 'Footer color',
+                'name' => 'footer_color',
+                'type' => 'color',
+            ],
+            [
+                'label' => 'Sidebar color',
+                'name' => 'sidebar_color',
+                'type' => 'color',
+            ],
 
         ]" :form="$site" cols="3" />
 

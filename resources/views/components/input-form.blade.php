@@ -15,11 +15,12 @@
             $default = $field['default'] ?? '';
             $remark  = $field['remark'] ?? '';
             $step = $field['step'] ?? '';
+            $margin = $field['margin'] ?? '0';
         @endphp
 
         @if($type === 'break')
             @for($i=0; $i<$default;$i++)
-                <div></div>
+                <div style="margin-top:{{$margin}}px;"></div>
             @endfor
         @elseif($type === 'title')
             <h2 class="text-muted text-xl w-full inline-block mt-3">{{$default}}</h2>
@@ -65,6 +66,25 @@
                         style="min-height:400px;"
                     >{{ $value ?? $default }}</div>
                     <input type="hidden" name="{{ $name }}" id="{{ $name }}_input">
+
+                @elseif ($type === 'color')
+                    <div class="flex items-center gap-1">
+                        <input
+                        type="text"
+                        id="{{ $name }}"
+                        name="{{ $name }}"
+                        {{ $step ? 'step='.$step : '' }}
+                        value="{{ $type != 'password' ? ($value ?? $default) :  '' }}"
+                        placeholder="{{$place}}"
+                        @if(!empty($field['required'])) required @endif
+                        class="block w-full rounded-md border-gray-100 bg-gray-100 text-gray-900 focus:ring-teal-500 focus:border-teal-500 py-2 px-1" />
+                        <input
+                        type="color"
+                        id="cl_render_{{ $name }}"
+                        value="{{ $type != 'password' ? ($value ?? $default) :  '' }}"
+                        placeholder="{{$place}}"
+                        class="w-[40px] h-[40px] rounded shadow-md border-0 outline-0" />
+                    </div>
                 @else
                     <input
                         type="{{ $type }}"
@@ -102,6 +122,16 @@
                             changeYear: true,
                             yearRange: "1971:2025",
                             showAnim: "fadeIn"
+                            });
+                        });
+                    </script>
+                @endif
+
+                @if($type === 'color')
+                    <script>
+                        $(function() {
+                            $("#cl_render_{{$name}}").change(function(){
+                                $("#{{$name}}").val(this.value)
                             });
                         });
                     </script>

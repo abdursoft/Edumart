@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -26,7 +25,8 @@ class SiteSetting extends Model
         'code',
         'gov_id',
         'name_bn',
-        'establish_date'
+        'establish_date',
+        'header_color', 'navbar_color', 'footer_color', 'sidebar_color', 'auth_bg_image', 'set_timezone',
     ];
 
     protected $casts = [
@@ -54,3 +54,4 @@ class SiteSetting extends Model
         return $this->belongsTo(Union::class, 'union_id');
     }
 }
+

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
@@ -40,6 +41,12 @@ class SiteSettingController extends Controller
             'name_bn'        => 'nullable|string',
             'establish_date' => 'nullable|date',
             'social_links'   => 'nullable|array',
+            'set_timezone'   => 'required',
+            'header_color'   => 'nullable',
+            'footer_color'   => 'nullable',
+            'navbar_color'   => 'nullable',
+            'sidebar_color'  => 'nullable',
+            'maintenance'    => 'nullable|in:active,inactive',
         ]);
 
         if ($validator->fails()) {
@@ -71,6 +78,12 @@ class SiteSettingController extends Controller
         $settings->code           = $request->code;
         $settings->gov_id         = $request->gov_id;
         $settings->name_bn        = $request->name_bn;
+        $settings->header_color   = $request->header_color;
+        $settings->navbar_color   = $request->navbar_color;
+        $settings->sidebar_color  = $request->sidebar_color;
+        $settings->footer_color   = $request->footer_color;
+        $settings->set_timezone   = $request->set_timezone;
+        $settings->maintenance    = $request->maintenance ?? 'inactive';
         $settings->establish_date = $request->establish_date;
 
         if ($request->social_links) {

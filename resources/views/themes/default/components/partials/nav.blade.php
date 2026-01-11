@@ -1,4 +1,4 @@
-<nav class="bg-teal-800 px-2 relative">
+<nav class="px-2 relative" style="background:{{site()->navbar_color ?? 'oklch(0.45 0.08 188.22)'}};">
   <div class="flex justify-between items-center h-16 !px-4">
     <!-- Logo -->
     <a href="/" class="flex md:hidden text-white !text-sm font-bold text-2xl">MySite</a>
@@ -39,7 +39,7 @@
   </div>
 
   <!-- Mobile Menu -->
-  <ul id="mobile-menu" class="fixed top-0 left-0 w-64 h-full bg-teal-700 px-3 py-6 space-y-2 transform -translate-x-full transition-transform duration-300 md:hidden z-50">
+  <ul id="mobile-menu" class="fixed top-0 left-0 w-64 h-full px-3 py-6 space-y-2 transform -translate-x-full transition-transform duration-300 md:hidden z-50" style="background:{{site()->sidebar_color ?? 'teal'}}">
     <!-- Mobile Dropdown -->
     @foreach($mainMenu?->items ?? [] as $item)
         @if($item->children->count())

@@ -1,29 +1,23 @@
 <div class="bg-gray-300 p-2 rounded-md" id="clock"></div>
 <script>
+let currentTimezone = "{{site()->set_timezone ?? 'Asia/Dhaka'}}";
+
 function updateClock() {
     const now = new Date();
 
-    let hours = now.getHours(); // 0–23
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
+    const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: currentTimezone,
+        hour: 'numeric',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+    });
 
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-
-    hours = hours % 12;
-    hours = hours ? hours : 12; // 0 → 12
-
-    const formattedTime =
-        hours + ':' +
-        String(minutes).padStart(2, '0') + ':' +
-        String(seconds).padStart(2, '0') + ' ' +
-        ampm;
-
-    document.getElementById('clock').textContent = formattedTime;
+    document.getElementById('clock').textContent = formatter.format(now);
 }
 
-// update immediately
-updateClock();
 
-// update every second
+// initial load
+updateClock();
 setInterval(updateClock, 1000);
 </script>
