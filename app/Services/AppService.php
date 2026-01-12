@@ -80,6 +80,25 @@ if(!function_exists('classRunning')){
     }
 }
 
+
+/**
+ * Get sms configurations
+ */
+if(!function_exists('smsAttributes')){
+    /**
+    * @param $keyword sms method keyword
+    * @param $key attribute key
+    */
+    function smsAttributes($keyword,$key){
+        $smsMethod = \App\Models\SmsMethod::where('keyword',$keyword)->first();
+        if($smsMethod){
+            $attributes = json_decode($smsMethod->attributes,true);
+            return $attributes[$key] ?? '';
+        }
+    }
+}
+
+
 /**
  * Get user type and id
  */

@@ -1,6 +1,6 @@
 @extends('themes.default.layouts.app')
 
-@section('title', 'Home Page')
+@section('title', ($page->title ?? 'Home page'))
 
 @section('meta')
     {{ metaContent('Home Page', 'This is the home page of the website.', theme_asset('images/home-banner.jpg'), 'home, page, website') }}
@@ -23,7 +23,6 @@
     <div class="md:w-2/3 w-full space-y-4">
         <!-- Dynamic page Content -->
         <div class="text-justify w-full px-2">
-            <h2 class="my-3 text-xl font-semibold">{{ $page->title ?? '' }}</h2>
             <div class="prose max-w-full">
                 {!! $page->content ?? '' !!}
             </div>

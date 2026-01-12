@@ -63,6 +63,7 @@ class DatabaseSeeder extends Seeder
             SiteSettingSeeder::class,
             LanguageSeeder::class,
             MenuSeeder::class,
+            SMSConfig::class,
             RolePermissionSeeder::class
         ]);
     }

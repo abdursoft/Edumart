@@ -97,7 +97,6 @@ const MENUS = [
     // Finance & Accounts
     "finance" => [
         "fees" => [
-            "fee_types" => "Fee Types",
             "fee_collection" => "Fee Collection",
             "student_due" => "Student Due Reports",
         ],
@@ -109,15 +108,12 @@ const MENUS = [
             "payroll" => "Payroll",
             "salary_sheet" => "Salary Sheet",
         ],
-        "accounts" => "Accounts Summary",
-        "transactions" => "Transactions",
     ],
 
     // Communication & Collaboration
     "communication" => [
         "sms" => "SMS",
         "email" => "Email",
-        "notifications" => "Notifications",
     ],
 
     //  Reports
@@ -162,8 +158,6 @@ const MENUS = [
     "public" => [
         "admission_form" => "Online Admission Form",
         "results_portal" => "Results Portal",
-        "notices" => "Public Notices",
-        "events" => "Events",
         "downloads" => "Download Center",
     ],
 

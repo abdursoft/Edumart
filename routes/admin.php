@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\AddressController;
 use App\Http\Controllers\Api\V1\Admin\AdminController;
+use App\Http\Controllers\Api\V1\Admin\SmsController;
 use App\Http\Controllers\Api\V1\AssignmentController;
 use App\Http\Controllers\Api\V1\AttendanceController;
 use App\Http\Controllers\Api\V1\ClassPromotionController;
@@ -13,29 +14,29 @@ use App\Http\Controllers\Api\V1\DesignationController;
 use App\Http\Controllers\Api\V1\EduClassController;
 use App\Http\Controllers\Api\V1\ExamAdmitCardController;
 use App\Http\Controllers\Api\V1\ExamController;
-use App\Http\Controllers\Api\V1\ExamSubjectController;
-use App\Http\Controllers\Api\V1\ParentController;
-use App\Http\Controllers\Api\V1\StaffController;
-use App\Http\Controllers\Api\V1\StudentController;
-use App\Http\Controllers\Api\V1\SubjectController;
-use App\Http\Controllers\Api\V1\TeacherController;
 use App\Http\Controllers\Api\V1\ExamFeeController;
 use App\Http\Controllers\Api\V1\ExamResultController;
+use App\Http\Controllers\Api\V1\ExamSubjectController;
 use App\Http\Controllers\Api\V1\MarkSheetController;
 use App\Http\Controllers\Api\V1\MarkSheetItemController;
 use App\Http\Controllers\Api\V1\MenuController;
 use App\Http\Controllers\Api\V1\MenuItemController;
 use App\Http\Controllers\Api\V1\NewsNoticeController;
 use App\Http\Controllers\Api\V1\PageController;
+use App\Http\Controllers\Api\V1\ParentController;
 use App\Http\Controllers\Api\V1\RoleAndPermissionController;
 use App\Http\Controllers\Api\V1\SiteSettingController;
 use App\Http\Controllers\Api\V1\SliderContentController;
 use App\Http\Controllers\Api\V1\SliderController;
+use App\Http\Controllers\Api\V1\StaffController;
+use App\Http\Controllers\Api\V1\StudentController;
+use App\Http\Controllers\Api\V1\SubjectController;
+use App\Http\Controllers\Api\V1\TeacherController;
 use App\Http\Controllers\Api\V1\UploadController;
 use App\Http\Controllers\Api\V1\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('dashboard',[AdminController::class, 'dashboard'])->name('dashboard');
+Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
 /**
  * Academic Management
@@ -85,7 +86,9 @@ Route::prefix('academic/people')->name('academic.people.')->group(function () {
     Route::get('designation/{id}/delete', [DesignationController::class, 'destroy'])->name('designations.delete');
     Route::post('designations', [DesignationController::class, 'store'])->name('designations.add');
 
-    Route::get('profiles', function () { return 'Profiles'; })->name('profiles');
+    Route::get('profiles', function () {
+        return 'Profiles';
+    })->name('profiles');
 });
 
 // Academic Structure {done}
@@ -104,7 +107,9 @@ Route::prefix('academic/structure')->name('academic.structure.')->group(function
     Route::post('classes/{id}/update', [EduClassController::class, 'update'])->name('classes.update');
     Route::get('classes/{id}/delete', [EduClassController::class, 'index'])->name('classes.delete');
 
-    Route::get('sections', function () { return 'Sections'; })->name('sections');
+    Route::get('sections', function () {
+        return 'Sections';
+    })->name('sections');
 
     // subject routes
     Route::get('subjects', [SubjectController::class, 'index'])->name('subjects');
@@ -144,9 +149,15 @@ Route::prefix('academic/activities')->name('academic.activities.')->group(functi
     Route::post('assignments/{id}/update', [AssignmentController::class, 'update'])->name('assignments.update');
     Route::get('assignments/{id}/delete', [AssignmentController::class, 'destroy'])->name('assignments.delete');
 
-    Route::get('homework', function () { return 'Homework'; })->name('homework');
-    Route::get('lesson_plan', function () { return 'Lesson Plans'; })->name('lesson_plan');
-    Route::get('syllabus', function () { return 'Syllabus'; })->name('syllabus');
+    Route::get('homework', function () {
+        return 'Homework';
+    })->name('homework');
+    Route::get('lesson_plan', function () {
+        return 'Lesson Plans';
+    })->name('lesson_plan');
+    Route::get('syllabus', function () {
+        return 'Syllabus';
+    })->name('syllabus');
 });
 
 // Evaluation & Examination
@@ -211,69 +222,130 @@ Route::prefix('academic/evaluation')->name('academic.evaluation.')->group(functi
     Route::get('promotion/{id}/delete', [ClassPromotionController::class, 'destroy'])->name('promotion.delete');
     Route::get('promotion/{id}/student', [ClassPromotionController::class, 'getStudent'])->name('promotion.student');
 
-
-    Route::get('certificates', function () { return 'Certificates'; })->name('certificates');
+    Route::get('certificates', function () {
+        return 'Certificates';
+    })->name('certificates');
     // Route::get('promotion', function () { return 'Class Promotion'; })->name('promotion');
 });
 
 // Academic Resources
 Route::prefix('academic/resources/library')->name('academic.resources.')->group(function () {
-    Route::get('/', function () { return 'Library'; })->name('library');
-    Route::get('author', function () { return 'Author'; })->name('author');
-    Route::get('category', function () { return 'Category'; })->name('category');
-    Route::get('shelf', function () { return 'Shelf'; })->name('shelf');
-    Route::get('books', function () { return 'Books'; })->name('books');
-    Route::get('book_issue', function () { return 'Book Issue'; })->name('book_issue');
-    Route::get('book_return', function () { return 'Book Return'; })->name('book_return');
+    Route::get('/', function () {
+        return 'Library';
+    })->name('library');
+    Route::get('author', function () {
+        return 'Author';
+    })->name('author');
+    Route::get('category', function () {
+        return 'Category';
+    })->name('category');
+    Route::get('shelf', function () {
+        return 'Shelf';
+    })->name('shelf');
+    Route::get('books', function () {
+        return 'Books';
+    })->name('books');
+    Route::get('book_issue', function () {
+        return 'Book Issue';
+    })->name('book_issue');
+    Route::get('book_return', function () {
+        return 'Book Return';
+    })->name('book_return');
 });
 
 Route::prefix('academic/resources/room')->name('academic.resources.')->group(function () {
-    Route::get('/', function () { return 'Hostel Rooms'; })->name('room');
+    Route::get('/', function () {
+        return 'Hostel Rooms';
+    })->name('room');
 });
 
 // Administration
 Route::prefix('administration')->name('administration.')->group(function () {
-    Route::get('inventory', function () { return 'Inventory Management'; })->name('inventory');
-    Route::get('assets', function () { return 'Asset Register'; })->name('assets');
-    Route::get('suppliers', function () { return 'Suppliers'; })->name('suppliers');
-    Route::get('leave_management', function () { return 'Leave Management'; })->name('leave_management');
-    Route::get('attendance_staff', function () { return 'Staff Attendance'; })->name('attendance_staff');
+    Route::get('inventory', function () {
+        return 'Inventory Management';
+    })->name('inventory');
+    Route::get('assets', function () {
+        return 'Asset Register';
+    })->name('assets');
+    Route::get('suppliers', function () {
+        return 'Suppliers';
+    })->name('suppliers');
+    Route::get('leave_management', function () {
+        return 'Leave Management';
+    })->name('leave_management');
+    Route::get('attendance_staff', function () {
+        return 'Staff Attendance';
+    })->name('attendance_staff');
 });
 
 // Finance & Accounts
 Route::prefix('finance/fees')->name('finance.fees.')->group(function () {
-    Route::get('fee_types', function () { return 'Fee Types'; })->name('fee_types');
-    Route::get('fee_collection', function () { return 'Fee Collection'; })->name('fee_collection');
-    Route::get('student_due', function () { return 'Student Due Reports'; })->name('student_due');
+    Route::get('fee_types', function () {
+        return 'Fee Types';
+    })->name('fee_types');
+    Route::get('fee_collection', function () {
+        return 'Fee Collection';
+    })->name('fee_collection');
+    Route::get('student_due', function () {
+        return 'Student Due Reports';
+    })->name('student_due');
 });
 
 Route::prefix('finance/expenses')->name('finance.expenses.')->group(function () {
-    Route::get('expense_heads', function () { return 'Expense Heads'; })->name('expense_heads');
-    Route::get('expense_list', function () { return 'Expenses'; })->name('expense_list');
+    Route::get('expense_heads', function () {
+        return 'Expense Heads';
+    })->name('expense_heads');
+    Route::get('expense_list', function () {
+        return 'Expenses';
+    })->name('expense_list');
 });
 
 Route::prefix('finance/salary')->name('finance.salary.')->group(function () {
-    Route::get('payroll', function () { return 'Payroll'; })->name('payroll');
-    Route::get('salary_sheet', function () { return 'Salary Sheet'; })->name('salary_sheet');
+    Route::get('payroll', function () {
+        return 'Payroll';
+    })->name('payroll');
+    Route::get('salary_sheet', function () {
+        return 'Salary Sheet';
+    })->name('salary_sheet');
 });
 
-Route::get('finance/accounts', function () { return 'Accounts Summary'; })->name('finance.accounts');
-Route::get('finance/transactions', function () { return 'Transactions'; })->name('finance.transactions');
+Route::get('finance/accounts', function () {
+    return 'Accounts Summary';
+})->name('finance.accounts');
+Route::get('finance/transactions', function () {
+    return 'Transactions';
+})->name('finance.transactions');
 
 // Communication & Collaboration
 Route::prefix('communication')->name('communication.')->group(function () {
-    Route::get('sms', function () { return 'SMS'; })->name('sms');
-    Route::get('email', function () { return 'Email'; })->name('email');
-    Route::get('notifications', function () { return 'Notifications'; })->name('notifications');
+    Route::get('sms', function () {
+        return 'SMS';
+    })->name('sms');
+    Route::get('email', function () {
+        return 'Email';
+    })->name('email');
+    Route::get('notifications', function () {
+        return 'Notifications';
+    })->name('notifications');
 });
 
 // Reports
 Route::prefix('reports')->name('reports.')->group(function () {
-    Route::get('student_reports', function () { return 'Student Reports'; })->name('student_reports');
-    Route::get('attendance_reports', function () { return 'Attendance Reports'; })->name('attendance_reports');
-    Route::get('exam_reports', function () { return 'Exam Reports'; })->name('exam_reports');
-    Route::get('finance_reports', function () { return 'Finance Reports'; })->name('finance_reports');
-    Route::get('library_reports', function () { return 'Library Reports'; })->name('library_reports');
+    Route::get('student_reports', function () {
+        return 'Student Reports';
+    })->name('student_reports');
+    Route::get('attendance_reports', function () {
+        return 'Attendance Reports';
+    })->name('attendance_reports');
+    Route::get('exam_reports', function () {
+        return 'Exam Reports';
+    })->name('exam_reports');
+    Route::get('finance_reports', function () {
+        return 'Finance Reports';
+    })->name('finance_reports');
+    Route::get('library_reports', function () {
+        return 'Library Reports';
+    })->name('library_reports');
 });
 
 // General Information
@@ -296,7 +368,6 @@ Route::prefix('information')->name('information.')->group(function () {
     Route::post('event-calendar/{id}/update', [NewsNoticeController::class, 'update'])->name('event_calendar.update');
     Route::get('event-calendar/{id}/delete', [NewsNoticeController::class, 'destroy'])->name('event_calendar.delete');
 
-
     Route::get('news', [NewsNoticeController::class, 'index'])->name('news');
     Route::post('news', [NewsNoticeController::class, 'store'])->name('news.add');
     Route::get('news/{id}/edit', [NewsNoticeController::class, 'show'])->name('news.edit');
@@ -316,14 +387,25 @@ Route::prefix('settings')->name('settings.')->group(function () {
     Route::post('/permissions', [RoleAndPermissionController::class, 'storePermission'])->name('permissions.store');
     Route::delete('/permissions/{permission}', [RoleAndPermissionController::class, 'destroyPermission'])->name('permissions.destroy');
 
+    Route::get('users', function () {
+        return 'User Management';
+    })->name('users');
+    Route::get('academic_year', function () {
+        return 'Academic Year';
+    })->name('academic_year');
+    Route::get('system_settings', [SmsController::class, 'index'])->name('system_settings');
 
+    // sms and email routes
+    Route::get('email_sms_settings', [SmsController::class, 'index'])->name('email_sms_settings');
+    Route::post('sms-methods/configuration', [SmsController::class, 'store'])->name('sms.add');
+    Route::post('sms-methods/default', [SmsController::class, 'activeSMS'])->name('sms.default');
 
-    Route::get('users', function () { return 'User Management'; })->name('users');
-    Route::get('academic_year', function () { return 'Academic Year'; })->name('academic_year');
-    Route::get('system_settings', function () { return 'System Settings'; })->name('system_settings');
-    Route::get('email_sms_settings', function () { return 'Email/SMS Configuration'; })->name('email_sms_settings');
-    Route::get('backup', function () { return 'Database Backup'; })->name('backup');
-    Route::get('language', function () { return 'Language Settings'; })->name('language');
+    Route::get('backup', function () {
+        return 'Database Backup';
+    })->name('backup');
+    Route::get('language', function () {
+        return 'Language Settings';
+    })->name('language');
 });
 
 // Frontend Pages
@@ -335,7 +417,6 @@ Route::prefix('page')->name('page.')->group(function () {
     Route::get('create-page/{id}/delete', [PageController::class, 'destroy'])->name('create_page.delete');
     Route::get('manage-page', [PageController::class, 'index'])->name('manage_page');
 });
-
 
 // Menu
 Route::prefix('menu')->name('menu.')->group(function () {
@@ -349,9 +430,8 @@ Route::prefix('menu')->name('menu.')->group(function () {
     Route::post('item/{id}/add', [MenuItemController::class, 'store'])->name('items.add');
 });
 
-
 // Media routes
-Route::prefix('media')->name('media.')->group(function(){
+Route::prefix('media')->name('media.')->group(function () {
     // upload routes
     Route::post('upload', [UploadController::class, 'uploadMultiple'])->name('upload');
     // Sliders
@@ -371,8 +451,12 @@ Route::prefix('media')->name('media.')->group(function(){
 
     // Gallery
     Route::prefix('gallery')->group(function () {
-        Route::get('gallery', function () { return 'Gallery'; })->name('gallery');
-        Route::get('content', function () { return 'Gallery Content'; })->name('content');
+        Route::get('gallery', function () {
+            return 'Gallery';
+        })->name('gallery');
+        Route::get('content', function () {
+            return 'Gallery Content';
+        })->name('content');
     });
 });
 
@@ -382,18 +466,27 @@ Route::prefix('media')->name('media.')->group(function(){
 Route::get('get-users/{type}/{id?}', [UserController::class, 'getUserList'])->name('user.list');
 Route::get('get-subjects/{class}', [SubjectController::class, 'getSubjectList'])->name('subject.list');
 
-
 // Public / External Access
 Route::prefix('public')->name('public.')->group(function () {
-    Route::get('admission_form', function () { return 'Online Admission Form'; })->name('admission_form');
-    Route::get('results_portal', function () { return 'Results Portal'; })->name('results_portal');
-    Route::get('notices', function () { return 'Public Notices'; })->name('notices');
-    Route::get('events', function () { return 'Events'; })->name('events');
-    Route::get('downloads', function () { return 'Download Center'; })->name('downloads');
+    Route::get('admission_form', function () {
+        return 'Online Admission Form';
+    })->name('admission_form');
+    Route::get('results_portal', function () {
+        return 'Results Portal';
+    })->name('results_portal');
+    Route::get('notices', function () {
+        return 'Public Notices';
+    })->name('notices');
+    Route::get('events', function () {
+        return 'Events';
+    })->name('events');
+    Route::get('downloads', function () {
+        return 'Download Center';
+    })->name('downloads');
 });
 
 // Address routes
-Route::prefix('address')->name('address.')->group(function(){
+Route::prefix('address')->name('address.')->group(function () {
     Route::get('division/{id?}', [AddressController::class, 'division'])->name('division');
     Route::get('district/{id?}', [AddressController::class, 'district'])->name('district');
     Route::get('thana/{id?}', [AddressController::class, 'thana'])->name('thana');

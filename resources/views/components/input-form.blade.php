@@ -93,6 +93,7 @@
                         {{ $step ? 'step='.$step : '' }}
                         value="{{ $type != 'password' ? ($value ?? $default) :  '' }}"
                         placeholder="{{$place}}"
+                        capture="{{ $capture ?? '' }}"
                         @if(!empty($field['required'])) required @endif
                         class="block w-full rounded-md border-gray-100 bg-gray-100 text-gray-900 focus:ring-teal-500 focus:border-teal-500 py-2 px-1" />
                 @endif
