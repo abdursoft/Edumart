@@ -15,7 +15,7 @@
                     <th data-priority="3">Location</th>
                     <th data-priority="4">Status</th>
                     <th data-priority="5">Created at</th>
-                    <th data-priority="11">Action</th>
+                    <th data-priority="11" class="no-export">Action</th>
                 </tr>
             </thead>
 
@@ -56,17 +56,5 @@
 @section('scripts')
     <!-- Datatables -->
     {{ tableScript() }}
-    <script>
-        $(document).ready(function() {
-            $('#menuTable').DataTable({
-                responsive: true,
-                pageLength: 10,
-                order: [[0, 'desc']], // Sort by newest first
-                language: {
-                    search: "_INPUT_",
-                    searchPlaceholder: "Search menus...",
-                }
-            });
-        });
-    </script>
+    {{ loadDataTable('menuTable')}}
 @endsection

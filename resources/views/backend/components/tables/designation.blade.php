@@ -14,7 +14,7 @@
                     <th data-priority="2">Name</th>
                     <th data-priority="3">Category</th>
                     <th data-priority="4">Level</th>
-                    <th data-priority="5">Action</th>
+                    <th data-priority="5" class="no-export">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,15 +43,5 @@
 @section('scripts')
 	<!--Datatables -->
 	{{ tableScript() }}
-	<script>
-		$(document).ready(function() {
-
-			var table = $('#example').DataTable( {
-					responsive: true
-				} )
-				.columns.adjust()
-				.responsive.recalc();
-		} );
-
-	</script>
+	{{ loadDataTable('example')}}
 @endsection

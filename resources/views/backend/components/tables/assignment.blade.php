@@ -16,7 +16,7 @@
                     <th data-priority="4">Teacher</th>
                     <th data-priority="4">Start date</th>
                     <th data-priority="5">Due Date</th>
-                    <th data-priority="5">Actions</th>
+                    <th data-priority="5" class="no-export">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,15 +47,5 @@
 @section('scripts')
 	<!--Datatables -->
 	{{ tableScript() }}
-	<script>
-		$(document).ready(function() {
-
-			var table = $('#example').DataTable( {
-					responsive: true
-				} )
-				.columns.adjust()
-				.responsive.recalc();
-		} );
-
-	</script>
+	{{ loadDataTable('example')}}
 @endsection

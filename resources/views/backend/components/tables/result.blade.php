@@ -15,7 +15,7 @@
                     <th>Grade %</th>
                     <th>Status</th>
                     <th>Remarks</th>
-                    <th>Action</th>
+                    <th class="no-export">Action</th>
                 </tr>
             </thead>
 
@@ -62,13 +62,5 @@
 @section('scripts')
     {{-- Regular Datatables JS --}}
     {{tableScript()}}
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                responsive: true,
-                pageLength: 10,
-                order: [[0, 'desc']]
-            });
-        });
-    </script>
+    {{ loadDataTable('example')}}
 @endsection

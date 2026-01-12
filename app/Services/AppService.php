@@ -1,14 +1,14 @@
 <?php
 
-
 /**
-* Get site settings
-*/
-if (!function_exists('site')) {
-    function site($key = null) {
+ * Get site settings
+ */
+if (! function_exists('site')) {
+    function site($key = null)
+    {
         $settings = \App\Models\SiteSetting::first();
 
-        if (!$settings) {
+        if (! $settings) {
             return null;
         }
 
@@ -23,8 +23,9 @@ if (!function_exists('site')) {
 /**
  * get signin profile
  */
-if(!function_exists('profile')){
-    function profile(){
+if (! function_exists('profile')) {
+    function profile()
+    {
         return auth('web')->user();
     }
 }
@@ -32,28 +33,29 @@ if(!function_exists('profile')){
 /**
  * Check the user is permitted for the action
  */
-if(!function_exists('permitted')){
+if (! function_exists('permitted')) {
     /**
      * @param $permission name of the actions | permissions
      */
-    function permitted($permission){
+    function permitted($permission)
+    {
         $action = profile()?->can($permission);
-        if(!$action){
+        if (! $action) {
             return abort(403, "You are not allowed to browse this page");
         }
         return $action;
     }
 }
 
-
 /**
  * Checking the role
  */
-if(!function_exists('isRole')){
+if (! function_exists('isRole')) {
     /**
      * @param $role name of the user role
      */
-    function isRole($role){
+    function isRole($role)
+    {
         return profile()->hasRole($role);
     }
 }
@@ -61,7 +63,7 @@ if(!function_exists('isRole')){
 /**
  * Check class is running or not
  */
-if(!function_exists('classRunning')){
+if (! function_exists('classRunning')) {
     /**
      * @param $date class date
      * @param $start class start time
@@ -80,47 +82,48 @@ if(!function_exists('classRunning')){
     }
 }
 
-
 /**
  * Get sms configurations
  */
-if(!function_exists('smsAttributes')){
+if (! function_exists('smsAttributes')) {
     /**
-    * @param $keyword sms method keyword
-    * @param $key attribute key
-    */
-    function smsAttributes($keyword,$key){
-        $smsMethod = \App\Models\SmsMethod::where('keyword',$keyword)->first();
-        if($smsMethod){
-            $attributes = json_decode($smsMethod->attributes,true);
+     * @param $keyword sms method keyword
+     * @param $key attribute key
+     */
+    function smsAttributes($keyword, $key)
+    {
+        $smsMethod = \App\Models\SmsMethod::where('keyword', $keyword)->first();
+        if ($smsMethod) {
+            $attributes = json_decode($smsMethod->attributes, true);
             return $attributes[$key] ?? '';
         }
     }
 }
 
-
 /**
  * Get user type and id
  */
-if(!function_exists('getUsers')){
+if (! function_exists('getUsers')) {
     /**
      *@param $type get users by type
      *@param $id get users by type and id
      */
-    function getUsers($type,$id=null){
-        if($type && $id){
-            return \App\Models\User::where('role',$type)->where('id',$id)->first();
+    function getUsers($type, $id = null)
+    {
+        if ($type && $id) {
+            return \App\Models\User::where('role', $type)->where('id', $id)->first();
         }
-        return \App\Models\User::where('role',$type)->get();
+        return \App\Models\User::where('role', $type)->get();
     }
 }
 
 /**
  * Get divisions
  */
-if(!function_exists('division')){
-    function division($id=null){
-        if($id){
+if (! function_exists('division')) {
+    function division($id = null)
+    {
+        if ($id) {
             return \App\Models\Division::with('district')->findOrFail($id);
         }
         return \App\Models\Division::all();
@@ -130,9 +133,10 @@ if(!function_exists('division')){
 /**
  * Get district
  */
-if(!function_exists('district')){
-    function district($id=null){
-        if($id){
+if (! function_exists('district')) {
+    function district($id = null)
+    {
+        if ($id) {
             return \App\Models\District::with('thana')->findOrFail($id);
         }
         return \App\Models\District::all();
@@ -142,9 +146,10 @@ if(!function_exists('district')){
 /**
  * Get thana
  */
-if(!function_exists('thana')){
-    function thana($id=null){
-        if($id){
+if (! function_exists('thana')) {
+    function thana($id = null)
+    {
+        if ($id) {
             return \App\Models\Thana::with('union')->findOrFail($id);
         }
         return \App\Models\Thana::all();
@@ -154,9 +159,10 @@ if(!function_exists('thana')){
 /**
  * Get union
  */
-if(!function_exists('union')){
-    function union($id=null){
-        if($id){
+if (! function_exists('union')) {
+    function union($id = null)
+    {
+        if ($id) {
             return \App\Models\Union::findOrFail($id);
         }
         return \App\Models\Union::all();
@@ -166,7 +172,7 @@ if(!function_exists('union')){
 /**
  * Get an model
  */
-if (!function_exists('getModel')) {
+if (! function_exists('getModel')) {
     function getModel($model, $id)
     {
         $class = "\\App\\Models\\$model";
@@ -175,30 +181,32 @@ if (!function_exists('getModel')) {
 }
 
 /**
-* Get the theme path
-*/
-if (!function_exists('theme')) {
-    function theme($view) {
+ * Get the theme path
+ */
+if (! function_exists('theme')) {
+    function theme($view)
+    {
         $theme = site()->theme ?? config('app.theme', 'default');
         return "themes.$theme.$view";
     }
 }
 
 /**
-* Get the backend path
-*/
-if (!function_exists('backend')) {
-    function backend($view) {
+ * Get the backend path
+ */
+if (! function_exists('backend')) {
+    function backend($view)
+    {
         return "backend.$view";
     }
 }
 
-
 /**
  * Get the theme asset URL
  */
-if (!function_exists('theme_asset')) {
-    function theme_asset($path) {
+if (! function_exists('theme_asset')) {
+    function theme_asset($path)
+    {
         $theme = site()->theme ?? config('app.theme', 'default');
         return asset("themes/$theme/$path");
     }
@@ -207,8 +215,9 @@ if (!function_exists('theme_asset')) {
 /**
  * Render board URLS
  */
-if (!function_exists('board_url')) {
-    function board_url($path = '') {
+if (! function_exists('board_url')) {
+    function board_url($path = '')
+    {
         $board_prefix = config('app.board_prefix', 'board');
         return url($board_prefix . '/' . ltrim($path, '/'));
     }
@@ -217,113 +226,189 @@ if (!function_exists('board_url')) {
 /**
  * Render meta contents
  */
-if (!function_exists('metaContent')) {
-    function metaContent( $title = null, $description = null, $image = null, $keywords = null ) {
+if (! function_exists('metaContent')) {
+    function metaContent($title = null, $description = null, $image = null, $keywords = null)
+    {
         ob_start();
-        $keywords = '' . ( $keywords ?? site()->meta_keywords ?? 'education, online courses, learning, e-learning, tutorials, classes, training, skills, knowledge, study, academic, professional development, certification, workshops, webinars, elearning platform, online education' ) . ' ';
-        ?>
-        <meta name="description" content="<?=$description?>" />
-        <meta property="og:title" content="<?=$title?>" />
-        <meta property="og:description" content="<?=$description?>" />
-        <meta name="keywords" content="<?=$keywords?>" />
-        <meta property="og:url" content="<?= config('app.url') ?>" />
-        <meta property="og:site_name" content="<?=$_SERVER['HTTP_HOST']?>" />
-        <meta property="og:updated_time" content="<?=date( 'Y-m-d H-i-s' )?>" />
-        <meta property="og:image" content="<?=$image?>" />
-        <meta property="og:image:secure_url" content="<?=$image?>" />
+        $keywords = '' . ($keywords ?? site()->meta_keywords ?? 'education, online courses, learning, e-learning, tutorials, classes, training, skills, knowledge, study, academic, professional development, certification, workshops, webinars, elearning platform, online education') . ' ';
+?>
+        <meta name="description" content="<?php echo $description ?>" />
+        <meta property="og:title" content="<?php echo $title ?>" />
+        <meta property="og:description" content="<?php echo $description ?>" />
+        <meta name="keywords" content="<?php echo $keywords ?>" />
+        <meta property="og:url" content="<?php echo config('app.url') ?>" />
+        <meta property="og:site_name" content="<?php echo $_SERVER['HTTP_HOST'] ?>" />
+        <meta property="og:updated_time" content="<?php echo date('Y-m-d H-i-s') ?>" />
+        <meta property="og:image" content="<?php echo $image ?>" />
+        <meta property="og:image:secure_url" content="<?php echo $image ?>" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
         <meta property="og:image:alt" content="custom" />
         <meta property="og:image:type" content="image/png" />
-        <meta property="article:published_time" content="<?=date( 'Y-m-d H-i-s' )?>" />
-        <meta property="article:modified_time" content="<?=date( 'Y-m-d H-i-s' )?>" />
+        <meta property="article:published_time" content="<?php echo date('Y-m-d H-i-s') ?>" />
+        <meta property="article:modified_time" content="<?php echo date('Y-m-d H-i-s') ?>" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="<?=$title?>" />
-        <meta name="twitter:keywords" content="<?=$keywords?>" />
-        <meta name="twitter:description" content="<?=$description?>" />
-        <meta name="twitter:image" content="<?=$image?>" />
+        <meta name="twitter:title" content="<?php echo $title ?>" />
+        <meta name="twitter:keywords" content="<?php echo $keywords ?>" />
+        <meta name="twitter:description" content="<?php echo $description ?>" />
+        <meta name="twitter:image" content="<?php echo $image ?>" />
         <meta name="twitter:label1" content="Written by" />
-        <meta name="twitter:data1" content="<?=$_SERVER['HTTP_HOST']?>" />
+        <meta name="twitter:data1" content="<?php echo $_SERVER['HTTP_HOST'] ?>" />
         <meta name="twitter:label2" content="Time to read" />
         <meta name="twitter:data2" content="1 minute" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
-        <link rel="shortcut icon" href="<?= site()->fav_icon ?? '' ?>" type="image/x-icon">
-        <?php
+        <link rel="shortcut icon" href="<?php echo site()->fav_icon ?? '' ?>" type="image/x-icon">
+    <?php
         echo ob_get_clean();
     }
 }
 
 // table styles
-if(!function_exists('tableStyle')){
-    function tableStyle(){
+if (! function_exists('tableStyle')) {
+    function tableStyle()
+    {
         ob_start();
-        ?>
-            <link href="/ui/datatable.min.css" rel="stylesheet">
-            <link href="/ui/responsive-datatable.min.css" rel="stylesheet">
-            <!-- datatable css  -->
-            <link rel="stylesheet" href="/table/table.css">
-        <?php
+    ?>
+        <link href="/ui/datatable.min.css" rel="stylesheet">
+        <link href="/ui/responsive-datatable.min.css" rel="stylesheet">
+        <!-- datatable css  -->
+        <link rel="stylesheet" href="/table/table.css">
+        <!-- Buttons -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+    <?php
         echo ob_get_clean();
     }
 }
-
 
 // table scripts
-if(!function_exists('tableScript')){
-    function tableScript(){
+if (! function_exists('tableScript')) {
+    function tableScript()
+    {
         ob_start();
-        ?>
-            <!-- Table scripts -->
-            <script src="/ui/datatable.min.js"></script>
-            <script src="/ui/responsive-datatable.min.js"></script>
-     <?php
+    ?>
+        <!-- Table scripts -->
+        <script src="/ui/datatable.min.js"></script>
+        <script src="/ui/responsive-datatable.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+
+        <!-- Required for Excel/PDF -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <?php
         echo ob_get_clean();
     }
 }
 
+// load datatable
+if (! function_exists('loadDataTable')) {
+    function loadDataTable($tableId)
+    {
+        ob_start();
+    ?>
+        <script>
+            const commonExportOptions = {
+                columns: ':visible:not(.no-export)'
+            };
+
+            $(document).ready(function() {
+                $('#<?php echo $tableId ?>').DataTable({
+                    responsive: true,
+                    dom: 'Bfrtip',
+                    layout: {
+                        topStart: 'buttons' // This tells DataTables where to put the buttons
+                    },
+                    buttons: [{
+                            extend: 'copy',
+                            exportOptions: commonExportOptions
+                        },
+                        {
+                            extend: 'csv',
+                            exportOptions: commonExportOptions
+                        },
+                        {
+                            extend: 'excel',
+                            exportOptions: commonExportOptions
+                        },
+                        {
+
+                            extend: 'pdf',
+                            text: 'PDF',
+                            orientation: 'landscape',
+                            pageSize: 'A4',
+                            exportOptions: commonExportOptions,
+                            customize: function (doc) {
+                                const table = doc.content[1].table;
+                                table.widths = Array(table.body[0].length).fill('*');
+                                doc.styles.tableHeader.alignment = 'center';
+                                doc.defaultStyle.alignment = 'center';
+
+                            }
+                        },
+                        {
+                            extend: 'print',
+                            exportOptions: commonExportOptions,
+                            
+                        }
+                    ],
+                    pageLength: 10,
+                    order: [
+                        [0, 'desc']
+                    ], // Sort by newest first
+                });
+            });
+        </script>
+<?php
+        echo ob_get_clean();
+    }
+}
 
 // editor scripts and style
-if(!function_exists('editorScript')){
-    function editorScript($variable){
+if (! function_exists('editorScript')) {
+    function editorScript($variable)
+    {
         ob_start();
         echo "<script lang='javascript'>let $variable = null;</script>";
         echo ob_get_clean();
     }
 }
 
-
 // event render
-if(!function_exists('renderEvent')){
-    function renderEvent($event){
-        if($event == 'admin.information.notice_board'){
+if (! function_exists('renderEvent')) {
+    function renderEvent($event)
+    {
+        if ($event == 'admin.information.notice_board') {
             return 'notice';
-        }elseif($event == 'admin.information.event_calendar'){
+        } elseif ($event == 'admin.information.event_calendar') {
             return 'event';
-        }else{
+        } else {
             return 'news';
         }
     }
 }
 
 // route events
-if(!function_exists('getEvent')){
-    function getEvent($event){
-        if($event === 'notice'){
+if (! function_exists('getEvent')) {
+    function getEvent($event)
+    {
+        if ($event === 'notice') {
             return 'notice_board';
-        }elseif($event === 'event'){
+        } elseif ($event === 'event') {
             return 'event_calendar';
-        }else{
+        } else {
             return 'news';
         }
     }
 }
 
-
 /**
  * Create unique id
  */
-if(!function_exists('uniqueID')){
-    function uniqueID($model, $column, $length = 16) {
+if (! function_exists('uniqueID')) {
+    function uniqueID($model, $column, $length = 16)
+    {
         do {
             $id = substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, $length);
         } while ($model::where($column, $id)->exists());

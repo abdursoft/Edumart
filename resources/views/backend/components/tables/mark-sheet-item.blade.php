@@ -10,7 +10,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Exam</th>
+                    <th class="no-export">Exam</th>
                     <th>Subject</th>
                     <th>MCQ</th>
                     <th>Writing</th>
@@ -18,7 +18,7 @@
                     <th>Attendance</th>
                     <th>Total</th>
                     <th>Passed</th>
-                    <th>Action</th>
+                    <th class="no-export">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,13 +57,5 @@
 
 @section('scripts')
     {{ tableScript() }}
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                responsive: true,
-                pageLength: 10,
-                order: [[0, 'desc']],
-            });
-        });
-    </script>
+    {{ loadDataTable('example')}}
 @endsection

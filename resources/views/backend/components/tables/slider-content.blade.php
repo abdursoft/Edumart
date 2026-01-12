@@ -15,7 +15,7 @@
                     <th>Status</th>
                     <th>Description</th>
                     <th>Created at</th>
-                    <th>Action</th>
+                    <th class="no-export">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,13 +42,5 @@
 
 @section('scripts')
     {{ tableScript() }}
-    <script>
-        $(document).ready(function() {
-            var table = $('#sliderTable').DataTable({
-                responsive: true
-            })
-            .columns.adjust()
-            .responsive.recalc();
-        });
-    </script>
+    {{ loadDataTable('sliderTable')}}
 @endsection

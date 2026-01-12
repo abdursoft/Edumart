@@ -21,7 +21,7 @@
                     <th data-priority="8">Passed</th>
                     <th data-priority="9">Remarks</th>
                     <th data-priority="10">Status</th>
-                    <th data-priority="11">Action</th>
+                    <th data-priority="11" class="no-export">Action</th>
                 </tr>
             </thead>
 
@@ -92,17 +92,5 @@
 @section('scripts')
     <!-- Datatables -->
     {{ tableScript() }}
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                responsive: true,
-                pageLength: 10,
-                order: [[0, 'desc']], // Sort by newest first
-                language: {
-                    search: "_INPUT_",
-                    searchPlaceholder: "Search marksheets...",
-                }
-            });
-        });
-    </script>
+    {{ loadDataTable('example')}}
 @endsection

@@ -17,7 +17,7 @@
                     <th data-priority="6">End Time</th>
                     <th data-priority="7">Marks (MCQ/Writing/Practical/Attendance)</th>
                     <th data-priority="8">Pass / Total</th>
-                    <th data-priority="9">Action</th>
+                    <th data-priority="9" class="no-export">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,11 +50,5 @@
 @section('scripts')
     <!--Datatables -->
     {{ tableScript() }}
-    <script>
-        $(document).ready(function() {
-            var table = $('#examSubjectsTable').DataTable({
-                responsive: true
-            }).columns.adjust().responsive.recalc();
-        });
-    </script>
+    {{ loadDataTable('examSubjectsTable')}}
 @endsection

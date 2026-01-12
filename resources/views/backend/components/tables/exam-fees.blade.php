@@ -18,7 +18,7 @@
                     <th data-priority="5">Late Fee</th>
                     <th data-priority="6">Due Date</th>
                     <th data-priority="7">Status</th>
-                    <th data-priority="8">Action</th>
+                    <th data-priority="8" class="no-export">Action</th>
                 </tr>
             </thead>
 
@@ -62,13 +62,5 @@
 @section('scripts')
     <!-- Datatables -->
     {{ tableScript() }}
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                responsive: true,
-                pageLength: 10,
-                order: [[0, 'desc']]
-            });
-        });
-    </script>
+    {{ loadDataTable('example')}}
 @endsection

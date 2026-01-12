@@ -16,7 +16,7 @@
                     <th data-priority="3">Serial</th>
                     <th data-priority="4">Permit</th>
                     <th data-priority="5">Designation</th>
-                    <th data-priority="6">Action</th>
+                    <th data-priority="6" class="no-export">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,15 +47,5 @@
 @section('scripts')
 	<!--Datatables -->
 	{{ tableScript() }}
-	<script>
-		$(document).ready(function() {
-
-			var table = $('#example').DataTable( {
-					responsive: true
-				} )
-				.columns.adjust()
-				.responsive.recalc();
-		} );
-
-	</script>
+	{{ loadDataTable('example')}}
 @endsection

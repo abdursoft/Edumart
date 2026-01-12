@@ -23,7 +23,7 @@
                     <th data-priority="2">Status</th>
                     <th data-priority="4">Meta title</th>
                     <th data-priority="4">Created At</th>
-                    <th data-priority="5">Action</th>
+                    <th data-priority="5" class="no-export">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -54,15 +54,5 @@
 @section('scripts')
 	<!--Datatables -->
 	{{ tableScript() }}
-	<script>
-		$(document).ready(function() {
-
-			var table = $('#example').DataTable( {
-					responsive: true
-				} )
-				.columns.adjust()
-				.responsive.recalc();
-		} );
-
-	</script>
+	{{ loadDataTable('example')}}
 @endsection

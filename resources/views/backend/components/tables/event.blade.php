@@ -15,7 +15,7 @@
                     <th data-priority="3">Type</th>
                     <th data-priority="4">Status</th>
                     <th data-priority="5">Event date</th>
-                    <th data-priority="11">Action</th>
+                    <th data-priority="11" class="no-export">Action</th>
                 </tr>
             </thead>
 
@@ -51,17 +51,5 @@
 @section('scripts')
     <!-- Datatables -->
     {{ tableScript() }}
-    <script>
-        $(document).ready(function() {
-            $('#noticeTable').DataTable({
-                responsive: true,
-                pageLength: 10,
-                order: [[0, 'desc']], // Sort by newest first
-                language: {
-                    search: "_INPUT_",
-                    searchPlaceholder: "Search notices...",
-                }
-            });
-        });
-    </script>
+    {{ loadDataTable('noticeTable')}}
 @endsection

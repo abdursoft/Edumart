@@ -12,12 +12,12 @@
                 <tr>
                     <th data-priority="1">ID</th>
                     <th data-priority="2">Student</th>
+                    <th data-priority="4">Class</th>
                     <th data-priority="2">Age</th>
                     <th data-priority="4">Parent</th>
                     <th data-priority="3">Reg. Number</th>
                     <th data-priority="4">Permit</th>
-                    <th data-priority="4">Class</th>
-                    <th data-priority="6">Action</th>
+                    <th data-priority="6" class="no-export">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,11 +25,11 @@
                     <tr>
                         <td>{{$student->id}}</td>
                         <td>{{$student->name}}</td>
+                        <td>{{$student->eduClass->name ?? ''}}</td>
                         <td>{{$student->age}}</td>
                         <td>{{$student->parent->name ?? 'N/A'}}</td>
                         <td>{{$student->reg_number}}</td>
                         <td>{{ucfirst($student?->user?->login_permit)}}</td>
-                        <td>{{$student->eduClass->name ?? ''}}</td>
                         <td>
                             <div class="flex items-center gap-3">
                                 <a href="{{ route('admin.academic.people.students.edit',$student->id) }}" class="py-1 px-4 rounded-[15px] shadow-md bg-green-600 text-white hover:bg-green-800 transition">Edit</a>
@@ -49,16 +49,5 @@
 @section('scripts')
 	<!--Datatables -->
 	{{ tableScript() }}
-	<script>
-        $.fn.dataTable.version
-		$(document).ready(function() {
-
-			var table = $('#example').DataTable( {
-					responsive: true
-				} )
-				.columns.adjust()
-				.responsive.recalc();
-		} );
-
-	</script>
+	{{ loadDataTable('example')}}
 @endsection

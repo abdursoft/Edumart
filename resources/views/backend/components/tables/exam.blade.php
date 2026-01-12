@@ -21,7 +21,7 @@
                     <th data-priority="8">Status</th>
                     <th data-priority="9">Start Date</th>
                     <th data-priority="10">End Date</th>
-                    <th data-priority="11">Action</th>
+                    <th data-priority="11" class="no-export">Action</th>
                 </tr>
             </thead>
 
@@ -73,13 +73,5 @@
 @section('scripts')
     <!-- Datatables -->
     {{ tableScript() }}
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                responsive: true,
-                pageLength: 10,
-                order: [[3, 'desc']] // Sort by year descending by default
-            });
-        });
-    </script>
+    {{ loadDataTable('example')}}
 @endsection
