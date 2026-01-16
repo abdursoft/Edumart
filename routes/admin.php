@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V1\AddressController;
 use App\Http\Controllers\Api\V1\Admin\AdminController;
 use App\Http\Controllers\Api\V1\Admin\SmsController;
+use App\Http\Controllers\Api\V1\AssetsController;
 use App\Http\Controllers\Api\V1\AssignmentController;
 use App\Http\Controllers\Api\V1\AttendanceController;
 use App\Http\Controllers\Api\V1\ClassPromotionController;
@@ -31,6 +32,7 @@ use App\Http\Controllers\Api\V1\SliderController;
 use App\Http\Controllers\Api\V1\StaffController;
 use App\Http\Controllers\Api\V1\StudentController;
 use App\Http\Controllers\Api\V1\SubjectController;
+use App\Http\Controllers\Api\V1\SupplierController;
 use App\Http\Controllers\Api\V1\TeacherController;
 use App\Http\Controllers\Api\V1\UploadController;
 use App\Http\Controllers\Api\V1\UserController;
@@ -264,12 +266,23 @@ Route::prefix('administration')->name('administration.')->group(function () {
     Route::get('inventory', function () {
         return 'Inventory Management';
     })->name('inventory');
-    Route::get('assets', function () {
-        return 'Asset Register';
-    })->name('assets');
-    Route::get('suppliers', function () {
-        return 'Suppliers';
-    })->name('suppliers');
+
+    // assets routes
+    Route::get('assets', [AssetsController::class, 'index'])->name('assets');
+    Route::post('assets', [AssetsController::class, 'store'])->name('assets.add');
+    Route::get('assets/{id}/edit', [AssetsController::class, 'show'])->name('assets.edit');
+    Route::post('assets/{id}/update', [AssetsController::class, 'update'])->name('assets.update');
+    Route::get('assets/{id}/delete', [AssetsController::class, 'destroy'])->name('assets.delete');
+
+
+    // supplier routes
+    Route::get('suppliers', [SupplierController::class, 'index'])->name('suppliers');
+    Route::post('suppliers', [SupplierController::class, 'store'])->name('suppliers.add');
+    Route::get('suppliers/{id}/edit', [SupplierController::class, 'show'])->name('suppliers.edit');
+    Route::post('suppliers/{id}/update', [SupplierController::class, 'update'])->name('suppliers.update');
+    Route::get('suppliers/{id}/delete', [SupplierController::class, 'destroy'])->name('suppliers.delete');
+
+
     Route::get('leave_management', function () {
         return 'Leave Management';
     })->name('leave_management');
@@ -318,12 +331,11 @@ Route::get('finance/transactions', function () {
 
 // Communication & Collaboration
 Route::prefix('communication')->name('communication.')->group(function () {
-    Route::get('sms', function () {
-        return 'SMS';
-    })->name('sms');
     Route::get('email', function () {
         return 'Email';
     })->name('email');
+    Route::get('send-message', [SmsController::class, 'messageForm'])->name('sms');
+    Route::post('send-message', [SmsController::class, 'sendMessage'])->name('sms.send');
     Route::get('notifications', function () {
         return 'Notifications';
     })->name('notifications');

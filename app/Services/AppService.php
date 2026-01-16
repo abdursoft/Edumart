@@ -1,9 +1,9 @@
 <?php
 
-/**
+    /**
  * Get site settings
  */
-if (! function_exists('site')) {
+    if (! function_exists('site')) {
     function site($key = null)
     {
         $settings = \App\Models\SiteSetting::first();
@@ -18,22 +18,22 @@ if (! function_exists('site')) {
 
         return $settings;
     }
-}
+    }
 
-/**
+    /**
  * get signin profile
  */
-if (! function_exists('profile')) {
+    if (! function_exists('profile')) {
     function profile()
     {
         return auth('web')->user();
     }
-}
+    }
 
-/**
+    /**
  * Check the user is permitted for the action
  */
-if (! function_exists('permitted')) {
+    if (! function_exists('permitted')) {
     /**
      * @param $permission name of the actions | permissions
      */
@@ -45,12 +45,12 @@ if (! function_exists('permitted')) {
         }
         return $action;
     }
-}
+    }
 
-/**
+    /**
  * Checking the role
  */
-if (! function_exists('isRole')) {
+    if (! function_exists('isRole')) {
     /**
      * @param $role name of the user role
      */
@@ -58,12 +58,12 @@ if (! function_exists('isRole')) {
     {
         return profile()->hasRole($role);
     }
-}
+    }
 
-/**
+    /**
  * Check class is running or not
  */
-if (! function_exists('classRunning')) {
+    if (! function_exists('classRunning')) {
     /**
      * @param $date class date
      * @param $start class start time
@@ -80,12 +80,12 @@ if (! function_exists('classRunning')) {
 
         return $now->between($startTime, $endTime);
     }
-}
+    }
 
-/**
+    /**
  * Get sms configurations
  */
-if (! function_exists('smsAttributes')) {
+    if (! function_exists('smsAttributes')) {
     /**
      * @param $keyword sms method keyword
      * @param $key attribute key
@@ -98,12 +98,12 @@ if (! function_exists('smsAttributes')) {
             return $attributes[$key] ?? '';
         }
     }
-}
+    }
 
-/**
+    /**
  * Get user type and id
  */
-if (! function_exists('getUsers')) {
+    if (! function_exists('getUsers')) {
     /**
      *@param $type get users by type
      *@param $id get users by type and id
@@ -115,12 +115,12 @@ if (! function_exists('getUsers')) {
         }
         return \App\Models\User::where('role', $type)->get();
     }
-}
+    }
 
-/**
+    /**
  * Get divisions
  */
-if (! function_exists('division')) {
+    if (! function_exists('division')) {
     function division($id = null)
     {
         if ($id) {
@@ -128,12 +128,12 @@ if (! function_exists('division')) {
         }
         return \App\Models\Division::all();
     }
-}
+    }
 
-/**
+    /**
  * Get district
  */
-if (! function_exists('district')) {
+    if (! function_exists('district')) {
     function district($id = null)
     {
         if ($id) {
@@ -141,12 +141,12 @@ if (! function_exists('district')) {
         }
         return \App\Models\District::all();
     }
-}
+    }
 
-/**
+    /**
  * Get thana
  */
-if (! function_exists('thana')) {
+    if (! function_exists('thana')) {
     function thana($id = null)
     {
         if ($id) {
@@ -154,12 +154,12 @@ if (! function_exists('thana')) {
         }
         return \App\Models\Thana::all();
     }
-}
+    }
 
-/**
+    /**
  * Get union
  */
-if (! function_exists('union')) {
+    if (! function_exists('union')) {
     function union($id = null)
     {
         if ($id) {
@@ -167,71 +167,71 @@ if (! function_exists('union')) {
         }
         return \App\Models\Union::all();
     }
-}
+    }
 
-/**
+    /**
  * Get an model
  */
-if (! function_exists('getModel')) {
+    if (! function_exists('getModel')) {
     function getModel($model, $id)
     {
         $class = "\\App\\Models\\$model";
         return $class::find($id) ?: (object) [];
     }
-}
+    }
 
-/**
+    /**
  * Get the theme path
  */
-if (! function_exists('theme')) {
+    if (! function_exists('theme')) {
     function theme($view)
     {
         $theme = site()->theme ?? config('app.theme', 'default');
         return "themes.$theme.$view";
     }
-}
+    }
 
-/**
+    /**
  * Get the backend path
  */
-if (! function_exists('backend')) {
+    if (! function_exists('backend')) {
     function backend($view)
     {
         return "backend.$view";
     }
-}
+    }
 
-/**
+    /**
  * Get the theme asset URL
  */
-if (! function_exists('theme_asset')) {
+    if (! function_exists('theme_asset')) {
     function theme_asset($path)
     {
         $theme = site()->theme ?? config('app.theme', 'default');
         return asset("themes/$theme/$path");
     }
-}
+    }
 
-/**
+    /**
  * Render board URLS
  */
-if (! function_exists('board_url')) {
+    if (! function_exists('board_url')) {
     function board_url($path = '')
     {
         $board_prefix = config('app.board_prefix', 'board');
         return url($board_prefix . '/' . ltrim($path, '/'));
     }
-}
+    }
 
-/**
+    /**
  * Render meta contents
  */
-if (! function_exists('metaContent')) {
+    if (! function_exists('metaContent')) {
     function metaContent($title = null, $description = null, $image = null, $keywords = null)
     {
         ob_start();
         $keywords = '' . ($keywords ?? site()->meta_keywords ?? 'education, online courses, learning, e-learning, tutorials, classes, training, skills, knowledge, study, academic, professional development, certification, workshops, webinars, elearning platform, online education') . ' ';
-?>
+        ?>
         <meta name="description" content="<?php echo $description ?>" />
         <meta property="og:title" content="<?php echo $title ?>" />
         <meta property="og:description" content="<?php echo $description ?>" />
@@ -260,15 +260,15 @@ if (! function_exists('metaContent')) {
         <link rel="shortcut icon" href="<?php echo site()->fav_icon ?? '' ?>" type="image/x-icon">
     <?php
         echo ob_get_clean();
-    }
-}
+            }
+        }
 
-// table styles
-if (! function_exists('tableStyle')) {
-    function tableStyle()
-    {
-        ob_start();
-    ?>
+        // table styles
+        if (! function_exists('tableStyle')) {
+            function tableStyle()
+            {
+                ob_start();
+            ?>
         <link href="/ui/datatable.min.css" rel="stylesheet">
         <link href="/ui/responsive-datatable.min.css" rel="stylesheet">
         <!-- datatable css  -->
@@ -277,15 +277,15 @@ if (! function_exists('tableStyle')) {
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
     <?php
         echo ob_get_clean();
-    }
-}
+            }
+        }
 
-// table scripts
-if (! function_exists('tableScript')) {
-    function tableScript()
-    {
-        ob_start();
-    ?>
+        // table scripts
+        if (! function_exists('tableScript')) {
+            function tableScript()
+            {
+                ob_start();
+            ?>
         <!-- Table scripts -->
         <script src="/ui/datatable.min.js"></script>
         <script src="/ui/responsive-datatable.min.js"></script>
@@ -299,15 +299,15 @@ if (! function_exists('tableScript')) {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
     <?php
         echo ob_get_clean();
-    }
-}
+            }
+        }
 
-// load datatable
-if (! function_exists('loadDataTable')) {
-    function loadDataTable($tableId)
-    {
-        ob_start();
-    ?>
+        // load datatable
+        if (! function_exists('loadDataTable')) {
+            function loadDataTable($tableId)
+            {
+                ob_start();
+            ?>
         <script>
             const commonExportOptions = {
                 columns: ':visible:not(.no-export)'
@@ -326,11 +326,38 @@ if (! function_exists('loadDataTable')) {
                         },
                         {
                             extend: 'csv',
-                            exportOptions: commonExportOptions
+                            exportOptions: commonExportOptions,
+                            customize: function(csv) {
+                                return `
+                                ABC Institute of Technology
+                                Dhaka, Bangladesh
+                                Mark Sheet – Final Exam 2025
+
+                                ${csv}`;
+                            }
                         },
                         {
                             extend: 'excel',
-                            exportOptions: commonExportOptions
+                            exportOptions: commonExportOptions,
+                            customize: function(xlsx) {
+                                const sheet = xlsx.xl.worksheets['sheet1.xml'];
+
+                                // Insert rows before table
+                                const rows = `
+                                    <row r="1">
+                                        <c t="inlineStr" r="A1"><is><t>ABC Institute of Technology</t></is></c>
+                                    </row>
+                                    <row r="2">
+                                        <c t="inlineStr" r="A2"><is><t>Dhaka, Bangladesh</t></is></c>
+                                    </row>
+                                    <row r="3">
+                                        <c t="inlineStr" r="A3"><is><t>Mark Sheet – Final Exam 2025</t></is></c>
+                                    </row>
+                                `;
+
+                                sheet.childNodes[0].childNodes[1].innerHTML =
+                                    rows + sheet.childNodes[0].childNodes[1].innerHTML;
+                            }
                         },
                         {
 
@@ -339,18 +366,39 @@ if (! function_exists('loadDataTable')) {
                             orientation: 'landscape',
                             pageSize: 'A4',
                             exportOptions: commonExportOptions,
-                            customize: function (doc) {
+                            customize: function(doc) {
                                 const table = doc.content[1].table;
                                 table.widths = Array(table.body[0].length).fill('*');
                                 doc.styles.tableHeader.alignment = 'center';
                                 doc.defaultStyle.alignment = 'center';
 
+                                doc.content.unshift({
+                                    text: 'ABC Institute of Technology',
+                                    style: 'header',
+                                    alignment: 'center'
+                                }, {
+                                    text: 'Dhaka, Bangladesh\nMark Sheet – Final Exam 2025\n\n',
+                                    alignment: 'center'
+                                })
                             }
                         },
                         {
                             extend: 'print',
                             exportOptions: commonExportOptions,
-                            
+                            customize: function(win) {
+                                $(win.document.body)
+                                    .prepend(`
+                                        <div style="text-align:center; margin-bottom:20px;">
+                                            <h2>ABC Institute of Technology</h2>
+                                            <p>Dhaka, Bangladesh</p>
+                                            <p><strong>Mark Sheet – Final Exam 2025</strong></p>
+                                        </div>
+                                    `);
+
+                                $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', '12px');
+                            }
                         }
                     ],
                     pageLength: 10,
@@ -361,22 +409,22 @@ if (! function_exists('loadDataTable')) {
             });
         </script>
 <?php
-        echo ob_get_clean();
+    echo ob_get_clean();
     }
-}
+    }
 
-// editor scripts and style
-if (! function_exists('editorScript')) {
+    // editor scripts and style
+    if (! function_exists('editorScript')) {
     function editorScript($variable)
     {
         ob_start();
         echo "<script lang='javascript'>let $variable = null;</script>";
         echo ob_get_clean();
     }
-}
+    }
 
-// event render
-if (! function_exists('renderEvent')) {
+    // event render
+    if (! function_exists('renderEvent')) {
     function renderEvent($event)
     {
         if ($event == 'admin.information.notice_board') {
@@ -387,10 +435,10 @@ if (! function_exists('renderEvent')) {
             return 'news';
         }
     }
-}
+    }
 
-// route events
-if (! function_exists('getEvent')) {
+    // route events
+    if (! function_exists('getEvent')) {
     function getEvent($event)
     {
         if ($event === 'notice') {
@@ -401,12 +449,12 @@ if (! function_exists('getEvent')) {
             return 'news';
         }
     }
-}
+    }
 
-/**
+    /**
  * Create unique id
  */
-if (! function_exists('uniqueID')) {
+    if (! function_exists('uniqueID')) {
     function uniqueID($model, $column, $length = 16)
     {
         do {

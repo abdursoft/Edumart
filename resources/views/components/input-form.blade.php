@@ -16,6 +16,7 @@
             $remark  = $field['remark'] ?? '';
             $step = $field['step'] ?? '';
             $margin = $field['margin'] ?? '0';
+            $className = $field['className'] ?? '';
         @endphp
 
         @if($type === 'break')
@@ -25,7 +26,7 @@
         @elseif($type === 'title')
             <h2 class="text-muted text-xl w-full inline-block mt-3">{{$default}}</h2>
         @else
-            <div class="{{ $type == 'hidden' ? 'hidden' : '' }} {{ $type == 'textarea' ? 'md:col-span-2' : '' }}">
+            <div class="{{ $type == 'hidden' ? 'hidden' : '' }} {{ $type == 'textarea' ? 'md:col-span-2' : '' }} {{ $className }}">
                 @if(isset($field['label']))
                     <label for="{{ $field['name'] ?? '' }}" class="block text-sm font-medium text-gray-700 mb-1">
                         {{ $field['label'] }}

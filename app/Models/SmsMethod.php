@@ -15,7 +15,7 @@ class SmsMethod extends Model
 
     // relation with active sms method
     public function smsActiveMethod(){
-        return $this->hasOne(SmsActiveMethod::class);
+        return $this->hasOne(SmsActiveMethod::class, 'sms_method_id');
     }
 
     public function attributes(): Attribute{

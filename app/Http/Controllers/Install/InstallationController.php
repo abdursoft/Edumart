@@ -163,6 +163,7 @@ class InstallationController extends Controller
             SESSION_DRIVER=file
             SESSION_LIFETIME=60
             QUEUE_DRIVER=sync
+            QUEUE_CONNECTION=database
 
             APP_LOCALE=en
             APP_FALLBACK_LOCALE=en

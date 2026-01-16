@@ -13,6 +13,6 @@ class SmsActiveMethod extends Model
 
     // relation with sms method
     public function smsMethod(){
-        return $this->belongsTo(SmsMethod::class);
+        return $this->belongsTo(SmsMethod::class, 'sms_method_id');
     }
 }
