@@ -18,6 +18,8 @@ use App\Http\Controllers\Api\V1\ExamController;
 use App\Http\Controllers\Api\V1\ExamFeeController;
 use App\Http\Controllers\Api\V1\ExamResultController;
 use App\Http\Controllers\Api\V1\ExamSubjectController;
+use App\Http\Controllers\Api\V1\FeeHeadController;
+use App\Http\Controllers\Api\V1\LeaveManagementController;
 use App\Http\Controllers\Api\V1\MarkSheetController;
 use App\Http\Controllers\Api\V1\MarkSheetItemController;
 use App\Http\Controllers\Api\V1\MenuController;
@@ -29,6 +31,7 @@ use App\Http\Controllers\Api\V1\RoleAndPermissionController;
 use App\Http\Controllers\Api\V1\SiteSettingController;
 use App\Http\Controllers\Api\V1\SliderContentController;
 use App\Http\Controllers\Api\V1\SliderController;
+use App\Http\Controllers\Api\V1\StaffAttendanceController;
 use App\Http\Controllers\Api\V1\StaffController;
 use App\Http\Controllers\Api\V1\StudentController;
 use App\Http\Controllers\Api\V1\SubjectController;
@@ -282,20 +285,30 @@ Route::prefix('administration')->name('administration.')->group(function () {
     Route::post('suppliers/{id}/update', [SupplierController::class, 'update'])->name('suppliers.update');
     Route::get('suppliers/{id}/delete', [SupplierController::class, 'destroy'])->name('suppliers.delete');
 
+    // leave management routes
+    Route::get('leave_management', [LeaveManagementController::class, 'index'])->name('leave_management');
+    Route::post('leave_management', [LeaveManagementController::class, 'store'])->name('leave_management.add');
+    Route::get('leave_management/{id}/edit', [LeaveManagementController::class, 'show'])->name('leave_management.edit');
+    Route::post('leave_management/{id}/update', [LeaveManagementController::class, 'update'])->name('leave_management.update');
+    Route::get('leave_management/{id}/delete', [LeaveManagementController::class, 'destroy'])->name('leave_management.delete');
 
-    Route::get('leave_management', function () {
-        return 'Leave Management';
-    })->name('leave_management');
-    Route::get('attendance_staff', function () {
-        return 'Staff Attendance';
-    })->name('attendance_staff');
+    // staff attendance routes
+    Route::get('attendance_staff', [StaffAttendanceController::class, 'index'])->name('attendance_staff');
+    Route::post('attendance_staff', [StaffAttendanceController::class, 'store'])->name('attendance_staff.add');
+    Route::post('attendance_staff/update', [StaffAttendanceController::class, 'update'])->name('attendance_staff.update');
 });
 
 // Finance & Accounts
 Route::prefix('finance/fees')->name('finance.fees.')->group(function () {
-    Route::get('fee_types', function () {
-        return 'Fee Types';
-    })->name('fee_types');
+    // fee heads routes
+    Route::get('fee-heads', [FeeHeadController::class, 'index'])->name('fee_heads');
+    Route::post('fee-heads', [FeeHeadController::class, 'store'])->name('fee_heads.add');
+    Route::get('fee-heads/{id}/edit', [FeeHeadController::class, 'edit'])->name('fee_heads.edit');
+    Route::post('fee-heads/{id}/update', [FeeHeadController::class, 'update'])->name('fee_heads.update');
+    Route::get('fee-heads/{id}/delete', [FeeHeadController::class, 'destroy'])->name('fee_heads.delete');
+
+
+    Route::get('fee_types', [FeeHeadController::class, 'index'])->name('fee_types');
     Route::get('fee_collection', function () {
         return 'Fee Collection';
     })->name('fee_collection');
@@ -307,10 +320,10 @@ Route::prefix('finance/fees')->name('finance.fees.')->group(function () {
 Route::prefix('finance/expenses')->name('finance.expenses.')->group(function () {
     Route::get('expense_heads', function () {
         return 'Expense Heads';
-    })->name('expense_heads');
+    })->name('heads');
     Route::get('expense_list', function () {
         return 'Expenses';
-    })->name('expense_list');
+    })->name('cost');
 });
 
 Route::prefix('finance/salary')->name('finance.salary.')->group(function () {

@@ -122,7 +122,7 @@
                             dateFormat: "yy-mm-dd",
                             changeMonth: true,
                             changeYear: true,
-                            yearRange: "1971:2025",
+                            yearRange: "1971:2050",
                             showAnim: "fadeIn"
                             });
                         });

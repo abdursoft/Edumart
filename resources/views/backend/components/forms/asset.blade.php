@@ -29,7 +29,9 @@
                     'name' => 'supplier_id',
                     'type' => 'select',
                     'required' => true,
-                    'options' => $suppliers->pluck('name','id')->toArray(),
+                    'options' => $suppliers->mapWithKeys(function($supplier){
+                        return [$supplier->id => $supplier->name.' ('.$supplier->company_name.')'];
+                    })->toArray()
                 ],
                 [
                     'label' => 'Price',

@@ -97,12 +97,13 @@ const MENUS = [
     // Finance & Accounts
     "finance" => [
         "fees" => [
+            "fee_heads" => "Fee Heads",
             "fee_collection" => "Fee Collection",
             "student_due" => "Student Due Reports",
         ],
         "expenses" => [
-            "expense_heads" => "Expense Heads",
-            "expense_list" => "Expenses",
+            "heads" => "Expense Heads",
+            "cost" => "Expenses",
         ],
         "salary" => [
             "payroll" => "Payroll",
