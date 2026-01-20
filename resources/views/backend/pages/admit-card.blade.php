@@ -2,8 +2,13 @@
 
 @section('title', 'Admit Card management')
 
-
 @section('content')
-    @include(backend('components.forms.admit-card'))
-    @include(backend('components.tables.admit-card'))
+    <div class="w-full flex items-start flex-col lg:flex-row gap-3">
+        <div class="w-full lg:w-1/4">
+            @include(backend('components.forms.admit-card'))
+        </div>
+        <div class="w-full lg:w-3/4">
+            @include(backend('components.tables.admit-card'))
+        </div>
+    </div>
 @endsection

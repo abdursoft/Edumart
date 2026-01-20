@@ -1,8 +1,8 @@
 <div class="w-full grid grid-cols-1 gap-4
-    @if($cols == 1) md:grid-cols-1
-    @elseif($cols == 2) md:grid-cols-2
-    @elseif($cols == 3) md:grid-cols-3
-    @elseif($cols == 4) md:grid-cols-4
+    @if($cols == 1) lg:grid-cols-1
+    @elseif($cols == 2) lg:grid-cols-2
+    @elseif($cols == 3) lg:grid-cols-3
+    @elseif($cols == 4) lg:grid-cols-4
     @endif">
     @foreach ($fields as $field)
 
@@ -17,6 +17,8 @@
             $step = $field['step'] ?? '';
             $margin = $field['margin'] ?? '0';
             $className = $field['className'] ?? '';
+            $note = $field['note'] ?? null;
+            $height = $field['height'] ?? '300px';
         @endphp
 
         @if($type === 'break')
@@ -26,12 +28,15 @@
         @elseif($type === 'title')
             <h2 class="text-muted text-xl w-full inline-block mt-3">{{$default}}</h2>
         @else
-            <div class="{{ $type == 'hidden' ? 'hidden' : '' }} {{ $type == 'textarea' ? 'md:col-span-2' : '' }} {{ $className }}">
+            <div class="w-full {{ $type == 'hidden' ? 'hidden' : '' }} {{ $type == 'textarea' ? 'md:col-span-2' : '' }} {{ $className }}">
                 @if(isset($field['label']))
                     <label for="{{ $field['name'] ?? '' }}" class="block text-sm font-medium text-gray-700 mb-1">
                         {{ $field['label'] }}
                         @if(!empty($field['required']))
                             <span class="text-red-500">*</span>
+                        @endif
+                        @if($note)
+                            <small class="text-[10px] text-red-400">({{$note}})</small>
                         @endif
                     </label>
                 @endif
@@ -43,7 +48,7 @@
                         class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500"
                     >
                         @if(!empty($field['placeholder']))
-                            <option value="">{{ $field['placeholder'] }}</option>
+                            <option value=" ">{{ $field['placeholder'] }}</option>
                         @endif
 
                         @foreach($field['options'] as $key => $option)
@@ -64,7 +69,7 @@
                         id="{{ $name }}"
                         name="{{ $name }}"
                         class=" py-2 px-1 quill-editor"
-                        style="min-height:400px;"
+                        style="min-height:{{$height}};"
                     >{{ $value ?? $default }}</div>
                     <input type="hidden" name="{{ $name }}" id="{{ $name }}_input">
 

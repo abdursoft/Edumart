@@ -31,14 +31,19 @@ class StudentController extends Controller
     // Store a new student
     public function store(Request $request)
     {
+        // dd($request->input());
         $validated = $request->validate([
             'name'                     => 'required|string|max:255',
-            'reg_number'               => 'required|numeric|unique:student_profiles,reg_number',
             'age'                      => 'required|numeric|min:1',
+            'dob'                      => 'nullable',
             'phone'                    => 'nullable|string|max:20',
             'parent_id'                => 'required|exists:users,id',
-            'edu_class_id'             => 'required|exists:edu_classes,id',
             'birth_certificate_number' => 'required|string',
+
+            'reg_number'               => 'required|numeric|unique:student_profiles,reg_number',
+            'edu_class_id'             => 'required|exists:edu_classes,id',
+            'edu_section_id'           => 'required|exists:edu_sections,id',
+            'edu_group_id'             => 'required|exists:edu_groups,id',
 
             // Father
             'fa_name_en'               => 'required|string',
@@ -62,6 +67,7 @@ class StudentController extends Controller
             'post'                     => 'nullable|string|max:255',
             'address'                  => 'nullable|string|max:255',
         ]);
+
 
         try {
             DB::beginTransaction();
@@ -99,12 +105,16 @@ class StudentController extends Controller
     {
         $validated = $request->validate([
             'name'                     => 'required|string|max:255',
-            'reg_number'               => 'required|numeric|unique:student_profiles,reg_number,' . $id,
             'age'                      => 'required|numeric|min:1',
+            'dob'                      => 'nullable',
             'phone'                    => 'nullable|string|max:20',
             'parent_id'                => 'required|exists:users,id',
-            'edu_class_id'             => 'required|exists:edu_classes,id',
             'birth_certificate_number' => 'required|string',
+
+            'reg_number'               => 'required|numeric|unique:student_profiles,reg_number,' . $id,
+            'edu_class_id'             => 'required|exists:edu_classes,id',
+            'edu_section_id'           => 'required|exists:edu_sections,id',
+            'edu_group_id'             => 'required|exists:edu_groups,id',
 
             // Father
             'fa_name_en'               => 'required|string',
@@ -129,13 +139,12 @@ class StudentController extends Controller
             'address'                  => 'nullable|string|max:255',
         ]);
 
-        if ($request->filled('password')) {
-            $validated['password'] = Hash::make($validated['password']);
-        } else {
-            unset($validated['password']);
-        }
-
         $student = StudentProfile::findOrFail($id);
+
+        if ($request->filled('password') && $student) {
+            $student->user->password = Hash::make($request->password);
+            $student->user->save();
+        }
 
         $student->update($validated);
 

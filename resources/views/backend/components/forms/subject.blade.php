@@ -1,7 +1,7 @@
 <form action="@if($subject){{route('admin.academic.structure.subjects.update', ['id' => $subject['id']])}}@else{{route('admin.academic.structure.subjects.add')}} @endif" method="POST">
 
     <x-fieldset
-        title="Subject">
+        title="New Subject">
 
         <x-input-form
             :fields="[
@@ -18,7 +18,7 @@
                 ['label' => 'Assigned Teacher', 'name' => 'teacher_id', 'type' => 'select', 'options' => $teachers->pluck('name', 'id')->toArray(), 'placeholder' => 'Select Teacher', 'required' => true,],
             ]"
             :form="$subject"
-            cols="3"
+            cols="1"
         />
 
         <x-button :items="[

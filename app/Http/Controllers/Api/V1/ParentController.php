@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\Designation;
 use App\Models\ParentModel;
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class ParentController extends Controller
@@ -30,15 +32,28 @@ class ParentController extends Controller
             'login_permit' => 'required|in:allowed,blocked',
         ]);
 
+        try {
+            DB::beginTransaction();
+            $user = User::create([
+                'name' => $validate['name'],
+                'email' => $validate['email'],
+                'role'  => 'guardian',
+                'password' => Hash::make($validate['password']),
+                'login_permit' => $validate['login_permit']
+            ]);
+            Profile::create([
+                'user_id' => $user->id,
+                'first_name' => $user->name,
+                'phone' => $request->phone,
+                'address' => $request->address
+            ]);
+            DB::commit();
+            return back()->with('success', 'Guardian successfully created');
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return back()->with('error', 'Guardian couldn\'t created');
+        }
 
-        User::create([
-            'name' => $validate['name'],
-            'email' => $validate['email'],
-            'role'  => 'guardian',
-            'password' => Hash::make($validate['password']),
-            'login_permit' => $validate['login_permit']
-        ]);
-        return back()->with('success', 'Guardian successfully created');
     }
 
     // Show a single parent

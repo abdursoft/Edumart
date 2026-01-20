@@ -18,7 +18,7 @@
                 ['label' => 'Designation', 'name' => 'designation_id', 'type' => 'select', 'options' => $designations->pluck('name','id')->toArray(), 'placeholder' => 'Select designation'],
             ]"
             :form="$teacher"
-            cols="3"
+            cols="1"
         />
 
 

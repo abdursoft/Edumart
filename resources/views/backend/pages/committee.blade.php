@@ -2,8 +2,13 @@
 
 @section('title', 'Committee management')
 
-
 @section('content')
-    @include(backend('components.forms.committee'))
-    @include(backend('components.tables.committee'))
+    <div class="w-full flex items-start flex-col lg:flex-row gap-3">
+        <div class="w-full lg:w-1/4">
+            @include(backend('components.forms.committee'))
+        </div>
+        <div class="w-full lg:w-3/4">
+            @include(backend('components.tables.committee'))
+        </div>
+    </div>
 @endsection

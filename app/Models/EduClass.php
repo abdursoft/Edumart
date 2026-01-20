@@ -59,4 +59,11 @@ class EduClass extends Model
     public function certificate(){
         return $this->hasMany(Certificate::class, 'edu_class_id');
     }
+
+    /**
+     * Relation with edu section
+     */
+    public function eduSection(){
+        return $this->hasMany(EduSection::class, 'edu_class_id');
+    }
 }

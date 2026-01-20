@@ -58,11 +58,12 @@
                     'label' => 'Description',
                     'name' => 'description',
                     'type' => 'textarea',
+                    'height' => '200px',
                     'placeholder' => 'Description content'
                 ],
             ]"
             :form="$notice"
-            cols="3"
+            cols="1"
         />
 
         <x-button

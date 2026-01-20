@@ -13,6 +13,8 @@
                     <th data-priority="1">ID</th>
                     <th data-priority="2">Student</th>
                     <th data-priority="4">Class</th>
+                    <th data-priority="4">Section</th>
+                    <th data-priority="4">Group</th>
                     <th data-priority="2">Age</th>
                     <th data-priority="4">Parent</th>
                     <th data-priority="3">Reg. Number</th>
@@ -26,6 +28,8 @@
                         <td>{{$student->id}}</td>
                         <td>{{$student->name}}</td>
                         <td>{{$student->eduClass->name ?? ''}}</td>
+                        <td>{{$student->eduSection->name ?? ''}}</td>
+                        <td>{{$student->eduGroup->name ?? ''}}</td>
                         <td>{{$student->age}}</td>
                         <td>{{$student->parent->name ?? 'N/A'}}</td>
                         <td>{{$student->reg_number}}</td>
@@ -33,7 +37,7 @@
                         <td>
                             <div class="flex items-center gap-3">
                                 <a href="{{ route('admin.academic.people.students.edit',$student->id) }}" class="py-1 px-4 rounded-[15px] shadow-md bg-green-600 text-white hover:bg-green-800 transition">Edit</a>
-                                <a href="{{ route('admin.academic.people.students.delete',$student->id) }}" class="py-1 px-4 bg-red-600 text-white rounded-[15px] shadow-md hover:bg-red-800 transition">Delete</a>
+                                <a href="{{ route('admin.academic.people.students.delete',$student->id) }}" onclick="return confirm('Are you sure you want to delete this student?')" class="py-1 px-4 bg-red-600 text-white rounded-[15px] shadow-md hover:bg-red-800 transition">Delete</a>
                             </div>
                         </td>
                     </tr>

@@ -17,6 +17,9 @@ class StudentFee extends Model
         'due_date',
         'fee_head_id',
         'student_id',
+        'edu_class_id',
+        'edu_section_id',
+        'edu_group_id'
     ];
 
     protected $casts = [

@@ -13,6 +13,7 @@ class MarkSheet extends Component
     public $marksheet;
     public $subjects;
     public $institute;
+    
     /**
      * Create a new component instance.
      */

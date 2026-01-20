@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Controllers\Controller;
 use App\Models\FeeCollection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,13 +13,16 @@ class FeeCollectionController extends Controller
     /**
      * List all fee collections
      */
-    public function index()
+    public function index($id=null)
     {
         $collections = FeeCollection::with('collectedBy')
             ->latest()
-            ->paginate(15);
-
-        return view('fees.collections.index', compact('collections'));
+            ->get();
+        $collection = null;
+        if($id){
+            $collection = FeeCollection::with('collectedBy')->findOrFail($id);
+        }
+        return view(backend('pages.fee-collection'), compact('collections', 'collection'));
     }
 
     /**

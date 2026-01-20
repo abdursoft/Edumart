@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Models\EduClass;
+use App\Models\EduGroup;
+use App\Models\EduSection;
 use Illuminate\Http\Request;
 
 class EduClassController extends Controller
@@ -65,8 +67,24 @@ class EduClassController extends Controller
     {
         $eduClass = EduClass::findOrFail($id);
         if(!$eduClass){
-            return back()->with('success', 'Class couldn\'t delete');
+            return back()->with('error', 'Class couldn\'t delete');
         }
         return back()->with('success', 'Class successfully deleted');
+    }
+
+    /**
+     * Edu sections crud
+     */
+    public function getSection($id){
+        $sections = EduSection::where('edu_class_id',$id)->latest()->get();
+        return response()->json($sections);
+    }
+
+    /**
+     * Edu groups
+     */
+    public function getGroup($id){
+        $sections = EduGroup::where('edu_section_id',$id)->latest()->get();
+        return response()->json($sections);
     }
 }

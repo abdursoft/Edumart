@@ -1,7 +1,7 @@
 <form action="@if($committee){{route('admin.academic.people.committees.update', ['id' => $committee['id']])}}@else{{route('admin.academic.people.committees.add')}} @endif" method="POST">
 
     <x-fieldset
-    title="Committee">
+    title="New Committee">
 
         <x-input-form
             :fields="[
@@ -18,7 +18,7 @@
                 ['label' => 'Designation', 'name' => 'designation_id', 'type' => 'select', 'options' => $designations->pluck('name','id')->toArray(), 'placeholder' => 'Select designation'],
             ]"
             :form="$committee"
-            cols="3"
+            cols="1"
         />
 
             <x-button :items="[

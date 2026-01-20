@@ -1,12 +1,10 @@
 <form action="@if($class){{route('admin.academic.structure.classes.update', ['id' => $class['id']])}}@else{{route('admin.academic.structure.classes.add')}} @endif" method="POST">
 
     <x-fieldset
-    title="Classes">
+    title="New Class">
         <x-input-form
             :fields="[
                 ['label' => 'Class Name', 'name' => 'name', 'type' => 'text', 'required' => true, 'placeholder' => 'e.g. Class 5 or Grade 8'],
-
-                ['label' => 'Section', 'name' => 'section', 'type' => 'select', 'options' => ['A','B','C','D','E','F','G','H'], 'placeholder' => 'Select section'],
 
                 ['label' => 'Order', 'name' => 'order', 'type' => 'number', 'placeholder' => 'e.g. 1'],
 
@@ -17,7 +15,7 @@
                 ['label' => 'Department', 'name' => 'department_id', 'type' => 'select', 'options' => $departments->pluck('name','id')->toArray(), 'placeholder' => 'Select Department'],
             ]"
             :form="$class"
-            cols="3"
+            cols="1"
         />
 
 

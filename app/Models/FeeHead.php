@@ -16,6 +16,7 @@ class FeeHead extends Model
         'amount',
         'is_recurring',
         'user_id',
+        'fee_group_id'
     ];
 
     protected $casts = [
@@ -46,5 +47,12 @@ class FeeHead extends Model
     public function scopeOneTime($query)
     {
         return $query->where('is_recurring', 'No');
+    }
+
+    /**
+     * Relation with fee group
+     */
+    public function feeGroup(){
+        return $this->belongsTo(FeeGroup::class, 'fee_group_id');
     }
 }

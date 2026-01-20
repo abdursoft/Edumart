@@ -1,0 +1,22 @@
+<?php
+
+// project constant variables
+const ICONS = [
+    'home' => '<iconify-icon icon="flowbite:home-solid" width="24" height="24"></iconify-icon>',
+    'dashboard' => '<iconify-icon icon="ri:dashboard-fill" width="24" height="24"></iconify-icon>',
+    'academic' => '<iconify-icon icon="heroicons-solid:academic-cap" width="24" height="24"></iconify-icon>',
+    'administration' => '<iconify-icon icon="medical-icon:i-administration" width="24" height="24"></iconify-icon>',
+    'finance' => '<iconify-icon icon="material-symbols:finance-rounded" width="24" height="24"></iconify-icon>',
+    'communication' => '<iconify-icon icon="ix:communication-filled" width="24" height="24"></iconify-icon>',
+    'reports' => '<iconify-icon icon="iconoir:reports-solid" width="24" height="24"></iconify-icon>',
+    'information' => '<iconify-icon icon="streamline-flex:information-circle-solid" width="24" height="24"></iconify-icon>',
+    'settings' => '<iconify-icon icon="solar:settings-bold" width="24" height="24"></iconify-icon>',
+    'media' => '<iconify-icon icon="ic:outline-perm-media" width="24" height="24"></iconify-icon>',
+    'public' => '<iconify-icon icon="octicon:feed-public-16" width="24" height="24"></iconify-icon>',
+    'menu.add' => '<iconify-icon icon="material-symbols:page-menu-ios-rounded" width="24" height="24"></iconify-icon>',
+    'page' => '<iconify-icon icon="streamline-ultimate:book-book-pages-bold" width="24" height="24"></iconify-icon>',
+    'right_arrow' => '<iconify-icon icon="line-md:arrow-right" width="14" height="14"></iconify-icon>',
+    'edit' => '<iconify-icon icon="basil:edit-outline" width="24" height="24"></iconify-icon>',
+    'delete' => '<iconify-icon icon="fluent:delete-20-regular" width="24" height="24"></iconify-icon>',
+    'save' => '<iconify-icon icon="line-md:check-all" width="24" height="24"></iconify-icon>'
+];

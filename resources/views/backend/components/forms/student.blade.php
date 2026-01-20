@@ -13,13 +13,6 @@
                 'placeholder' => 'e.g. John Doe',
             ],
             [
-                'label' => 'Reg Number',
-                'name' => 'reg_number',
-                'type' => 'number',
-                'placeholder' => 'e.g. 9329',
-                'required' => true,
-            ],
-            [
                 'label' => 'Age',
                 'name' => 'age',
                 'type' => 'number',
@@ -43,18 +36,10 @@
                     ->toArray(),
             ],
             [
-                'label' => 'Class',
-                'name' => 'edu_class_id',
-                'type' => 'select',
-                'required' => true,
-                'placeholder' => 'Select a class',
-                'options' => $class->pluck('name', 'id')->toArray(),
-            ],
-            [
                 'label' => 'Password',
                 'name' => 'password',
                 'type' => 'password',
-                'required' => true,
+                'required' => empty($student) ? true : false,
                 'placeholder' => 'Enter a secure password',
             ],
             [
@@ -70,6 +55,68 @@
                 'type' => 'text',
                 'required' => true,
                 'placeholder' => '1819484785744757555',
+            ],
+            [
+                'label' => '',
+                'name' => '',
+                'type' => 'break',
+                'default' => 2,
+            ],
+            [
+                'label' => '',
+                'name' => '',
+                'type' => 'title',
+                'default' => 'Admission Information',
+            ],
+            [
+                'label' => '',
+                'name' => '',
+                'type' => 'break',
+                'default' => 2,
+            ],
+            [
+                'label' => 'Class',
+                'name' => 'edu_class_id',
+                'type' => 'select',
+                'required' => true,
+                'placeholder' => 'Select a class',
+                'options' => $class->pluck('name', 'id')->toArray(),
+            ],
+            [
+                'label' => 'Section',
+                'name' => 'edu_section_id',
+                'type' => 'select',
+                'required' => true,
+                'placeholder' => 'Select a section',
+                'options' => [],
+            ],
+            [
+                'label' => 'Group',
+                'name' => 'edu_group_id',
+                'type' => 'select',
+                'required' => true,
+                'placeholder' => 'Select a group',
+                'options' => [],
+            ],
+            [
+                'label' => 'Reg Number',
+                'name' => 'reg_number',
+                'type' => 'number',
+                'placeholder' => 'e.g. 9329',
+                'required' => true,
+            ],
+            [
+                'label' => 'Class roll',
+                'name' => 'class_roll',
+                'type' => 'number',
+                'placeholder' => 'e.g. 93',
+                'required' => true,
+            ],
+            [
+                'label' => '',
+                'name' => '',
+                'type' => 'break',
+                'default' => 1,
             ],
             [
                 'label' => '',
@@ -317,6 +364,38 @@
                         }
                     })
                 }
+            });
+
+            const class_id = "{{$student->edu_class_id}}";
+            const section_id = "{{$student->edu_section_id}}";
+            const group_id = "{{$student->edu_group_id}}";
+
+            const section_url = `/admin/sections/${class_id}`;
+            $.ajax({
+                url: section_url,
+                method: 'get',
+                success: (response) => {
+                    $("#edu_section_id").empty().append(new Option('Select a section',' ',true, true));
+                    response.map((item) => {
+                        const isSelected = item?.id == section_id;
+                        $('#edu_section_id').append(new Option(item?.name, item?.id, isSelected,
+                            isSelected));
+
+                        const group_url = `/admin/groups/${section_id}`;
+                        $.ajax({
+                            url: group_url,
+                            method: 'get',
+                            success: (response) => {
+                                $("#edu_group_id").empty().append(new Option('Select a group',' ',true, true));
+                                response.map((item) => {
+                                    const isSelected = item?.id == group_id;
+                                    $('#edu_group_id').append(new Option(item?.name, item?.id, isSelected,
+                                        isSelected));
+                                })
+                            }
+                        })
+                    })
+                }
             })
         });
     </script>
@@ -366,7 +445,7 @@
                 url: url,
                 method: 'get',
                 success: (response) => {
-                    $("#union_id").empty();
+                    $("#union_id").empty().append('<option value="">Select Thana</option>');
                     response?.union.map((item) => {
                         $('#union_id').append(new Option(item?.name, item?.id, true,
                             true));
@@ -374,5 +453,39 @@
                 }
             })
         })
+
+        $("#edu_class_id").on('change', (element) => {
+            const id = element.target.value;
+            const url = `/admin/sections/${id}`;
+
+            $.ajax({
+                url: url,
+                method: 'get',
+                success: (response) => {
+                    $("#edu_section_id").empty().append(new Option('Select a section',' ',true, true));
+                    response?.map((item) => {
+                        $('#edu_section_id').append(new Option(item?.name, item?.id, true,
+                            false));
+                    })
+                }
+            })
+        });
+
+        $("#edu_section_id").on('change', (element) => {
+            const id = element.target.value;
+            const url = `/admin/groups/${id}`;
+
+            $.ajax({
+                url: url,
+                method: 'get',
+                success: (response) => {
+                    $("#edu_group_id").empty().append(new Option('Select a group',' ',true, true));
+                    response?.map((item) => {
+                        $('#edu_group_id').append(new Option(item?.name, item?.id, true,
+                            true));
+                    })
+                }
+            })
+        });
     });
 </script>

@@ -2,7 +2,7 @@
     action="@if ($room) {{ route('admin.academic.structure.rooms.update', ['id' => $room['id']]) }}@else{{ route('admin.academic.structure.rooms.add') }} @endif"
     method="POST">
 
-    <x-fieldset title="Room">
+    <x-fieldset title="New Room">
 
         <x-input-form :fields="[
             [
@@ -38,7 +38,7 @@
                 'default' => 'Lecture',
                 'placeholder' => 'Select Room Type',
             ],
-        ]" :form="$room" cols="3" />
+        ]" :form="$room" cols="1" />
 
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Models\FeeGroup;
 use App\Models\FeeHead;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,11 +13,15 @@ class FeeHeadController extends Controller
     /**
      * Display a listing of fee heads
      */
-    public function index()
+    public function index($id=null)
     {
-        $feeHeads = FeeHead::latest()->paginate(10);
-        dd($feeHeads);
-        return view('fees.heads.index', compact('feeHeads'));
+        $heads = FeeHead::with('user')->get();
+        $head = null;
+        if($id){
+            $head = FeeHead::with('feeGroup')->findOrFail($id);
+        }
+        $groups = FeeGroup::latest()->pluck('name','id')->toArray();
+        return view(backend('pages.fee_head'), compact('heads', 'head','groups'));
     }
 
     /**
@@ -36,26 +41,28 @@ class FeeHeadController extends Controller
             'name'         => 'required|string|max:255|unique:fee_heads,name',
             'amount'       => 'required|numeric|min:0',
             'is_recurring' => 'required|in:Yes,No',
+            'fee_group_id' => 'nullable'
         ]);
 
         FeeHead::create([
             'name'         => $request->name,
             'amount'       => $request->amount,
             'is_recurring' => $request->is_recurring,
+            'fee_group_id' => $request->fee_group_id,
             'user_id'      => Auth::id(),
         ]);
 
         return redirect()
-            ->route('fee-heads.index')
+            ->route('admin.finance.fees.fee_heads')
             ->with('success', 'Fee head created successfully');
     }
 
     /**
      * Show the specified fee head
      */
-    public function show(FeeHead $feeHead)
+    public function show($id)
     {
-        return view('fees.heads.show', compact('feeHead'));
+        return $this->index($id);
     }
 
     /**
@@ -69,34 +76,38 @@ class FeeHeadController extends Controller
     /**
      * Update the specified fee head
      */
-    public function update(Request $request, FeeHead $feeHead)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            'name'         => 'required|string|max:255|unique:fee_heads,name,' . $feeHead->id,
+            'name'         => 'required|string|max:255|unique:fee_heads,name,' . $id,
             'amount'       => 'required|numeric|min:0',
             'is_recurring' => 'required|in:Yes,No',
+            'fee_group_id' => 'nullable'
         ]);
 
+        $feeHead = FeeHead::findOrFail($id);
         $feeHead->update($request->only([
             'name',
             'amount',
+            'fee_group_id',
             'is_recurring',
         ]));
 
         return redirect()
-            ->route('fee-heads.index')
+            ->route('admin.finance.fees.fee_heads')
             ->with('success', 'Fee head updated successfully');
     }
 
     /**
      * Remove the specified fee head
      */
-    public function destroy(FeeHead $feeHead)
+    public function destroy($id)
     {
+        $feeHead = FeeHead::findOrFail($id);
         $feeHead->delete();
 
         return redirect()
-            ->route('fee-heads.index')
+            ->route('admin.finance.fees.fee_heads')
             ->with('success', 'Fee head deleted successfully');
     }
 }

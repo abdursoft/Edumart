@@ -37,7 +37,7 @@ table.dataTable.display tbody tr:hover {
     /*font-bold*/
     border-radius: .25rem;
     /*rounded*/
-    border: 1px solid transparent;
+    border: 1px solid gray;
     /*border border-transparent*/
 }
 
@@ -67,7 +67,7 @@ table.dataTable.display tbody tr:hover {
     /*font-bold*/
     border-radius: .25rem;
     /*rounded*/
-    background: #667eea !important;
+    /* background: #667eea !important; */
     /*bg-indigo-500*/
     border: 1px solid transparent;
     /*border border-transparent*/

@@ -6,7 +6,7 @@
             @endif"
     method="POST">
 
-    <x-fieldset title="Supplier Details">
+    <x-fieldset title="New Supplier">
 
         <x-input-form
             :fields="[
@@ -55,14 +55,16 @@
                     'name' => 'address',
                     'type' => 'textarea',
                     'required' => true,
+                    'height' => '200px',
                     'placeholder' => 'Full address of supplier',
                 ],
             ]"
             :form="$supplier"
-            cols="3"
+            cols="2"
         />
 
         <x-button
+            style="margin-top:110px;"
             :items="[
                 [
                     'label' => 'Cancel',

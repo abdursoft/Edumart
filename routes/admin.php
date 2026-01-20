@@ -39,6 +39,9 @@ use App\Http\Controllers\Api\V1\SupplierController;
 use App\Http\Controllers\Api\V1\TeacherController;
 use App\Http\Controllers\Api\V1\UploadController;
 use App\Http\Controllers\Api\V1\UserController;
+use App\Http\Controllers\Api\V1\FeeCollectionController;
+use App\Http\Controllers\Api\V1\FeeGroupController;
+use App\Http\Controllers\Api\V1\StudentFeeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
@@ -300,21 +303,25 @@ Route::prefix('administration')->name('administration.')->group(function () {
 
 // Finance & Accounts
 Route::prefix('finance/fees')->name('finance.fees.')->group(function () {
+    // fee group routes
+    Route::get('fee-group', [FeeGroupController::class, 'index'])->name('fee_group');
+    Route::post('fee-group', [FeeGroupController::class, 'store'])->name('fee_group.add');
+    Route::get('fee-group/{id}/edit', [FeeGroupController::class, 'show'])->name('fee_group.edit');
+    Route::post('fee-group/{id}/update', [FeeGroupController::class, 'update'])->name('fee_group.update');
+    Route::get('fee-group/{id}/delete', [FeeGroupController::class, 'destroy'])->name('fee_group.delete');
+
     // fee heads routes
     Route::get('fee-heads', [FeeHeadController::class, 'index'])->name('fee_heads');
     Route::post('fee-heads', [FeeHeadController::class, 'store'])->name('fee_heads.add');
-    Route::get('fee-heads/{id}/edit', [FeeHeadController::class, 'edit'])->name('fee_heads.edit');
+    Route::get('fee-heads/{id}/edit', [FeeHeadController::class, 'show'])->name('fee_heads.edit');
     Route::post('fee-heads/{id}/update', [FeeHeadController::class, 'update'])->name('fee_heads.update');
     Route::get('fee-heads/{id}/delete', [FeeHeadController::class, 'destroy'])->name('fee_heads.delete');
 
+    // fee collection routes
+    Route::get('fee-collection', [FeeCollectionController::class, 'index'])->name('fee_collection');
 
-    Route::get('fee_types', [FeeHeadController::class, 'index'])->name('fee_types');
-    Route::get('fee_collection', function () {
-        return 'Fee Collection';
-    })->name('fee_collection');
-    Route::get('student_due', function () {
-        return 'Student Due Reports';
-    })->name('student_due');
+
+    Route::get('student_due', [StudentFeeController::class, 'index'])->name('student_due');
 });
 
 Route::prefix('finance/expenses')->name('finance.expenses.')->group(function () {
@@ -491,6 +498,10 @@ Route::prefix('media')->name('media.')->group(function () {
 Route::get('get-users/{type}/{id?}', [UserController::class, 'getUserList'])->name('user.list');
 Route::get('get-subjects/{class}', [SubjectController::class, 'getSubjectList'])->name('subject.list');
 
+// classes routes
+Route::get('sections/{id}', [EduClassController::class, 'getSection'])->name('get.sections');
+Route::get('groups/{id}', [EduClassController::class, 'getGroup'])->name('get.groups');
+
 // Public / External Access
 Route::prefix('public')->name('public.')->group(function () {
     Route::get('admission_form', function () {
@@ -517,3 +528,4 @@ Route::prefix('address')->name('address.')->group(function () {
     Route::get('thana/{id?}', [AddressController::class, 'thana'])->name('thana');
     Route::get('union/{id?}', [AddressController::class, 'union'])->name('union');
 });
+

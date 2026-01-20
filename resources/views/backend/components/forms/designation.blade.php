@@ -1,7 +1,7 @@
 <form action="@if($designation){{route('admin.academic.people.designations.edit', ['id' => $designation['id']])}}@else{{route('admin.academic.people.designations.add')}} @endif" method="POST">
 
     <x-fieldset
-    title="Designation">
+    title="New Designation">
 
         <x-input-form
             :fields="[
@@ -10,7 +10,7 @@
                 ['label' => 'Level', 'name' => 'level', 'type' => 'select', 'options' => ['Senior', 'Junior', 'Assistant', 'Co-assistant', 'Intern'], 'placeholder' => 'Select level'],
             ]"
             :form="$designation"
-            cols="2"
+            cols="1"
         />
 
             <x-button :items="[

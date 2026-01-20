@@ -14,13 +14,18 @@ class StudentProfile extends Model
     protected $fillable = [
         'name',
         'student_id',
-        'reg_number',
         'age',
+        'dob',
+        'avatar',
         'phone',
         'parent_id',
-        'edu_class_id',
         'password',
         'login_permit',
+
+        'reg_number',
+        'edu_class_id',
+        'edu_section_id',
+        'edu_group_id',
 
         'fa_name_en',
         'fa_name_bn',
@@ -77,5 +82,19 @@ class StudentProfile extends Model
     public function union()
     {
         return $this->belongsTo(Union::class);
+    }
+
+    /**
+     * Relation with edu section
+     */
+    public function eduSection(){
+        return $this->belongsTo(EduSection::class, 'edu_section_id');
+    }
+
+    /**
+     * Relation with edu group
+     */
+    public function eduGroup(){
+        return $this->belongsTo(EduGroup::class, 'edu_group_id');
     }
 }

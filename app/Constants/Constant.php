@@ -97,9 +97,10 @@ const MENUS = [
     // Finance & Accounts
     "finance" => [
         "fees" => [
+            'fee_group' => 'Fee Group',
             "fee_heads" => "Fee Heads",
+            "student_due" => "Student Due",
             "fee_collection" => "Fee Collection",
-            "student_due" => "Student Due Reports",
         ],
         "expenses" => [
             "heads" => "Expense Heads",
@@ -166,7 +167,6 @@ const MENUS = [
     "menu.add" => "Menu Builder",
 
 ];
-
 const LANGUAGE = [
     "bn" => "বাংলা",
     "en" => "English"

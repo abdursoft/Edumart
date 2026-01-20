@@ -1,7 +1,7 @@
 <form action="@if($staff){{route('admin.academic.people.staff.update', ['id' => $staff['id']])}}@else{{route('admin.academic.people.staff.add')}} @endif" method="POST">
 
     <x-fieldset
-    title="Staff">
+    title="New Staff">
 
         <x-input-form
             :fields="[
@@ -18,7 +18,7 @@
                 ['label' => 'Designation', 'name' => 'designation_id', 'type' => 'select', 'options' => $designations->pluck('name','id')->toArray(), 'placeholder' => 'Select designation'],
             ]"
             :form="$staff"
-            cols="3"
+            cols="1"
         />
 
             <x-button :items="[

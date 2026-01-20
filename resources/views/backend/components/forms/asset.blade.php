@@ -6,7 +6,7 @@
             @endif"
     method="POST">
 
-    <x-fieldset title="Asset Details">
+    <x-fieldset title="Add new asset">
 
         <x-input-form
             :fields="[
@@ -81,11 +81,12 @@
                     'name' => 'note',
                     'type' => 'textarea',
                     'required' => false,
+                    'height' => '200px',
                     'placeholder' => 'Additional notes',
                 ],
             ]"
             :form="$asset"
-            cols="3"
+            cols="2"
         />
 
         <x-button

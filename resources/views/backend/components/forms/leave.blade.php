@@ -1,7 +1,7 @@
 <form action="@if($leave){{route('admin.administration.leave_management.update', ['id' => $leave['id']])}}@else{{route('admin.administration.leave_management.add')}}@endif" method="POST">
 
     <x-fieldset
-    title="Leave management">
+    title="New leave">
 
         <x-input-form
             :fields="[
@@ -23,7 +23,9 @@
                     'label' => 'Reason',
                     'name' => 'reason',
                     'type' => 'text',
+                    'note' => 'Max 250 characters',
                     'required' => false,
+                    'placeholder' => 'Wedding leave'
                 ],
                 [
                     'label' => 'Select Staff',
@@ -33,7 +35,7 @@
                 ],
             ]"
             :form="$leave"
-            cols="3"
+            cols="1"
         />
 
 

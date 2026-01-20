@@ -25,8 +25,8 @@
                         <td>{{$parent->id}}</td>
                         <td>{{$parent->name}}</td>
                         <td>{{$parent->email}}</td>
-                        <td>{{$parent->phone}}</td>
-                        <td>{{$parent->address}}</td>
+                        <td>{{$parent->profile?->phone}}</td>
+                        <td>{{$parent->profile?->address}}</td>
                         <td>{{ucfirst($parent->login_permit)}}</td>
                         <td>
                             <div class="flex items-center gap-3">

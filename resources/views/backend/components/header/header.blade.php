@@ -1,4 +1,4 @@
-<header class="sticky top-0 z-50 flex w-full items-center justify-between bg-white px-4 py-3 shadow-md md:px-6">
+<header class="sticky top-0 z-50 flex w-full items-center justify-between bg-[#424242] px-4 py-3 shadow-md md:px-6">
   <!-- Left Section -->
   <div class="flex items-center md:space-x-3">
     <!-- Toggle Button (for small screens) -->
@@ -49,7 +49,7 @@
     <div class="relative">
       <button
         id="notify-btn"
-        class="relative rounded-md p-2 text-gray-700 hover:bg-gray-200 transition cursor-pointer"
+        class="relative rounded-md p-2 text-gray-700 bg-gray-200 transition cursor-pointer"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
           viewBox="0 0 24 24" stroke="currentColor">

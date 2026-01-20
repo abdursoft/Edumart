@@ -223,6 +223,18 @@
     }
     }
 
+
+    /**
+     * Iconify icons
+     */
+    if(!function_exists('icons')){
+        function icons($icon){
+            ob_start();
+            echo ICONS[$icon] ?? '';
+            return ob_get_clean();
+        }
+    }
+
     /**
  * Render meta contents
  */

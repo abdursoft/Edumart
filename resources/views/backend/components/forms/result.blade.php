@@ -1,7 +1,7 @@
 <form action="@if($result){{ route('admin.academic.evaluation.results.update', $result->id) }}@else{{ route('admin.academic.evaluation.results.add') }}@endif" method="POST">
     @csrf
 
-    <x-fieldset title="Exam Result">
+    <x-fieldset title="Add Result">
 
         <x-input-form
             :fields="[
@@ -54,7 +54,7 @@
                 ],
             ]"
             :form="$result"
-            cols="3"
+            cols="1"
         />
 
         <x-button :items="[

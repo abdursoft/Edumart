@@ -11,12 +11,8 @@
                 ['label' => 'Status', 'name' => 'status', 'type' => 'select', 'options' => ['Issued', 'Pending', 'Canceled'], 'default' => 'Issued'],
             ]"
             :form="$admitCard"
-            cols="3"
+            cols="1"
         />
-
-
-
-
 
             <x-button :items="[
                 ['label' => 'Generate', 'type' => 'submit', 'style' => 'bg-teal-500 text-white rounded-md px-3 py-2 cursor-pointer hover:bg-teal-800 hover:text-white']

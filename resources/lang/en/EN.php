@@ -49,7 +49,7 @@ return [
     'fees' => 'Fees',
     'fee_types' => 'Fee Types',
     'fee_collection' => 'Fee Collection',
-    'student_due' => 'Student Due Reports',
+    'student_due' => 'Student Due',
     'expenses' => 'Expenses',
     'expense_heads' => 'Expense Heads',
     'expense_list' => 'Expense List',

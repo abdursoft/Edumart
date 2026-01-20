@@ -5,7 +5,7 @@
 <form action="@if($notice){{ route('admin.information.event_calendar.update', $notice->id) }}@else{{ route('admin.information.event_calendar.add') }}@endif" method="POST">
     @csrf
 
-    <x-fieldset title="Event Calender">
+    <x-fieldset title="New Event">
 
         <x-input-form
             :fields="[
@@ -62,7 +62,7 @@
                 ],
             ]"
             :form="$notice"
-            cols="3"
+            cols="1"
         />
 
         <x-button

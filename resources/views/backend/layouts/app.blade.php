@@ -70,7 +70,7 @@
         <!-- ===== Header End ===== -->
 
         <!-- ===== Main Content Start ===== -->
-        <main class="lg:pl-[290px]">
+        <main class="lg:pl-[250px]">
           <div class="p-4 mx-auto md:p-6 w-full">
             @yield('content')
           </div>

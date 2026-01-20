@@ -53,10 +53,8 @@
                 ],
             ]"
             :form="$parent"
-            cols="3"
+            cols="1"
         />
-
-
 
             <x-button :items="[
                 ['label' => 'Cancel', 'type' => 'reset', 'style' => 'bg-slate-500 text-white rounded-md px-3 py-2 cursor-pointer hover:bg-slate-800 hover:text-white'],
