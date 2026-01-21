@@ -4,7 +4,7 @@
 
 <!--Container-->
 <div class="w-full text-slate-800">
-<h2 class="text-xl md:text-2xl mt-5">Assignment list</h2>
+<x-fieldset title="Assignment list">
     <!--Card-->
         <div id='recipients' class="w-full p-4 mt-2 lg:mt-0 rounded shadow bg-white">
         <table id="example" class="stripe hover w-full" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
@@ -29,9 +29,9 @@
                         <td>{{ date('F d, Y', strtotime($assignment->assigned_date)) }}</td>
                         <td>{{ date('F d, Y', strtotime($assignment->due_date)) }}</td>
                         <td>
-                            <div class="flex items-center gap-3">
-                                <a href="{{ route('admin.academic.activities.assignments.edit',$assignment->id) }}" class="py-1 px-4 rounded-[15px] shadow-md bg-green-600 text-white hover:bg-green-800 transition">Edit</a>
-                                <a href="{{ route('admin.academic.activities.assignments.delete',$assignment->id) }}" class="py-1 px-4 bg-red-600 text-white rounded-[15px] shadow-md hover:bg-red-800 transition">Delete</a>
+                            <div class="flex items-center gap-1">
+                                <a href="{{ route('admin.academic.activities.assignments.edit',$assignment->id) }}" class="py-1 px-2 rounded-[15px] shadow-md hover:bg-green-600 text-green-600 hover:text-white transition">{!! icons('edit') !!}</a>
+                                <a href="{{ route('admin.academic.activities.assignments.delete',$assignment->id) }}" class="py-1 px-2 text-red-600 rounded-[15px] shadow-md hover:bg-red-600 hover:text-white transition" onclick="return confirm('Are you sure you want to delete this assignment')">{!! icons('delete') !!}</a>
                             </div>
                         </td>
                     </tr>
@@ -40,6 +40,7 @@
         </table>
     </div>
     <!--/Card-->
+</x-fieldset>
 </div>
 <!--/container-->
 

@@ -32,22 +32,15 @@
                         <td>{{ number_format($fee->late_fee, 2) }}</td>
                         <td>{{ $fee->due_date ? date('d M, Y', strtotime($fee->due_date)) : '—' }}</td>
                         <td>
-                            <span class="px-3 py-1 rounded-full text-white text-sm
-                                {{ $fee->status === 'Active' ? 'bg-green-600' : 'bg-gray-500' }}">
+                            <span class="px-3 py-1 rounded-full text-sm
+                                {{ $fee->status === 'Active' ? 'bg-green-200 text-green-600' : 'bg-gray-200 text-slate-600' }}">
                                 {{ $fee->status }}
                             </span>
                         </td>
                         <td>
-                            <div class="flex items-center gap-3">
-                                <a href="{{ route('admin.academic.evaluation.exam_fee.edit', $fee->id) }}"
-                                   class="py-1 px-4 rounded-[15px] shadow-md bg-green-600 text-white hover:bg-green-800 transition">
-                                    Edit
-                                </a>
-                                <a href="{{ route('admin.academic.evaluation.exam_fee.delete', $fee->id) }}"
-                                   class="py-1 px-4 bg-red-600 text-white rounded-[15px] shadow-md hover:bg-red-800 transition"
-                                   onclick="return confirm('Are you sure you want to delete this fee?');">
-                                    Delete
-                                </a>
+                            <div class="flex items-center gap-1">
+                                <a href="{{ route('admin.academic.evaluation.exam_fee.edit',$fee->id) }}" class="py-1 px-2 rounded-[15px] shadow-md hover:bg-green-600 text-green-600 hover:text-white transition">{!! icons('edit') !!}</a>
+                                <a href="{{ route('admin.academic.evaluation.exam_fee.delete',$fee->id) }}" class="py-1 px-2 text-red-600 rounded-[15px] shadow-md hover:bg-red-600 hover:text-white transition" onclick="return confirm('Are you sure you want to delete this exam-fee')">{!! icons('delete') !!}</a>
                             </div>
                         </td>
                     </tr>

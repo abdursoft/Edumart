@@ -85,7 +85,7 @@ Route::prefix('academic/people')->name('academic.people.')->group(function () {
     Route::post('committees', [CommitteeController::class, 'store'])->name('committees.add');
     Route::get('committees/{id}/edit', [CommitteeController::class, 'show'])->name('committees.edit');
     Route::post('committees/{id}/update', [CommitteeController::class, 'update'])->name('committees.update');
-    Route::get('committees/{id}/delete', [CommitteeController::class, 'delete'])->name('committees.delete');
+    Route::get('committees/{id}/delete', [CommitteeController::class, 'destroy'])->name('committees.delete');
 
     // designation routes
     Route::get('designations', [DesignationController::class, 'index'])->name('designations');

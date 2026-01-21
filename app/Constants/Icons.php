@@ -18,5 +18,7 @@ const ICONS = [
     'right_arrow' => '<iconify-icon icon="line-md:arrow-right" width="14" height="14"></iconify-icon>',
     'edit' => '<iconify-icon icon="basil:edit-outline" width="24" height="24"></iconify-icon>',
     'delete' => '<iconify-icon icon="fluent:delete-20-regular" width="24" height="24"></iconify-icon>',
-    'save' => '<iconify-icon icon="line-md:check-all" width="24" height="24"></iconify-icon>'
+    'save' => '<iconify-icon icon="line-md:check-all" width="24" height="24"></iconify-icon>',
+    'print' => '<iconify-icon icon="noto:printer" width="24" height="24"></iconify-icon>',
+    'view' => '<iconify-icon icon="emojione-monotone:eye" width="24" height="24"></iconify-icon>'
 ];
