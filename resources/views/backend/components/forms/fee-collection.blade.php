@@ -1,4 +1,4 @@
-<form action="@if($collection){{route('admin.finance.fees.fee_heads.update', ['id' => $collection['id']])}}@else{{route('admin.finance.fees.fee_heads.add')}}@endif" method="POST">
+<form action="@if($collection){{route('admin.finance.fees.fee_collection.update', ['id' => $collection['id']])}}@else{{route('admin.finance.fees.fee_collection.add')}}@endif" method="POST">
 
     <x-fieldset
     title="Add collection">
@@ -6,11 +6,12 @@
         <x-input-form
             :fields="[
                 [
-                    'label' => 'Total Amount',
-                    'name' => 'total_amount',
-                    'type' => 'number',
+                    'label' => 'Invoice ID',
+                    'name' => 'student_fee_id',
+                    'type' => 'select',
                     'required' => true,
-                    'placeholder' => 10500
+                    'options' => $invoices,
+                    'placeholder' => 'No invoice ID'
                 ],
 
                 [
@@ -18,7 +19,11 @@
                     'name' => 'paid_amount',
                     'type' => 'number',
                     'required' => true,
-                    'placeholder' => 10500
+                    'placeholder' => 10500,
+                    'attributes' => [
+                        'min' => 0,
+                        'step' => 0.1
+                    ]
                 ],
 
                 [
@@ -38,7 +43,7 @@
                 ],
             ]"
             :form="$collection"
-            cols="3"
+            cols="1"
         />
 
 
@@ -54,18 +59,19 @@
 </form>
 
 <script>
-    $("#exam_id").on('change', function(event){
-        const id = event.target.value;
-        $.ajax({
-            url: `http://127.0.0.1:8000/admin/academic/evaluation/mark-sheet/${id}/student`,
-            method:'get',
-            success: (data) => {
-                $("#student_id").empty();
-                for (const key in data) {
-                    const element = data[key];
-                    $('#student_id').append(new Option(element, key, true, true)).trigger('change');
+    $(document).ready(function(){
+        $("#student_fee_id").on('change', function(event){
+            const id = event.target.value;
+            $.ajax({
+                url: `/admin/get-fee/${id}`,
+                method:'get',
+                success: (data) => {
+                    $(".student_details").html(data.view);
+                },
+                error: (error) => {
+                    $(".student_details").html('<div class="flex items-center justify-center w-full h-full text-slate-400 text-xl font-bold min-h-[50vh]">Select an invoice to collect payment!</div>');
                 }
-            }
-        })
-    });
+            })
+        });
+    })
 </script>

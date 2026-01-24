@@ -7,7 +7,7 @@
     <h2 class="text-xl md:text-2xl mt-5 font-semibold">Exam Marksheet List</h2>
 
     <!-- Card -->
-    <div id="recipients" class="w-full p-4 mt-2 lg:mt-0 rounded shadow bg-white">
+    <div id="recipients" class="w-full p-4 mt-2 lg:mt-0 rounded shadow bg-white overflow-x-auto max-w-screen">
         <table id="example" class="stripe hover w-full" style="width:100%; padding-top: 1em; padding-bottom: 1em;">
             <thead>
                 <tr>

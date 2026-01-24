@@ -3,7 +3,7 @@
 
 <div class="w-full text-slate-800">
     <x-fieldset title="Result list">
-        <div class="w-full p-4 mt-2 rounded shadow bg-white">
+        <div class="w-full p-4 mt-2 rounded shadow bg-white overflow-x-auto max-w-screen">
             <table id="example" class="stripe hover w-full">
                 <thead>
                     <tr>

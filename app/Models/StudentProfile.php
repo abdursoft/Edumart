@@ -97,4 +97,11 @@ class StudentProfile extends Model
     public function eduGroup(){
         return $this->belongsTo(EduGroup::class, 'edu_group_id');
     }
+
+    /**
+     * Relation with fees
+     */
+    public function Fees(){
+        return $this->hasMany(StudentFee::class, 'student_profile_id');
+    }
 }

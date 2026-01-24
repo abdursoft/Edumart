@@ -28,4 +28,11 @@ class EduSection extends Model
     public function studentProfile(){
         return $this->hasMany(StudentProfile::class, 'edu_section_id');
     }
+
+    /**
+     * Relation with student fee
+     */
+    public function studentFee(){
+        return $this->hasMany(StudentFee::class, 'edu_section_id');
+    }
 }

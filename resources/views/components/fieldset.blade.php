@@ -2,7 +2,7 @@
     @if($title)
         <legend class="text-lg font-semibold text-gray-800 px-3">{{ $title }}</legend>
     @endif
-    <div class="my-2">
+    <div class="my-2 w-full">
         {{$slot}}
     </div>
 </fieldset>

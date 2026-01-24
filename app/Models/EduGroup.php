@@ -15,5 +15,11 @@ class EduGroup extends Model
         return $this->belongsTo(EduSection::class, 'edu_section_id');
     }
 
-    
+    /**
+     * Relation with student fee
+     */
+    public function studentFee(){
+        return $this->hasMany(StudentFee::class, 'edu_group_id');
+    }
+
 }

@@ -2,8 +2,10 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Models\EduClass;
 use App\Models\FeeHead;
 use App\Models\StudentFee;
+use App\Models\StudentProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,17 +16,18 @@ class StudentFeeController extends Controller
      */
     public function index($id = null)
     {
-        $fees = StudentFee::with(['student', 'feeHead'])
+        $fees = StudentFee::with(['student', 'feeHead','eduClass','eduSection','eduGroup'])
             ->latest()
             ->get();
         $fee = null;
         if ($id) {
             $fee = StudentFee::findOrFail($id);
         }
-        $heads = FeeHead::latest()->get()->mapWithKeys(function ($head) {
+        $classes = EduClass::latest()->get()->pluck('name', 'id')->toArray();
+        $heads   = FeeHead::latest()->get()->mapWithKeys(function ($head) {
             return [$head->id => $head->name . ' (' . $head->amount . ')'];
         })->toArray();
-        return view(backend('pages.student-due'), compact('fees', 'fee', 'heads'));
+        return view(backend('pages.student-due'), compact('fees', 'fee', 'heads', 'classes'));
     }
 
     /**
@@ -43,22 +46,40 @@ class StudentFeeController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'student_id'     => 'required|exists:users,id',
-            'fee_head_id'    => 'required|exists:fee_heads,id',
-            'edu_class_id'   => 'required|exists:edu_classes,id',
-            'edu_section_id' => 'required|exists:edu_section,id',
-            'edu_group_id'   => 'required|exists:edu_groups,id',
-            'amount'         => 'required|numeric|min:0',
-            'status'         => 'required|in:Due,Paid,Partial',
-            'due_date'       => 'nullable|date',
-        ]);
 
-        StudentFee::create($request->all());
+        try {
+            $validate = $request->validate([
+                'students'       => 'required|array',
+                'fee_head_id'    => 'required|exists:fee_heads,id',
+                'edu_class_id'   => 'required|exists:edu_classes,id',
+                'edu_section_id' => 'required|exists:edu_sections,id',
+                'edu_group_id'   => 'nullable',
+                'due_date'       => 'nullable|date',
+            ]);
 
-        return redirect()
-            ->route('student-fees.index')
-            ->with('success', 'Student fee added successfully');
+            foreach ($validate['students'] as $student) {
+                $user = StudentProfile::where('id', $student)->first();
+                if ($user) {
+                    StudentFee::create([
+                        'invoice_id'         => uniqueID(StudentFee::class, 'invoice_id', 12),
+                        'student_id'         => $user->student_id,
+                        'student_profile_id' => $student,
+                        'fee_head_id'        => $validate['fee_head_id'],
+                        'edu_class_id'       => $validate['edu_class_id'],
+                        'edu_section_id'     => $validate['edu_section_id'],
+                        'edu_group_id'       => empty($validate['edu_group_id']) ? $user->edu_group_id : $validate['edu_group_id'],
+                        'due_date'           => $validate['due_date'],
+                        'status'             => 'Due',
+                    ]);
+                }
+            }
+
+            return redirect()
+                ->route('admin.finance.fees.student_due')
+                ->with('success', 'Student fee added successfully');
+        } catch (\Throwable $th) {
+            dd($th->getMessage());
+        }
     }
 
     /**
@@ -107,13 +128,14 @@ class StudentFeeController extends Controller
     /**
      * Delete student fee
      */
-    public function destroy(StudentFee $studentFee)
+    public function destroy($id)
     {
+        $studentFee = StudentFee::findOrFail($id);
         $studentFee->delete();
 
         return redirect()
-            ->route('student-fees.index')
-            ->with('success', 'Student fee deleted successfully');
+            ->route('admin.finance.fees.student_due')
+            ->with('success', 'Student due deleted successfully');
     }
 
     /**
@@ -126,5 +148,19 @@ class StudentFeeController extends Controller
         });
 
         return back()->with('success', 'Fee marked as paid');
+    }
+
+    /**
+     * Get fee by invoice
+     */
+    public function getFee($invoice){
+        $fee = StudentFee::with('studentProfile','feeHead')->where('id', $invoice)->first();
+        $student = $fee->studentProfile->load('eduClass','eduSection','eduGroup');
+        $template = view(backend('components.cards.student'), compact('fee', 'student'))->render();
+        return response()->json([
+            'view' => $template,
+            'head' => $fee->feeHead,
+            'status' => empty($fee) ? 'failed' : 'success',
+       ]);
     }
 }

@@ -86,32 +86,47 @@
 <!-- Sidebar JS -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+
         // Top-level dropdowns
         document.querySelectorAll('.dropdown-btn').forEach(button => {
             button.addEventListener('click', () => {
                 const target = document.getElementById(button.dataset.target);
                 const arrow = button.querySelector('svg');
-
-                // Toggle visibility
                 target.classList.toggle('hidden');
                 arrow.classList.toggle('rotate-180');
             });
         });
 
-        // Sub-dropdowns (nested)
+        // Sub-dropdowns
         document.querySelectorAll('.sub-dropdown-btn').forEach(button => {
             button.addEventListener('click', () => {
                 const target = document.getElementById(button.dataset.target);
                 const arrow = button.querySelector('svg');
-
                 target.classList.toggle('hidden');
                 arrow.classList.toggle('rotate-180');
             });
         });
 
         // Mobile sidebar toggle
-        document.getElementById('toggleSidebar')?.addEventListener('click', () => {
-            document.getElementById('sidebar').classList.toggle('-translate-x-full');
+        toggleBtn?.addEventListener('click', (e) => {
+            e.stopPropagation(); // prevent document click
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        // 🔥 CLICK OUTSIDE TO CLOSE (mobile only)
+        document.addEventListener('click', (e) => {
+            const isMobile = window.innerWidth < 1024; // lg breakpoint
+            if (!isMobile) return;
+
+            const clickedOutsideSidebar =
+                !sidebar.contains(e.target) &&
+                !toggleBtn?.contains(e.target);
+
+            if (clickedOutsideSidebar) {
+                sidebar.classList.add('-translate-x-full');
+                toggleEvent = false;
+                $(toggleBtn).html('<iconify-icon icon="line-md:arrow-right" width="24" height="24"></iconify-icon>');
+            }
         });
     });
 </script>

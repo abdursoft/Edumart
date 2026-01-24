@@ -12,6 +12,7 @@ class FeeCollection extends Model
     protected $table = 'fee_collections';
 
     protected $fillable = [
+        'fee_id',
         'total_amount',
         'paid_amount',
         'due_amount',
@@ -33,6 +34,10 @@ class FeeCollection extends Model
     public function collectedBy()
     {
         return $this->belongsTo(User::class, 'collected_by');
+    }
+
+    public function fee(){
+        return $this->belongsTo(StudentFee::class, 'fee_id');
     }
 
     /* ================= Helpers ================= */

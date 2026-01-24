@@ -66,4 +66,11 @@ class EduClass extends Model
     public function eduSection(){
         return $this->hasMany(EduSection::class, 'edu_class_id');
     }
+
+    /**
+     * Relation with student fee
+     */
+    public function studentFee(){
+        return $this->hasMany(StudentFee::class, 'edu_class_id');
+    }
 }

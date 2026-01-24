@@ -1,6 +1,6 @@
 <form
     action="@if ($student) {{ route('admin.academic.people.students.update', ['id' => $student['id']]) }}@else{{ route('admin.academic.people.students.add') }} @endif"
-    method="POST">
+    method="POST" enctype="multipart/form-data">
 
     <x-fieldset title="Student">
 
@@ -57,10 +57,16 @@
                 'placeholder' => '1819484785744757555',
             ],
             [
+                'label' => 'Image',
+                'name' => 'avatar',
+                'type' => 'file',
+                'required' => true,
+            ],
+            [
                 'label' => '',
                 'name' => '',
                 'type' => 'break',
-                'default' => 2,
+                'default' => 1,
             ],
             [
                 'label' => '',

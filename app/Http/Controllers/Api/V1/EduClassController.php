@@ -7,6 +7,7 @@ use App\Models\Department;
 use App\Models\EduClass;
 use App\Models\EduGroup;
 use App\Models\EduSection;
+use App\Models\StudentProfile;
 use Illuminate\Http\Request;
 
 class EduClassController extends Controller
@@ -86,5 +87,21 @@ class EduClassController extends Controller
     public function getGroup($id){
         $sections = EduGroup::where('edu_section_id',$id)->latest()->get();
         return response()->json($sections);
+    }
+
+    /**
+     * Get students by class section and group
+     */
+    public function getStudents($class,$section, $group=''){
+        if(!empty($group)){
+            return StudentProfile::where('edu_class_id', $class)
+            ->where('edu_section_id', $section)
+            ->where('edu_group_id', $group)
+            ->get();
+        }
+        return StudentProfile::where('edu_class_id', $class)
+            ->where('edu_section_id', $section)
+            ->get();
+
     }
 }

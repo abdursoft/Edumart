@@ -5,7 +5,7 @@
 <div class="w-full text-slate-800">
     <h2 class="text-xl md:text-2xl mt-5 font-semibold">Mark sheet subjects</h2>
 
-    <div class="w-full p-4 rounded shadow bg-white">
+    <div class="w-full p-4 rounded shadow bg-white overflow-x-auto max-w-screen">
         <table id="example" class="stripe hover w-full">
             <thead>
                 <tr>

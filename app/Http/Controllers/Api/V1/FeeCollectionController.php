@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\FeeCollection;
+use App\Models\StudentFee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,10 +20,13 @@ class FeeCollectionController extends Controller
             ->latest()
             ->get();
         $collection = null;
+        $invoices = StudentFee::latest()->get()->mapWithKeys(function($fee){
+            return [$fee->id => $fee->invoice_id];
+        })->toArray();
         if($id){
             $collection = FeeCollection::with('collectedBy')->findOrFail($id);
         }
-        return view(backend('pages.fee-collection'), compact('collections', 'collection'));
+        return view(backend('pages.fee-collection'), compact('collections', 'collection', 'invoices'));
     }
 
     /**
@@ -38,31 +42,42 @@ class FeeCollectionController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->input());
         $request->validate([
-            'total_amount'   => 'required|numeric|min:0',
+            'student_fee_id' => 'required|exists:student_fees,id',
             'paid_amount'    => 'required|numeric|min:0',
             'payment_method' => 'required|in:Online,Cash,Check,Others',
             'payment_note'   => 'nullable|string|max:255',
-            'payment_date'   => 'required|date',
         ]);
 
-        DB::transaction(function () use ($request) {
+        $fee = StudentFee::with('feeHead')->findOrFail($request->student_fee_id);
 
-            $dueAmount = $request->total_amount - $request->paid_amount;
+        DB::transaction(function () use ($request, $fee) {
+
+            $dueAmount = $fee->feeHead->amount - $request->paid_amount;
 
             FeeCollection::create([
-                'total_amount'   => $request->total_amount,
+                'total_amount'   => $fee->feeHead->amount,
                 'paid_amount'    => $request->paid_amount,
                 'due_amount'     => $dueAmount,
                 'payment_method' => $request->payment_method,
                 'payment_note'   => $request->payment_note,
-                'payment_date'   => $request->payment_date,
+                'payment_date'   => now()->format('Y-m-d'),
                 'collected_by'   => Auth::id(),
             ]);
+
+            if($dueAmount <= 0){
+                $fee->status = 'Paid';
+                $fee->save();
+            }else{
+                $fee->amount = $fee->amount + $request->paid_amount;
+                $fee->status = 'Partial';
+                $fee->save();
+            }
         });
 
         return redirect()
-            ->route('fee-collections.index')
+            ->route('admin.finance.fees.fee_collection')
             ->with('success', 'Fee collected successfully');
     }
 
@@ -82,7 +97,7 @@ class FeeCollectionController extends Controller
         $feeCollection->delete();
 
         return redirect()
-            ->route('fee-collections.index')
+            ->route('admin.finance.fees.fee_collection')
             ->with('success', 'Fee collection deleted successfully');
     }
 }

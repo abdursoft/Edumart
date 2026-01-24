@@ -319,9 +319,17 @@ Route::prefix('finance/fees')->name('finance.fees.')->group(function () {
 
     // fee collection routes
     Route::get('fee-collection', [FeeCollectionController::class, 'index'])->name('fee_collection');
+    Route::post('fee-collection', [FeeCollectionController::class, 'store'])->name('fee_collection.add');
+    Route::get('fee-collection/{id}/edit', [FeeCollectionController::class, 'show'])->name('fee_collection.edit');
+    Route::post('fee-collection/{id}/update', [FeeCollectionController::class, 'update'])->name('fee_collection.update');
+    Route::get('fee-collection/{id}/delete', [FeeCollectionController::class, 'destroy'])->name('fee_collection.delete');
 
 
-    Route::get('student_due', [StudentFeeController::class, 'index'])->name('student_due');
+    Route::get('student-due', [StudentFeeController::class, 'index'])->name('student_due');
+    Route::post('student-due', [StudentFeeController::class, 'store'])->name('student_due.add');
+    Route::get('student-due/{id}/edit', [StudentFeeController::class, 'show'])->name('student_due.edit');
+    Route::post('student-due/{id}/update', [StudentFeeController::class, 'update'])->name('student_due.update');
+    Route::get('student-due/{id}/delete', [StudentFeeController::class, 'destroy'])->name('student_due.delete');
 });
 
 Route::prefix('finance/expenses')->name('finance.expenses.')->group(function () {
@@ -497,10 +505,12 @@ Route::prefix('media')->name('media.')->group(function () {
  */
 Route::get('get-users/{type}/{id?}', [UserController::class, 'getUserList'])->name('user.list');
 Route::get('get-subjects/{class}', [SubjectController::class, 'getSubjectList'])->name('subject.list');
+Route::get('get-fee/{invoice}', [StudentFeeController::class, 'getFee'])->name('get.fee');
 
 // classes routes
 Route::get('sections/{id}', [EduClassController::class, 'getSection'])->name('get.sections');
 Route::get('groups/{id}', [EduClassController::class, 'getGroup'])->name('get.groups');
+Route::get('students/{class}/{section}/{group?}', [EduClassController::class, 'getStudents'])->name('get.students');
 
 // Public / External Access
 Route::prefix('public')->name('public.')->group(function () {

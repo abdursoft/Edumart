@@ -12,6 +12,9 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 
 use function Symfony\Component\Clock\now;
 
@@ -39,6 +42,7 @@ class StudentController extends Controller
             'phone'                    => 'nullable|string|max:20',
             'parent_id'                => 'required|exists:users,id',
             'birth_certificate_number' => 'required|string',
+            'avatar'                   => 'required|image|mimes:jpeg,jpg,png,webp',
 
             'reg_number'               => 'required|numeric|unique:student_profiles,reg_number',
             'edu_class_id'             => 'required|exists:edu_classes,id',
@@ -81,11 +85,36 @@ class StudentController extends Controller
 
             $validated['student_id'] = $student->id;
 
+            if($request->hasFile('avatar')){
+                $file = $request->file('avatar');
+
+                $dir = public_path('uploads');
+
+                if (!File::exists($dir)) {
+                    File::makeDirectory($dir, 0755, true);
+                }
+
+                $filename = uniqid() . '.webp';
+                $path = public_path('uploads/' . $filename);
+
+                $manager = new ImageManager(new Driver());
+
+                $manager->read($file)
+                    ->resize(1200, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    })
+                    ->toWebp(80)
+                    ->save($path);
+                $validated['avatar'] = 'uploads/' . $filename;
+            }
+
             StudentProfile::create($validated);
             DB::commit();
             return redirect()->back()->with('success', 'Student created successfully!');
         } catch (\Throwable $th) {
             DB::rollBack();
+            dd($th->getMessage());
             return back()->with('error', 'Invalid server error');
         }
     }
@@ -170,7 +199,7 @@ class StudentController extends Controller
         $student = $profile->student;
         $admits = $profile->admitCard()->where('status','issued')->orderBy('id','desc')->get();
 
-        $invoices = $profile->invoice();
+        $invoices = $profile->fee();
         $marksheets = $profile->marksheet()->where('status','published')->orderBy('id','desc')->get();
         $certificates = $profile->certificate();
 

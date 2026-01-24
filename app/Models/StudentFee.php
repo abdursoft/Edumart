@@ -19,7 +19,9 @@ class StudentFee extends Model
         'student_id',
         'edu_class_id',
         'edu_section_id',
-        'edu_group_id'
+        'edu_group_id',
+        'invoice_id',
+        'student_profile_id'
     ];
 
     protected $casts = [
@@ -37,6 +39,26 @@ class StudentFee extends Model
     public function student()
     {
         return $this->belongsTo(User::class, 'student_id');
+    }
+
+    public function eduClass(){
+        return $this->belongsTo(EduClass::class, 'edu_class_id');
+    }
+
+    public function eduSection(){
+        return $this->belongsTo(EduSection::class, 'edu_section_id');
+    }
+
+    public function eduGroup(){
+        return $this->belongsTo(EduGroup::class, 'edu_group_id');
+    }
+
+    public function studentProfile(){
+        return $this->belongsTo(StudentProfile::class, 'student_profile_id');
+    }
+
+    public function feeCollection(){
+        return $this->hasMany(FeeCollection::class, 'fee_id');
     }
 
     /* ================= Scopes ================= */

@@ -19,6 +19,13 @@
             $className = $field['className'] ?? '';
             $note = $field['note'] ?? null;
             $height = $field['height'] ?? '300px';
+            $multiple = $field['multiple'] ?? '';
+            $attributes = $field['attributes'] ?? [];
+
+            $attr = '';
+            foreach($attributes as $key=>$value){
+                $attr .="$key=$value ";
+            }
         @endphp
 
         @if($type === 'break')
@@ -45,7 +52,9 @@
                     <select
                         name="{{ $field['name'] }}"
                         id="{{ $field['name'] }}"
+                        {{$attr}}
                         class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-indigo-500"
+                        {{$multiple}}
                     >
                         @if(!empty($field['placeholder']))
                             <option value=" ">{{ $field['placeholder'] }}</option>
@@ -79,6 +88,7 @@
                         type="text"
                         id="{{ $name }}"
                         name="{{ $name }}"
+                        {{$attr}}
                         {{ $step ? 'step='.$step : '' }}
                         value="{{ $type != 'password' ? ($value ?? $default) :  '' }}"
                         placeholder="{{$place}}"
@@ -96,6 +106,7 @@
                         type="{{ $type }}"
                         id="{{ $name }}"
                         name="{{ $name }}"
+                        {{$attr}}
                         {{ $step ? 'step='.$step : '' }}
                         value="{{ $type != 'password' ? ($value ?? $default) :  '' }}"
                         placeholder="{{$place}}"
