@@ -13,6 +13,7 @@ class StudentFee extends Model
 
     protected $fillable = [
         'amount',
+        'waiver',
         'status',
         'due_date',
         'fee_head_id',

@@ -1,4 +1,4 @@
-<form action="@if($head){{route('admin.finance.fees.fee_heads.update', ['id' => $head['id']])}}@else{{route('admin.finance.fees.fee_heads.add')}}@endif" method="POST">
+<form action="@if($expense){{route('admin.finance.fees.fee_heads.update', ['id' => $expense['id']])}}@else{{route('admin.finance.fees.fee_heads.add')}}@endif" method="POST">
 
     <x-fieldset
     title="Add new head">
@@ -20,24 +20,8 @@
                     'required' => true,
                     'placeholder' => 10500
                 ],
-
-                [
-                    'label' => 'IS Recurring',
-                    'name' => 'is_recurring',
-                    'type' => 'select',
-                    'options' => ['Yes','No'],
-                    'required' => true,
-                ],
-                [
-                    'label' => 'Fee Group',
-                    'name' => 'fee_group_id',
-                    'type' => 'select',
-                    'options' => $groups,
-                    'placeholder' => 'Select a group',
-                    'required' => false,
-                ]
             ]"
-            :form="$head"
+            :form="$expense"
             cols="1"
         />
 

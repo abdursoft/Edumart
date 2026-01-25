@@ -45,6 +45,7 @@ const MENUS = [
             "departments" => "Departments",
             "classes" => "Classes",
             "sections" => "Sections",
+            "groups" => "Groups",
             "subjects" => "Subjects",
             "rooms" => "Rooms",
             "routines" => "Class Routines",

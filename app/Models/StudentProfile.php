@@ -16,6 +16,7 @@ class StudentProfile extends Model
         'student_id',
         'age',
         'dob',
+        'type',
         'avatar',
         'phone',
         'parent_id',

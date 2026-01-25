@@ -12,10 +12,14 @@ class ExpenseHeadController extends Controller
     /**
      * Display a listing of expense heads
      */
-    public function index()
+    public function index($id=null)
     {
-        $expenseHeads = ExpenseHead::latest()->paginate(10);
-        return view('expenses.heads.index', compact('expenseHeads'));
+        $expense = null;
+        $expenses = ExpenseHead::latest()->get();
+        if($id){
+            $expense = ExpenseHead::findOrFail($id);
+        }
+        return view(backend('pages.expense_head'), compact('expenses','expense'));
     }
 
     /**

@@ -18,6 +18,7 @@ use App\Http\Controllers\Api\V1\ExamController;
 use App\Http\Controllers\Api\V1\ExamFeeController;
 use App\Http\Controllers\Api\V1\ExamResultController;
 use App\Http\Controllers\Api\V1\ExamSubjectController;
+use App\Http\Controllers\Api\V1\ExpenseHeadController;
 use App\Http\Controllers\Api\V1\FeeHeadController;
 use App\Http\Controllers\Api\V1\LeaveManagementController;
 use App\Http\Controllers\Api\V1\MarkSheetController;
@@ -41,6 +42,8 @@ use App\Http\Controllers\Api\V1\UploadController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\FeeCollectionController;
 use App\Http\Controllers\Api\V1\FeeGroupController;
+use App\Http\Controllers\Api\V1\GroupController;
+use App\Http\Controllers\Api\V1\SectionController;
 use App\Http\Controllers\Api\V1\StudentFeeController;
 use Illuminate\Support\Facades\Route;
 
@@ -115,9 +118,19 @@ Route::prefix('academic/structure')->name('academic.structure.')->group(function
     Route::post('classes/{id}/update', [EduClassController::class, 'update'])->name('classes.update');
     Route::get('classes/{id}/delete', [EduClassController::class, 'index'])->name('classes.delete');
 
-    Route::get('sections', function () {
-        return 'Sections';
-    })->name('sections');
+    // section routes
+    Route::get('sections/{id?}', [SectionController::class, 'index'])->name('sections');
+    Route::post('sections', [SectionController::class, 'store'])->name('sections.add');
+    Route::get('sections/{id}/edit', [SectionController::class, 'show'])->name('sections.edit');
+    Route::post('sections/{id}/update', [SectionController::class, 'update'])->name('sections.update');
+    Route::get('sections/{id}/delete', [SectionController::class, 'destroy'])->name('sections.delete');
+
+    // group routes
+    Route::get('groups/{id?}', [GroupController::class, 'index'])->name('groups');
+    Route::post('groups', [GroupController::class, 'store'])->name('groups.add');
+    Route::get('groups/{id}/edit', [GroupController::class, 'show'])->name('groups.edit');
+    Route::post('groups/{id}/update', [GroupController::class, 'update'])->name('groups.update');
+    Route::get('groups/{id}/delete', [GroupController::class, 'destroy'])->name('groups.delete');
 
     // subject routes
     Route::get('subjects', [SubjectController::class, 'index'])->name('subjects');
@@ -333,9 +346,8 @@ Route::prefix('finance/fees')->name('finance.fees.')->group(function () {
 });
 
 Route::prefix('finance/expenses')->name('finance.expenses.')->group(function () {
-    Route::get('expense_heads', function () {
-        return 'Expense Heads';
-    })->name('heads');
+    Route::get('expense_heads', [ExpenseHeadController::class, 'index'])->name('heads');
+
     Route::get('expense_list', function () {
         return 'Expenses';
     })->name('cost');

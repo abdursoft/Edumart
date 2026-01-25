@@ -15,6 +15,8 @@ class ExpenseHead extends Model
     protected $fillable = [
         'name',
         'user_id',
+        'amount',
+        'is_recurring'
     ];
 
     /* ================= Relationships ================= */
