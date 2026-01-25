@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Attendance;
+use App\Models\ClassRoutine;
+use App\Models\Subject;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use function Symfony\Component\Clock\now;
@@ -28,16 +31,31 @@ class AttendanceController extends Controller
             'remarks'         => 'nullable|string',
         ]);
 
+        $now = now();
+
         $validated['attendance_date'] = now()->format('Y-m-d');
-        if($request->has('students')){
+        $now = now()->format('H:i:s');
+
+        $routine = ClassRoutine::with('eduClass')->where('subject_id', $request->subject_id)
+            ->where('day', now()->format('l'))
+            ->whereTime('start_time', '<=', $now)
+            ->whereTime('end_time', '>=', $now)
+            ->first();
+
+
+        dd($routine->eduClass->student);
+
+        if($request->has('students') && $routine){
             foreach($request->students as $student){
                 $validated['student_id'] = $student;
                 $validated['status'] = 'Present';
+                $validated['class_room_id'] = $routine->class_room_id;
                 Attendance::create($validated);
             }
-        }
+            return redirect()->back()->with('success','Attendance submitted successfully');
+            }
+            return redirect()->back()->with('error','Class time is not started now, or something else!');
 
-        return redirect()->back()->with('success','Attendance submitted successfully');
     }
 
     // Show a single attendance record

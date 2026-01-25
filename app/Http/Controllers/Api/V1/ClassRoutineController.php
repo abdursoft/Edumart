@@ -14,7 +14,7 @@ class ClassRoutineController extends Controller
     // List all routines
     public function index()
     {
-        $routines = ClassRoutine::with(['eduClass', 'subject', 'classRoom'])
+        $routines = ClassRoutine::with(['eduClass', 'subject', 'classRoom','eduSection','eduGroup'])
         ->orderBy('day')
         ->orderBy('start_time')
         ->get();
@@ -32,6 +32,8 @@ class ClassRoutineController extends Controller
     {
         $request->validate([
             'edu_class_id' => 'required|exists:edu_classes,id',
+            'edu_section_id' => 'required|exists:edu_sections,id',
+            'edu_group_id' => 'required|exists:edu_groups,id',
             'routines' => 'required|array',
         ]);
 
@@ -41,6 +43,8 @@ class ClassRoutineController extends Controller
                 foreach ($dayRoutine['subjects'] as $subject) {
                     ClassRoutine::create([
                         'edu_class_id' => $request->edu_class_id,
+                        'edu_section_id' => $request->edu_section_id,
+                        'edu_group_id' => $request->edu_group_id,
                         'subject_id' => $subject['subject_id'],
                         'day' => $day,
                         'start_time' => $subject['start_time'],
@@ -78,6 +82,8 @@ class ClassRoutineController extends Controller
     {
         $request->validate([
             'edu_class_id'  => 'sometimes|required|exists:edu_classes,id',
+            'edu_section_id' => 'required|exists:edu_sections,id',
+            'edu_group_id' => 'required|exists:edu_groups,id',
             'subject_id'    => 'sometimes|required|exists:subjects,id',
             'day'           => 'nullable|in:Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday',
             'start_time'    => 'nullable|date_format:H:i:s',
@@ -86,7 +92,7 @@ class ClassRoutineController extends Controller
         ]);
 
         $routine = ClassRoutine::findOrFail($id);
-        $routine->update($request->only('edu_class_id', 'subject_id', 'day', 'start_time', 'end_time', 'class_room_id'));
+        $routine->update($request->only('edu_class_id', 'subject_id', 'day', 'start_time', 'end_time', 'class_room_id', 'edu_section_id','edu_group_id'));
 
         return redirect(route('admin.academic.structure.routines'))
             ->with('success', 'Class routine successfully updated.');

@@ -20,4 +20,7 @@ Route::controller(StudentController::class)->group(function(){
 
     // certificate routes
     Route::get('certificates', 'certificate')->name('certificates');
+
+    // due and invoices
+    Route::get('invoices/{id?}', 'invoices')->name('invoices');
 });

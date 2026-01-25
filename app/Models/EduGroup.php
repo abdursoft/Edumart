@@ -22,4 +22,11 @@ class EduGroup extends Model
         return $this->hasMany(StudentFee::class, 'edu_group_id');
     }
 
+    /**
+     * Relation with class routine
+     */
+    public function routine(){
+        return $this->hasMany(ClassRoutine::class, 'edu_group_id');
+    }
+
 }

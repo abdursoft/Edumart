@@ -6,14 +6,28 @@
     <x-fieldset title="Routine">
         <!-- Select Class -->
         @if (!$routine)
-            <div class="mb-4">
-                <label class="font-semibold block mb-1">Select Class</label>
-                <select name="edu_class_id" id="edu_class_id" class="border rounded p-2 w-full" required>
-                    <option value="">-- Select Class --</option>
-                    @foreach ($classes as $class)
-                        <option value="{{ $class->id }}">{{ $class->name }} {{ $class->section }}</option>
-                    @endforeach
-                </select>
+            <div class="mb-4 grid grid-cols-1 md:grid-cols-3 gap-2">
+                <div>
+                    <label class="font-semibold block mb-1">Select Class</label>
+                    <select name="edu_class_id" id="edu_class_id" class="border rounded p-2 w-full" required>
+                        <option value="">-- Select Class --</option>
+                        @foreach ($classes as $class)
+                            <option value="{{ $class->id }}">{{ $class->name }} {{ $class->section }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div>
+                    <label class="font-semibold block mb-1">Select Section</label>
+                    <select name="edu_section_id" id="edu_section_id" class="border rounded p-2 w-full" required>
+                        <option value="">-- Select Section --</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="font-semibold block mb-1">Select Group</label>
+                    <select name="edu_group_id" id="edu_group_id" class="border rounded p-2 w-full" required>
+                        <option value="">-- Select Group --</option>
+                    </select>
+                </div>
             </div>
 
             <!-- Routine Builder -->
@@ -35,6 +49,22 @@
                     'type' => 'select',
                     'options' => $classes->pluck('name', 'id')->toArray(),
                     'placeholder' => 'Select Class',
+                    'required' => true,
+                ],
+                [
+                    'label' => 'Sections',
+                    'name' => 'edu_section_id',
+                    'type' => 'select',
+                    'options' => [],
+                    'placeholder' => 'Select Section',
+                    'required' => true,
+                ],
+                [
+                    'label' => 'Group',
+                    'name' => 'edu_group_id',
+                    'type' => 'select',
+                    'options' => [],
+                    'placeholder' => 'Select Group',
                     'required' => true,
                 ],
 
@@ -202,5 +232,85 @@
                 return headerRow + subjectRow;
             }
         });
+
+        $(document).ready(function() {
+            $('select').select2({
+                placeholder: "Search a option",
+                allowClear: true,
+                width: '100%'
+            });
+        });
     </script>
+@else
+<script>
+    const class_id = "{{$routine->edu_class_id}}";
+    const section_id = "{{$routine->edu_section_id}}";
+    const group_id = "{{$routine->edu_group_id}}";
+
+    const section_url = `/admin/sections/${class_id}`;
+    $.ajax({
+        url: section_url,
+        method: 'get',
+        success: (response) => {
+            $("#edu_section_id").empty().append(new Option('Select a section',' ',true, true));
+            response.map((item) => {
+                const isSelected = item?.id == section_id;
+                $('#edu_section_id').append(new Option(item?.name, item?.id, isSelected,
+                    isSelected));
+
+                const group_url = `/admin/groups/${section_id}`;
+                $.ajax({
+                    url: group_url,
+                    method: 'get',
+                    success: (response) => {
+                        $("#edu_group_id").empty().append(new Option('Select a group',' ',true, true));
+                        response.map((item) => {
+                            const isSelected = item?.id == group_id;
+                            $('#edu_group_id').append(new Option(item?.name, item?.id, isSelected,
+                                isSelected));
+                        })
+                    }
+                })
+            })
+        }
+    })
+</script>
 @endif
+
+<script>
+    $(document).ready(function(){
+        $("#edu_class_id").on('change', (element) => {
+            const id = element.target.value;
+            const url = `/admin/sections/${id}`;
+
+            $.ajax({
+                url: url,
+                method: 'get',
+                success: (response) => {
+                    $("#edu_section_id").empty().append(new Option('Select a section',' ',true, true));
+                    response?.map((item) => {
+                        $('#edu_section_id').append(new Option(item?.name, item?.id, true,
+                            false));
+                    })
+                }
+            })
+        });
+
+        $("#edu_section_id").on('change', (element) => {
+            const id = element.target.value;
+            const url = `/admin/groups/${id}`;
+
+            $.ajax({
+                url: url,
+                method: 'get',
+                success: (response) => {
+                    $("#edu_group_id").empty().append(new Option('Select a group',' ',true, true));
+                    response?.map((item) => {
+                        $('#edu_group_id').append(new Option(item?.name, item?.id, true,
+                            true));
+                    })
+                }
+            })
+        });
+    })
+</script>

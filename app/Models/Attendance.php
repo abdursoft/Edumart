@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
+use function Symfony\Component\Clock\now;
 
 class Attendance extends Model
 {
@@ -17,6 +20,7 @@ class Attendance extends Model
         'attendance_date',
         'status',
         'remarks',
+        'class_room_id'
     ];
 
     protected $casts = [

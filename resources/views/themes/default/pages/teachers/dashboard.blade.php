@@ -53,6 +53,7 @@
                 </thead>
                 <tbody>
                     @foreach($routines as $key => $routine)
+                     {{$routine->status}}
                         <tr>
                             <td class="py-2">{{$routine?->eduClass->name}}</td>
                             <td>{{$routine?->subject->name}}</td>
@@ -60,7 +61,11 @@
                             <td>{{$routine->classRoom->name}}</td>
                             <td>{{ (classRunning($routine?->start_time, $routine->end_time)) ? "Running" : "Schedule" }}</td>
                             <td>
-                                <a href="{{route('teacher.attendance', ['sub' => $routine->subject->id, 'class' => $routine->eduClass->id])}}" class="bg-orange-400 text-sm text-white rounded-md shadow-md py-1 px-2">Take Attendance</a>
+                                @if($routine->status == 'Started')
+                                <a href="{{route('teacher.attendance', ['sub' => $routine->subject->id, 'class' => $routine->eduClass->id])}}" class="bg-orange-400 text-sm text-white rounded-md shadow-md py-1 px-2">On going</a>
+                                @elseif($routine->status == 'Upcoming')
+                                <p class="bg-green-400 text-sm text-white rounded-md shadow-md py-1 px-2 text-center">Upcoming</p>
+                                @else <p class="bg-slate-500 text-sm text-white rounded-md shadow-md py-1 px-2 text-center" p-data="{{$routine->status}}">Finished</p>@endif
                             </td>
                         </tr>
                     @endforeach

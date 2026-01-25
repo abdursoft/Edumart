@@ -29,7 +29,7 @@
             <p class="text-sm text-gray-500">Invoice</p>
             <div class="flex items-center justify-between w-full">
                 <p class="text-xl font-semibold">{{$invoices->count()}}</p>
-                <a href="" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+                <a href="{{route('student.invoices')}}" class="p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
             </div>
         </div>
         <div class="bg-white p-4 rounded-xl shadow">

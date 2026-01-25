@@ -13,6 +13,8 @@
                     <th>Subject</th>
                     <th>Start Time</th>
                     <th>End Time</th>
+                    <th>Section</th>
+                    <th>Group</th>
                     <th>Room</th>
                     <th>Teacher</th>
                     <th class="no-export">Action</th>
@@ -21,11 +23,13 @@
             <tbody>
                 @foreach($routines as $routine)
                     <tr>
-                        <td>{{ $routine->eduClass->name }} {{ $routine->eduClass->section }}</td>
+                        <td>{{ $routine->eduClass->name }}</td>
                         <td>{{ $routine->day }}</td>
                         <td>{{ $routine->subject->name }}</td>
                         <td>{{ date('H:i A', strtotime($routine->start_time)) }}</td>
                         <td>{{ date('H:i A', strtotime($routine->end_time)) }}</td>
+                        <td>{{ $routine->eduSection->name ?? '-' }}</td>
+                        <td>{{ $routine->eduGroup->name ?? '-' }}</td>
                         <td>{{ $routine->classRoom->name ?? '-' }}</td>
                         <td>{{ $routine->subject->teacher->name ?? '-' }}</td>
                         <td>

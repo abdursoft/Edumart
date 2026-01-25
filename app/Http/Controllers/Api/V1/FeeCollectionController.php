@@ -54,9 +54,12 @@ class FeeCollectionController extends Controller
 
         DB::transaction(function () use ($request, $fee) {
 
-            $dueAmount = $fee->feeHead->amount - $request->paid_amount;
+            $exAmount = FeeCollection::where('fee_id', $fee->id)->sum('paid_amount');
+
+            $dueAmount = $fee->feeHead->amount - ($request->paid_amount + $exAmount);
 
             FeeCollection::create([
+                'fee_id'         => $fee->id,
                 'total_amount'   => $fee->feeHead->amount,
                 'paid_amount'    => $request->paid_amount,
                 'due_amount'     => $dueAmount,
@@ -66,11 +69,11 @@ class FeeCollectionController extends Controller
                 'collected_by'   => Auth::id(),
             ]);
 
+            $fee->amount = $fee->amount + $request->paid_amount;
             if($dueAmount <= 0){
                 $fee->status = 'Paid';
                 $fee->save();
             }else{
-                $fee->amount = $fee->amount + $request->paid_amount;
                 $fee->status = 'Partial';
                 $fee->save();
             }

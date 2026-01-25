@@ -35,4 +35,11 @@ class EduSection extends Model
     public function studentFee(){
         return $this->hasMany(StudentFee::class, 'edu_section_id');
     }
+
+    /**
+     * Relation with class routine
+     */
+    public function routine(){
+        return $this->hasMany(ClassRoutine::class, 'edu_section_id');
+    }
 }

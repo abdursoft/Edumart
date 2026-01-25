@@ -157,9 +157,16 @@ class TeacherController extends Controller
         $class = EduClass::findOrFail($class);
         $subject = Subject::findOrFail($sub);
         $students = $class->student()->orderBy('student_id')->get();
-        $routine = ClassRoutine::where('subject_id',$sub)
-                ->where('edu_class_id', $class->id)
-                ->first();
+        $now = now();
+
+        $validated['attendance_date'] = now()->format('Y-m-d');
+        $now = now()->format('H:i:s');
+
+        $routine = ClassRoutine::where('subject_id', $subject->id)
+            ->where('day', now()->format('l'))
+            ->whereTime('start_time', '<=', $now)
+            ->whereTime('end_time', '>=', $now)
+            ->first();
         $attendance = Attendance::where('subject_id', $sub)
                     ->where('attendance_date', now()->format('Y-m-d'))
                     ->where('teacher_id', $profile->id)

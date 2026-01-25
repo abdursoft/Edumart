@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Models\Attendance;
 use App\Models\EduClass;
 use App\Models\Exam;
 use App\Models\ExamAdmitCard;
+use App\Models\StudentFee;
 use App\Models\StudentProfile;
 use App\Models\User;
 use Carbon\Carbon;
@@ -219,6 +221,7 @@ class StudentController extends Controller
         $attendance['leave']   = $attendances->where('status', 'Excused')->count();
         $attendance['total']   = $totalDays;
 
+
         $attendance['percentage'] = $totalDays > 0
         ? round(($attendance['present'] / $totalDays) * 100)
         : 0;
@@ -276,5 +279,14 @@ class StudentController extends Controller
         $profile = auth()->user();
         $certificates = $profile->certificate()->where('status','active')->orderBy('id','desc')->get();
         return view(theme('pages.students.certificate'), compact('profile','certificates'));
+    }
+
+    /**
+     * Student fee and invoices
+     */
+    public function invoices($id=null){
+        $profile = $this->profile;
+        $fees = StudentFee::with(['feeHead','feeCollection.collectedBy'])->where('student_id', $profile->id)->latest()->get();
+        return view(theme('pages.students.fee'), compact('profile','fees'));
     }
 }

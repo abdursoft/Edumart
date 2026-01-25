@@ -42,7 +42,7 @@
                 <div class="w-full mt-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
                     @foreach($students as $student)
                         <label class="shadow-md rounded-md p-2 flex items-center gap-2 hover:shadow-lg cursor-pointer">
-                            <input type="checkbox" name="students[]" value="{{$student->user->id}}" id=""> <span>{{$student->name}}</span>
+                            <input type="checkbox" name="students[]" value="{{$student->user->id}}" id=""> <img class="w-10 h-10 rounded-full" src="{{asset($student->avatar)}}"/> <span>{{$student->name}}</span>
                         </label>
                     @endforeach
                 </div>
