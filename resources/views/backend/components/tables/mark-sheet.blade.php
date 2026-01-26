@@ -39,11 +39,11 @@
                         <td class="text-center font-bold text-gray-700">{{ ucfirst($marksheet->grade) ?? '—' }}</td>
                         <td class="text-center">
                             @if($marksheet->is_passed)
-                                <span class="px-3 py-1 rounded-full text-white text-sm bg-green-600">
+                                <span class="px-3 py-1 rounded-full text-green-600 text-sm bg-green-100">
                                     Passed
                                 </span>
                             @else
-                                <span class="px-3 py-1 rounded-full text-white text-sm bg-red-600">
+                                <span class="px-3 py-1 rounded-full text-red-600 text-sm bg-red-100">
                                     Failed
                                 </span>
                             @endif
@@ -51,32 +51,22 @@
                         <td class="text-center">{{ $marksheet->remarks ?? '—' }}</td>
                         <td class="text-center">
                             <span class="
-                                px-3 py-1 rounded-full text-white text-sm
-                                @if($marksheet->status === 'Published') bg-blue-600
-                                @else bg-gray-500
+                                px-3 py-1 rounded-full text-sm
+                                @if($marksheet->status === 'Published') bg-blue-100 text-blue-600
+                                @else bg-gray-200 text-gray-600
                                 @endif
                             ">
                                 {{ $marksheet->status }}
                             </span>
                         </td>
                         <td>
-                            <div class="flex items-center gap-3 justify-center">
-                                <a href="{{ route('admin.academic.evaluation.mark_sheet.edit', $marksheet->id) }}"
-                                   class="py-1 px-4 rounded-[15px] shadow-md bg-green-600 text-white hover:bg-green-800 transition">
-                                    Edit
-                                </a>
-                                <a href="{{ route('admin.academic.evaluation.mark_sheet.delete', $marksheet->id) }}"
-                                   class="py-1 px-4 bg-red-600 text-white rounded-[15px] shadow-md hover:bg-red-800 transition"
-                                   onclick="return confirm('Are you sure you want to delete this marksheet?');">
-                                    Delete
-                                </a>
+                            <div class="flex items-center gap-1">
+                                <a href="{{ route('admin.academic.evaluation.mark_sheet.edit',$marksheet->id) }}" class="py-1 px-2 rounded-[15px] shadow-md hover:bg-green-600 text-green-600 hover:text-white transition">{!! icons('edit') !!}</a>
+                                <a href="{{ route('admin.academic.evaluation.mark_sheet.delete',$marksheet->id) }}" class="py-1 px-2 text-red-600 rounded-[15px] shadow-md hover:bg-red-600 hover:text-white transition" onclick="return confirm('Are you sure you want to delete this markshee? All items will be deleted')">{!! icons('delete') !!}</a>
+                                <a href="{{ route('admin.academic.evaluation.mark_sheet.print',$marksheet->id) }}" target="_blank" class="py-1 px-2 rounded-[15px] md:shadow-md hover:bg-yellow-600 text-orange-600 hover:text-white transition">{!! icons('print') !!}</a>
                                 <a href="{{ route('admin.academic.evaluation.mark_sheet.item.add', $marksheet->id) }}"
                                    class="py-1 px-4 bg-teal-600 text-white rounded-[15px] shadow-md hover:bg-teal-800 transition">
                                     Subjects
-                                </a>
-                                <a href="{{ route('admin.academic.evaluation.mark_sheet.print', $marksheet->id) }}" target="_blank"
-                                   class="py-1 px-4 bg-blue-600 text-white rounded-[15px] shadow-md hover:bg-blue-800 transition">
-                                    Print
                                 </a>
                             </div>
                         </td>

@@ -17,6 +17,12 @@
                 'required' => true,
                 'placeholder' => 'e.g. MID2025-CLS10'],
 
+                ['label' => 'Grade Type',
+                'name' => 'grade_type',
+                'type' => 'select',
+                'required' => true,
+                'options' => ['GPA','CGPA']],
+
                 ['label' => 'Year',
                 'name' => 'year',
                 'type' => 'number',
@@ -74,7 +80,7 @@
 
 
 
-            <x-button :items="[
+            <x-button style="margin-top:120px;" :items="[
                 ['label' => 'Cancel', 'type' => 'reset', 'style' => 'bg-slate-500 text-white rounded-md px-3 py-2 cursor-pointer hover:bg-slate-800 hover:text-white'],
                 ['label' => 'Save', 'type' => 'submit', 'style' => 'bg-teal-500 text-white rounded-md px-3 py-2 cursor-pointer hover:bg-teal-800 hover:text-white'],
                 ['label' => 'New', 'type' => 'button', 'style' => 'bg-green-500 text-white rounded-md px-3 py-2 cursor-pointer hover:bg-green-800 hover:text-white', 'click' => 'window.location.href=`'.route('admin.academic.evaluation.exams').'`']

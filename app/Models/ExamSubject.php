@@ -17,6 +17,8 @@ class ExamSubject extends Model
         'start_time',
         'end_time',
         'mcq_marks',
+        'obtain_marks',
+        'credit_hours',
         'writing_marks',
         'practical_marks',
         'attendance_marks',

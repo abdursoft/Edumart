@@ -19,7 +19,7 @@ class ExamController extends Controller
 
         $exam = null;
         $classes = EduClass::orderBy('order')->get();
-        
+
         return view(backend('pages.exam'), compact('exam', 'exams', 'classes'));
     }
 
@@ -35,11 +35,20 @@ class ExamController extends Controller
             'status'       => 'required|in:Scheduled,Completed,Canceled',
             'type'         => 'required|in:Class Test,Mid-Term,Final,Quiz,Practical,Other',
             'start_date'   => 'nullable|date',
+            'grade_type'   => 'required|in:GPA,CGPA',
             'end_date'     => 'nullable|date|after_or_equal:start_date',
         ]);
 
+        $exists = Exam::where('session', $request->session)
+            ->where('edu_class_id', $request->edu_class_id)
+            ->where('name', $request->name)->first();
+
+        if($exists){
+            return redirect()->back()->with('error', 'Exam already exists for this class!');
+        }
+
         Exam::create($request->only(
-            'name', 'code', 'year', 'session', 'edu_class_id', 'status', 'type', 'start_date', 'end_date'
+            'name', 'code', 'year', 'session', 'edu_class_id', 'status', 'type', 'start_date', 'end_date', 'grade_type'
         ));
 
         return redirect(route('admin.academic.evaluation.exams'))
@@ -73,11 +82,20 @@ class ExamController extends Controller
             'status'       => 'nullable|in:Scheduled,Completed,Canceled',
             'type'         => 'nullable|in:Class Test,Mid-Term,Final,Quiz,Practical,Other',
             'start_date'   => 'nullable|date',
+            'grade_type'   => 'required|in:GPA,CGPA',
             'end_date'     => 'nullable|date|after_or_equal:start_date',
         ]);
 
+        $exists = Exam::where('session', $request->session)
+            ->where('edu_class_id', $request->edu_class_id)
+            ->where('name', $request->name)->first();
+
+        if($exists && $exists->id != $id){
+            return redirect()->back()->with('error', 'Exam already exists!');
+        }
+
         $exam->update($request->only(
-            'name', 'code', 'year', 'session', 'edu_class_id', 'status', 'type', 'start_date', 'end_date'
+            'name', 'code', 'year', 'session', 'edu_class_id', 'status', 'type', 'start_date', 'end_date', 'grade_type'
         ));
 
         return redirect(route('admin.academic.evaluation.exams'))

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Exam;
+use App\Models\ExamMarksheet;
 use App\Models\ExamResult;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class ExamResultController extends Controller
             ->get();
 
         $result = null;
-        $exams = Exam::orderBy('year', 'desc')->orderBy('name')->get();
+        $exams = Exam::with('eduClass')->orderBy('year', 'desc')->orderBy('name')->get();
 
         return view(backend('pages.exam-result'), compact('results', 'result', 'exams'));
     }
@@ -26,7 +27,7 @@ class ExamResultController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'exam_id'   => 'required|exists:exams,id',
+            'exam_id'   => 'required|exists:exams,id|unique:exam_results,exam_id',
             'passed'    => 'nullable|integer|min:0',
             'failed'    => 'nullable|integer|min:0',
             'percentage'=> 'nullable|string',
@@ -34,10 +35,11 @@ class ExamResultController extends Controller
             'remarks'   => 'nullable|string',
         ]);
 
-        ExamResult::create($request->only([
-            'exam_id', 'passed', 'failed', 'percentage', 'status', 'remarks'
+        $result = ExamResult::create($request->only([
+            'exam_id', 'status', 'remarks'
         ]));
 
+        $this->generateResult($result->id, $request->exam_id);
         return redirect(route('admin.academic.evaluation.results'))
                 ->with('success', 'Exam Result added successfully');
     }
@@ -55,8 +57,8 @@ class ExamResultController extends Controller
     // Update a result
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'exam_id'   => 'sometimes|required|exists:exams,id',
+        $validate = $request->validate([
+            'exam_id'   => 'sometimes|required|exists:exams,id|unique:exam_results,id,'.$id,
             'passed'    => 'nullable|integer|min:0',
             'failed'    => 'nullable|integer|min:0',
             'percentage'=> 'nullable|string',
@@ -65,10 +67,9 @@ class ExamResultController extends Controller
         ]);
 
         $examResult = ExamResult::findOrFail($id);
+        $examResult->update($request->only('exam_id','status','remarks'));
 
-        $examResult->update($request->only([
-            'exam_id', 'passed', 'failed', 'percentage', 'status', 'remarks'
-        ]));
+        $this->generateResult($examResult->id, $request->exam_id);
 
         return redirect(route('admin.academic.evaluation.results'))
                 ->with('success', 'Exam Result updated successfully');
@@ -82,5 +83,20 @@ class ExamResultController extends Controller
 
         return redirect(route('admin.academic.evaluation.results'))
                 ->with('success', 'Exam Result deleted successfully');
+    }
+
+    /**
+     * Generate exam result
+     */
+    public function generateResult($resultID, $examID){
+        $examResult = ExamResult::findOrFail($resultID);
+        $marksheet = ExamMarksheet::where('exam_id', $examID)->get();
+
+        if($marksheet && $marksheet->count() >= 1){
+            $examResult->passed = $marksheet->where('grade','!=','F')->count();
+            $examResult->failed = $marksheet->where('grade','F')->count();
+            $examResult->percentage = ($marksheet->where('grade','!=','F')->count() / $marksheet->count()) * 100;
+            $examResult->save();
+        }
     }
 }

@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('exam_marksheet_items', function (Blueprint $table) {
-            $table->after('attendance_marks', function($table){
-                $table->decimal('obtain_marks')->default(0);
+            $table->after('total_marks', function($table){
+                $table->decimal('grade_point')->default(0);
+                $table->decimal('grade_type')->default(0);
             });
         });
     }
@@ -24,7 +25,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('exam_marksheet_items', function (Blueprint $table) {
-            $table->dropColumn('obtain_marks');
+            $table->dropColumn('grade_point','grade_type');
         });
     }
 };

@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('exam_admit_cards', function (Blueprint $table) {
-            $table->dropForeign(['student_id']);
-            $table->foreign('student_id')
-                  ->references('id')
-                  ->on('student_profiles')
-                  ->cascadeOnDelete();
+        Schema::table('exam_marksheets', function (Blueprint $table) {
+            $table->after('exam_id', function($table){
+                $table->foreignId('student_id')->constrained('student_profiles')->cascadeOnDelete();
+            });
         });
     }
 
@@ -25,7 +23,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('exam_admit_cards', function (Blueprint $table) {
+        Schema::table('exam_marksheets', function (Blueprint $table) {
             $table->dropForeign(['student_id']);
         });
     }

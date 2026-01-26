@@ -518,6 +518,7 @@ Route::prefix('media')->name('media.')->group(function () {
 Route::get('get-users/{type}/{id?}', [UserController::class, 'getUserList'])->name('user.list');
 Route::get('get-subjects/{class}', [SubjectController::class, 'getSubjectList'])->name('subject.list');
 Route::get('get-fee/{invoice}', [StudentFeeController::class, 'getFee'])->name('get.fee');
+Route::get('exam-subject/{subject}/{marksheet}', [MarkSheetItemController::class, 'examSubject'])->name('get.fee');
 
 // classes routes
 Route::get('sections/{id}', [EduClassController::class, 'getSection'])->name('get.sections');

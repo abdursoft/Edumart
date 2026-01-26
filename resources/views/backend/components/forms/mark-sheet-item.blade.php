@@ -30,23 +30,6 @@
                 'type' => 'number',
                 'placeholder' => 'e.g. 5',
             ],
-
-            ['label' => 'Total Marks', 'name' => 'total_marks', 'type' => 'number', 'placeholder' => 'e.g. 100'],
-            [
-                'label' => 'Is Passed',
-                'name' => 'is_passed',
-                'type' => 'select',
-                'options' => [1 => 'Yes', 0 => 'No'],
-                'default' => 1,
-            ],
-
-            [
-                'label' => 'Grade',
-                'name' => 'grade',
-                'type' => 'select',
-                'options' => ['A', 'A+', 'A-', 'B', 'B+', 'B-', 'C', 'D', 'F'],
-                'default' => 'allowed',
-            ],
         ]" :form="$marksheet" cols="3" />
 
 
@@ -77,3 +60,37 @@
     </x-fieldset>
 
 </form>
+
+<script>
+    const marksheet = "{{$exam_marksheet_id}}";
+    $(document).ready(function(){
+        $("#subject_id").on('change', function(){
+            const subject = $(this).val();
+            fetchAttributes(subject);
+        });
+
+        function fetchAttributes(subject){
+
+            const url = `/admin/exam-subject/${subject}/${marksheet}`;
+            $.ajax({
+                url: url,
+                method:'get',
+                success: (response) => {
+                    $('label[for="mcq_marks"]').html(`MCQ Marks (<span class='text-sm text-red-600'>maximum ${response.mcq_marks ?? 0}</span>)`);
+                    $('label[for="writing_marks"]').html(`Writing Marks (<span class='text-sm text-red-600'>maximum ${response.writing_marks ?? 0}</span>)`);
+                    $('label[for="practical_marks"]').html(`Practical Marks (<span class='text-sm text-red-600'>maximum ${response.practical_marks ?? 0}</span>)`);
+                    $('label[for="attendance_marks"]').html(`Attendance Marks (<span class='text-sm text-red-600'>maximum ${response.attendance_marks ?? 0}</span>)`);
+
+                    @if(!$marksheet)
+                        $('input[name="mcq_marks"]').prop('max', response.mcq_marks ?? 100).val(0);
+                        $('input[name="writing_marks"]').prop('max', response.writing_marks ?? 100).val(0);
+                        $('input[name="practical_marks"]').prop('max', response.practical_marks ?? 100).val(0);
+                        $('input[name="attendance_marks"]').prop('max', response.attendance_marks ?? 100).val(0);
+                    @endif
+                }
+            })
+        }
+
+        fetchAttributes($("#subject_id").val());
+    })
+</script>

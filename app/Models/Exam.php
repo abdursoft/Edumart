@@ -17,6 +17,7 @@ class Exam extends Model
         'edu_class_id',
         'status',
         'type',
+        'grade_type',
         'start_date',
         'end_date'
     ];

@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('exam_marksheet_items', function (Blueprint $table) {
-            $table->after('attendance_marks', function($table){
-                $table->decimal('obtain_marks')->default(0);
+        Schema::table('exams', function (Blueprint $table) {
+            $table->after('code', function($table){
+                $table->enum('grade_type', ['GPA','CGPA'])->default('GPA');
             });
         });
     }
@@ -23,8 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('exam_marksheet_items', function (Blueprint $table) {
-            $table->dropColumn('obtain_marks');
+        Schema::table('exams', function (Blueprint $table) {
+            $table->dropColumn('grade_type');
         });
     }
 };

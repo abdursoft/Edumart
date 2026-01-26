@@ -27,7 +27,7 @@
     </div>
     <div style="text-align:center;margin-bottom:20px;">
         <h1 style="font-size:18px;font-weight:bold;">{{"{$institute?->site_name}, {$institute?->thana->name}, {$institute?->district->name}"}}</h1>
-        <h2 style="font-size:15px;">{{"{$student?->student->eduClass->name} {$exam?->name}, {$exam->session}"}}</h2>
+        <h2 style="font-size:15px;">{{"{$student?->eduClass->name} {$exam?->name}, {$exam->session}"}}</h2>
         <p>Held in {{empty($exam->start_date) ? '' : date('d M, Y', strtotime($exam->start_date))}}</p>
         <div style="font-weight:bold;padding:5px 10px;display:inline-block;margin-top:10px;">Grade Sheet</div>
     </div>
@@ -35,8 +35,8 @@
     <div style="display:flex;justify-content:space-between;margin-bottom:20px;">
         <div style="width:60%;">
             <p><strong>Name of Examinee:</strong> {{$student?->name}}</p>
-            <p><strong>Father's Name:</strong> {{$student?->student->fa_name_en}}</p>
-            <p><strong>Mother's Name:</strong> {{$student->student->mo_name_en}}</p>
+            <p><strong>Father's Name:</strong> {{$student?->fa_name_en}}</p>
+            <p><strong>Mother's Name:</strong> {{$student->mo_name_en}}</p>
             <p><strong>Class/Technology:</strong> {{$exam?->eduClass->name}}</p>
             <p><strong>Type:</strong> {{$exam?->type}}</p>
         </div>
@@ -61,26 +61,6 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($subjects as $subject)
-                <tr>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject?->subject->code}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject?->subject->name}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject->total_marks}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject->obtain_marks}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject->grade}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;"><strong>{{($subject->is_passed) ? 'Passed' : 'Failed'}}</strong></td>
-                </tr>
-            @endforeach
-            @foreach($subjects as $subject)
-                <tr>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject?->subject->code}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject?->subject->name}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject->total_marks}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject->obtain_marks}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;">{{$subject->grade}}</td>
-                    <td style="border:1px solid #ccc;padding:8px;"><strong>{{($subject->is_passed) ? 'Passed' : 'Failed'}}</strong></td>
-                </tr>
-            @endforeach
             @foreach($subjects as $subject)
                 <tr>
                     <td style="border:1px solid #ccc;padding:8px;">{{$subject?->subject->code}}</td>

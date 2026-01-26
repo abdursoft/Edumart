@@ -16,7 +16,9 @@
                     <th>Writing</th>
                     <th>Practical</th>
                     <th>Attendance</th>
-                    <th>Total</th>
+                    <th>Grade mark</th>
+                    <th>Grade point</th>
+                    <th>Obtain mark</th>
                     <th>Passed</th>
                     <th class="no-export">Action</th>
                 </tr>
@@ -31,7 +33,9 @@
                         <td>{{ $item->writing_marks }}</td>
                         <td>{{ $item->practical_marks }}</td>
                         <td>{{ $item->attendance_marks }}</td>
-                        <td class="font-semibold">{{ $item->total_marks }}</td>
+                        <td>{{ $item->grade }}</td>
+                        <td>{{ $item->grade_point }}</td>
+                        <td class="font-semibold">{{ $item->obtain_marks }}</td>
                         <td>
                             @if($item->is_passed)
                                 <span class="px-3 py-1 bg-green-600 text-white rounded-full text-sm">Yes</span>

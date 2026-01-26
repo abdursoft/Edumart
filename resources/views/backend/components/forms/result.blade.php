@@ -10,32 +10,10 @@
                     'name' => 'exam_id',
                     'type' => 'select',
                     'required' => true,
-                    'options' => $exams->pluck('name', 'id')->toArray(),
+                    'options' => $exams->mapWithKeys(function($exam){
+                        return [$exam->id => $exam->name. ' ('.$exam->eduClass->name.') session-'. $exam->session];
+                    })->toArray(),
                     'placeholder' => 'Select exam'
-                ],
-
-                [
-                    'label' => 'Total Passed',
-                    'name' => 'passed',
-                    'type' => 'number',
-                    'placeholder' => 'e.g. 40',
-                    'required' => true
-                ],
-
-                [
-                    'label' => 'Total Failed',
-                    'name' => 'failed',
-                    'type' => 'number',
-                    'placeholder' => 'e.g. 12',
-                    'required' => true
-                ],
-
-                [
-                    'label' => 'Percentage / Grade',
-                    'name' => 'percentage',
-                    'type' => 'text',
-                    'placeholder' => 'e.g. 82% or A+',
-                    'required' => true
                 ],
 
                 [

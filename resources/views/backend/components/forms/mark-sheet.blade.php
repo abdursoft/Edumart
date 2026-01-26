@@ -22,41 +22,9 @@
                     'type' => 'select',
                     'required' => true,
                     'options' => [],
-                    'placeholder' => 'Select a exam'
+                    'placeholder' => 'Select a student'
                 ],
 
-                [
-                    'label' => 'Total marks',
-                    'name' => 'total_marks_obtained',
-                    'type' => 'number',
-                    'placeholder' => '100',
-                    'required' => true
-                ],
-
-                [
-                    'label' => 'Full marks',
-                    'name' => 'total_full_marks',
-                    'type' => 'number',
-                    'required' => true,
-                    'placeholder' => 'e.g. 80'
-                ],
-
-                [
-                    'label' => 'Percentage',
-                    'name' => 'percentage',
-                    'type' => 'number',
-                    'required' => true,
-                    'step' => '0.01',
-                    'placeholder' => 'Enter the marks percentage'
-                ],
-
-                [
-                    'label' => 'Grade',
-                    'name' => 'grade',
-                    'type' => 'select',
-                    'options' => ['A', 'A+', 'A-', 'B', 'B+', 'B-', 'C', 'D', 'F'],
-                    'default' => 'allowed'
-                ],
                 [
                     'label' => 'Remark',
                     'name' => 'remarks',
@@ -69,13 +37,6 @@
                     'type' => 'select',
                     'options' => ['Published' => 'Published', 'Draft' => 'Draft'],
                     'default' => 'Published'
-                ],
-                [
-                    'label' => 'Pass status',
-                    'name' => 'is_passed',
-                    'type' => 'select',
-                    'options' => ['1' => 'Passed', '0' => 'Failed'],
-                    'default' => '1'
                 ],
             ]"
             :form="$marksheet"
@@ -98,7 +59,7 @@
     $("#exam_id").on('change', function(event){
         const id = event.target.value;
         $.ajax({
-            url: `http://127.0.0.1:8000/admin/academic/evaluation/mark-sheet/${id}/student`,
+            url: `/admin/academic/evaluation/mark-sheet/${id}/student`,
             method:'get',
             success: (data) => {
                 $("#student_id").empty();
@@ -109,4 +70,21 @@
             }
         })
     });
+
+    @if($marksheet)
+        const exam = "{{$marksheet->exam_id}}";
+        const student = "{{$marksheet->student_id}}"
+        $.ajax({
+            url: `/admin/academic/evaluation/mark-sheet/${exam}/student`,
+            method:'get',
+            success: (data) => {
+                $("#student_id").empty();
+                for (const key in data) {
+                    const element = data[key];
+                    const isActive = key == student ? true : false;
+                    $('#student_id').append(new Option(element, key, isActive, isActive)).trigger('change');
+                }
+            }
+        })
+    @endif
 </script>

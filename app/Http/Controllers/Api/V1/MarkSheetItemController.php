@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\ExamMarksheet;
 use App\Models\ExamMarksheetItem;
+use App\Models\ExamSubject;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 
@@ -26,8 +27,8 @@ class MarksheetItemController extends Controller
             })->toArray();
         }
 
-        $marksheets = ExamMarksheetItem::where('exam_marksheet_id', $id)->with('marksheet.exam')->orderBy('id','desc')->get();
         $marksheet = null;
+        $marksheets = ExamMarksheetItem::where('exam_marksheet_id', $id)->with('marksheet.exam')->orderBy('id','desc')->get();
 
         return view(backend('pages.mark-sheet-item'), compact('exam_marksheet_id', 'marksheets', 'subjects', 'marksheet'));
     }
@@ -42,13 +43,36 @@ class MarksheetItemController extends Controller
             'writing_marks'     => 'nullable|integer|min:0',
             'practical_marks'   => 'nullable|integer|min:0',
             'attendance_marks'  => 'nullable|integer|min:0',
-            'total_marks'       => 'nullable|integer|min:0',
-            'is_passed'         => 'boolean',
-            'grade'             => 'required|in:A,A+,A-,B,B+,B-,C,D,F'
         ]);
 
         try {
-            ExamMarksheetItem::create($request->only('exam_marksheet_id','subject_id','mcq_marks','writing_marks','practical_marks','attendance_marks','total_marks','is_passed','grade'));
+            $item = ExamMarksheetItem::where('exam_marksheet_id', $request->exam_marksheet_id)
+                ->where('subject_id', $request->subject_id)
+                ->first();
+            if($item){
+                return redirect()->back()->with('error', 'This subject already exists!');
+            }
+            $marksheet = ExamMarksheet::with('exam')->findOrFail($request->exam_marksheet_id);
+            $subject = ExamSubject::where('subject_id',$request->subject_id)->where('exam_id', $marksheet->exam_id)->first();
+            $total = $request->mcq_marks + $request->practical_marks + $request->writing_marks + $request->attendance_marks;
+            $percentage = ($total / $subject->total_marks) * 100;
+            $grade = ($marksheet->exam->grade_type == 'CGPA') ? cgpaGradePoint($percentage) : gpaGradePoint($percentage);
+
+            ExamMarksheetItem::create([
+                'exam_marksheet_id' => $request->exam_marksheet_id,
+                'subject_id'        => $request->subject_id,
+                'mcq_marks'         => $request->mcq_marks,
+                'writing_marks'     => $request->writing_marks,
+                'practical_marks'   => $request->practical_marks,
+                'attendance_marks'  => $request->attendance_marks,
+                'obtain_marks'      => $total,
+                'total_marks'       => $subject->total_marks,
+                'grade'             => $grade[1],
+                'grade_point'       => $grade[0],
+                'is_passed'         => $grade[1] == 'F' ? 0 : 1,
+            ]);
+
+            (new MarksheetController())->generateMarksheet($request->exam_marksheet_id);
 
             return redirect()->back()->with('success', 'Marksheet item added successfully!');
         } catch (\Throwable $th) {
@@ -59,7 +83,7 @@ class MarksheetItemController extends Controller
     // Edit a single record
     public function show($id)
     {
-        $item = ExamMarksheetItem::findOrFail($id);
+        $item = ExamMarksheetItem::with('marksheet.exam.examSubject')->findOrFail($id);
 
         $subjects = null;
         $exam_marksheet_id = $item->exam_marksheet_id;
@@ -90,18 +114,39 @@ class MarksheetItemController extends Controller
             'writing_marks'     => 'nullable|integer|min:0',
             'practical_marks'   => 'nullable|integer|min:0',
             'attendance_marks'  => 'nullable|integer|min:0',
-            'total_marks'       => 'nullable|integer|min:0',
-            'is_passed'         => 'boolean',
         ]);
 
         $examMarksheetItem = ExamMarksheetItem::findOrFail($id);
 
         try {
-            $examMarksheetItem->update($request->only('exam_marksheet_id','subject_id','mcq_marks','writing_marks','practical_marks','attendance_marks','total_marks','is_passed','grade'));
+            $marksheet = ExamMarksheet::with('exam.examResults')->findOrFail($request->exam_marksheet_id);
+            $subject = ExamSubject::where('subject_id',$request->subject_id)->where('exam_id', $marksheet->exam_id)->first();
+            $total = $request->mcq_marks + $request->practical_marks + $request->writing_marks + $request->attendance_marks;
+            $percentage = ($total / $subject->total_marks) * 100;
+            $grade = ($marksheet->exam->grade_type == 'CGPA') ? cgpaGradePoint($percentage) : gpaGradePoint($percentage);
 
-            return redirect()->back()->with('success', 'Marksheet item updated successfully!');
+            $examMarksheetItem->update([
+                'exam_marksheet_id' => $request->exam_marksheet_id,
+                'subject_id'        => $request->subject_id,
+                'mcq_marks'         => $request->mcq_marks,
+                'writing_marks'     => $request->writing_marks,
+                'practical_marks'   => $request->practical_marks,
+                'attendance_marks'  => $request->attendance_marks,
+                'obtain_marks'      => $total,
+                'total_marks'       => $subject->total_marks,
+                'grade'             => $grade[1],
+                'grade_point'       => $grade[0],
+                'is_passed'         => $grade[1] == 'F' ? 0 : 1,
+            ]);
+
+            (new MarksheetController())->generateMarksheet($request->exam_marksheet_id);
+            if(!empty($marksheet->exam->examResults()->latest()->first()->id)){
+                (new ExamResultController)->generateResult($marksheet->exam->examResults()->latest()->first()->id, $marksheet->exam->id);
+            }
+
+            return redirect()->route('admin.academic.evaluation.mark_sheet.item', ['id' => $examMarksheetItem->exam_marksheet_id])->with('success', 'Marksheet item updated successfully!');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('error', 'Marksheet item could\'t update '.$th->getMessage());
+            return redirect()->back()->with('error', 'Marksheet item couldn\'t updated '.$th->getMessage());
         }
     }
 
@@ -112,8 +157,15 @@ class MarksheetItemController extends Controller
         if(!$marksheet){
             return redirect()->back()->with('error', 'Marksheet item couldn\'t delete');
         }
+        $id = $marksheet->exam_marksheet_id;
         $marksheet->delete();
 
-        return redirect()->back()->with('success', 'Marksheet item deleted successfully!');
+        return redirect()->route('admin.academic.evaluation.mark_sheet.item',['id' => $id])->with('success', 'Marksheet item deleted successfully!');
+    }
+
+    // get exam subject
+    public function examSubject($subject,$marksheet){
+        $marksheets = ExamMarksheet::findOrFail($marksheet);
+        return ExamSubject::where('subject_id',$subject)->where('exam_id', $marksheets->exam_id)->first();
     }
 }
