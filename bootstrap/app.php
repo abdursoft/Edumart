@@ -53,6 +53,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->append(ShareErrorsFromSession::class);
         $middleware->append(SetLocalization::class);
 
+        $middleware->validateCsrfTokens(['/install/*']);
+
         // alias middlewares
         $middleware->alias([
             'role'               => RoleMiddleware::class,

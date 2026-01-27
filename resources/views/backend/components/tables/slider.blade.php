@@ -27,9 +27,9 @@
                         <td>{{ count($slider->contents) }}</td>
                         <td>{{ date('d M, Y', strtotime($slider->created_at)) }}</td>
                         <td>
-                            <div class="flex items-center gap-3">
-                                <a href="{{ route('admin.media.slider.edit',$slider->id) }}" class="py-1 px-4 rounded-[15px] shadow-md bg-green-600 text-white hover:bg-green-800 transition">Edit</a>
-                                <a href="{{ route('admin.media.slider.delete',$slider->id) }}" class="py-1 px-4 bg-red-600 text-white rounded-[15px] shadow-md hover:bg-red-800 transition">Delete</a>
+                            <div class="flex items-center gap-1">
+                                <a href="{{ route('admin.media.slider.edit',$slider->id) }}" class="py-1 px-2 rounded-[15px] shadow-md hover:bg-green-600 text-green-600 hover:text-white transition">{!! icons('edit') !!}</a>
+                                <a href="{{ route('admin.media.slider.delete',$slider->id) }}" class="py-1 px-2 text-red-600 rounded-[15px] shadow-md hover:bg-red-600 hover:text-white transition" onclick="return confirm('Are you sure you want to delete this slider')">{!! icons('delete') !!}</a>
                                 <a href="{{ route('admin.media.slider.content',$slider->id) }}" class="py-1 px-4 bg-slate-600 text-white rounded-[15px] shadow-md hover:bg-slate-800 transition">Contents</a>
                             </div>
                         </td>

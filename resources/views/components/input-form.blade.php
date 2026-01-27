@@ -1,4 +1,5 @@
-<div class="w-full grid grid-cols-1 gap-4
+<div class="w-full grid grid-cols-1
+    @if($cols > 1) gap-4 @else gap-2 @endif
     @if($cols == 1) lg:grid-cols-1
     @elseif($cols == 2) lg:grid-cols-2
     @elseif($cols == 3) lg:grid-cols-3
@@ -35,7 +36,7 @@
         @elseif($type === 'title')
             <h2 class="text-muted text-xl w-full inline-block mt-3">{{$default}}</h2>
         @else
-            <div class="w-full {{ $type == 'hidden' ? 'hidden' : '' }} {{ $type == 'textarea' ? 'md:col-span-2' : '' }} {{ $className }}">
+            <div class="w-full {{ $type == 'hidden' ? 'hidden' : '' }} @if($type == 'textarea' && $span == '2') col-span-2 @endif {{ $className }}">
                 @if(isset($field['label']))
                     <label for="{{ $field['name'] ?? '' }}" class="block text-sm font-medium text-gray-700 mb-1">
                         {{ $field['label'] }}

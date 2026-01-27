@@ -11,10 +11,14 @@ class GalleryController extends Controller
     /**
      * Display a listing of galleries.
      */
-    public function index()
+    public function index($id=null)
     {
-        $galleries = Gallery::latest()->paginate(20);
-        return view('galleries.index', compact('galleries'));
+        $galleries = Gallery::with('contents')->latest()->get();
+        $gallery = null;
+        if($id){
+            $gallery = Gallery::findOrFail($id);
+        }
+        return view(backend('pages.gallery'), compact('galleries','gallery'));
     }
 
     /**
@@ -40,22 +44,22 @@ class GalleryController extends Controller
         Gallery::create($validated);
 
         return redirect()
-            ->route('galleries.index')
+            ->route('admin.media.gallery')
             ->with('success', 'Gallery created successfully.');
     }
 
     /**
      * Show the form for editing the specified gallery.
      */
-    public function edit(Gallery $gallery)
+    public function show($id)
     {
-        return view('galleries.edit', compact('gallery'));
+        return $this->index($id);
     }
 
     /**
      * Update the specified gallery.
      */
-    public function update(Request $request, Gallery $gallery)
+    public function update(Request $request, $id)
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
@@ -64,22 +68,25 @@ class GalleryController extends Controller
             'description' => 'nullable|string',
         ]);
 
+        $gallery = Gallery::findOrFail($id);
+
         $gallery->update($validated);
 
         return redirect()
-            ->route('galleries.index')
+            ->route('admin.media.gallery')
             ->with('success', 'Gallery updated successfully.');
     }
 
     /**
      * Remove the specified gallery.
      */
-    public function destroy(Gallery $gallery)
+    public function destroy($id)
     {
+        $gallery = Gallery::findOrFail($id);
         $gallery->delete();
 
         return redirect()
-            ->route('galleries.index')
+            ->route('admin.media.gallery')
             ->with('success', 'Gallery deleted successfully.');
     }
 }

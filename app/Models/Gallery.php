@@ -25,6 +25,6 @@ class Gallery extends Model
      * Relation with contents
      */
     public function contents(){
-        return $this->hasMany(GalleryContent::class, 'gallery_content');
+        return $this->hasMany(GalleryContent::class, 'gallery_id');
     }
 }

@@ -21,29 +21,29 @@
                 </div>
 
                 <div class="px-md-4 pb-sm-3">
-                    <div class="w-full flex flex-wrap flex-col md:flex-row">
-                        <div class="w-1/2 my-3">
-                            <div class="flex gap-2 items-center flex-wrap">
+                    <div class="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                        <div class="my-3">
+                            <div class="flex gap-2 items-center flex-wrap bg-gray-1 p-2 rounded-md shadow-md">
                                 <iconify-icon icon="eos-icons:database-migration" width="24" height="24"></iconify-icon>
-                                <div class="text-base md:text-xl md:text-semibold">{{ "Database Name" }}</div>
+                                <div class="text-base md:text-semibold">{{ "Database Name" }}</div>
                             </div>
                         </div>
-                        <div class="w-1/2 my-3">
-                            <div class="flex gap-2 items-center flex-wrap">
+                        <div class="my-3">
+                            <div class="flex gap-2 items-center flex-wrap bg-gray-1 p-2 rounded-md shadow-md">
                                 <iconify-icon icon="mdi:database-lock-outline" width="24" height="24"></iconify-icon>
-                                <div class="text-base md:text-xl md:text-semibold">{{ "Database Password" }}</div>
+                                <div class="text-base md:text-semibold">{{ "Database Password" }}</div>
                             </div>
                         </div>
-                        <div class="w-1/2 my-3">
-                            <div class="flex gap-2 items-center flex-wrap">
+                        <div class="my-3">
+                            <div class="flex gap-2 items-center flex-wrap bg-gray-1 p-2 rounded-md shadow-md">
                                 <iconify-icon icon="fluent:database-person-24-regular" width="24" height="24"></iconify-icon>
-                                <div class="text-base md:text-xl md:text-semibold">{{ "Database Username" }}</div>
+                                <div class="text-base md:text-semibold">{{ "Database Username" }}</div>
                             </div>
                         </div>
-                        <div class="w-1/2 my-3">
-                            <div class="flex gap-2 items-center flex-wrap">
+                        <div class="my-3">
+                            <div class="flex gap-2 items-center flex-wrap bg-gray-1 p-2 rounded-md shadow-md">
                                 <iconify-icon icon="jam:database" width="24" height="24"></iconify-icon>
-                                <div class="text-base md:text-xl md:text-semibold">{{ "Database Host Name" }}</div>
+                                <div class="text-base md:text-semibold">{{ "Database Host Name" }}</div>
                             </div>
                         </div>
                     </div>

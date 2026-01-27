@@ -28,6 +28,6 @@ class GalleryContent extends Model
      */
     public function gallery()
     {
-        return $this->belongsTo(Gallery::class);
+        return $this->belongsTo(Gallery::class, 'gallery_id');
     }
 }

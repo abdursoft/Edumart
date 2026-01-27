@@ -214,12 +214,10 @@ class InstallationController extends Controller
                 return redirect('install/step4');
             } else {
                 file_put_contents(base_path('.env'), $xEnv);
-                Session::flash('error', 'Database error! Environment variable file path doesn\'t exists');
-                return redirect('install/step3');
+                return redirect('install/step3')->with('error', 'Database error! Environment variable file path doesn\'t exists');
             }
         } else {
-            Session::flash('error', 'Database error or Invalid database credentials!');
-            return back();
+            return back()->with('error', 'Database error or Invalid database credentials!');
         }
     }
 
@@ -228,10 +226,10 @@ class InstallationController extends Controller
         try {
             $sql_path = base_path('installation/sql/database.sql');
             DB::unprepared(file_get_contents($sql_path));
-            return redirect('install/step5');
+            $this->updateProvider();
+            return redirect('install/step5')->with('success', 'Database migrated successfully');
         } catch (\Exception $exception) {
-            Session::flash('error', 'Your database is not clean, do you want to clean the database then import?');
-            return back();
+            return redirect()->back()->with('error', 'Your database is not clean, do you want to clean the database then import?');
         }
     }
 
@@ -241,10 +239,10 @@ class InstallationController extends Controller
             Artisan::call('db:wipe');
             $sql_path = base_path('installation/sql/database.sql');
             DB::unprepared(file_get_contents($sql_path));
-            return redirect('install/step5');
+            $this->updateProvider();
+            return redirect('install/step5')->with('success', 'Database migrated successfully');
         } catch (\Exception $exception) {
-            Session::flash('error', 'Please check your database permission!');
-            return back();
+            return back()->with('error', 'Please check your database permission!');
         }
     }
 
@@ -271,8 +269,7 @@ class InstallationController extends Controller
         ]);
 
         if ($validator->fails()) {
-            Session::put('error', 'Invalid admin data, try again!');
-            return back();
+            return back()->with('error', 'Admin couldn\'t create');
         }
 
         try {
@@ -280,8 +277,7 @@ class InstallationController extends Controller
             if (! empty($request->role) && $request->role == 'admin') {
                 $count = User::where('role', 'admin')->count();
                 if ($count >= 1) {
-                    Session::put('error', 'Admin registration limit over');
-                    return redirect('install/step6');
+                    return redirect('install/step6')->with('error', 'Admin registration limit over');
                 }
             }
             User::create(
@@ -295,14 +291,22 @@ class InstallationController extends Controller
                     "password"    => password_hash($request->input('password'), PASSWORD_DEFAULT),
                 ]
             );
-            Session::put('success', 'The admin was successfully created.');
-            Session::put('admin', $request->name);
+            Session::put(['admin' => $request->name]);
             Session::forget('installation');
-            return redirect('install/step6');
+            return redirect('install/step6')->with('success','The admin was successfully created.');
         } catch (\Throwable $th) {
-            Session::put('error', 'Internal server error!');
-            return back();
+            return back()->with('error','Internal server error!');
         }
+    }
+
+    /**
+     * Update provider
+     */
+    public function updateProvider(){
+        $provider = file_get_contents(base_path('installation/files/provider.txt'));
+        $file = fopen(base_path('app/Providers/AppServiceProvider.php'), 'w');
+        fwrite($file, $provider);
+        fclose($file);
     }
 
     public function check_database_connection($db_host = "", $db_name = "", $db_user = "", $db_pass = "")

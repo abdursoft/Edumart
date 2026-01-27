@@ -63,6 +63,7 @@
             ]"
             :form="$notice"
             cols="1"
+            span="1"
         />
 
         <x-button

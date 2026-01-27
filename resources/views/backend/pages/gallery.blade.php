@@ -2,6 +2,12 @@
 @section('title', 'Gallery')
 
 @section('content')
-    
+    <div class="w-full flex items-start flex-col lg:flex-row gap-3">
+        <div class="w-full lg:w-1/4">
+            @include(backend('components.forms.gallery'))
+        </div>
+        <div class="w-full lg:w-3/4">
+            @include(backend('components.tables.gallery'))
+        </div>
+    </div>
 @endsection
-

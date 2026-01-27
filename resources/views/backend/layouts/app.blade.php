@@ -83,5 +83,7 @@
 
     {{-- load custom js  --}}
     @yield('scripts')
+    <!-- Scripts -->
+    @stack('scripts')
   </body>
 </html>

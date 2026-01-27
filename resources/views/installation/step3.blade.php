@@ -31,7 +31,7 @@
                                 <label for="host" class="d-flex align-items-center gap-2 mb-2">
                                     {{ 'Database Host' }}
                                 </label>
-                                <input type="text" id="host" class="w-full rounded-md py-2 px-3 border-1 border-orange-400" name="host" required
+                                <input type="text" id="host" class="w-full rounded-md py-2 px-3 border-1 border-orange-400 focus:outline-red-300 focus:outline-2" name="host" required
                                     placeholder="Ex: localhost">
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                                 <label for="database" class="d-flex align-items-center gap-2 mb-2">
                                     {{ 'Database Name' }}
                                 </label>
-                                <input type="text" id="database" class="w-full rounded-md py-2 px-3 border-1 border-orange-400" name="database" required
+                                <input type="text" id="database" class="w-full rounded-md py-2 px-3 border-1 border-orange-400 focus:outline-red-300 focus:outline-2" name="database" required
                                     placeholder="Ex: project-name-db">
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                                 <label for="username" class="d-flex align-items-center gap-2 mb-2">
                                     {{ 'Database Username' }}
                                 </label>
-                                <input type="text" id="username" class="w-full rounded-md py-2 px-3 border-1 border-orange-400" name="username" required
+                                <input type="text" id="username" class="w-full rounded-md py-2 px-3 border-1 border-orange-400 focus:outline-red-300 focus:outline-2" name="username" required
                                     placeholder="Ex: root">
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                                     {{ 'Database Password' }}
                                 </label>
                                 <div class="input-inner-end-ele position-relative">
-                                    <input type="password" id="password" min="8" class="w-full rounded-md py-2 px-3 border-1 border-orange-400"
+                                    <input type="password" id="password" min="8" class="w-full rounded-md py-2 px-3 border-1 border-orange-400 focus:outline-red-300 focus:outline-2"
                                         name="password" placeholder="Ex: password">
                                 </div>
                             </div>

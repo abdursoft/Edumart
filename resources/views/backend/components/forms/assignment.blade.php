@@ -54,6 +54,7 @@
 
             :form="$assignment ?? null"
             cols="3"
+            span="2"
         />
 
 

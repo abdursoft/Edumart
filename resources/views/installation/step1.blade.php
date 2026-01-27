@@ -16,9 +16,9 @@
                 </h6>
 
                 <div class="px-xl-2 pb-sm-3">
-                    <div class="flex flex-col md:flex-row w-full flex-wrap">
-                        <div class="w-full md:w-1/2 my-3">
-                            <div class="flex gap-2 items-center text-base md:text-xl">
+                    <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                        <div class="w-full flex items-center justify-between my-3">
+                            <div class="flex gap-2 items-center justify-between text-base md:text-xl bg-gray-1 p-2 rounded-md shadow-md">
                                 <iconify-icon icon="simple-icons:php" width="34" height="34"></iconify-icon>
                                 <div class="flex items-center gap-2 justify-between flex-grow-1">
                                     {{ 'PHP Version 8.1 +' }}
@@ -34,8 +34,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="w-full md:w-1/2 my-3">
-                            <div class="flex gap-2 items-center text-base md:text-xl">
+                        <div class="w-full flex items-center justify-between my-3">
+                            <div class="flex gap-2 items-center justify-between text-base md:text-xl bg-gray-1 p-2 rounded-md shadow-md">
                                 <iconify-icon icon="ph:git-pull-request-thin" width="25" height="25"></iconify-icon>
                                 <div class="flex items-center gap-2 justify-between flex-grow-1">
                                     {{ 'Curl Enabled' }}
@@ -50,8 +50,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="w-full flex items-center justify-center my-3">
-                            <div class="flex gap-2 items-center text-base md:text-xl">
+                        <div class="w-full flex items-center justify-between my-3">
+                            <div class="flex gap-2 items-center justify-between text-base md:text-xl bg-gray-1 p-2 rounded-md shadow-md">
                                 <iconify-icon icon="mage:file-plus" width="24" height="24"></iconify-icon>
                                 <div class="flex items-center gap-2 justify-between flex-grow-1">
                                     {{ '.env File Permission' }}

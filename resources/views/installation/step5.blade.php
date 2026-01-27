@@ -33,7 +33,7 @@
                                 <label for="name">
                                     {{ 'Admin Name' }}
                                 </label>
-                                <input type="text" id="name" class="w-full rounded-md py-2 px-3 border-1 border-orange-400" name="name" required
+                                <input type="text" id="name" class="w-full rounded-md py-2 px-3 border-1 border-orange-400 focus:outline-red-300 focus:outline-2" name="name" required
                                     placeholder="Ex: John Doe">
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                                 </label>
 
                                 <div class="number-input-wrap">
-                                    <input type="tel" id="phone" class="w-full rounded-md py-2 px-3 border-1 border-orange-400" name="phone" required
+                                    <input type="tel" id="phone" class="w-full rounded-md py-2 px-3 border-1 border-orange-400 focus:outline-red-300 focus:outline-2" name="phone" required
                                         placeholder="Ex: +8801892xxxxxx">
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                                     {{ 'Admin Email' }}
                                 </label>
 
-                                <input type="email" id="email" class="w-full rounded-md py-2 px-3 border-1 border-orange-400" name="email" required
+                                <input type="email" id="email" class="w-full rounded-md py-2 px-3 border-1 border-orange-400 focus:outline-red-300 focus:outline-2" name="email" required
                                     placeholder="Ex: jhone@doe.com">
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                                 </label>
                                 <div class="input-inner-end-ele position-relative">
                                     <input type="password" id="password"
-                                        name="password" required class="w-full rounded-md py-2 px-3 border-1 border-orange-400" placeholder="Ex: 6+ character"
+                                        name="password" required class="w-full rounded-md py-2 px-3 border-1 border-orange-400 focus:outline-red-300 focus:outline-2" placeholder="Ex: 6+ character"
                                         minlength="6">
                                     <div class="togglePassword">
                                         <img alt="" class="svg eye" src="">

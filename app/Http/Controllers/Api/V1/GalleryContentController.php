@@ -52,12 +52,24 @@ class GalleryContentController extends Controller
     /**
      * Delete content
      */
-    public function destroy(GalleryContent $galleryContent)
+    public function destroy(Request $request)
     {
+        $galleryContent = GalleryContent::findOrFail($request->id);
         Storage::disk($galleryContent->storage)->delete($galleryContent->path);
 
         $galleryContent->delete();
+        return response()->json([
+            'status' => 'success',
+            'message' => 'File successfully deleted'
+        ]);
+    }
 
-        return back()->with('success', 'Content deleted successfully.');
+    /**
+     * Get gallery content by gallery
+     */
+    public function galleryContent($gallery){
+        $gallery = Gallery::findOrFail($gallery);
+        $contents = GalleryContent::where('gallery_id', $gallery->id)->latest()->paginate(20);
+        return view(backend('pages.gallery-content'), compact('gallery','contents'));
     }
 }

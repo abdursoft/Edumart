@@ -12,7 +12,7 @@
                 {{ "Just click on the button to automatically migrate tables in your database" }}
             </p>
 
-            @if(session()->has('error'))
+            @if(session('error'))
                 <div class="mt-[20px] w-full p-3 bg-red-600 rounded-md shadow-md text-white mb-[90px]">
                     {{ $error ?? session('error') }}
                 </div>

@@ -18,7 +18,8 @@
 </head>
 
 <body class="bg-slate-100 min-h-[100vh] flex items-center justify-center w-full p-3">
-    <section class="w-full md:w-3/5 min-h-[90vh] bg-white rounded-lg shadow-lg px-10 py-3 md:py-10 2xl:py-20">
+    @include('components.flash-message')
+    <section class="w-full md:max-w-[53vw] min-h-[90vh] bg-white rounded-lg shadow-lg px-10 py-3 md:py-10 2xl:pt-20 2xl:pb-10">
 
         <div class="text-center w-full flex items-center justify-center">
             <img src="https://cdn.abdursoft.com/assets/ott/images/rstream.png" alt="rstream" class="w-[290px] h-[70px]">

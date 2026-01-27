@@ -45,7 +45,7 @@
                 'type' => 'select',
                 'options' => ['active' => 'Active', 'inactive' => 'Inactive'],
             ]
-        ]" :form="$slider" cols="3" />
+        ]" :form="$slider" cols="1" />
 
 
 

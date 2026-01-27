@@ -42,7 +42,10 @@ use App\Http\Controllers\Api\V1\UploadController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\FeeCollectionController;
 use App\Http\Controllers\Api\V1\FeeGroupController;
+use App\Http\Controllers\Api\V1\GalleryContentController;
+use App\Http\Controllers\Api\V1\GalleryController;
 use App\Http\Controllers\Api\V1\GroupController;
+use App\Http\Controllers\Api\V1\MediaController;
 use App\Http\Controllers\Api\V1\SectionController;
 use App\Http\Controllers\Api\V1\StudentFeeController;
 use Illuminate\Support\Facades\Route;
@@ -93,7 +96,7 @@ Route::prefix('academic/people')->name('academic.people.')->group(function () {
     // designation routes
     Route::get('designations', [DesignationController::class, 'index'])->name('designations');
     Route::get('designation/{id}/edit', [DesignationController::class, 'show'])->name('designations.edit');
-    Route::post('designation/{id}/edit', [DesignationController::class, 'update'])->name('designations.edit');
+    Route::post('designation/{id}/update', [DesignationController::class, 'update'])->name('designations.update');
     Route::get('designation/{id}/delete', [DesignationController::class, 'destroy'])->name('designations.delete');
     Route::post('designations', [DesignationController::class, 'store'])->name('designations.add');
 
@@ -503,12 +506,18 @@ Route::prefix('media')->name('media.')->group(function () {
 
     // Gallery
     Route::prefix('gallery')->group(function () {
-        Route::get('gallery', function () {
-            return 'Gallery';
-        })->name('gallery');
-        Route::get('content', function () {
-            return 'Gallery Content';
-        })->name('content');
+        // gallery routes
+        Route::get('/', [GalleryController::class, 'index'])->name('gallery');
+        Route::post('gallery', [GalleryController::class, 'store'])->name('gallery.add');
+        Route::get('gallery/{id}/edit', [GalleryController::class, 'show'])->name('gallery.edit');
+        Route::post('gallery/{id}/update', [GalleryController::class, 'update'])->name('gallery.update');
+        Route::get('gallery/{id}/delete', [GalleryController::class, 'destroy'])->name('gallery.delete');
+
+        // gallery content routes
+        Route::get('content', [GalleryContentController::class, 'index'])->name('content');
+        Route::post('content/upload', [MediaController::class, 'chunk'])->name('gallery.content.add');
+        Route::delete('content/delete', [GalleryContentController::class, 'destroy'])->name('gallery.content.delete');
+        Route::get('content/{gallery}', [GalleryContentController::class, 'galleryContent'])->name('gallery.content');
     });
 });
 
@@ -518,7 +527,7 @@ Route::prefix('media')->name('media.')->group(function () {
 Route::get('get-users/{type}/{id?}', [UserController::class, 'getUserList'])->name('user.list');
 Route::get('get-subjects/{class}', [SubjectController::class, 'getSubjectList'])->name('subject.list');
 Route::get('get-fee/{invoice}', [StudentFeeController::class, 'getFee'])->name('get.fee');
-Route::get('exam-subject/{subject}/{marksheet}', [MarkSheetItemController::class, 'examSubject'])->name('get.fee');
+Route::get('exam-subject/{subject}/{marksheet}', [MarkSheetItemController::class, 'examSubject'])->name('get.subject.marksheet');
 
 // classes routes
 Route::get('sections/{id}', [EduClassController::class, 'getSection'])->name('get.sections');

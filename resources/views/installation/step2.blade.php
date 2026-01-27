@@ -9,13 +9,13 @@
                 <h5 class="text-base md:text-xl">{{ "Product Purchase Information" }}</h5>
                 <a href="https://help.market.envato.com/hc/en-us/articles/202822600-Where-Is-My-Purchase-Code-"
                    class="flex items-center gap-1" target="_blank">
-                    {{ "HOW can I get this information ?" }}
+                    {{ "How can I get this information?" }}
                     <iconify-icon icon="cuida:info-outline" width="24" height="24"></iconify-icon>
                 </a>
             </div>
 
             <p class="mb-4">
-                Provide your product credentials from <strong/>evanto.abdursoft.com</strong>.
+                Collect your product credentials from <strong>evanto.abdursoft.com</strong>.
             </p>
 
             @if (isset($error) || session()->has('error'))
@@ -38,14 +38,14 @@
                                     <label for="username" class="d-flex align-items-center gap-2 mb-2">
                                         <span class="fw-medium">{{ "Username" }}</span>
                                     </label>
-                                    <input type="text" id="username" class="w-full rounded-md py-2 px-3 border-1 border-orange-400" name="username"
+                                    <input type="text" id="username" class="w-full rounded-md py-2 px-3 border-1 border-orange-400 focus:outline-red-300 focus:outline-2" name="username"
                                            placeholder="Ex: john doe" required>
                                 </div>
                             </div>
                             <div class="w-full md:w-1/2 my-3 p-2">
                                 <div class="flex flex-col gap-1 w-full">
                                     <label for="product_id" class="mb-2">{{ "Product ID" }}</label>
-                                    <input type="text" id="product_id" class="w-full rounded-md py-2 px-3 border-1 border-orange-400" name="product_id"
+                                    <input type="text" id="product_id" class="w-full rounded-md py-2 px-3 border-1 border-orange-400 focus:outline-red-300 focus:outline-2" name="product_id"
                                            placeholder="Ex: pr_ksk392l39ds3" required>
                                 </div>
                             </div>
@@ -54,7 +54,7 @@
                             <div class="w-full my-1 p-2">
                                 <div class="flex flex-col gap-1 w-full">
                                     <label for="purchase_key" class="mb-2">{{ "Purchase Code" }}</label>
-                                    <input type="text" id="purchase_key" class="w-full rounded-md py-2 px-3 border-1 border-orange-400" name="purchase_code"
+                                    <input type="text" id="purchase_key" class="w-full rounded-md py-2 px-3 border-1 border-orange-400 focus:outline-red-300 focus:outline-2" name="purchase_code"
                                            placeholder="Ex: 13xxxxxx-cx3k-9x32-61c3-939339383932" required>
                                 </div>
                             </div>

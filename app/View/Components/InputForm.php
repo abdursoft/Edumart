@@ -11,12 +11,14 @@ class InputForm extends Component
     public $cols;
     public $fields;
     public $form;
+    public $span;
 
-    public function __construct($cols = 1, $fields = [], $form = [])
+    public function __construct($cols = 1, $fields = [], $form = [], $span=2)
     {
         $this->cols = $cols;
         $this->fields = $fields;
         $this->form = $form;
+        $this->span = $span;
     }
 
     /**

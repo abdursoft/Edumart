@@ -26,6 +26,9 @@
             </svg>
         </button>
 
+        <!-- homepage view -->
+        <a href="/" target="_blank"><iconify-icon icon="streamline-plump:code-monitor-2-solid" class="text-white" width="24" height="24"></iconify-icon></a>
+
         <!-- Notifications -->
         <div class="relative">
             <button id="notify-btn" class="relative p-2 text-white transition cursor-pointer">
