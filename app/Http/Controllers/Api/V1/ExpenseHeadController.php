@@ -14,12 +14,12 @@ class ExpenseHeadController extends Controller
      */
     public function index($id=null)
     {
-        $expense = null;
-        $expenses = ExpenseHead::latest()->get();
+        $head = null;
+        $heads = ExpenseHead::latest()->get();
         if($id){
-            $expense = ExpenseHead::findOrFail($id);
+            $head = ExpenseHead::findOrFail($id);
         }
-        return view(backend('pages.expense_head'), compact('expenses','expense'));
+        return view(backend('pages.expense_head'), compact('heads','head'));
     }
 
     /**
@@ -37,24 +37,26 @@ class ExpenseHeadController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255|unique:expense_heads,name',
+            'amount' => 'required|numeric|min:0'
         ]);
 
         ExpenseHead::create([
             'name'    => $request->name,
+            'amount'  => $request->amount,
             'user_id' => Auth::id(),
         ]);
 
         return redirect()
-            ->route('expense-heads.index')
+            ->route('admin.finance.expenses.heads')
             ->with('success', 'Expense head created successfully');
     }
 
     /**
      * Show the specified expense head
      */
-    public function show(ExpenseHead $expenseHead)
+    public function show($id)
     {
-        return view('expenses.heads.show', compact('expenseHead'));
+        return $this->index($id);
     }
 
     /**
@@ -68,30 +70,34 @@ class ExpenseHeadController extends Controller
     /**
      * Update the specified expense head
      */
-    public function update(Request $request, ExpenseHead $expenseHead)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|string|max:255|unique:expense_heads,name,' . $expenseHead->id,
+            'name' => 'required|string|max:255|unique:expense_heads,name,' . $id,
+            'amount' => 'required|numeric|min:0'
         ]);
+
+        $expenseHead = ExpenseHead::findOrFail($id);
 
         $expenseHead->update([
             'name' => $request->name,
         ]);
 
         return redirect()
-            ->route('expense-heads.index')
+            ->route('admin.finance.expenses.heads')
             ->with('success', 'Expense head updated successfully');
     }
 
     /**
      * Remove the specified expense head
      */
-    public function destroy(ExpenseHead $expenseHead)
+    public function destroy($id)
     {
+        $expenseHead = ExpenseHead::findOrFail($id);
         $expenseHead->delete();
 
         return redirect()
-            ->route('expense-heads.index')
+            ->route('admin.finance.expenses.heads')
             ->with('success', 'Expense head deleted successfully');
     }
 }

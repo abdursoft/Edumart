@@ -16,12 +16,12 @@ class InstallationMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Session::get('purchase_code') == false && env('PURCHASE_CODE') == null) {
-            Session::flash('error', 'Invalid product purchase code');
-            return redirect('install/step2');
-        }elseif(env('PURCHASE_CODE') != null){
-            return $next($request);
-        }
+        // if (Session::get('purchase_code') == false && env('PURCHASE_CODE') == null) {
+        //     Session::flash('error', 'Invalid product purchase code');
+        //     return redirect('install/step2');
+        // }elseif(env('PURCHASE_CODE') != null){
+        //     return $next($request);
+        // }
 
         return $next($request);
     }

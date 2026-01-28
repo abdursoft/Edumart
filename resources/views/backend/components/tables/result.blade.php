@@ -11,7 +11,7 @@
                         <th>Exam Name</th>
                         <th>Passed</th>
                         <th>Failed</th>
-                        <th>Grade %</th>
+                        <th>Percentage</th>
                         <th>Status</th>
                         <th>Remarks</th>
                         <th class="no-export">Action</th>
@@ -25,7 +25,7 @@
                         <td>{{ $result->exam->name ?? 'N/A' }}</td>
                         <td>{{ $result->passed ?? '—' }}</td>
                         <td>{{ $result->failed ?? '—' }}</td>
-                        <td>{{ $result->percentage ?? '—' }}</td>
+                        <td>{{ $result->percentage ?? '—' }}%</td>
                         <td>
                             <span class="px-3 py-1 rounded-full text-white text-sm
                                 @if($result->status === 'published') bg-green-600

@@ -2,7 +2,7 @@
 {{editorScript('description')}}
 
 
-<form action="@if($notice){{ route('admin.information.event_calendar.update', $notice->id) }}@else{{ route('admin.information.event_calendar.add') }}@endif" method="POST">
+<form action="@if($event){{ route('admin.information.event_calendar.update', $event->id) }}@else{{ route('admin.information.event_calendar.add') }}@endif" method="POST">
     @csrf
 
     <x-fieldset title="New Event">
@@ -20,29 +20,41 @@
                 [
                     'label' => 'Type',
                     'name' => 'type',
-                    'type' => 'hidden',
-                    'default' => 'event',
+                    'type' => 'select',
+                    'required' => true,
+                    'options' => ['Holiday','Meeting','Exam','Workshop','Other'],
+                    'default' => 'Event type',
                 ],
 
                 [
-                    'label' => 'Event Date',
-                    'name' => 'publish_date',
+                    'label' => 'Location',
+                    'name' => 'location',
+                    'type' => 'text',
+                    'required' => true,
+                    'placeholder' => 'Event location'
+                ],
+
+                [
+                    'label' => 'Start Date',
+                    'name' => 'start_date',
                     'type' => 'date',
                     'placeholder' => 'e.g. 12',
                     'required' => true
                 ],
 
                 [
-                    'label' => 'File Attachment',
-                    'name' => 'attachment',
-                    'type' => 'file',
+                    'label' => 'End Date',
+                    'name' => 'end_date',
+                    'type' => 'date',
+                    'placeholder' => 'e.g. 12',
+                    'required' => true
                 ],
 
                 [
                     'label' => 'Status',
                     'name' => 'status',
                     'type' => 'select',
-                    'options' => ['draft' => 'Draft', 'published' => 'Published'],
+                    'options' => [0 => 'Draft', 1 => 'Published'],
                     'default' => 'published',
                     'placeholder' => 'Select status'
                 ],
@@ -61,7 +73,7 @@
                     'placeholder' => 'Description content'
                 ],
             ]"
-            :form="$notice"
+            :form="$event"
             cols="1"
             span="1"
         />

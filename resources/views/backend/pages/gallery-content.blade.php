@@ -13,8 +13,8 @@
                     <img src="{{Storage::url($content->path)}}" alt="{{$gallery->name}}" class="object-fit aspect-16/9">
                 </div>
             @else
-                <div class="w-full relative rounded-md hover:rounded-md hover:shadow-xl cursor-pointer overflow-hidden ga-content-{{$content->id}}" >
-                    <iconify-icon icon="fa7-regular:times-circle" width="24" height="24" class="absolute top-1 right-1 text-red-300 hover:text-red-600" onclick="removeGalleryContent({{$content->id}})"></iconify-icon>
+                <div class="w-full relative rounded-md shadow bg-slate-500 hover:rounded-md hover:shadow-xl cursor-pointer overflow-hidden ga-content-{{$content->id}}" >
+                    <iconify-icon icon="fa7-regular:times-circle" width="24" height="24" class="absolute top-1 right-1 text-red-300 hover:text-red-600 p-2 rounded-md" onclick="removeGalleryContent({{$content->id}})"></iconify-icon>
                     <video src="{{Storage::url($content->path)}}" title="{{$gallery->name}}" controls class="w-full h-full object-fit"> </video>
                 </div>
             @endif

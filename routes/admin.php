@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V1\AddressController;
 use App\Http\Controllers\Api\V1\Admin\AdminController;
 use App\Http\Controllers\Api\V1\Admin\SmsController;
+use App\Http\Controllers\Api\V1\AdmissionController;
 use App\Http\Controllers\Api\V1\AssetsController;
 use App\Http\Controllers\Api\V1\AssignmentController;
 use App\Http\Controllers\Api\V1\AttendanceController;
@@ -13,11 +14,13 @@ use App\Http\Controllers\Api\V1\CommitteeController;
 use App\Http\Controllers\Api\V1\DepartmentController;
 use App\Http\Controllers\Api\V1\DesignationController;
 use App\Http\Controllers\Api\V1\EduClassController;
+use App\Http\Controllers\Api\V1\EventController;
 use App\Http\Controllers\Api\V1\ExamAdmitCardController;
 use App\Http\Controllers\Api\V1\ExamController;
 use App\Http\Controllers\Api\V1\ExamFeeController;
 use App\Http\Controllers\Api\V1\ExamResultController;
 use App\Http\Controllers\Api\V1\ExamSubjectController;
+use App\Http\Controllers\Api\V1\ExpenseController;
 use App\Http\Controllers\Api\V1\ExpenseHeadController;
 use App\Http\Controllers\Api\V1\FeeHeadController;
 use App\Http\Controllers\Api\V1\LeaveManagementController;
@@ -349,11 +352,18 @@ Route::prefix('finance/fees')->name('finance.fees.')->group(function () {
 });
 
 Route::prefix('finance/expenses')->name('finance.expenses.')->group(function () {
-    Route::get('expense_heads', [ExpenseHeadController::class, 'index'])->name('heads');
+    // expense head routes
+    Route::get('expense-heads', [ExpenseHeadController::class, 'index'])->name('heads');
+    Route::post('expense-heads', [ExpenseHeadController::class, 'store'])->name('heads.add');
+    Route::get('expense-heads/{id}/edit', [ExpenseHeadController::class, 'show'])->name('heads.edit');
+    Route::post('expense-heads/{id}/update', [ExpenseHeadController::class, 'update'])->name('heads.update');
+    Route::get('expense-heads/{id}/delete', [ExpenseHeadController::class, 'destroy'])->name('heads.delete');
 
-    Route::get('expense_list', function () {
-        return 'Expenses';
-    })->name('cost');
+    Route::get('expense-list', [ExpenseController::class, 'index'])->name('cost');
+    Route::post('expense-list', [ExpenseController::class, 'store'])->name('cost.add');
+    Route::get('expense-list/{id}/edit', [ExpenseController::class, 'show'])->name('cost.edit');
+    Route::post('expense-list/{id}/update', [ExpenseController::class, 'update'])->name('cost.update');
+    Route::get('expense-list/{id}/delete', [ExpenseController::class, 'destroy'])->name('cost.delete');
 });
 
 Route::prefix('finance/salary')->name('finance.salary.')->group(function () {
@@ -417,11 +427,11 @@ Route::prefix('information')->name('information.')->group(function () {
     Route::get('notice-board/{id}/delete', [NewsNoticeController::class, 'destroy'])->name('notice_board.delete');
 
     // events routes
-    Route::get('event-calendar', [NewsNoticeController::class, 'index'])->name('event_calendar');
-    Route::post('event-calendar', [NewsNoticeController::class, 'store'])->name('event_calendar.add');
-    Route::get('event-calendar/{id}/edit', [NewsNoticeController::class, 'show'])->name('event_calendar.edit');
-    Route::post('event-calendar/{id}/update', [NewsNoticeController::class, 'update'])->name('event_calendar.update');
-    Route::get('event-calendar/{id}/delete', [NewsNoticeController::class, 'destroy'])->name('event_calendar.delete');
+    Route::get('event-calendar', [EventController::class, 'index'])->name('event_calendar');
+    Route::post('event-calendar', [EventController::class, 'store'])->name('event_calendar.add');
+    Route::get('event-calendar/{id}/edit', [EventController::class, 'show'])->name('event_calendar.edit');
+    Route::post('event-calendar/{id}/update', [EventController::class, 'update'])->name('event_calendar.update');
+    Route::get('event-calendar/{id}/delete', [EventController::class, 'destroy'])->name('event_calendar.delete');
 
     Route::get('news', [NewsNoticeController::class, 'index'])->name('news');
     Route::post('news', [NewsNoticeController::class, 'store'])->name('news.add');
@@ -536,9 +546,15 @@ Route::get('students/{class}/{section}/{group?}', [EduClassController::class, 'g
 
 // Public / External Access
 Route::prefix('public')->name('public.')->group(function () {
-    Route::get('admission_form', function () {
-        return 'Online Admission Form';
-    })->name('admission_form');
+    // admission routes
+    Route::get('admission-form', [AdmissionController::class, 'index'])->name('admission_form');
+    Route::post('admission-form', [AdmissionController::class, 'store'])->name('admission_form.add');
+    Route::get('admission-form/{id}/edit', [AdmissionController::class, 'show'])->name('admission_form.edit');
+    Route::post('admission-form/{id}/update', [AdmissionController::class, 'update'])->name('admission_form.update');
+    Route::get('admission-form/{id}/delete', [AdmissionController::class, 'destroy'])->name('admission_form.destroy');
+    Route::get('admission-form/{id}/action/{action}', [AdmissionController::class, 'action'])->name('admission_form.action');
+
+
     Route::get('results_portal', function () {
         return 'Results Portal';
     })->name('results_portal');

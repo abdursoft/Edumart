@@ -5,19 +5,28 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\Admission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 
 class AdmissionController extends Controller
 {
     // List all admissions
-    public function index()
+    public function index($id = null)
     {
-        return Admission::orderBy('created_at', 'desc')->get();
+        $applications = Admission::latest()->get();
+        $application  = null;
+        if ($id) {
+            $application = Admission::findOrFail($id);
+        }
+        return view(backend('pages.admission'), compact('applications', 'application'));
     }
 
     // Store a new admission
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'token' => 'required|string|unique:admissions,token',
             'student_id' => 'required|string',
             'name_bangla' => 'required|string',
@@ -69,15 +78,58 @@ class AdmissionController extends Controller
             'photo' => 'nullable|string',
         ]);
 
-        $admission = Admission::create($request->all());
+        $imageExts = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
+        $docExts = ['doc', 'pdf'];
 
-        return response()->json($admission, 201);
+        if ($request->hasFile('photo')) {
+            $filename = $request->file('photo')->getBasename();
+            $extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+
+
+            $isImage = in_array($extension, $imageExts);
+            $isDocs = in_array($extension, $docExts);
+
+
+            if ($isImage) {
+                $directory = 'admission/photo';
+                Storage::disk('public')->makeDirectory($directory);
+
+                $baseName = Str::uuid() . '_' . Str::slug(pathinfo($filename, PATHINFO_FILENAME));
+
+                $finalName = "{$baseName}.webp";
+                $finalPath = "{$directory}/{$finalName}";
+                $manager = new ImageManager(new Driver());
+                $manager->read($request->file('photo'))
+                    ->toWebp(85)
+                    ->save(Storage::disk('public')->path($finalPath));
+                $validated['photo'] = $finalPath;
+            }
+
+            if($request->hasFile('documents')){
+                $filename = $request->file('documents')->getBasename();
+                $extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+
+                $isDocs = in_array($extension, $docExts);
+
+                if($isDocs){
+                    $path = Storage::disk('public')->put('admission/docs',$request->file('documents'));
+                    $validated['documents'] = $path;
+                }
+            }
+        }
+
+        $admission = Admission::create($validated);
+
+        if($request->acceptsJson()){
+            return response()->json($admission, 201);
+        }
+        return redirect()->route('admin.public.admission_form')->with('success', 'Admission created successfully');
     }
 
     // Show a single admission
-    public function show(Admission $admission)
+    public function show($id)
     {
-        return $admission;
+        return Admission::findOrFail($id);
     }
 
     // Update an admission
@@ -92,5 +144,12 @@ class AdmissionController extends Controller
     {
         $admission->delete();
         return response()->json(null, 204);
+    }
+
+    /**
+     * New student admission
+     */
+    public function newAdmission(Request $request){
+        return view(theme('pages.admission'));
     }
 }

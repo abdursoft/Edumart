@@ -235,6 +235,16 @@ if (! function_exists('icons')) {
     }
 }
 
+
+/**
+ * Get localization text
+ */
+if(!function_exists('text')){
+    function text($key){
+        return __(strtoupper(app()->getLocale()).'.'.$key);
+    }
+}
+
 /**
  * CGPA calculations
  */

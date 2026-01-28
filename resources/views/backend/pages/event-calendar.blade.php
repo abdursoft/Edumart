@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'News and Notice management')
+@section('title', 'Event management')
 
 @section('content')
     <div class="w-full flex items-start flex-col lg:flex-row gap-3">

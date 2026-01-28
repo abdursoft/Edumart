@@ -37,7 +37,7 @@ const MENUS = [
             "committees" => "Committees",
             "guardians" => "Guardians",
             "students" => "Students",
-            "profiles" => "Profiles",
+            // "profiles" => "Profiles",
         ],
 
         // Academic Structure
@@ -55,7 +55,7 @@ const MENUS = [
         "activities" => [
             "attendance" => "Attendance",
             "assignments" => "Assignments",
-            "lesson_plan" => "Lesson Plans",
+            // "lesson_plan" => "Lesson Plans",
         ],
 
         //  Evaluation & Examination
@@ -107,10 +107,10 @@ const MENUS = [
             "heads" => "Expense Heads",
             "cost" => "Expenses",
         ],
-        "salary" => [
-            "payroll" => "Payroll",
-            "salary_sheet" => "Salary Sheet",
-        ],
+        // "salary" => [
+        //     "payroll" => "Payroll",
+        //     "salary_sheet" => "Salary Sheet",
+        // ],
     ],
 
     // Communication & Collaboration
