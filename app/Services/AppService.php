@@ -414,7 +414,7 @@ if (! function_exists('loadDataTable')) {
                     responsive: true,
                     dom: 'Bfrtip',
                     layout: {
-                        topStart: 'buttons' // This tells DataTables where to put the buttons
+                        topStart: 'buttons'
                     },
                     buttons: [{
                             extend: 'copy',
@@ -500,7 +500,7 @@ if (! function_exists('loadDataTable')) {
                     pageLength: 10,
                     order: [
                         [0, 'desc']
-                    ], // Sort by newest first
+                    ],
                 });
             });
         </script>

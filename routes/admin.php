@@ -49,6 +49,7 @@ use App\Http\Controllers\Api\V1\GalleryContentController;
 use App\Http\Controllers\Api\V1\GalleryController;
 use App\Http\Controllers\Api\V1\GroupController;
 use App\Http\Controllers\Api\V1\MediaController;
+use App\Http\Controllers\Api\V1\Report\StudentReportController;
 use App\Http\Controllers\Api\V1\SectionController;
 use App\Http\Controllers\Api\V1\StudentFeeController;
 use Illuminate\Support\Facades\Route;
@@ -396,9 +397,9 @@ Route::prefix('communication')->name('communication.')->group(function () {
 
 // Reports
 Route::prefix('reports')->name('reports.')->group(function () {
-    Route::get('student_reports', function () {
-        return 'Student Reports';
-    })->name('student_reports');
+    // student report routes 
+    Route::get('student_reports', [StudentReportController::class, 'studentReport'])->name('student_reports');
+
     Route::get('attendance_reports', function () {
         return 'Attendance Reports';
     })->name('attendance_reports');

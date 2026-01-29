@@ -1,0 +1,53 @@
+@section('styles')
+    {{ tableStyle() }}
+@endSection
+
+<!-- Container -->
+<div class="w-full text-slate-800">
+    <h2 class="text-xl md:text-2xl mt-5 font-semibold">Exam Fees List</h2>
+
+    <!-- Card -->
+    <div id="recipients" class="w-full p-4 mt-2 lg:mt-0 rounded shadow bg-white overflow-x-auto max-w-screen">
+        <table id="{{ $tableID }}" class="stripe hover w-full"
+            style="width:100%; padding-top: 1em; padding-bottom: 1em;">
+            <thead>
+                <tr>
+                    @foreach ($columns as $column)
+                        <th @if (isset($column['priority'])) data-priority="{{ $column['priority'] }}" @endif
+                            class="{{ $column['class'] ?? '' }}">
+                            {{ $column['title'] }}
+                        </th>
+                    @endforeach
+                </tr>
+        </table>
+    </div>
+    <!-- /Card -->
+</div>
+<!-- /Container -->
+
+@push('scripts')
+    <!-- Datatables -->
+    {{ tableScript() }}
+    <script>
+        let commonExportOptions = {
+            columns: ':visible:not(.no-export)'
+        };
+
+        const data = @json($columns);
+        console.log(data)
+
+        $(document).ready(function() {
+            const columns = @json($columns);
+            $('#{{ $tableID }}').DataTable({
+                responsive: true,
+                serverSide: true,
+                processing: true,
+                ajax: {
+                    url: "{{ route($ajaxRoute) }}",
+                    method: 'get'
+                },
+                columns: data
+            });
+        });
+    </script>
+@endpush
