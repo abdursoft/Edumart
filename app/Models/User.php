@@ -116,4 +116,11 @@ class User extends Authenticatable
         return $this->hasMany(StudentFee::class, 'student_id');
     }
 
+    /***
+     * Relation with Attendance table
+     */
+    public function attendance(){
+        return $this->hasMany(Attendance::class, 'student_id');
+    }
+
 }

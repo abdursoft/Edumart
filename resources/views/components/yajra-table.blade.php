@@ -34,17 +34,22 @@
         };
 
         const data = @json($columns);
-        console.log(data)
 
         $(document).ready(function() {
             const columns = @json($columns);
-            $('#{{ $tableID }}').DataTable({
+            window.dataTables = window.dataTables || {};
+            window.dataTables['{{ $tableID }}'] = $('#{{ $tableID }}').DataTable({
                 responsive: true,
                 serverSide: true,
                 processing: true,
                 ajax: {
                     url: "{{ route($ajaxRoute) }}",
-                    method: 'get'
+                    method: 'get',
+                    data: (payload) => {
+                        @foreach($searchKey as $key)
+                            payload[`{{$key}}`] = $(`#{{$key}}`).val();
+                        @endforeach
+                    }
                 },
                 columns: data
             });

@@ -15,6 +15,7 @@ class YajraTable extends Component
         public $ajaxRoute,
         public $columns,
         public $tableID='yajraTable',
+        public $searchKey=['startDate','endDate','keyword']
     )
     {
         //
