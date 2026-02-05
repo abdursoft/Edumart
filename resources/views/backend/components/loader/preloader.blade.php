@@ -18,7 +18,8 @@
   }
 </style>
 
-
+@push('scripts')
+<!-- loader scripts -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const loader = document.getElementById("loader");
@@ -31,3 +32,4 @@
     }, 500); // same 500ms as your Alpine version
   });
 </script>
+@endpush

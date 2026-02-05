@@ -46,6 +46,7 @@ class SiteSettingController extends Controller
             'footer_color'   => 'nullable',
             'navbar_color'   => 'nullable',
             'sidebar_color'  => 'nullable',
+            'text_color'     => 'nullable',
             'maintenance'    => 'nullable|in:active,inactive',
         ]);
 
@@ -78,6 +79,7 @@ class SiteSettingController extends Controller
         $settings->code           = $request->code;
         $settings->gov_id         = $request->gov_id;
         $settings->name_bn        = $request->name_bn;
+        $settings->text_color     = $request->text_color;
         $settings->header_color   = $request->header_color;
         $settings->navbar_color   = $request->navbar_color;
         $settings->sidebar_color  = $request->sidebar_color;

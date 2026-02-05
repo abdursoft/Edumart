@@ -63,7 +63,7 @@
 
 <script>
     const marksheet = "{{$exam_marksheet_id}}";
-    $(document).ready(function(){
+    document.addEventListener('DOMContentLoaded', function () {
         $("#subject_id").on('change', function(){
             const subject = $(this).val();
             fetchAttributes(subject);

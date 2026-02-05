@@ -1,10 +1,10 @@
 /*!
  * jquery.smartmarquee
- * 
+ *
  * Copyright 2014 stemizer.net ~ nestisamet<a>gmail<d>com
  * Licensed under the MIT license
  * http://opensource.org/licenses/mit
- * 
+ *
  * @author Samet TEMIZER
  * @version 1.0
  */
@@ -12,9 +12,9 @@
 $.fn.smartmarquee = function(vars) {
 	var defaults = {
 	    duration: 1000,      // animate duration
-	    loop : true,         
+	    loop : true,
 	    interval : 2000,     // interval duration
-	    axis : "vertical", 
+	    axis : "vertical",
 	    easing : "linear"    // (next ver)
 	};
 	var options = $.extend(defaults, vars);

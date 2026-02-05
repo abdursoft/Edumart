@@ -1,4 +1,4 @@
-// editor image handler 
+// editor image handler
 function selectLocalImage() {
     const input = document.createElement('input');
     input.setAttribute('type', 'file');
@@ -13,7 +13,7 @@ function selectLocalImage() {
     };
 }
 
-// editor image upload 
+// editor image upload
 function uploadImage(file) {
     let formData = new FormData();
     formData.append('image', file);
@@ -32,8 +32,3 @@ function uploadImage(file) {
     .catch(err => console.error(err));
 }
 
-// insert image into input field 
-function insertToEditor(url) {
-    const range = {{$name}}.getSelection();
-    {{$name}}.insertEmbed(range.index, 'image', url);
-}

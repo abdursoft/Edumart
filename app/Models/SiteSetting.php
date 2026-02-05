@@ -27,6 +27,7 @@ class SiteSetting extends Model
         'name_bn',
         'establish_date',
         'header_color', 'navbar_color', 'footer_color', 'sidebar_color', 'auth_bg_image', 'set_timezone',
+        'text_color'
     ];
 
     protected $casts = [

@@ -41,8 +41,8 @@
 <!--/container-->
 
 
-@section('scripts')
+@push('scripts')
 	<!--Datatables -->
-	{{ tableScript() }}
+	{{-- {{ tableScript() }} --}}
 	{{ loadDataTable('example')}}
-@endsection
+@endpush

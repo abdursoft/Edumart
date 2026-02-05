@@ -11,3 +11,79 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+
+/* Tailwind styling for DataTables pagination */
+.tableBottom{
+    @apply flex items-center justify-between gap-2 mt-3;
+}
+.tableBottom .dt-paging>nav{
+    @apply flex items-center gap-2 justify-end;
+}
+.dt-paging-button{
+    @apply bg-gray-400 text-black py-1 px-3 transition-all flex items-center justify-center cursor-pointer;
+}
+.dt-paging-button:hover{
+    @apply bg-slate-800 text-white rounded-md;
+}
+.dt-paging-button.current{
+    @apply bg-gray-800 text-white py-1 px-3 rounded-md;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    @apply px-3 py-1 mx-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    @apply bg-blue-500 text-white;
+}
+
+.tableTop{
+    @apply mb-3 flex items-center justify-between gap-4;
+}
+.tableTop .dt-search{
+    @apply h-[46px] flex items-center gap-1;
+}
+.tableTop .dt-search input{
+    @apply border-[0.5px] border-gray-300 rounded-md focus:outline-0 px-1 py-2;
+}
+/* Optional: table entries select & search input */
+.dataTables_wrapper .dataTables_length select,
+.dataTables_wrapper .dataTables_filter input {
+    @apply border border-gray-300 rounded px-2 py-1;
+}
+
+.select2-container .select2-selection--single{
+    @apply !h-[38px];
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    line-height: 38px !important;
+}
+
+
+/* calender  */
+#userCalender .fc-header-toolbar.fc-toolbar {
+    @apply !hidden;
+}
+
+#userCalender .fc-view-harness.fc-view-harness-active{
+    @apply min-h-[350px];
+}
+#userCalender .fc-view-harness.fc-view-harness-active .fc-col-header-cell.fc-day.fc-col-header-cell-cushion{
+    @apply text-sm md:text-base font-semibold;
+}
+
+.tns-outer, .tns-item {
+    @apply min-h-[65vh];
+}
+
+.smartmarquee{
+    @apply min-h-[150px];
+}
+
+.dt-container{
+    @apply !w-[100%];
+}
+.dt-type-numeric{
+    text-align: left !important;
+}

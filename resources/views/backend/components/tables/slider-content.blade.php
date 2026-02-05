@@ -29,7 +29,7 @@
                         <td>
                             <div class="flex items-center gap-3">
                                 <a href="{{ route('admin.media.slider.content',['slider' => $slider->id, 'id' => $content->id]) }}" class="py-1 px-4 rounded-[15px] shadow-md bg-green-600 text-white hover:bg-green-800 transition">Edit</a>
-                                <a href="{{ route('admin.media.slider.delete',$content->id) }}" class="py-1 px-4 bg-red-600 text-white rounded-[15px] shadow-md hover:bg-red-800 transition">Delete</a>
+                                <a href="{{ route('admin.media.slider.content.delete',['id' => $content->id, 'slider' => $slider->id]) }}" class="py-1 px-4 bg-red-600 text-white rounded-[15px] shadow-md hover:bg-red-800 transition">Delete</a>
                                 <p @if($content->type == 'image') onclick="previewImage('{{Storage::url($content->media_url)}}')" @else onclick="previewVideo('{{Storage::url($content->media_url)}}')" @endif  class="py-1 px-4 bg-slate-600 text-white rounded-[15px] shadow-md hover:bg-slate-800 transition cursor-pointer">View</p>
                             </div>
                         </td>

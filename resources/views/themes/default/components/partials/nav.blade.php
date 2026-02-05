@@ -13,7 +13,7 @@
         @foreach($mainMenu?->items ?? [] as $item)
             <li class="relative group  class {{$item->is_active == 0 ? 'hidden' : ''}}">
                 <a href="{{ $item->attributes == 'page' ? (route('page', ['slug' => $item->url])) : $item->url }}" target="{{ $item->target ?? '_self' }}"
-                class="flex items-center text-white !text-sm !px-3 !py-2 rounded hover:bg-teal-700">
+                class="flex items-center text-slate-600 hover:text-white !text-sm !px-3 !py-2 rounded hover:bg-gray-500">
                     {{ $item->title }}
                     @if($item->children->count())
                         <i class="ri-arrow-drop-down-fill ml-1"></i>
@@ -21,11 +21,11 @@
                 </a>
 
                 @if($item->children->count())
-                    <ul class="absolute left-0 mt-4 w-44 bg-teal-600 rounded-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 z-50">
+                    <ul class="absolute left-0 mt-4 w-44 bg-gray-600 rounded-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 z-50">
                         @foreach($item->children as $child)
                             <li class="{{$child->is_active == 0 ? 'hidden' : ''}}">
                                 <a href="{{ $child->attributes == 'page' ? route('page', ['slug' => $child->url]) : $child->url }}" target="{{ $child->target ?? '_self' }}"
-                                class="block !px-3 !py-2 text-white !text-sm hover:bg-teal-700">
+                                class="block !px-3 !py-2 text-white !text-sm hover:bg-gray-700">
                                     {{ $child->title }}
                                 </a>
                             </li>

@@ -1,3 +1,4 @@
+// class clock timer 
 class ClassTimeRangeTimer {
     constructor(startTime, endTime, displayEl, progressEl, bellEl, options = {}) {
         this.startTime = startTime; // "HH:MM:SS"

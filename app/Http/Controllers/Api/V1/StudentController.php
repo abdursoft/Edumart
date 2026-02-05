@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 
@@ -176,6 +177,34 @@ class StudentController extends Controller
             $student->user->password = Hash::make($request->password);
             $student->user->save();
         }
+
+        if($request->hasFile('avatar')){
+                $file = $request->file('avatar');
+
+                $dir = public_path('uploads');
+
+                if (!File::exists($dir)) {
+                    File::makeDirectory($dir, 0755, true);
+                }
+
+                $filename = uniqid() . '.webp';
+                $path = public_path('uploads/' . $filename);
+
+                $manager = new ImageManager(new Driver());
+
+                $manager->read($file)
+                    ->resize(1200, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    })
+                    ->toWebp(80)
+                    ->save($path);
+                $validated['avatar'] = 'uploads/' . $filename;
+
+                if(!empty($student->avatar) && Storage::disk('public')->exists($student->avatar)){
+                    Storage::disk('public')->delete($student->avatar);
+                }
+            }
 
         $student->update($validated);
 

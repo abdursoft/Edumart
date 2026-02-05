@@ -95,7 +95,7 @@
 
 
 <script>
-    $(document).ready(function(){
+    document.addEventListener('DOMContentLoaded', function () {
         $("#from_class_id").change(function(){
             var class_id = $(this).val();
             $.ajax({
@@ -116,7 +116,7 @@
 @if($promotion)
 
 <script>
-    $(document).ready(function(){
+    document.addEventListener('DOMContentLoaded', function () {
         const class_id = {{ $promotion->from_class_id }};
         const student_id = {{ $promotion->student_id }};
         $.ajax({

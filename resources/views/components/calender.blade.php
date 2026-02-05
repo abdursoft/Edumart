@@ -1,4 +1,5 @@
 <div id="{{$container}}"></div>
+@push('scripts')
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('{{$container}}');
@@ -10,3 +11,4 @@
     calendar.render();
   });
 </script>
+@endpush

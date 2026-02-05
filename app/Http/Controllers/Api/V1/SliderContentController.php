@@ -30,18 +30,18 @@ class SliderContentController extends Controller
             'slider_id'   => 'required|exists:sliders,id',
             'title'       => 'required|string',
             'description' => 'nullable|string',
-            'media_url'   => 'required|file|mimes:jpeg,jpg,png,mp4,webm,webp',
+            'media_file'  => 'required|file|mimes:jpeg,jpg,png,mp4,webm,webp',
             'order'       => 'nullable|integer|min:0',
             'status'      => 'required|in:active,inactive',
         ]);
 
-        $extension = $request->file('media_url')->getMimeType();
+        $extension = $request->file('media_file')->getMimeType();
 
         $video = ['mp4','webm'];
         $image = ['png','jpg','jpeg','webp'];
         $type  = in_array($extension, $video) ? 'video' : (in_array($extension, $image) ? 'image' : 'image');
         $validated['type'] = $type;
-        $validated['media_url'] = Storage::disk('public')->put('slider-content', $request->file('media_url'));
+        $validated['media_url'] = Storage::disk('public')->put('slider-content', $request->file('media_file'));
 
         SliderContent::create($validated);
 
@@ -63,33 +63,42 @@ class SliderContentController extends Controller
             'slider_id'   => 'sometimes|required|exists:sliders,id',
             'title'       => 'nullable|string',
             'description' => 'nullable|string',
-            'media_url'   => 'sometimes|required|file|mimes:jpeg,jpg,webp,png,mp4,webm',
+            'media_file'  => 'sometimes|required|file|mimes:jpeg,jpg,webp,png,mp4,webm',
             'type'        => 'nullable|in:image,video',
             'order'       => 'nullable|integer|min:0',
             'status'      => 'nullable|in:active,inactive',
         ]);
 
-        if($request->hasFile('media_url')){
-            $extension = $request->file('media_url')->getMimeType() ?? null;
+        if($request->hasFile('media_file')){
+            $extension = $request->file('media_file')->getMimeType() ?? null;
             $video = ['mp4','webm'];
             $image = ['png','jpg','jpeg','webp'];
             $type  = in_array($extension, $video) ? 'video' : (in_array($extension, $image) ? 'image' : 'image');
             $validated['type'] = $type;
-            $validated['media_url'] = Storage::disk('public')->put('slider-content', $request->file('media_url'));
+            $validated['media_url'] = Storage::disk('public')->put('slider-content', $request->file('media_file'));
         }
 
         $sliderContent = SliderContent::findOrFail($id);
+        if($validated['media_url']){
+            if(Storage::disk('public')->exists($sliderContent->media_url)){
+                Storage::disk('public')->delete($sliderContent->media_url);
+            }
+        }
         $sliderContent->update($validated);
 
-        return response()->json($sliderContent);
+        return redirect()->route('admin.media.slider.content', ['slider' => $sliderContent->slider_id])->with('success', 'Slider content updated successfully');
     }
 
     // Delete a slider content (soft delete)
-    public function destroy(SliderContent $sliderContent)
+    public function destroy($id, $slider)
     {
+        $sliderContent = SliderContent::findOrFail($id);
+        if(Storage::fileExists($sliderContent->media_url)){
+            Storage::disk('public')->delete($sliderContent->media_url);
+        }
         $sliderContent->delete();
 
-        return response()->json(null, 204);
+        return redirect()->route('admin.media.slider.content', ['slider' => $slider])->with('success', 'Slider content deleted successfully');
     }
 
     // Restore a soft-deleted slider content

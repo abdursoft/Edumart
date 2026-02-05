@@ -56,6 +56,7 @@
 </form>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
     $("#exam_id").on('change', function(event){
         const id = event.target.value;
         $.ajax({
@@ -87,4 +88,5 @@
             }
         })
     @endif
+    });
 </script>

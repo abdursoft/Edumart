@@ -18,6 +18,7 @@
         "phpmailer/phpmailer": "^7.0",
         "spatie/laravel-permission": "^6.24",
         "twilio/sdk": "^8.10",
+        "yajra/laravel-datatables-export": "12.0",
         "yajra/laravel-datatables-oracle": "^12.6"
     },
     "require-dev": {
@@ -25,6 +26,7 @@
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.24",
         "laravel/sail": "^1.41",
+        "laravel/ui": "^4.6",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
         "phpunit/phpunit": "^11.5.3"

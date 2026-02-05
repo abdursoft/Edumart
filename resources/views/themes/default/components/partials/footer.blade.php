@@ -58,6 +58,6 @@
     <div class="flex flex-col items-center lg:flex-row justify-center lg:justify-between py-1 md:py-3 px-3">
         <h4 class="copyText">{{ ('copy') }} ©
             {{ date('Y') . ' ' . (session('lang') == 'bn' ? site()->name_bn : site()->site_name) }} </h4>
-        <a class="hover:text-red-500 text-sm text-red-600" href="https://abdursoft.com">Developed by abdursoft</a>
+        <a class="hover:text-red-500 text-sm text-red-600" href="https://abdursoft.com" target="_blank">Developed by abdursoft</a>
     </div>
 </footer>

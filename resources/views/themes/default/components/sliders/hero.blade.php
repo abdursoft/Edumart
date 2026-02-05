@@ -17,16 +17,19 @@
 
 @section('scripts')
     <script>
-        $(document).ready(function() {
-            $(".owl-carousel").owlCarousel({
-            animateOut: "fadeOut",
-            items: 1,
-            margin: 0,
-            smartSpeed: 600,
-            autoplay: true,
-            loop: true,
-            autoplayHoverPause: true,
-            dots: false,
+        document.addEventListener('DOMContentLoaded', function() {
+            tns({
+                container: '.owl-carousel',
+                animateOut: "fadeOut",
+                items: 1,
+                margin: 0,
+                controls: false,
+                smartSpeed: 600,
+                autoplay: true,
+                loop: true,
+                autoplayHoverPause: true,
+                autoplayButtonOutput: false,
+                dots: false,
             });
         });
     </script>

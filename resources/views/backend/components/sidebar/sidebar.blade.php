@@ -83,6 +83,7 @@
 
 </aside>
 
+@push('scripts')
 <!-- Sidebar JS -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -130,3 +131,4 @@
         });
     });
 </script>
+@endpush

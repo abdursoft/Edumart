@@ -12,36 +12,15 @@
       @yield('title')
     </title>
 
-    {{-- jquery and sweet assets  --}}
-    <script src="{{ theme_asset('js/jquery.js') }}"></script>
-    <script src="{{ theme_asset('js/sweet.js') }}"></script>
-    <link rel="stylesheet" href="{{ theme_asset('css/sweet.css') }}">
-
-    {{-- load jquery UI & select2  --}}
-    <link rel="stylesheet" href="{{asset('ui/jquery-ui.min.css')}}">
-    <link href="{{asset('ui/select2.min.css')}}" rel="stylesheet" />
-    <script src="{{asset('ui/jquery-ui.min.js')}}"></script>
-    <script src="{{asset('ui/select2.min.js')}}"></script>
-    <script src="{{asset('ui/sorted.min.js')}}"></script>
-
     {{-- Vite assets --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     {{-- custom override js and css  --}}
-    <script src="{{asset('ui/admin.js')}}"></script>
     <link href="{{asset('ui/admin.css')}}" rel="stylesheet">
-
-    {{-- load customized css  --}}
-    <link rel="stylesheet" href="{{asset('themes/backend/css/select2.css')}}">
 
     {{-- editor assets  --}}
     <link rel="stylesheet" href="{{asset('ui/editor/quil.css')}}">
     <link rel="stylesheet" href="{{asset('ui/editor/table.css')}}">
-    <script src="{{asset('ui/editor/quil.js')}}"></script>
-    <script src="{{asset('ui/editor/table.js')}}"></script>
-
-    {{-- load iconify icons  --}}
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
     {{-- load custom css  --}}
     @yield('styles')
@@ -81,9 +60,16 @@
     </div>
     <!-- ===== Page Wrapper End ===== -->
 
+    {{-- <script src="{{asset('ui/editor/quil.js')}}"></script> --}}
+    {{-- <script src="{{asset('ui/editor/table.js')}}"></script> --}}
+
+    {{-- load iconify icons  --}}
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    {{-- custom override js and css  --}}
+    <script src="{{asset('ui/admin.js')}}"></script>
     {{-- load custom js  --}}
     @yield('scripts')
-    <!-- Scripts -->
+    <!-- Push Scripts -->
     @stack('scripts')
   </body>
 </html>

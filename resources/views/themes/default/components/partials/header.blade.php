@@ -14,18 +14,18 @@
                 <a href="/invoice" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="fluent-emoji-high-contrast:e-mail" width="24" height="24"></iconify-icon> Webmail</a>
             </div>
         </div>
-        <div class="w-full flex items-center justify-between" style="background: {{site()->header_color ?? 'oklch(0.4 0.06 188.43)'}};">
+        <div class="w-full flex items-center justify-between" style="background: {{site()->header_color ?? 'oklch(0.4 0.06 188.43)'}};color:{{site()->text_color ?? '#333'}}">
             <div class="mid-nav-item">
                 <a href="/"><img src="{{ Storage::url(site()->logo) }}"
                         alt="{{ site()->name ?? 'eduCraft' }}"></a>
             </div>
-            <div class="mid-nav-item text-gray-200">
-                <h1 class="text-lg md:text-2xl lg:text-4xl font-semibold md:font-bold text-white">{{ session('lang') == 'bn' ? site()->name_bn : site()->site_name }}</h1>
+            <div class="mid-nav-item">
+                <h1 class="text-lg md:text-2xl lg:text-4xl font-semibold md:font-bold">{{ session('lang') == 'bn' ? site()->name_bn : site()->site_name }}</h1>
                 <p class="slogan">{{ session('lang') == 'bn' ? site()->slogan : site()->slogan_en }}</p>
                 <div class="collage_code">Institute Code : {{ site()->code }} | EIIN Code: {{ site()->gov_id }}
                 </div>
                 <div class="flex items-center justify-center gap-5">
-                    <small class="text-sm text-gray-200">{{ site()->thana->name. ', '. site()->district->name. ', '. site()->post}}</small>
+                    <small class="text-sm">{{ site()->thana->name. ', '. site()->district->name. ', '. site()->post}}</small>
                 </div>
             </div>
             <div class="mid-nav-item">

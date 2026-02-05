@@ -59,7 +59,7 @@
 </form>
 
 <script>
-    $(document).ready(function(){
+    document.addEventListener('DOMContentLoaded', function () {
         $("#student_fee_id").on('change', function(event){
             const id = event.target.value;
             $.ajax({

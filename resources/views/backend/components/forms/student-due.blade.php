@@ -67,11 +67,10 @@
 
 </form>
 
-
 {{-- {!!$student!!} --}}
 @if ($fee)
     <script>
-        $(document).ready(function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const class_id = "{{$fee->edu_class_id}}";
             const section_id = "{{$fee->edu_section_id}}";
             const group_id = "{{$fee->edu_group_id}}";
@@ -108,7 +107,7 @@
 @endif
 
 <script>
-    $(document).ready(function() {
+    document.addEventListener('DOMContentLoaded', function () {
         $("#edu_class_id").on('change', (element) => {
             const id = element.target.value;
             const url = `/admin/sections/${id}`;

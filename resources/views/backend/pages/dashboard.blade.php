@@ -8,7 +8,7 @@
     @include(backend('components.cards.stats'))
 
     {{-- chart  --}}
-    <div id="wrapper" class="min-h-screen">
+    <div id="wrapper" class="min-h-[60vh]">
         <div class="content-area w-full">
             <div class="w-full">
 

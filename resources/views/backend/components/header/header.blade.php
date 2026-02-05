@@ -78,6 +78,7 @@
         class="w-full rounded-lg border border-gray-300 bg-gray-50 py-2 pl-4 pr-4 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-gray-600" />
 </div>
 
+@push('scripts')
 <script>
     // Toggle dropdowns and mobile menu
     document.getElementById('notify-btn').addEventListener('click', () => {
@@ -104,9 +105,7 @@
         if (!e.target.closest('#notify-btn')) notify.classList.add('hidden');
         if (!e.target.closest('#profile-btn')) profile.classList.add('hidden');
     });
-</script>
 
-<script>
     let toggleEvent = false;
     // Sidebar toggle for mobile
     const sidebar = document.getElementById("sidebar");
@@ -137,3 +136,4 @@
         });
     });
 </script>
+@endpush

@@ -17,6 +17,10 @@
     background: #90caf9;
 }
 
+.sorting_1{
+    text-align: left !important;
+}
+
 iconify-icon{
     display: flex;
     align-items: center;

@@ -1,9 +1,9 @@
 <?php
 
-/**
+    /**
  * Get site settings
  */
-if (! function_exists('site')) {
+    if (! function_exists('site')) {
     function site($key = null)
     {
         $settings = \App\Models\SiteSetting::first();
@@ -18,22 +18,22 @@ if (! function_exists('site')) {
 
         return $settings;
     }
-}
+    }
 
-/**
+    /**
  * get signin profile
  */
-if (! function_exists('profile')) {
+    if (! function_exists('profile')) {
     function profile()
     {
         return auth('web')->user();
     }
-}
+    }
 
-/**
+    /**
  * Check the user is permitted for the action
  */
-if (! function_exists('permitted')) {
+    if (! function_exists('permitted')) {
     /**
      * @param $permission name of the actions | permissions
      */
@@ -45,12 +45,12 @@ if (! function_exists('permitted')) {
         }
         return $action;
     }
-}
+    }
 
-/**
+    /**
  * Checking the role
  */
-if (! function_exists('isRole')) {
+    if (! function_exists('isRole')) {
     /**
      * @param $role name of the user role
      */
@@ -58,12 +58,12 @@ if (! function_exists('isRole')) {
     {
         return profile()->hasRole($role);
     }
-}
+    }
 
-/**
+    /**
  * Check class is running or not
  */
-if (! function_exists('classRunning')) {
+    if (! function_exists('classRunning')) {
     /**
      * @param $date class date
      * @param $start class start time
@@ -80,12 +80,12 @@ if (! function_exists('classRunning')) {
 
         return $now->between($startTime, $endTime);
     }
-}
+    }
 
-/**
+    /**
  * Get sms configurations
  */
-if (! function_exists('smsAttributes')) {
+    if (! function_exists('smsAttributes')) {
     /**
      * @param $keyword sms method keyword
      * @param $key attribute key
@@ -98,12 +98,12 @@ if (! function_exists('smsAttributes')) {
             return $attributes[$key] ?? '';
         }
     }
-}
+    }
 
-/**
+    /**
  * Get user type and id
  */
-if (! function_exists('getUsers')) {
+    if (! function_exists('getUsers')) {
     /**
      *@param $type get users by type
      *@param $id get users by type and id
@@ -115,12 +115,12 @@ if (! function_exists('getUsers')) {
         }
         return \App\Models\User::where('role', $type)->get();
     }
-}
+    }
 
-/**
+    /**
  * Get divisions
  */
-if (! function_exists('division')) {
+    if (! function_exists('division')) {
     function division($id = null)
     {
         if ($id) {
@@ -128,12 +128,12 @@ if (! function_exists('division')) {
         }
         return \App\Models\Division::all();
     }
-}
+    }
 
-/**
+    /**
  * Get district
  */
-if (! function_exists('district')) {
+    if (! function_exists('district')) {
     function district($id = null)
     {
         if ($id) {
@@ -141,12 +141,12 @@ if (! function_exists('district')) {
         }
         return \App\Models\District::all();
     }
-}
+    }
 
-/**
+    /**
  * Get thana
  */
-if (! function_exists('thana')) {
+    if (! function_exists('thana')) {
     function thana($id = null)
     {
         if ($id) {
@@ -154,12 +154,12 @@ if (! function_exists('thana')) {
         }
         return \App\Models\Thana::all();
     }
-}
+    }
 
-/**
+    /**
  * Get union
  */
-if (! function_exists('union')) {
+    if (! function_exists('union')) {
     function union($id = null)
     {
         if ($id) {
@@ -167,89 +167,90 @@ if (! function_exists('union')) {
         }
         return \App\Models\Union::all();
     }
-}
+    }
 
-/**
+    /**
  * Get an model
  */
-if (! function_exists('getModel')) {
+    if (! function_exists('getModel')) {
     function getModel($model, $id)
     {
         $class = "\\App\\Models\\$model";
         return $class::find($id) ?: (object) [];
     }
-}
+    }
 
-/**
+    /**
  * Get the theme path
  */
-if (! function_exists('theme')) {
+    if (! function_exists('theme')) {
     function theme($view)
     {
         $theme = site()->theme ?? config('app.theme', 'default');
         return "themes.$theme.$view";
     }
-}
+    }
 
-/**
+    /**
  * Get the backend path
  */
-if (! function_exists('backend')) {
+    if (! function_exists('backend')) {
     function backend($view)
     {
         return "backend.$view";
     }
-}
+    }
 
-/**
+    /**
  * Get the theme asset URL
  */
-if (! function_exists('theme_asset')) {
+    if (! function_exists('theme_asset')) {
     function theme_asset($path)
     {
         $theme = site()->theme ?? config('app.theme', 'default');
         return asset("themes/$theme/$path");
     }
-}
+    }
 
-/**
+    /**
  * Render board URLS
  */
-if (! function_exists('board_url')) {
+    if (! function_exists('board_url')) {
     function board_url($path = '')
     {
         $board_prefix = config('app.board_prefix', 'board');
         return url($board_prefix . '/' . ltrim($path, '/'));
     }
-}
+    }
 
-/**
+    /**
  * Iconify icons
  */
-if (! function_exists('icons')) {
+    if (! function_exists('icons')) {
     function icons($icon)
     {
         ob_start();
         echo ICONS[$icon] ?? '';
         return ob_get_clean();
     }
-}
+    }
 
-
-/**
+    /**
  * Get localization text
  */
-if(!function_exists('text')){
-    function text($key){
-        return __(strtoupper(app()->getLocale()).'.'.$key);
+    if (! function_exists('text')) {
+    function text($key)
+    {
+        return __(strtoupper(app()->getLocale()) . '.' . $key);
     }
-}
+    }
 
-/**
+    /**
  * CGPA calculations
  */
-if(!function_exists('cgpaGradePoint')){
-    function cgpaGradePoint($percentage) {
+    if (! function_exists('cgpaGradePoint')) {
+    function cgpaGradePoint($percentage)
+    {
         return match (true) {
             $percentage >= 80 => [4.00, 'A+'],
             $percentage >= 75 => [3.75, 'A'],
@@ -260,16 +261,17 @@ if(!function_exists('cgpaGradePoint')){
             $percentage >= 50 => [2.50, 'C+'],
             $percentage >= 45 => [2.25, 'C'],
             $percentage >= 40 => [2.00, 'D'],
-            default => ['0.00', 'F'],
+            default           => ['0.00', 'F'],
         };
     }
-}
+    }
 
-/**
+    /**
  * GPA calculations
  */
-if(!function_exists('gpaGradePoint')){
-    function gpaGradePoint($percentage) {
+    if (! function_exists('gpaGradePoint')) {
+    function gpaGradePoint($percentage)
+    {
         return match (true) {
             $percentage >= 80 => [5.00, 'A+'],
             $percentage >= 70 => [4.00, 'A'],
@@ -277,16 +279,17 @@ if(!function_exists('gpaGradePoint')){
             $percentage >= 50 => [3.00, 'B'],
             $percentage >= 40 => [2.00, 'C'],
             $percentage >= 33 => [1.00, 'D'],
-            default => ['0.00', 'F'],
+            default           => ['0.00', 'F'],
         };
     }
-}
+    }
 
-/**
+    /**
  * CGPA calculations
  */
-if(!function_exists('cgpaGradeLater')){
-    function cgpaGradeLater($percentage) {
+    if (! function_exists('cgpaGradeLater')) {
+    function cgpaGradeLater($percentage)
+    {
         return match (true) {
             $percentage >= 4.00 => 'A+',
             $percentage >= 3.75 => 'A',
@@ -297,37 +300,47 @@ if(!function_exists('cgpaGradeLater')){
             $percentage >= 2.50 => 'C+',
             $percentage >= 2.25 => 'C',
             $percentage >= 2.00 => 'D',
-            default => 'F',
+            default             => 'F',
         };
     }
-}
+    }
 
-/**
+    /**
  * GPA calculations
  */
-if(!function_exists('gpaGradeLater')){
-    function gpaGradeLater($percentage) {
+    if (! function_exists('gpaGradeLater')) {
+    function gpaGradeLater($percentage)
+    {
         return match (true) {
-            $percentage >= 5 => 'A+',
+            $percentage >= 5    => 'A+',
             $percentage >= 4.50 => 'A',
             $percentage >= 4.00 => 'A-',
             $percentage >= 3.50 => 'B',
             $percentage >= 3.00 => 'C',
             $percentage >= 2.00 => 'D',
-            default => 'F'
+            default             => 'F'
         };
     }
 }
 
 /**
+ * Render a slider
+ */
+if(!function_exists('slider')){
+    function slider($shortCode){
+        return \App\Models\Slider::where('shortcode', $shortCode)->first() ?? [];
+    }
+}
+
+    /**
  * Render meta contents
  */
-if (! function_exists('metaContent')) {
+    if (! function_exists('metaContent')) {
     function metaContent($title = null, $description = null, $image = null, $keywords = null)
     {
         ob_start();
         $keywords = '' . ($keywords ?? site()->meta_keywords ?? 'education, online courses, learning, e-learning, tutorials, classes, training, skills, knowledge, study, academic, professional development, certification, workshops, webinars, elearning platform, online education') . ' ';
-?>
+        ?>
         <meta name="description" content="<?php echo $description ?>" />
         <meta property="og:title" content="<?php echo $title ?>" />
         <meta property="og:description" content="<?php echo $description ?>" />
@@ -356,15 +369,15 @@ if (! function_exists('metaContent')) {
         <link rel="shortcut icon" href="<?php echo site()->fav_icon ?? '' ?>" type="image/x-icon">
     <?php
         echo ob_get_clean();
-    }
-}
+            }
+        }
 
-// table styles
-if (! function_exists('tableStyle')) {
-    function tableStyle()
-    {
-        ob_start();
-    ?>
+        // table styles
+        if (! function_exists('tableStyle')) {
+            function tableStyle()
+            {
+                ob_start();
+            ?>
         <link href="/ui/datatable.min.css" rel="stylesheet">
         <link href="/ui/responsive-datatable.min.css" rel="stylesheet">
         <!-- datatable css  -->
@@ -373,49 +386,49 @@ if (! function_exists('tableStyle')) {
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
     <?php
         echo ob_get_clean();
-    }
-}
+            }
+        }
 
-// table scripts
-if (! function_exists('tableScript')) {
-    function tableScript()
-    {
-        ob_start();
-    ?>
+        // table scripts
+        if (! function_exists('tableScript')) {
+            function tableScript()
+            {
+                ob_start();
+            ?>
         <!-- Table scripts -->
-        <script src="/ui/datatable.min.js"></script>
+        <!-- <script src="/ui/datatable.min.js"></script>
         <script src="/ui/responsive-datatable.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script> -->
 
         <!-- Required for Excel/PDF -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script> -->
     <?php
         echo ob_get_clean();
-    }
-}
+            }
+        }
 
-// load datatable
-if (! function_exists('loadDataTable')) {
-    function loadDataTable($tableId)
-    {
-        ob_start();
-    ?>
+        // load datatable
+        if (! function_exists('loadDataTable')) {
+            function loadDataTable($tableId)
+            {
+                ob_start();
+            ?>
         <script>
             const commonExportOptions = {
                 columns: ':visible:not(.no-export)'
             };
 
-            $(document).ready(function() {
+            document.addEventListener('DOMContentLoaded', () => {
                 $('#<?php echo $tableId ?>').DataTable({
                     responsive: true,
-                    dom: 'Bfrtip',
                     layout: {
                         topStart: 'buttons'
                     },
+                    dom: '<"tableTop"Bf>tr<"tableBottom"ip>',
                     buttons: [{
                             extend: 'copy',
                             exportOptions: commonExportOptions
@@ -437,26 +450,15 @@ if (! function_exists('loadDataTable')) {
                             exportOptions: commonExportOptions,
                             customize: function(xlsx) {
                                 const sheet = xlsx.xl.worksheets['sheet1.xml'];
-
-                                // Insert rows before table
                                 const rows = `
-                                    <row r="1">
-                                        <c t="inlineStr" r="A1"><is><t>ABC Institute of Technology</t></is></c>
-                                    </row>
-                                    <row r="2">
-                                        <c t="inlineStr" r="A2"><is><t>Dhaka, Bangladesh</t></is></c>
-                                    </row>
-                                    <row r="3">
-                                        <c t="inlineStr" r="A3"><is><t>Mark Sheet – Final Exam 2025</t></is></c>
-                                    </row>
-                                `;
-
+                                <row r="1"><c t="inlineStr" r="A1"><is><t>ABC Institute of Technology</t></is></c></row>
+                                <row r="2"><c t="inlineStr" r="A2"><is><t>Dhaka, Bangladesh</t></is></c></row>
+                                <row r="3"><c t="inlineStr" r="A3"><is><t>Mark Sheet – Final Exam 2025</t></is></c></row>`;
                                 sheet.childNodes[0].childNodes[1].innerHTML =
                                     rows + sheet.childNodes[0].childNodes[1].innerHTML;
                             }
                         },
                         {
-
                             extend: 'pdf',
                             text: 'PDF',
                             orientation: 'landscape',
@@ -467,7 +469,6 @@ if (! function_exists('loadDataTable')) {
                                 table.widths = Array(table.body[0].length).fill('*');
                                 doc.styles.tableHeader.alignment = 'center';
                                 doc.defaultStyle.alignment = 'center';
-
                                 doc.content.unshift({
                                     text: 'ABC Institute of Technology',
                                     style: 'header',
@@ -475,7 +476,7 @@ if (! function_exists('loadDataTable')) {
                                 }, {
                                     text: 'Dhaka, Bangladesh\nMark Sheet – Final Exam 2025\n\n',
                                     alignment: 'center'
-                                })
+                                });
                             }
                         },
                         {
@@ -484,13 +485,11 @@ if (! function_exists('loadDataTable')) {
                             customize: function(win) {
                                 $(win.document.body)
                                     .prepend(`
-                                        <div style="text-align:center; margin-bottom:20px;">
-                                            <h2>ABC Institute of Technology</h2>
-                                            <p>Dhaka, Bangladesh</p>
-                                            <p><strong>Mark Sheet – Final Exam 2025</strong></p>
-                                        </div>
-                                    `);
-
+                                    <div style="text-align:center; margin-bottom:20px;">
+                                    <h2>ABC Institute of Technology</h2>
+                                    <p>Dhaka, Bangladesh</p>
+                                    <p><strong>Mark Sheet – Final Exam 2025</strong></p>
+                                    </div>`);
                                 $(win.document.body).find('table')
                                     .addClass('compact')
                                     .css('font-size', '12px');
@@ -505,22 +504,22 @@ if (! function_exists('loadDataTable')) {
             });
         </script>
 <?php
-        echo ob_get_clean();
+    echo ob_get_clean();
     }
-}
+    }
 
-// editor scripts and style
-if (! function_exists('editorScript')) {
+    // editor scripts and style
+    if (! function_exists('editorScript')) {
     function editorScript($variable)
     {
         ob_start();
         echo "<script lang='javascript'>let $variable = null;</script>";
         echo ob_get_clean();
     }
-}
+    }
 
-// event render
-if (! function_exists('renderEvent')) {
+    // event render
+    if (! function_exists('renderEvent')) {
     function renderEvent($event)
     {
         if ($event == 'admin.information.notice_board') {
@@ -531,10 +530,10 @@ if (! function_exists('renderEvent')) {
             return 'news';
         }
     }
-}
+    }
 
-// route events
-if (! function_exists('getEvent')) {
+    // route events
+    if (! function_exists('getEvent')) {
     function getEvent($event)
     {
         if ($event === 'notice') {
@@ -545,12 +544,12 @@ if (! function_exists('getEvent')) {
             return 'news';
         }
     }
-}
+    }
 
-/**
+    /**
  * Create unique id
  */
-if (! function_exists('uniqueID')) {
+    if (! function_exists('uniqueID')) {
     function uniqueID($model, $column, $length = 16)
     {
         do {

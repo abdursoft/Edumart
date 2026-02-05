@@ -15,7 +15,7 @@
 
             [
                 'label' => 'Media File',
-                'name' => 'media_url',
+                'name' => 'media_file',
                 'type' => 'file',
                 // 'required' => true,
             ],

@@ -4,7 +4,7 @@
 
 <!-- Container -->
 <div class="w-full text-slate-800">
-    <h2 class="text-xl md:text-2xl mt-5 font-semibold">Exam Fees List</h2>
+    <h2 class="text-xl md:text-2xl mt-5 font-semibold">{{$title}}</h2>
 
     <!-- Card -->
     <div id="recipients" class="w-full p-4 mt-2 lg:mt-0 rounded shadow bg-white overflow-x-auto max-w-screen">
@@ -27,7 +27,6 @@
 
 @push('scripts')
     <!-- Datatables -->
-    {{ tableScript() }}
     <script>
         let commonExportOptions = {
             columns: ':visible:not(.no-export)'
@@ -35,19 +34,24 @@
 
         const data = @json($columns);
 
-        $(document).ready(function() {
+        document.addEventListener('DOMContentLoaded', () => {
             const columns = @json($columns);
             window.dataTables = window.dataTables || {};
             window.dataTables['{{ $tableID }}'] = $('#{{ $tableID }}').DataTable({
                 responsive: true,
                 serverSide: true,
                 processing: true,
+                dom:'<"flex justify-end"B>rt<"tableBottom"ip>',
                 ajax: {
                     url: "{{ route($ajaxRoute) }}",
                     method: 'get',
                     data: (payload) => {
                         @foreach($searchKey as $key)
-                            payload[`{{$key}}`] = $(`#{{$key}}`).val();
+                            if('{{$key}}' == 'keyword'){
+                                payload['search']['value'] = $(`#{{$key}}`).val();
+                            }else{
+                                payload[`{{$key}}`] = $(`#{{$key}}`).val();
+                            }
                         @endforeach
                     }
                 },

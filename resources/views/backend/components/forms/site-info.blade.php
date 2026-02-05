@@ -3,6 +3,8 @@
     enctype="multipart/form-data"
     method="POST">
 
+    <img src="{{Storage::url(site()->logo)}}" alt="" class="previewImg {{site()->logo != '' ? '' : 'hidden'}} w-[100px] h-[100px]">
+
     <x-fieldset title="Site Information">
 
         <x-input-form :fields="[
@@ -152,6 +154,11 @@
                 'type' => 'color',
             ],
             [
+                'label' => 'Header text color',
+                'name' => 'text_color',
+                'type' => 'color',
+            ],
+            [
                 'label' => 'Footer color',
                 'name' => 'footer_color',
                 'type' => 'color',
@@ -189,7 +196,7 @@
 {{-- {!!$site!!} --}}
 @if($site && $site->division_id)
 <script>
-    $(document).ready(function(){
+    document.addEventListener('DOMContentLoaded', function () {
         const division_id = "{{ $site->division_id }}";
         const district_id = "{{ $site->district_id }}";
         const thana_id = "{{ $site->thana_id }}";
@@ -237,7 +244,14 @@
 @endif
 
 <script>
-    $(document).ready(function(){
+    document.addEventListener('DOMContentLoaded', function () {
+
+        $("#logo").on('change', (e)=>{
+            const file = e.target.files[0];
+            $(".previewImg").prop('src', URL.createObjectURL(file));
+            $(".previewImg").removeClass('hidden');
+        })
+
         $("#division_id").on('change', (element) => {
             const id = element.target.value;
             const url = `/admin/address/division/${id}`;

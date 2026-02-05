@@ -14,6 +14,7 @@ class YajraTable extends Component
     public function __construct(
         public $ajaxRoute,
         public $columns,
+        public $title,
         public $tableID='yajraTable',
         public $searchKey=['startDate','endDate','keyword']
     )

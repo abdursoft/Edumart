@@ -48,25 +48,15 @@
             ['data' => 'reg_number', 'name' => 'reg_number', 'title' => 'Reg. Number', 'priority' => 3],
 
             ['data' => 'attendance', 'name' => 'attendance', 'title' => 'Attendance', 'priority' => 4, 'class' => 'no-export', 'orderable' => false, 'searchable' => false],
-            ['data' => 'created_at', 'name' => 'created_at', 'title' => 'Created at', 'priority' => 5],
-
-            [
-                'data' => 'action',
-                'name' => 'action',
-                'title' => 'Action',
-                'orderable' => false,
-                'searchable' => false,
-                'class' => 'no-export flex items-center gap-1',
-                'priority' => 6,
-            ],
-        ]" />
+            ['data' => 'created_at', 'name' => 'created_at', 'title' => 'Created at', 'priority' => 5]
+        ]" title="Student reports" />
 
     </div>
 @endsection
 
 @push('scripts')
     <script>
-        $(document).ready(function() {
+        document.addEventListener('DOMContentLoaded', () => {
             let tableReloadTimeout = null;
             $("#startDate, #endDate, #keyword").on('change keyup', function() {
                 clearTimeout(tableReloadTimeout);

@@ -50,13 +50,6 @@ class StudentReportController extends Controller
                     return '0.00%';
                 })
 
-                ->addColumn('action', function($row){
-                    $edit = route('admin.academic.activities.assignments.edit',$row->id);
-                    $delete = route('admin.academic.activities.assignments.delete',$row->id);
-                    return '<a href="'.$edit.'" class="py-1 px-2 rounded-[15px] shadow-md hover:bg-green-600 text-green-600 hover:text-white transition">'. icons('edit').'</a>
-                                <a href="'.$delete.'" class="py-1 px-2 text-red-600 rounded-[15px] shadow-md hover:bg-red-600 hover:text-white transition" onclick="return confirm(`Are you sure you want to delete this assignment`)">'. icons('delete') .'</a>';
-                })
-
                 ->filterColumn('class.name', function ($query, $keyword) {
                     $query->whereHas('eduClass', function ($q) use ($keyword) {
                         $q->where('name', 'like', "%{$keyword}%");
@@ -79,7 +72,6 @@ class StudentReportController extends Controller
                     $query->join('edu_classes', 'edu_classes.id', '=', 'student_profiles.edu_class_id')
                         ->orderBy('edu_classes.name', $order);
                 })
-                ->rawColumns(['action'])
                 ->make(true);
         }
         return view(backend('pages.reports.student'));

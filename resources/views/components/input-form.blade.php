@@ -121,39 +121,44 @@
                 @enderror
 
                 @if($type == 'select')
+                    @push('scripts')
                     <script>
-                        $(document).ready(function() {
+                        document.addEventListener('DOMContentLoaded', function () {
                             $('#{{$name}}').select2({
                                 placeholder: "Search a {{ucfirst($name)}}...",
                                 allowClear: true,
                                 width: '100%'
                             });
                         });
+
                     </script>
+                    @endpush
                 @endif
 
                 @if($type == 'date')
+                    @push('scripts')
                     <script>
-                        $(function() {
-                            $("#{{$name}}").datepicker({
-                            dateFormat: "yy-mm-dd",
-                            changeMonth: true,
-                            changeYear: true,
-                            yearRange: "1971:2050",
-                            showAnim: "fadeIn"
-                            });
+                        document.addEventListener('DOMContentLoaded', function () {
+                            if (window.flatpickr) {
+                                flatpickr('#{{$name}}', {
+                                    dateFormat: 'Y-m-d'
+                                });
+                            }
                         });
                     </script>
+                    @endpush
                 @endif
 
                 @if($type === 'color')
+                    @push('scripts')
                     <script>
-                        $(function() {
+                        document.addEventListener('DOMContentLoaded', function () {
                             $("#cl_render_{{$name}}").change(function(){
                                 $("#{{$name}}").val(this.value)
                             });
                         });
                     </script>
+                    @endpush
                 @endif
 
                 @if($type == 'textarea')
@@ -161,68 +166,70 @@
                     <div id="table-popup"
                         style="position:absolute; display:none; background:#fff; padding:10px; border:1px solid #ccc; border-radius:6px; z-index:9999;">
                     </div>
-
+                    @push('scripts')
                     <script>
-                        Quill.register({ 'modules/better-table': quillBetterTable }, true);
-
-                        {{$name}} = new Quill('#{{$name}}', {
-                            theme: 'snow',
-                            modules: {
-                                toolbar: {
-                                    container: [
-                                        [{ 'header': [1, 2, false] }],
-                                        ['bold', 'italic', 'underline'],
-                                        ['link', 'image'],
-                                        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                                        ['table'] // 👈 add table button here
-                                    ],
-                                    handlers: {
-                                        image: function () {
-                                            selectLocalImage();
-                                        },
-                                        table: function () {
-                                            tablePicker({{$name}});
-                                        },
-                                    }
-                                },
-
-                                'better-table': {
-                                    operationMenu: {
-                                        items: {
-                                            insertColumnLeft: true,
-                                            insertColumnRight: true,
-                                            insertRowAbove: false,
-                                            insertRowBelow: true,
-                                            removeRow: true,
-                                            removeColumn: true,
-                                            removeTable: true,
+                        document.addEventListener('DOMContentLoaded', function(){
+                            {{$name}} = new Quill('#{{$name}}', {
+                                theme: 'snow',
+                                modules: {
+                                    toolbar: {
+                                        container: [
+                                            [{ 'header': [1, 2, false] }],
+                                            ['bold', 'italic', 'underline'],
+                                            ['link', 'image'],
+                                            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                                            ['table'] // 👈 add table button here
+                                        ],
+                                        handlers: {
+                                            image: function () {
+                                                selectLocalImage();
+                                            },
+                                            table: function () {
+                                                const table = tablePicker(this.quill);
+                                                table.insertTable(3, 3); // rows, columns
+                                            },
                                         }
-                                    }
-                                },
-                            }
-                        });
+                                    },
 
-                        setTimeout(() => {
-                            const tableModule = {{$name}}.getModule('better-table');
-                            if (tableModule && tableModule._initTableListeners) {
-                                tableModule._initTableListeners(); // <-- enables resizing
-                            }
-                        }, 50);
+                                    'better-table': {
+                                        operationMenu: {
+                                            items: {
+                                                insertColumnLeft: true,
+                                                insertColumnRight: true,
+                                                insertRowAbove: false,
+                                                insertRowBelow: true,
+                                                removeRow: true,
+                                                removeColumn: true,
+                                                removeTable: true,
+                                            }
+                                        }
+                                    },
+                                }
+                            });
 
-                        quillContainer = {{$name}};
+                            setTimeout(() => {
+                                const tableModule = {{$name}}.getModule('better-table');
+                                if (tableModule && tableModule._initTableListeners) {
+                                    tableModule._initTableListeners(); // <-- enables resizing
+                                }
+                            }, 50);
 
-                        // Set the hidden input when typing
-                        {{$name}}.on('text-change', function() {
-                            document.getElementById("{{$name}}_input").value = {{$name}}.root.innerHTML;
-                        });
+                            quillContainer = {{$name}};
 
-                        @if($form)
-                            // Load previous HTML content into Quill editor
-                            {{$name}}.clipboard.dangerouslyPasteHTML(`{!! $value !!}`);
-                            // Also update hidden input
-                            document.getElementById("{{$name}}_input").value = `{!! $value !!}`;
-                        @endif
+                            // Set the hidden input when typing
+                            {{$name}}.on('text-change', function() {
+                                document.getElementById("{{$name}}_input").value = {{$name}}.root.innerHTML;
+                            });
+
+                            @if($form)
+                                // Load previous HTML content into Quill editor
+                                {{$name}}.clipboard.dangerouslyPasteHTML(`{!! $value !!}`);
+                                // Also update hidden input
+                                document.getElementById("{{$name}}_input").value = `{!! $value !!}`;
+                            @endif
+                        })
                     </script>
+                    @endpush
                 @endif
             </div>
         @endif

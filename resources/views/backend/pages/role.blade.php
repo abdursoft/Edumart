@@ -85,18 +85,6 @@
 @endSection
 
 
-@section('scripts')
-	<!--Datatables -->
-	{{ tableScript() }}
-	<script>
-		$(document).ready(function() {
-
-			var table = $('#permissionList').DataTable( {
-					responsive: true
-				} )
-				.columns.adjust()
-				.responsive.recalc();
-		} );
-
-	</script>
-@endsection
+@push('scripts')
+    {{loadDataTable('permissionList')}}
+@endpush

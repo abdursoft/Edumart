@@ -397,7 +397,7 @@ Route::prefix('communication')->name('communication.')->group(function () {
 
 // Reports
 Route::prefix('reports')->name('reports.')->group(function () {
-    // student report routes 
+    // student report routes
     Route::get('student_reports', [StudentReportController::class, 'studentReport'])->name('student_reports');
 
     Route::get('attendance_reports', function () {
@@ -513,6 +513,7 @@ Route::prefix('media')->name('media.')->group(function () {
         Route::get('content/{slider}/{id?}', [SliderContentController::class, 'index'])->name('slider.content');
         Route::post('content/upload', [SliderContentController::class, 'store'])->name('slider.content.upload');
         Route::post('content/update/{id}', [SliderContentController::class, 'update'])->name('slider.content.update');
+        Route::get('content/delete/{id}/{slider}', [SliderContentController::class, 'destroy'])->name('slider.content.delete');
     });
 
     // Gallery

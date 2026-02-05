@@ -26,7 +26,7 @@
 </form>
 
 <script>
-    $(document).ready(function() {
+    document.addEventListener('DOMContentLoaded', function () {
         $('select[name="role"]').on('change', function() {
             if ($(this).val() === 'custom') {
                 $('.custom-number-field').show();

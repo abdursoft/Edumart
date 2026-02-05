@@ -231,9 +231,7 @@
 
                 return headerRow + subjectRow;
             }
-        });
 
-        $(document).ready(function() {
             $('select').select2({
                 placeholder: "Search a option",
                 allowClear: true,
@@ -242,43 +240,49 @@
         });
     </script>
 @else
-<script>
-    const class_id = "{{$routine->edu_class_id}}";
-    const section_id = "{{$routine->edu_section_id}}";
-    const group_id = "{{$routine->edu_group_id}}";
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const class_id = "{{ $routine->edu_class_id }}";
+            const section_id = "{{ $routine->edu_section_id }}";
+            const group_id = "{{ $routine->edu_group_id }}";
 
-    const section_url = `/admin/sections/${class_id}`;
-    $.ajax({
-        url: section_url,
-        method: 'get',
-        success: (response) => {
-            $("#edu_section_id").empty().append(new Option('Select a section',' ',true, true));
-            response.map((item) => {
-                const isSelected = item?.id == section_id;
-                $('#edu_section_id').append(new Option(item?.name, item?.id, isSelected,
-                    isSelected));
+            const section_url = `/admin/sections/${class_id}`;
+            $.ajax({
+                url: section_url,
+                method: 'get',
+                success: (response) => {
+                    $("#edu_section_id").empty().append(new Option('Select a section', ' ', true,
+                    true));
+                    response.map((item) => {
+                        const isSelected = item?.id == section_id;
+                        $('#edu_section_id').append(new Option(item?.name, item?.id, isSelected,
+                            isSelected));
 
-                const group_url = `/admin/groups/${section_id}`;
-                $.ajax({
-                    url: group_url,
-                    method: 'get',
-                    success: (response) => {
-                        $("#edu_group_id").empty().append(new Option('Select a group',' ',true, true));
-                        response.map((item) => {
-                            const isSelected = item?.id == group_id;
-                            $('#edu_group_id').append(new Option(item?.name, item?.id, isSelected,
-                                isSelected));
+                        const group_url = `/admin/groups/${section_id}`;
+                        $.ajax({
+                            url: group_url,
+                            method: 'get',
+                            success: (response) => {
+                                $("#edu_group_id").empty().append(new Option(
+                                    'Select a group', ' ', true, true));
+                                response.map((item) => {
+                                    const isSelected = item?.id == group_id;
+                                    $('#edu_group_id').append(new Option(
+                                        item?.name, item?.id,
+                                        isSelected,
+                                        isSelected));
+                                })
+                            }
                         })
-                    }
-                })
+                    })
+                }
             })
-        }
-    })
-</script>
+        });
+    </script>
 @endif
 
 <script>
-    $(document).ready(function(){
+    document.addEventListener('DOMContentLoaded', function () {
         $("#edu_class_id").on('change', (element) => {
             const id = element.target.value;
             const url = `/admin/sections/${id}`;
@@ -287,9 +291,11 @@
                 url: url,
                 method: 'get',
                 success: (response) => {
-                    $("#edu_section_id").empty().append(new Option('Select a section',' ',true, true));
+                    $("#edu_section_id").empty().append(new Option('Select a section', ' ',
+                        true, true));
                     response?.map((item) => {
-                        $('#edu_section_id').append(new Option(item?.name, item?.id, true,
+                        $('#edu_section_id').append(new Option(item?.name, item?.id,
+                            true,
                             false));
                     })
                 }
@@ -304,9 +310,11 @@
                 url: url,
                 method: 'get',
                 success: (response) => {
-                    $("#edu_group_id").empty().append(new Option('Select a group',' ',true, true));
+                    $("#edu_group_id").empty().append(new Option('Select a group', ' ',
+                        true, true));
                     response?.map((item) => {
-                        $('#edu_group_id').append(new Option(item?.name, item?.id, true,
+                        $('#edu_group_id').append(new Option(item?.name, item?.id,
+                            true,
                             true));
                     })
                 }

@@ -1,7 +1,7 @@
 <!-- News marquee -->
 <div class="mt-4 hidden md:block">
-    <div class="text-sm font-semibold text-gray-700">{{ ('news_notice') }}</div>
-    <div class="smartmarquee h-[250px] mt-2 space-y-1 relative">
+    <div class="text-sm font-semibold text-gray-700">{{ text('news') }}</div>
+    <div class="smartmarquee h-[150px] mt-2 space-y-1 relative">
         @if(!empty($newsNotices))
             <div class="containers w-full">
                 @foreach($newsNotices as $news)

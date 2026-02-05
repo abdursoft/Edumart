@@ -2,6 +2,8 @@
     action="@if ($student) {{ route('admin.academic.people.students.update', ['id' => $student['id']]) }}@else{{ route('admin.academic.people.students.add') }} @endif"
     method="POST" enctype="multipart/form-data">
 
+    <img src="{{!empty($student->avatar) ? asset($student->avatar) : ''}}" alt="" class="previewImg {{!empty($student->avatar) ? '' : 'hidden'}} w-[100px] h-[100px]">
+
     <x-fieldset title="Student">
 
         <x-input-form :fields="[
@@ -321,7 +323,7 @@
 {{-- {!!$student!!} --}}
 @if ($student && $student->division_id)
     <script>
-        $(document).ready(function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const division_id = "{{ $student->division_id }}";
             const district_id = "{{ $student->district_id }}";
             const thana_id = "{{ $student->thana_id }}";
@@ -408,7 +410,13 @@
 @endif
 
 <script>
-    $(document).ready(function() {
+    document.addEventListener('DOMContentLoaded', function () {
+        $("#avatar").on('change', (e)=>{
+            const file = e.target.files[0];
+            $(".previewImg").prop('src', URL.createObjectURL(file));
+            $(".previewImg").removeClass('hidden');
+        })
+
         $("#division_id").on('change', (element) => {
             const id = element.target.value;
             const url = `/admin/address/division/${id}`;
