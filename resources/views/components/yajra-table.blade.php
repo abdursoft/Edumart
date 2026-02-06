@@ -41,6 +41,7 @@
                 responsive: true,
                 serverSide: true,
                 processing: true,
+                buttons:<?= tableScript($title) ?>,
                 dom:'<"flex justify-end"B>rt<"tableBottom"ip>',
                 ajax: {
                     url: "{{ route($ajaxRoute) }}",

@@ -21,16 +21,18 @@
     @yield('styles') <!-- Loading page specific styles -->
 </head>
 
-<body class="w-full flex items-center justify-center px-2 md:px-0"
-    style="background:url('{{ asset('assets/home/assets/bg_main_july-ezgif.gif') }}')center no-repeat;background-size:cover;">
-    <div class="w-full max-w-[1600px]">
+<body class="w-full flex items-center justify-center"
+    style="background:url('{{ asset('assets/home/assets/bg_main.gif') }}')center no-repeat;background-size:cover;">
+    <div class="w-full max-w-[1300px]">
         <!-- Loading the latest news marquee -->
         @include(theme('components.marquee.latest'))
         <!-- Loading Navbar -->
         @include(theme('components.partials.header'))
 
         <!-- Loading page content -->
-        @yield('content')
+        <div class="w-full  px-2 md:px-0">
+            @yield('content')
+        </div>
 
         <!-- Loading Footer -->
         @include(theme('components.partials.footer'))
@@ -39,6 +41,8 @@
     <script src="{{ theme_asset('js/wav.js') }}"></script>
     @yield('scripts') <!-- Loading page specific scripts -->
     @stack('scripts') <!-- Loading page specific scripts -->
+    <!-- flash message  -->
+    {!! Toastr::message() !!}
 </body>
 
 </html>

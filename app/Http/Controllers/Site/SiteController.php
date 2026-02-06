@@ -7,6 +7,7 @@ use App\Models\Designation;
 use App\Models\NewsNotice;
 use App\Models\Page;
 use App\Models\Slider;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;

@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -18,22 +19,46 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        // dd($request->input());
-        // Logic for handling login
-        $credentials = $request->only('email', 'password');
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required|string',
+        ]);
 
-        try {
-            if (Auth::attempt($credentials, $request->boolean('remember'))) {
-                $request->session()->regenerate();
-                $user = auth()->user();
-                $user->assignRole($user->role);
-                return redirect()->route($user->role.'.dashboard')->with('success', 'Login successful!');
-            }
-            return redirect()->back()->with('error','Invalid Login Details!');
-        } catch (\Throwable $th) {
-            dd($th->getMessage());
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors(),
+            ], 422);
         }
+
+        if (!Auth::attempt($request->only('email', 'password'))) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Invalid email or password',
+            ], 401);
+        }
+
+
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials, $request->boolean('remember'))) {
+
+            $request->session()->regenerate();
+
+            $user = auth()->user();
+            $user->assignRole($user->role);
+            return response()->json([
+                'status' => 'success',
+                'redirect' => route($user->role.'.dashboard'),
+                'message' => 'Login successful!',
+            ]);
+        }
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Login successful!',
+        ],401);
     }
+
 
     /**
      * Handle the registration request.
@@ -63,7 +88,7 @@ class AuthController extends Controller
             // Log the user in
             auth()->login($user);
 
-            if($request->axios){
+            if($request->axios() || $request->ajax()){
                 return response()->json([
                     'code' => 'REGISTRATION_SUCCESS',
                     'message' => 'Registration successful',
@@ -72,7 +97,7 @@ class AuthController extends Controller
 
             return redirect()->route('auth.dashboard')->with('success', 'Registration successful!');
         } catch (\Exception $e) {
-            if($request->axios){
+            if($request->axios() || $request->ajax()){
                 return response()->json([
                     'code' => 'REGISTRATION_SUCCESS',
                     'message' => 'Registration successful',
@@ -120,6 +145,7 @@ class AuthController extends Controller
         if(auth()->user()){
             auth()->logout();
         }
+        Toastr::success('Log out successful', 'Success');
         return redirect(route('login'));
     }
 }

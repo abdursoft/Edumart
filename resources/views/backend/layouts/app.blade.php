@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{{asset('ui/editor/quil.css')}}">
     <link rel="stylesheet" href="{{asset('ui/editor/table.css')}}">
 
+    {{tableStyle()}}
+
     {{-- load custom css  --}}
     @yield('styles')
   </head>
@@ -71,5 +73,8 @@
     @yield('scripts')
     <!-- Push Scripts -->
     @stack('scripts')
+
+    <!-- flash message  -->
+    {!! Toastr::message() !!}
   </body>
 </html>

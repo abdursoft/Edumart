@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="{{ site()->favicon ?? '' }}" type="image/x-icon"> <!-- Loading Favicon -->
     <link rel="canonical" href="{{ config('app.url') }}" /> <!-- Site base url -->
     <title>@yield('title')</title> <!-- Loading page title -->
-    <script src="{{ theme_asset('js/jquery.js') }}"></script>
+
 
     {{-- Vite assets --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -24,5 +24,7 @@
     </div>
 
     @yield('scripts') <!-- Loading page specific scripts -->
+    <!-- flash message  -->
+    {!! Toastr::message() !!}
 </body>
 </html>

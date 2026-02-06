@@ -1,11 +1,11 @@
 <nav class="px-2 relative" style="background:{{site()->navbar_color ?? 'oklch(0.45 0.08 188.22)'}};">
   <div class="flex justify-between items-center h-16 !px-4">
     <!-- Logo -->
-    <a href="/" class="flex md:hidden text-white !text-sm font-bold text-2xl">MySite</a>
+    <a href="/" class="flex md:hidden text-white !text-sm font-bold text-2xl"></a>
 
     <!-- Mobile Menu Button -->
-    <button id="mobile-btn" class="md:hidden text-white !text-sm text-3xl cursor-pointer mr-2">
-      <i class="ri-menu-fill"></i>
+    <button id="mobile-btn" class="md:hidden text-black !text-sm text-3xl cursor-pointer mr-2">
+      <iconify-icon icon="line-md:close-to-menu-transition" width="24" height="24"></iconify-icon>
     </button>
 
     <!-- Desktop Menu -->

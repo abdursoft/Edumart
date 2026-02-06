@@ -1,8 +1,4 @@
-@section('styles')
-	 {{ tableStyle()}}
-@endSection
-
-<!-- Container -->
+<!-- Exam fee -->
 <div class="w-full text-slate-800">
     <h2 class="text-xl md:text-2xl mt-5 font-semibold">Exam Fees List</h2>
 
@@ -52,8 +48,6 @@
 </div>
 <!-- /Container -->
 
-@section('scripts')
-    <!-- Datatables -->
-    {{ tableScript() }}
-    {{ loadDataTable('example')}}
-@endsection
+@push('scripts')
+    {{ loadDataTable('example', 'Exam fees')}}
+@endpush

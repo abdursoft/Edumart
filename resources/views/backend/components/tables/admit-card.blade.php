@@ -1,7 +1,3 @@
-@section('styles')
-	 {{ tableStyle()}}
-@endSection
-
 <!--Container-->
 <div class="w-full text-slate-800">
 <h2 class="text-xl md:text-2xl mt-5">Admit card list</h2>
@@ -43,8 +39,6 @@
 <!--/container-->
 
 
-@section('scripts')
-	<!--Datatables -->
-	{{ tableScript() }}
-	{{ loadDataTable('example')}}
-@endsection
+@push('scripts')
+	{{ loadDataTable('example', 'Admit cards')}}
+@endpush

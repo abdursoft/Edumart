@@ -7,6 +7,7 @@ use App\Models\ClassPromotion;
 use App\Models\EduClass;
 use App\Models\Student;
 use App\Models\StudentProfile;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class ClassPromotionController extends Controller
@@ -37,7 +38,8 @@ class ClassPromotionController extends Controller
         ]);
 
         if($request->from_class_id == $request->to_class_id && $request->status == 'promoted'){
-            return back()->with('error','Student couldn\'t promoted in the same class');
+            Toastr::error('Student couldn\'t promoted in the same class','Same class');
+            return redirect()->back();
         }
 
         if($request->student_id == 0){
@@ -54,13 +56,13 @@ class ClassPromotionController extends Controller
                 $student->edu_class_id = $request->to_class_id;
                 $student->save();
             }
-            return back()
-                ->with('success', 'All students promoted successfully.');
+            Toastr::success('Student promoted successfully','Success');
+            return redirect()->back();
         }else{
             $student = StudentProfile::find($request->student_id);
             if(!$student || $student->edu_class_id != $request->from_class_id){
-                return back()
-                    ->with('error', 'Selected student does not belong to the from class.');
+                Toastr::error('Selected student does not belong to the from class.','Internal error');
+                return redirect()->back();
             }
         }
 
@@ -76,8 +78,8 @@ class ClassPromotionController extends Controller
         $student->edu_class_id = $request->to_class_id;
         $student->save();
 
-        return back()
-            ->with('success', 'Student promoted successfully.');
+        Toastr::success('Student promoted successfully','Success');
+        return redirect()->back();
     }
 
     // Show one record
@@ -116,8 +118,8 @@ class ClassPromotionController extends Controller
             'promotion_date' => $request->promotion_date,
         ]);
 
-        return back()
-            ->with('success', 'Promotion updated successfully.');
+        Toastr::success('Student promotion updated successfully','Success');
+        return redirect()->back();
     }
 
     // Delete promotion
@@ -125,12 +127,12 @@ class ClassPromotionController extends Controller
     {
         $promotion = ClassPromotion::findOrFail($id);
         if(!$promotion){
-            return redirect()->back()->with('error', 'Promotion not found.');
+            Toastr::error('Student promotion not found','Not Found');
+            return redirect()->back();
         }
         $promotion->delete();
-
-        return redirect(route('admin.academic.evaluation.promotion'))
-            ->with('success', 'Promotion deleted successfully.');
+        Toastr::success('Student promotion deleted successfully','Success');
+        return redirect(route('admin.academic.evaluation.promotion'));
     }
 
     // Get students by class

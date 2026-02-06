@@ -75,12 +75,14 @@
                     'university' => 'University',
                 ]
             ],
+
             [
-                'label' => 'Postal Code',
-                'name' => 'post',
-                'type' => 'text',
+                'label' => 'Country',
+                'name' => 'country_id',
+                'type' => 'select',
+                'options' => country()->pluck('name','id')->toArray(),
                 'required' => true,
-                'placeholder' => '5460',
+                'placeholder' => 'Select country'
             ],
 
             [
@@ -89,7 +91,7 @@
                 'type' => 'select',
                 'options' => division()->pluck('name','id')->toArray(),
                 'required' => true,
-                'placeholder' => 'Jhon Doe'
+                'placeholder' => 'Select division'
             ],
             [
                 'label' => ADDRESS['district'],
@@ -97,7 +99,7 @@
                 'type' => 'select',
                 'options' => [],
                 'required' => true,
-                'placeholder' => 'Jhon Doe'
+                'placeholder' => 'Select district'
             ],
             [
                 'label' => ADDRESS['thana'],
@@ -105,7 +107,7 @@
                 'type' => 'select',
                 'options' => [],
                 'required' => true,
-                'placeholder' => '01X-------XXX'
+                'placeholder' => 'Select thana'
             ],
             [
                 'label' => ADDRESS['union'],
@@ -113,13 +115,20 @@
                 'type' => 'select',
                 'options' => [],
                 'required' => true,
-                'placeholder' => 'Jhon Doe'
+                'placeholder' => 'Select union'
             ],
             [
                 'label' => ADDRESS['address'],
                 'name' => 'address',
                 'type' => 'text',
                 'required' => true,
+            ],
+            [
+                'label' => 'Postal Code',
+                'name' => 'post',
+                'type' => 'text',
+                'required' => true,
+                'placeholder' => '5460',
             ],
             [
                 'label' => 'Timezone',
@@ -140,7 +149,7 @@
                 'name' => '',
                 'type' => 'break',
                 'margin' => '20',
-                'default' => 3,
+                'default' => 2,
             ],
 
             [

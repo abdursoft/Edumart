@@ -21,6 +21,8 @@
     @include('components.flash-message')
     @yield('content')
     @stack('scripts')
+    <!-- flash message  -->
+    {!! Toastr::message() !!}
 </body>
 
 </html>

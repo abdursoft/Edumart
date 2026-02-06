@@ -65,6 +65,22 @@ window.tns = tns;
 // Optional: import tiny-slider CSS
 import "tiny-slider/dist/tiny-slider.css"; // this must be exact
 
+//import toastr
+import toastr from 'toastr';
+import 'toastr/build/toastr.min.css';
+
+// optional config
+toastr.options = {
+    closeButton: true,
+    progressBar: true,
+    timeOut: 5000,
+};
+
+window.toastr = toastr;
+
+// axios
+import axios from 'axios';
+window.axios = axios;
 
 // Alpine + FullCalendar
 import Alpine from 'alpinejs';

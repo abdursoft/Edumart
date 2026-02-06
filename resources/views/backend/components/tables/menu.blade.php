@@ -1,8 +1,4 @@
-@section('styles')
-	{{ tableStyle()}}
-@endSection
-
-<!-- Container -->
+<!-- menu -->
 <div class="w-full text-slate-800">
     <h2 class="text-xl md:text-2xl mt-5 font-semibold">Menu List</h2>
 
@@ -53,8 +49,6 @@
 </div>
 <!-- /Container -->
 
-@section('scripts')
-    <!-- Datatables -->
-    {{ tableScript() }}
-    {{ loadDataTable('menuTable')}}
-@endsection
+@push('scripts')
+    {{ loadDataTable('menuTable', 'Menu list')}}
+@endpush

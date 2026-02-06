@@ -1,7 +1,4 @@
-@section('styles')
-    {{ tableStyle() }}
-@endsection
-
+<!-- Asset list -->
 <div class="w-full text-slate-800">
     <x-fieldset title="Asset list">
         <div id="recipients" class="w-full p-4 mt-2 lg:mt-0 rounded shadow bg-white overflow-x-auto max-w-screen">
@@ -51,7 +48,6 @@
     </x-fieldset>
 </div>
 
-@section('scripts')
-    {{ tableScript() }}
-    {{ loadDataTable('example') }}
-@endsection
+@push('scripts')
+    {{ loadDataTable('example', 'Asset list') }}
+@endpush

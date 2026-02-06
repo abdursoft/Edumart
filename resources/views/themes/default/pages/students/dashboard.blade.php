@@ -4,16 +4,15 @@
 
 @section('content')
 
-{{-- @include(theme('components.cards.profile_details')) --}}
 
 <div class="min-h-screen bg-gray-100 p-6">
 
     <!-- Header -->
     <div class="flex items-center justify-between mb-6">
         <h1 class="text-2xl font-bold text-gray-800">Student Dashboard</h1>
-        <button class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
+        <a href="{{route('logout')}}" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
             Signout
-        </button>
+        </a>
     </div>
 
     <!-- Top Cards -->
@@ -61,16 +60,16 @@
         <!-- Profile Card -->
         <div class="bg-white p-6 rounded-xl shadow">
             <div class="flex items-center space-x-4">
-                <img src="" class="rounded-full" alt="Profile">
+                <img src="{{asset($student->avatar) ?? ''}}" class="rounded-full w-[100px] h-[100px]" alt="{{$student->name ?? 'profile avatar'}}">
                 <div>
                     <h2 class="text-lg font-semibold">{{$student?->name}}</h2>
                     <p class="text-sm text-gray-500">Student ID: {{$student?->reg_number}}</p>
+                    <p class="text-gray-500 text-sm"><span class="text-sm text-gray-500">Roll:</span> {{ $student?->class_roll }}</p>
+                    <p class="text-gray-500 text-sm"><span class="text-sm text-gray-500">Class:</span> {{$student?->eduClass->name}}</p>
                 </div>
             </div>
 
-            <div class="mt-4 space-y-2 text-sm">
-                <p><span class="font-medium">Roll:</span> {{ $student?->class_roll }}</p>
-                <p><span class="font-medium">Class:</span> {{$student?->eduClass->name}}</p>
+            <div class="mt-4 text-sm flex items-center justify-between">
                 <p><span class="font-medium">Department:</span> {{$student?->eduClass?->department?->name ?? 'N/A'}}</p>
                 <p><span class="font-medium">Login Permission:</span> <span class="{{ $profile->login_permit == 'allowed' ? 'text-green-600 ' : 'text-red-600 ' }}">{{ $profile->login_permit == 'allowed' ? 'Active' : 'Inactive' }}</span></p>
             </div>

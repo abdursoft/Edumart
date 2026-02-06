@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\Asset;
 use App\Models\Supplier;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -58,8 +59,8 @@ class AssetsController extends Controller
             'added_by'       => Auth::id(),
         ]);
 
-        return redirect()->route('admin.administration.assets')
-            ->with('success', 'Asset created successfully.');
+        Toastr::success('Asset created successfully', 'Success');
+        return redirect()->route('admin.administration.assets');
     }
 
     /**
@@ -113,9 +114,8 @@ class AssetsController extends Controller
             'supplier_id'    => $request->supplier_id,
             'status'         => $request->status,
         ]);
-
-        return redirect()->route('admin.administration.assets')
-            ->with('success', 'Asset updated successfully.');
+        Toastr::success('Asset updated successfully', 'Success');
+        return redirect()->route('admin.administration.assets');
     }
 
     /**
@@ -123,10 +123,13 @@ class AssetsController extends Controller
      */
     public function destroy($id)
     {
-        $asset = Asset::findOrFail($id);
-        $asset->delete();
-
-        return redirect()->route('admin.administration.assets')
-            ->with('success', 'Asset deleted successfully.');
+        $asset = Asset::find($id);
+        if($asset){
+            $asset->delete();
+            Toastr::success('Asset delete successfully', 'Success');
+        }else{
+            Toastr::error('Asset couldn\'t deleted', 'Not Found');
+        }
+        return redirect()->route('admin.administration.assets');
     }
 }

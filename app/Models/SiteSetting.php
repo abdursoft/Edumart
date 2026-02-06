@@ -27,7 +27,8 @@ class SiteSetting extends Model
         'name_bn',
         'establish_date',
         'header_color', 'navbar_color', 'footer_color', 'sidebar_color', 'auth_bg_image', 'set_timezone',
-        'text_color'
+        'text_color',
+        'country_id'
     ];
 
     protected $casts = [
@@ -53,6 +54,10 @@ class SiteSetting extends Model
     public function union()
     {
         return $this->belongsTo(Union::class, 'union_id');
+    }
+
+    public function country(){
+        return $this->belongsTo(Country::class, 'country_id');
     }
 }
 

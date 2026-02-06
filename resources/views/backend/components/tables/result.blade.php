@@ -1,6 +1,4 @@
-{{-- Table for Exam Results --}}
-{{tableStyle()}}
-
+<!-- Exam Results -->
 <div class="w-full text-slate-800">
     <x-fieldset title="Result list">
         <div class="w-full p-4 mt-2 rounded shadow bg-white overflow-x-auto max-w-screen">
@@ -50,8 +48,6 @@
     </x-fieldset>
 </div>
 
-@section('scripts')
-    {{-- Regular Datatables JS --}}
-    {{tableScript()}}
-    {{ loadDataTable('example')}}
-@endsection
+@push('scripts')
+    {{ loadDataTable('example', 'Result sheet')}}
+@endpush

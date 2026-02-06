@@ -11,7 +11,7 @@ class ClockTimer extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public null|string $timezone)
+    public function __construct(public null|string $timezone, public $id='clock', public $styleClass='bg-gray-300 p-2 rounded-md')
     {
         //
     }

@@ -43,22 +43,15 @@
     </div>
 @endsection
 
-
-@section('styles')
-    {{ tableStyle() }}
-@endsection
-
-@section('scripts')
-    <!--Datatables -->
-    {{ tableScript() }}
+@push('scripts')
     <script>
-        $(document).ready(function() {
+        document.addEventListener('DOMContentLoaded',function() {
 
             var table = $('#assignmentList').DataTable({
-                    responsive: true
+                    responsive: true,
+                    dom:'<"tableTop"Bf>rt<"tableBottom"ip>'
                 })
-                .columns.adjust()
-                .responsive.recalc();
+                .columns.adjust();
         });
     </script>
-@endsection
+@endpush

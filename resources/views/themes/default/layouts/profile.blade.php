@@ -52,13 +52,18 @@
     @yield('scripts') <!-- Loading page specific scripts -->
 
     {{-- smart marquee js  --}}
-    <script src="{{ theme_asset('js/smart-marquee.js') }}"></script>
     <script src="{{ theme_asset('js/script.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            $(".smartmarquee").smartmarquee();
-        });
+    <script type="module">
+        import '{{theme_asset("js/smart-marquee.js")}}';
+        $(".smartmarquee").smartmarquee({
+                    duration: 5000,
+                    direction: 'down',
+                    duplicated: true,
+                    pauseOnHover: true
+                });
     </script>
+    <!-- flash message  -->
+    {!! Toastr::message() !!}
 
 </body>
 </html>

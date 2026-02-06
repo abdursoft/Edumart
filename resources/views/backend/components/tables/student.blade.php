@@ -1,8 +1,4 @@
-@section('styles')
-	{{tableStyle()}}
-@endSection
-
-<!--Container-->
+<!--student list-->
 <div class="w-full text-slate-800">
     <x-fieldset title="Student list">
         <!--Card-->
@@ -50,9 +46,6 @@
 </div>
 <!--/container-->
 
-
-@section('scripts')
-	<!--Datatables -->
-	{{ tableScript() }}
-	{{ loadDataTable('example')}}
-@endsection
+@push('scripts')
+	{{ loadDataTable('example', 'Student list')}}
+@endpush

@@ -1,7 +1,3 @@
-@section('styles')
-	 {{ tableStyle()}}
-@endSection
-
 <div class="w-full text-slate-800">
     <h2 class="text-xl md:text-2xl mt-5">Exam Subjects</h2>
     <div id="recipients" class="w-full p-4 mt-2 lg:mt-0 rounded shadow bg-white overflow-x-auto max-w-screen">
@@ -47,8 +43,6 @@
     </div>
 </div>
 
-@section('scripts')
-    <!--Datatables -->
-    {{ tableScript() }}
-    {{ loadDataTable('examSubjectsTable')}}
-@endsection
+@push('scripts')
+    {{ loadDataTable('examSubjectsTable', 'Exam Subjects')}}
+@endpush

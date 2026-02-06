@@ -1,8 +1,4 @@
-@section('styles')
-	{{ tableStyle()}}
-@endSection
-
-<!-- Container -->
+<!-- leave list -->
 <div class="w-full text-slate-800">
     <x-fieldset title="Leaving list">
         <!-- Card -->
@@ -41,8 +37,6 @@
 </div>
 <!-- /Container -->
 
-@section('scripts')
-    <!-- Datatables -->
-    {{ tableScript() }}
-    {{ loadDataTable('menuTable')}}
-@endsection
+@push('scripts')
+    {{ loadDataTable('menuTable', 'Leave list')}}
+@endpush

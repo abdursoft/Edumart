@@ -7,6 +7,7 @@ use App\Models\ClassRoutine;
 use App\Models\EduClass;
 use App\Models\Subject;
 use App\Models\ClassRoom;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class ClassRoutineController extends Controller
@@ -53,10 +54,11 @@ class ClassRoutineController extends Controller
                     ]);
                 }
             }
-
-            return redirect()->back()->with('success', 'Class routine created successfully!');
+            Toastr::success('Class routine created successfully','Created');
+            return redirect()->back();
         } catch (\Throwable $th) {
-            return redirect()->back()->with('error', 'Class couldn\'t created '.$th->getMessage());
+            Toastr::success('Class routine couldn\'t create','Internal Error');
+            return redirect()->back();
         }
     }
 
@@ -93,7 +95,7 @@ class ClassRoutineController extends Controller
 
         $routine = ClassRoutine::findOrFail($id);
         $routine->update($request->only('edu_class_id', 'subject_id', 'day', 'start_time', 'end_time', 'class_room_id', 'edu_section_id','edu_group_id'));
-
+        Toastr::success('Class routine updated successfully','Updated');
         return redirect(route('admin.academic.structure.routines'))
             ->with('success', 'Class routine successfully updated.');
     }
@@ -104,13 +106,12 @@ class ClassRoutineController extends Controller
         $routine = ClassRoutine::findOrFail($id);
 
         if (!$routine) {
-            return redirect(route('admin.academic.structure.routines'))
-                ->with('error', 'Routine not found or could not be deleted.');
+            Toastr::error('Class routine couldn\'t deleted','Not Found');
+            return redirect(route('admin.academic.structure.routines'));
         }
 
         $routine->delete();
-
-        return redirect(route('admin.academic.structure.routines'))
-            ->with('success', 'Class routine successfully deleted.');
+        Toastr::success('Class routine deleted successfully','Deleted');
+        return redirect(route('admin.academic.structure.routines'));
     }
 }

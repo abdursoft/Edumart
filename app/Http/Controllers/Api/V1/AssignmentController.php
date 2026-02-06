@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Assignment;
 use App\Models\EduClass;
 use App\Models\Subject;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use PhpParser\Node\Expr\Assign;
@@ -49,7 +50,8 @@ class AssignmentController extends Controller
 
 
         Assignment::create($validated);
-        return back()->with('success','Assignment successfully assigned');
+        Toastr::success('Assignment successfully assigned','Success');
+        return redirect()->back();
     }
 
     // Show a single assignment
@@ -88,18 +90,21 @@ class AssignmentController extends Controller
         }
 
         $assignment->update($validated);
-        return back()->with('success','Assignment successfully updated');
+        Toastr::success('Assignment successfully assigned','Success');
+        return redirect()->back();
     }
 
     // Delete an assignment
     public function destroy($id)
     {
-        $assignment = Assignment::findOrFail($id);
+        $assignment = Assignment::find($id);
 
         if($assignment){
             $assignment->delete();
+            Toastr::success('Assignment deleted successfully','Success');
+        }else{
+            Toastr::error('Assignment couldn\'t deleted','Not Found');
         }
-
-        return redirect()->route('admin.academic.activities.assignments')->with('success','Assignment deleted successfully');
+        return redirect()->route('admin.academic.activities.assignments');
     }
 }

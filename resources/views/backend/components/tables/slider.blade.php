@@ -1,7 +1,4 @@
-@section('styles')
-	 {{ tableStyle()}}
-@endSection
-
+<!-- slider list -->
 <div class="w-full text-slate-800">
     <h2 class="text-xl md:text-2xl mt-5">Slider List</h2>
     <div id='recipients' class="w-full p-4 mt-2 lg:mt-0 rounded shadow bg-white overflow-x-auto max-w-screen">
@@ -40,7 +37,6 @@
     </div>
 </div>
 
-@section('scripts')
-    {{ tableScript() }}
-    {{ loadDataTable('sliderTable')}}
-@endsection
+@push('scripts')
+    {{ loadDataTable('sliderTable', 'Slider list')}}
+@endpush

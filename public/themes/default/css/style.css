@@ -674,12 +674,6 @@ hr {
     height: 100px;
 }
 
-.mid-nav-item:nth-child(2) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
 
 .mid-nav-item:nth-child(2) p {
     margin-bottom: 0 !important;

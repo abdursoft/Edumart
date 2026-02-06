@@ -13,8 +13,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
+    {{-- vite scripts  --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- iconify scripts  --}}
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
 </head>
 
 <body class="bg-slate-100 min-h-[100vh] flex items-center justify-center w-full p-3">
@@ -24,7 +28,6 @@
         <div class="text-center w-full flex items-center justify-center">
             <img src="https://cdn.abdursoft.com/assets/ott/images/rstream.png" alt="rstream" class="w-[290px] h-[70px]">
         </div>
-
 
         <div class="min-h-[550px]">
             <div class="text-center mb-4 border-b-[1px] border-gray-300 p-2 text-slate-600">
@@ -43,6 +46,8 @@
         </footer>
     </section>
 
+    <!-- flash message  -->
+    {!! Toastr::message() !!}
 </body>
 
 </html>

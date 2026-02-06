@@ -1,7 +1,4 @@
-@section('styles')
-	 {{ tableStyle()}}
-@endSection
-
+<!-- mark sheet -->
 <div class="w-full text-slate-800">
     <h2 class="text-xl md:text-2xl mt-5 font-semibold">Mark sheet subjects</h2>
 
@@ -55,8 +52,8 @@
         </table>
     </div>
 </div>
+<!-- end mark sheet -->
 
-@section('scripts')
-    {{ tableScript() }}
-    {{ loadDataTable('example')}}
-@endsection
+@push('scripts')
+    {{ loadDataTable('example', 'Mark sheet item list')}}
+@endpush

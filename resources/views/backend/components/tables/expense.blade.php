@@ -1,8 +1,4 @@
-@section('styles')
-	{{ tableStyle()}}
-@endSection
-
-<!-- Container -->
+<!-- Expense -->
 <div class="w-full text-slate-800">
     <x-fieldset title="Expense List">
         <!-- Card -->
@@ -52,8 +48,6 @@
 </div>
 <!-- /Container -->
 
-@section('scripts')
-    <!-- Datatables -->
-    {{ tableScript() }}
-    {{ loadDataTable('menuTable')}}
-@endsection
+@push('scripts')
+    {{ loadDataTable('menuTable', 'Expense list')}}
+@endpush

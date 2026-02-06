@@ -24,7 +24,7 @@
                                         style="text-transform: capitalize !important;">{{ text('student_name') . '(' . text('bangla') . ')' }}*
                                     </label>
                                     <input type="text" required name="name_bangla"
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="name_bangla">
                                 </div>
                                 <div class="flex flex-col w-full">
@@ -32,7 +32,7 @@
                                         style="text-transform: capitalize !important;">{{ text('student_name') . '(' . text('english') . ')' }}*
                                     </label>
                                     <input type="text" name="name_english" required
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="name_english">
                                 </div>
                                 <div class="flex flex-col w-full">
@@ -40,7 +40,7 @@
                                         style="text-transform: capitalize !important;">{{ text('student_birth_certificate') }}*
                                     </label>
                                     <input type="text" name="birth_certificate_number"
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="birth_certificate_number">
                                 </div>
                                 <div class="flex flex-col w-full">
@@ -48,13 +48,13 @@
                                         style="text-transform: capitalize !important;">{{ text('birth_date') }}
                                     </label>
                                     <input type="text" name="birth_date" required id="birth_date"
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1">
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1">
                                 </div>
                                 <div class="flex flex-col w-full">
                                     <label for="gender" style="text-transform: capitalize !important;"> {{ text('sex') }}*
                                     </label>
                                     <select
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="gender" name="gender" required>
                                         <option value="men" selected>{{ text('men') }}</option>
                                         <option value="women">{{ text('women') }}</option>
@@ -68,7 +68,7 @@
                                         style="text-transform: capitalize !important;">{{ text('student_father') . '(' . text('bangla') . ')' }}*
                                     </label>
                                     <input type="text" name="father_bangla" required
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="father_bangla">
                                 </div>
                                 <div class="flex flex-col w-full">
@@ -76,7 +76,7 @@
                                         style="text-transform: capitalize !important;">{{ text('student_father') . '(' . text('english') . ')' }}*
                                     </label>
                                     <input type="text" name="father_english" required
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="father_english">
                                 </div>
                                 <div class="flex flex-col w-full">
@@ -84,7 +84,7 @@
                                         style="text-transform: capitalize !important;">{{ text('student_father_nid') }}
                                     </label>
                                     <input type="text" name="father_nid" required
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="father_nid">
                                 </div>
                                 <div class="flex flex-col w-full">
@@ -92,14 +92,14 @@
                                         style="text-transform: capitalize !important;">{{ text('fathers') . '(' . text('birth_date') . ')' }}
                                     </label>
                                     <input type="text" name="father_birth_date" required id="father_birth_date"
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1">
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1">
                                 </div>
                                 <div class="flex flex-col w-full">
                                     <label for="father_mobile"
                                         style="text-transform: capitalize !important;">{{ text('student_father_mobile') }}
                                     </label>
                                     <input type="text" name="father_mobile" required
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="father_mobile">
                                 </div>
                             </div>
@@ -109,7 +109,7 @@
                                         style="text-transform: capitalize !important;">{{ text('student_mother') . '(' . text('bangla') . ')' }}*
                                     </label>
                                     <input type="text" name="mother_bangla" required
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="mother_bangla">
                                 </div>
                                 <div class="flex flex-col w-full">
@@ -118,7 +118,7 @@
                                         *
                                     </label>
                                     <input type="text" name="mother_english" required
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="mother_english">
                                 </div>
                                 <div class="flex flex-col w-full">
@@ -126,7 +126,7 @@
                                         style="text-transform: capitalize !important;">{{ text('student_mother_nid') }}
                                     </label>
                                     <input type="text" name="mother_nid" required
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="mother_nid">
                                 </div>
                                 <div class="flex flex-col w-full">
@@ -134,14 +134,14 @@
                                         style="text-transform: capitalize !important;">{{ text('mothers') . ' ' . text('birth_date') }}
                                     </label>
                                     <input type="text" name="mother_birth_date" required id="mother_birth_date"
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1">
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1">
                                 </div>
                                 <div class="flex flex-col w-full">
                                     <label for="mother_mobile"
                                         style="text-transform: capitalize !important;">{{ text('student_mother_mobile') }}
                                     </label>
                                     <input type="text" name="mother_mobile" required
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="mother_mobile">
                                 </div>
                             </div>
@@ -157,7 +157,7 @@
                                         style="text-transform: capitalize !important;">{{ text('division') }}
                                     </label>
                                     <select
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1 permanent_division"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1 permanent_division"
                                         id="permanent_division" name="permanent_division" required>
                                     </select>
                                 </div>
@@ -166,7 +166,7 @@
                                         style="text-transform: capitalize !important;">{{ text('zilla') }}
                                     </label>
                                     <select
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1 permanent_zilla"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1 permanent_zilla"
                                         id="permanent_zilla" name="permanent_zilla" required>
                                     </select>
                                 </div>
@@ -175,7 +175,7 @@
                                         style="text-transform: capitalize !important;">{{ text('thana') }}
                                     </label>
                                     <select
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1 permanent_thana"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1 permanent_thana"
                                         id="permanent_thana" name="permanent_thana" required>
                                     </select>
                                 </div>
@@ -184,7 +184,7 @@
                                         {{ text('area') }}
                                     </label>
                                     <select
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1 permanent_union"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1 permanent_union"
                                         id="permanent_union" name="permanent_union" required>
                                     </select>
                                 </div>
@@ -193,7 +193,7 @@
                                         style="text-transform: capitalize !important;">{{ text('post_code') }}
                                     </label>
                                     <input type="text" name="permanent_post" required
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="">
                                 </div>
                                 <div class="flex flex-col w-full">
@@ -201,7 +201,7 @@
                                         style="text-transform: capitalize !important;">{{ text('village') }}
                                     </label>
                                     <input type="text" name="permanent_address" required
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="permanent_address">
                                 </div>
                             </div>
@@ -215,7 +215,7 @@
                                         style="text-transform: capitalize !important;">{{ text('division') }}
                                     </label>
                                     <select
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1 current_division"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1 current_division"
                                         id="current_division" name="current_division" required>
                                     </select>
                                 </div>
@@ -224,7 +224,7 @@
                                         style="text-transform: capitalize !important;">{{ text('zilla') }}
                                     </label>
                                     <select
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1 current_zilla"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1 current_zilla"
                                         id="current_zilla" name="current_zilla" required>
                                     </select>
                                 </div>
@@ -233,7 +233,7 @@
                                         style="text-transform: capitalize !important;">{{ text('thana') }}
                                     </label>
                                     <select
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1 current_thana"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1 current_thana"
                                         id="current_thana" name="current_thana" required>
                                     </select>
                                 </div>
@@ -242,7 +242,7 @@
                                         {{ text('area') }}
                                     </label>
                                     <select
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1 current_union"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1 current_union"
                                         id="current_union" name="current_union" required>
                                     </select>
                                 </div>
@@ -251,7 +251,7 @@
                                         style="text-transform: capitalize !important;">{{ text('post_code') }}
                                     </label>
                                     <input type="text" name="current_post" required
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="current_post">
                                 </div>
                                 <div class="flex flex-col w-full">
@@ -259,7 +259,7 @@
                                         style="text-transform: capitalize !important;">{{ text('village') }}
                                     </label>
                                     <input type="text" name="current_address" required
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="current_address">
                                 </div>
                             </div>
@@ -276,7 +276,7 @@
                                             style="text-transform: capitalize !important;">{{ text('division') }}
                                         </label>
                                         <select
-                                            class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1 previous_division"
+                                            class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1 previous_division"
                                             id="previous_division" name="previous_division" required>
                                         </select>
                                     </div>
@@ -285,7 +285,7 @@
                                             style="text-transform: capitalize !important;">{{ text('zilla') }}
                                         </label>
                                         <select
-                                            class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1 previous_zilla"
+                                            class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1 previous_zilla"
                                             id="previous_zilla" name="previous_zilla" required></select>
                                     </div>
                                     <div class="flex flex-col w-full">
@@ -293,7 +293,7 @@
                                             style="text-transform: capitalize !important;">{{ text('thana') }}
                                         </label>
                                         <select
-                                            class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1 previous_thana"
+                                            class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1 previous_thana"
                                             id="previous_thana" name="previous_thana" required> </select>
                                     </div>
                                     <div class="flex flex-col w-full">
@@ -301,7 +301,7 @@
                                             {{ text('institute_name') }} -
                                         </label>
                                         <input type="text" name="previous_institute" required
-                                            class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                            class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                             id="previous_institute">
                                     </div>
                                     <div class="flex flex-col w-full">
@@ -309,7 +309,7 @@
                                             style="text-transform: capitalize !important;">{{ text('board_university') }}*
                                         </label>
                                         <input type="text" name="previous_board" required
-                                            class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                            class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                             id="previous_board">
                                     </div>
                                     <div class="flex flex-col w-full">
@@ -317,7 +317,7 @@
                                             {{ text('result_type') }}*
                                         </label>
                                         <select
-                                            class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                            class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                             id="previous_result_type" name="previous_result_type" required>
                                             <option value="gpa">{{ text('gpa') }}</option>
                                             <option value="cgpa">{{ text('cgpa') }}</option>
@@ -329,7 +329,7 @@
                                             {{ text('passed_year') }} - *
                                         </label>
                                         <input type="text" name="previous_passing_year" required
-                                            class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                            class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                             id="previous_passing_year">
                                     </div>
                                     <div class="flex flex-col w-full">
@@ -337,7 +337,7 @@
                                             {{ text('technology') }}*
                                         </label>
                                         <input type="text" name="previous_technology" required
-                                            class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                            class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                             id="previous_technology">
                                     </div>
                                     <div class="flex flex-col w-full">
@@ -345,7 +345,7 @@
                                             {{ text('previous_exam') }}*
                                         </label>
                                         <input type="text" name="previous_exam" required placeholder=""
-                                            class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                            class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                             id="previous_exam">
                                     </div>
                                     <div class="flex flex-col w-full">
@@ -353,7 +353,7 @@
                                             style="text-transform: capitalize !important;">{{ text('registration_number') }}*
                                         </label>
                                         <input type="text" name="previous_registration" required
-                                            class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                            class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                             id="previous_registration">
                                     </div>
                                     <div class="flex flex-col w-full">
@@ -361,7 +361,7 @@
                                             {{ text('roll') }}
                                         </label>
                                         <input type="text" name="previous_roll" required
-                                            class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                            class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                             id="previous_roll">
                                     </div>
                                     <div class="flex flex-col w-full">
@@ -369,7 +369,7 @@
                                             style="text-transform: capitalize !important;">{{ text('result') }}*
                                         </label>
                                         <input type="text" name="previous_result" required
-                                            class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                            class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                             id="previous_result">
                                     </div>
                                 </div>
@@ -386,7 +386,7 @@
                                         style="text-transform: capitalize !important;">{{ text('student_relation') }}*
                                     </label>
                                     <select
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="gurdian_relation" name="gurdian_relation" required>
                                         <option value="father">{{ text('father') }}</option>
                                         <option value="mother">{{ text('mother') }}</option>
@@ -400,7 +400,7 @@
                                         style="text-transform: capitalize !important;">{{ text('gurdian_name') . ' (' . text('bangla') . ')' }}*
                                     </label>
                                     <input type="text" name="gurdian_bangla" required
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="gurdian_bangla">
                                 </div>
                                 <div class="flex flex-col w-full">
@@ -408,7 +408,7 @@
                                         style="text-transform: capitalize !important;">{{ text('gurdian_name') . ' (' . text('english') . ')' }}*
                                     </label>
                                     <input type="text" required name="gurdian_english"
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="gurdian_english">
                                 </div>
                                 <div class="flex flex-col w-full">
@@ -416,7 +416,7 @@
                                         style="text-transform: capitalize !important;">{{ text('gurdian_phone') }}
                                     </label>
                                     <input type="text" required name="gurdian_mobile"
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="gurdian_mobile">
                                 </div>
                                 <div class="flex flex-col w-full">
@@ -424,7 +424,7 @@
                                         style="text-transform: capitalize !important;">{{ text('gurdian_nid') }}
                                     </label>
                                     <input type="text" required name="gurdian_nid"
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="gurdian_nid">
                                 </div>
                                 <div class="flex flex-col w-full">
@@ -432,7 +432,7 @@
                                         style="text-transform: capitalize !important;">{{ text('gurdian_birth_date') }}
                                     </label>
                                     <input type="text" required name="gurdian_birth_date" id="gurdian_date_picker"
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1">
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1">
                                 </div>
                             </div>
                         </div>
@@ -448,7 +448,7 @@
                                         style="text-transform: capitalize !important;">{{ text('cost_bear') }}
                                     </label>
                                     <select
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="student_relation" name="student_relation" required>
                                         <option value="father">{{ text('father') }}</option>
                                         <option value="mother">{{ text('mother') }}</option>
@@ -460,7 +460,7 @@
                                         style="text-transform: capitalize !important;">{{ text('ethinic_minority') }}
                                     </label>
                                     <select
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="ethnic_child" name="ethnic_child" required>
                                         <option value="no">{{ text('no') }}</option>
                                         <option value="yes">{{ text('yes') }}</option>
@@ -471,7 +471,7 @@
                                         style="text-transform: capitalize !important;">{{ text('freedom_family') }}
                                     </label>
                                     <select
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="freedom_family" name="freedom_family" required>
                                         <option value="no">{{ text('no') }}</option>
                                         <option value="yes">{{ text('yes') }}</option>
@@ -482,7 +482,7 @@
                                         style="text-transform: capitalize !important;">{{ text('is_stipend') }}
                                     </label>
                                     <select
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="stipend" name="stipend" required>
                                         <option value="no">{{ text('no') }}</option>
                                         <option value="yes">{{ text('yes') }}</option>
@@ -493,7 +493,7 @@
                                         style="text-transform: capitalize !important;">{{ text('physical_disability') }}
                                     </label>
                                     <select
-                                        class="w-full border-1 border-gray-600 focus:outline-red-500 focus:outline-1 rounded-[10px] px-2 py-1"
+                                        class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="disability" name="disability" required>
                                         <option value="no">{{ text('no') }}</option>
                                         <option value="yes">{{ text('yes') }}</option>

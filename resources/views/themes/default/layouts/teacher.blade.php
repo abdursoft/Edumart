@@ -9,20 +9,8 @@
     <link rel="shortcut icon" href="{{ Storage::url(site()->favicon) ?? '' }}" type="image/x-icon"> <!-- Loading Favicon -->
     <link rel="canonical" href="{{ config('app.url') }}" /> <!-- Site base url -->
     <title>@yield('title')</title> <!-- Loading page title -->
-    <script src="{{ theme_asset('js/jquery.js') }}"></script>
-    <script src="{{ theme_asset('js/sweet.js') }}"></script>
-    <script src="{{ theme_asset('js/clock.js') }}"></script>
-    <link rel="stylesheet" href="{{ theme_asset('css/sweet.css') }}">
-    <link rel="stylesheet" href="{{ theme_asset('css/owl.css') }}" />
+
     <link rel="stylesheet" href="{{ theme_asset('css/style.css') }}">
-
-    {{-- load jquery UI & select2  --}}
-    <link rel="stylesheet" href="{{asset('ui/jquery-ui.min.css')}}">
-    <link href="{{asset('ui/select2.min.css')}}" rel="stylesheet" />
-    <script src="{{asset('ui/jquery-ui.min.js')}}"></script>
-    <script src="{{asset('ui/select2.min.js')}}"></script>
-    <script src="{{asset('ui/sorted.min.js')}}"></script>
-
 
     {{-- Vite assets --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -31,14 +19,6 @@
 
     {{-- smart marquee css --}}
     <link rel="stylesheet" href="{{ theme_asset('css/smart-marquee.css') }}">
-
-    <link rel="stylesheet" href="{{asset('themes/backend/css/select2.css')}}">
-
-    {{-- editor assets  --}}
-    <link rel="stylesheet" href="{{asset('ui/editor/quil.css')}}">
-    <link rel="stylesheet" href="{{asset('ui/editor/table.css')}}">
-    <script src="{{asset('ui/editor/quil.js')}}"></script>
-    <script src="{{asset('ui/editor/table.js')}}"></script>
 
     @yield('styles') <!-- Loading page specific styles -->
 </head>
@@ -68,14 +48,18 @@
     </div>
 
     @yield('scripts') <!-- Loading page specific scripts -->
-
+    @stack('scripts')
     {{-- smart marquee js  --}}
-    <script src="{{ theme_asset('js/smart-marquee.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            $(".smartmarquee").smartmarquee();
-        });
+    <script type="module">
+        import '{{theme_asset("js/smart-marquee.js")}}';
+        $(".smartmarquee").smartmarquee({
+                    duration: 5000,
+                    direction: 'down',
+                    duplicated: true,
+                    pauseOnHover: true
+                });
     </script>
-
+    <!-- flash message  -->
+    {!! Toastr::message() !!}
 </body>
 </html>

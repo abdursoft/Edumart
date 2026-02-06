@@ -170,6 +170,18 @@
     }
 
     /**
+     * Get country
+     */
+    if(!function_exists('country')){
+        function country($id=null){
+            if($id){
+                return \App\Models\Country::findOrFail($id);
+            }
+            return \App\Models\Country::all();
+        }
+    }
+
+    /**
  * Get an model
  */
     if (! function_exists('getModel')) {
@@ -391,29 +403,114 @@ if(!function_exists('slider')){
 
         // table scripts
         if (! function_exists('tableScript')) {
-            function tableScript()
+            function tableScript($title="Reports")
             {
                 ob_start();
-            ?>
-        <!-- Table scripts -->
-        <!-- <script src="/ui/datatable.min.js"></script>
-        <script src="/ui/responsive-datatable.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script> -->
+                ?>
+                [{
+                            extend: 'copy',
+                            title:'',
+                            exportOptions: commonExportOptions
+                        },
+                        {
+                            extend: 'csv',
+                            exportOptions: commonExportOptions,
+                            customize: function(csv) {
+                                return `
+                                <?= site()->site_name ?? 'Edumart Technology' ?>
+                                <?= site()->division->name ?? 'Rangpur' ?>, <?= site()->country->name ?>
+                                <?= $title; ?>
 
-        <!-- Required for Excel/PDF -->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script> -->
-    <?php
-        echo ob_get_clean();
+                                ${csv}`;
+                            }
+                        },
+                        {
+                            extend: 'excel',
+                            title:'',
+                            exportOptions: commonExportOptions,
+                            customize: function(xlsx) {
+                                const sheet = xlsx.xl.worksheets['sheet1.xml'];
+                                const rows = `
+                                <row r="1"><c t="inlineStr" r="A1"><is><t><?= site()->site_name ?? 'Edumart Technology' ?></t></is></c></row>
+                                <row r="2"><c t="inlineStr" r="A2"><is><t><?= site()->division->name ?? 'Rangpur' ?>, <?= site()->country->name ?></t></is></c></row>
+                                <row r="3"><c t="inlineStr" r="A3"><is><t><?= $title; ?></t></is></c></row>`;
+                                sheet.childNodes[0].childNodes[1].innerHTML =
+                                    rows + sheet.childNodes[0].childNodes[1].innerHTML;
+                            }
+                        },
+                        {
+                            extend: 'pdfHtml5',
+                            text: 'PDF',
+                            title: '',
+                            orientation: 'landscape',
+                            pageSize: 'A4',
+                            exportOptions: commonExportOptions,
+
+                            customize: function (doc) {
+
+                                doc.header = null;
+                                doc.footer = null;
+
+                                if (doc.content.length && doc.content[0].text) {
+                                    doc.content.splice(0, 1);
+                                }
+
+                                const tableNode = doc.content.find(node => node.table);
+
+                                if (tableNode) {
+                                    tableNode.table.widths =
+                                        Array(tableNode.table.body[0].length).fill('*');
+                                }
+
+
+                                doc.styles.tableHeader.alignment = 'center';
+                                doc.defaultStyle.alignment = 'center';
+
+                                doc.content.unshift(
+                                    {
+                                        text: '<?= site()->site_name ?? "Edumart Technology" ?>',
+                                        fontSize: 14,
+                                        bold: true,
+                                        alignment: 'center',
+                                        margin: [0, 0, 0, 5]
+                                    },
+                                    {
+                                        text:
+                                            '<?= site()->division->name ?? "Rangpur" ?>, ' +
+                                            '<?= site()->country->name ?>\n' +
+                                            '<?= $title; ?>\n\n',
+                                        alignment: 'center',
+                                        margin: [0, 0, 0, 10]
+                                    }
+                                );
+                            }
+                        },
+                        {
+                            extend: 'print',
+                            title:'',
+                            exportOptions: commonExportOptions,
+                            customize: function(win) {
+                                $(win.document.body)
+                                    .prepend(`
+                                    <div style="text-align:center; margin-bottom:20px;">
+                                    <h2><?= site()->site_name ?? 'Edumart Technology' ?></h2>
+                                    <p><?= site()->division->name ?? 'Rangpur' ?>, <?= site()->country->name ?></p>
+                                    <p><strong><?= $title; ?></strong></p>
+                                    </div>`);
+                                $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', '12px');
+                            }
+                        }
+                    ]
+                <?php
+                return ob_get_clean();
             }
         }
 
         // load datatable
         if (! function_exists('loadDataTable')) {
-            function loadDataTable($tableId)
+            function loadDataTable($tableId,$title="Report")
             {
                 ob_start();
             ?>
@@ -429,73 +526,7 @@ if(!function_exists('slider')){
                         topStart: 'buttons'
                     },
                     dom: '<"tableTop"Bf>tr<"tableBottom"ip>',
-                    buttons: [{
-                            extend: 'copy',
-                            exportOptions: commonExportOptions
-                        },
-                        {
-                            extend: 'csv',
-                            exportOptions: commonExportOptions,
-                            customize: function(csv) {
-                                return `
-                                ABC Institute of Technology
-                                Dhaka, Bangladesh
-                                Mark Sheet – Final Exam 2025
-
-                                ${csv}`;
-                            }
-                        },
-                        {
-                            extend: 'excel',
-                            exportOptions: commonExportOptions,
-                            customize: function(xlsx) {
-                                const sheet = xlsx.xl.worksheets['sheet1.xml'];
-                                const rows = `
-                                <row r="1"><c t="inlineStr" r="A1"><is><t>ABC Institute of Technology</t></is></c></row>
-                                <row r="2"><c t="inlineStr" r="A2"><is><t>Dhaka, Bangladesh</t></is></c></row>
-                                <row r="3"><c t="inlineStr" r="A3"><is><t>Mark Sheet – Final Exam 2025</t></is></c></row>`;
-                                sheet.childNodes[0].childNodes[1].innerHTML =
-                                    rows + sheet.childNodes[0].childNodes[1].innerHTML;
-                            }
-                        },
-                        {
-                            extend: 'pdf',
-                            text: 'PDF',
-                            orientation: 'landscape',
-                            pageSize: 'A4',
-                            exportOptions: commonExportOptions,
-                            customize: function(doc) {
-                                const table = doc.content[1].table;
-                                table.widths = Array(table.body[0].length).fill('*');
-                                doc.styles.tableHeader.alignment = 'center';
-                                doc.defaultStyle.alignment = 'center';
-                                doc.content.unshift({
-                                    text: 'ABC Institute of Technology',
-                                    style: 'header',
-                                    alignment: 'center'
-                                }, {
-                                    text: 'Dhaka, Bangladesh\nMark Sheet – Final Exam 2025\n\n',
-                                    alignment: 'center'
-                                });
-                            }
-                        },
-                        {
-                            extend: 'print',
-                            exportOptions: commonExportOptions,
-                            customize: function(win) {
-                                $(win.document.body)
-                                    .prepend(`
-                                    <div style="text-align:center; margin-bottom:20px;">
-                                    <h2>ABC Institute of Technology</h2>
-                                    <p>Dhaka, Bangladesh</p>
-                                    <p><strong>Mark Sheet – Final Exam 2025</strong></p>
-                                    </div>`);
-                                $(win.document.body).find('table')
-                                    .addClass('compact')
-                                    .css('font-size', '12px');
-                            }
-                        }
-                    ],
+                    buttons: <?= tableScript($title) ?>,
                     pageLength: 10,
                     order: [
                         [0, 'desc']

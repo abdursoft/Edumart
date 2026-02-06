@@ -9,8 +9,6 @@
     <link rel="shortcut icon" href="{{ Storage::url(site()->favicon) ?? '' }}" type="image/x-icon"> <!-- Loading Favicon -->
     <link rel="canonical" href="{{ config('app.url') }}" /> <!-- Site base url -->
     <title>@yield('title')</title> <!-- Loading page title -->
-    <script src="{{ theme_asset('js/jquery.js') }}"></script>
-    <script src="{{ theme_asset('js/sweet.js') }}"></script>
 
     {{-- Vite assets --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -21,9 +19,14 @@
 </head>
 
 <body class="w-full flex items-center justify-center">
+    {{-- loading flash message  --}}
+    @include('components.flash-message')
     <div class="w-full">
         <!-- Loading page content -->
         @yield('content')
     </div>
+    @stack('scripts')
+    <!-- flash message  -->
+    {!! Toastr::message() !!}
 </body>
 </html>

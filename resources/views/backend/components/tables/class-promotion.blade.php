@@ -1,8 +1,4 @@
-@section('styles')
-	 {{ tableStyle()}}
-@endSection
-
-<!--Container-->
+<!--Promotion list-->
 <div class="w-full text-slate-800">
 <h2 class="text-xl md:text-2xl mt-5">Promotion list</h2>
     <!--Card-->
@@ -42,8 +38,6 @@
 <!--/container-->
 
 
-@section('scripts')
-	<!--Datatables -->
-	{{ tableScript() }}
-	{{ loadDataTable('example')}}
-@endsection
+@push('scripts')
+	{{ loadDataTable('example', 'Class promotion list')}}
+@endpush

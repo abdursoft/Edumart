@@ -211,3 +211,16 @@ const TIMEZONES = [
     'Australia/Melbourne' => 'Australia/Melbourne',
     'Australia/Perth' => 'Australia/Perth',
 ];
+
+
+const FRONT_MENU=[
+    "Media" => [
+        'gallery' => 'Gallery',
+        'slider'  => 'Slider'
+    ],
+    "teachers" => 'Teacher',
+    "staffs" => 'Staff',
+    "committees" => 'Committee',
+    "contact" => 'Contact us',
+    
+];

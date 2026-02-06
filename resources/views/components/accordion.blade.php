@@ -1,4 +1,4 @@
-<div class="space-y-2">
+<div class="space-y-2 mb-2">
     <div class="border rounded-md overflow-hidden">
         <!-- Header -->
         <button type="button"

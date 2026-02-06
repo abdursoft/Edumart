@@ -27,14 +27,13 @@ class SoftwareActivation
         }
 
         // Don't apply installation check to the installer routes
-        // if (
-        //     !env('APP_INSTALL') &&
-        //     !$request->is('install*') &&
-        //     !Session::has('installation')
-        // ) {
-        //     Session::put('installation', 'init');
-        //     return redirect(route('install.init'));
-        // }
+        if (
+            !env('APP_INSTALL') &&
+            !$request->is('install*')
+        ) {
+            Session::put('installation', 'init');
+            return redirect(route('install.init'));
+        }
 
         return $next($request);
     }

@@ -36,6 +36,7 @@ class SiteSettingController extends Controller
             'district_id'    => 'nullable|exists:districts,id',
             'thana_id'       => 'nullable|exists:thanas,id',
             'union_id'       => 'nullable|exists:unions,id',
+            'country_id'     => 'nullable|exists:countries,id',
             'code'           => 'nullable|string',
             'gov_id'         => 'nullable|string',
             'name_bn'        => 'nullable|string',
@@ -75,6 +76,7 @@ class SiteSettingController extends Controller
         $settings->division_id    = $request->division_id;
         $settings->district_id    = $request->district_id;
         $settings->thana_id       = $request->thana_id;
+        $settings->country_id     = $request->country_id;
         $settings->union_id       = $request->union_id;
         $settings->code           = $request->code;
         $settings->gov_id         = $request->gov_id;

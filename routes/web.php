@@ -13,11 +13,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [SiteController::class, 'home'])->name('home');
 Route::get('/language/{lang}', [SiteController::class, 'lang'])->name('lang');
 
-Route::prefix('auth')->group(function(){
-    Route::get('register', [SiteController::class, 'register'])->name('register');
-    Route::get('login', [SiteController::class, 'login'])->name('login');
-    Route::post('login', [AuthController::class, 'login'])->name('login.action');
+Route::middleware(['web'])->group(function () {
+    Route::prefix('auth')->group(function() {
+        Route::get('register', [SiteController::class, 'register'])->name('register');
+        Route::get('login', [SiteController::class, 'login'])->name('login');
+        Route::post('login', [AuthController::class, 'login'])->name('login.action');
+        Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+    });
 });
+
 
 Route::get('/admission', [AdmissionController::class, 'newAdmission'])->name('admission');
 

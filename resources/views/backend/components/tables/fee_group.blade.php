@@ -1,8 +1,4 @@
-@section('styles')
-	{{ tableStyle()}}
-@endSection
-
-<!-- Container -->
+<!-- fee group -->
 <div class="w-full text-slate-800">
     <x-fieldset title="Fee group management">
         <!-- Card -->
@@ -39,8 +35,6 @@
 </div>
 <!-- /Container -->
 
-@section('scripts')
-    <!-- Datatables -->
-    {{ tableScript() }}
-    {{ loadDataTable('menuTable')}}
-@endsection
+@push('scripts')
+    {{ loadDataTable('menuTable', 'Fee groups')}}
+@endpush

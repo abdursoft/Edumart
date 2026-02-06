@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Attendance;
 use App\Models\ClassRoutine;
 use App\Models\Subject;
+use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -52,9 +53,11 @@ class AttendanceController extends Controller
                 $validated['class_room_id'] = $routine->class_room_id;
                 Attendance::create($validated);
             }
-            return redirect()->back()->with('success','Attendance submitted successfully');
-            }
-            return redirect()->back()->with('error','Class time is not started now, or something else!');
+            Toastr::success('Attendance submitted successfully','Success');
+            return redirect()->back();
+        }
+        Toastr::error('Class time is not started now, or something else!','Time is not accurate');
+        return redirect()->back();
 
     }
 
@@ -77,18 +80,20 @@ class AttendanceController extends Controller
         ]);
         $attendance = Attendance::findOrFail($attendance);
         $attendance->update($validated);
-
-        return redirect()->back()->with('success','Attendance updated successfully');
+        Toastr::success('Attendance updated successfully','Success');
+        return redirect()->back();
     }
 
     // Delete an attendance record
     public function destroy($attendance)
     {
-        $attendance = Attendance::findOrFail($attendance);
+        $attendance = Attendance::find($attendance);
         if(!$attendance){
-            return redirect()->back()->with('error', 'Attendance not found!');
+            Toastr::success('Attendance couldn\'t deleted','Not Found');
+            return redirect()->back();
         }
         $attendance->delete();
-        return redirect()->back()->with('success','Attendance deleted successfully');
+        Toastr::success('Attendance deleted successfully','Success');
+        return redirect()->back();
     }
 }

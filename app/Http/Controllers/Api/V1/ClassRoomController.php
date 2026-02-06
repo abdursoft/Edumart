@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\ClassRoom;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class ClassRoomController extends Controller
@@ -28,8 +29,8 @@ class ClassRoomController extends Controller
         ]);
 
         ClassRoom::create($request->only('name','code','type','capacity','location'));
-
-        return redirect(route('admin.academic.structure.rooms'))->with('success','Room successfully created');
+        Toastr::success('Room created successfully','Created');
+        return redirect(route('admin.academic.structure.rooms'));
     }
 
     // Show a single classroom
@@ -52,8 +53,8 @@ class ClassRoomController extends Controller
         ]);
         $classRoom = ClassRoom::findOrFail($id);
         $classRoom->update($request->only('name','code','type','capacity','location'));
-
-        return redirect(route('admin.academic.structure.rooms'))->with('success','Room successfully updated');
+        Toastr::success('Room updated successfully','Updated');
+        return redirect(route('admin.academic.structure.rooms'));
     }
 
     // Delete a classroom
@@ -61,9 +62,11 @@ class ClassRoomController extends Controller
     {
         $classRoom = ClassRoom::findOrFail($id);
         if(!$classRoom){
-            return redirect(route('admin.academic.structure.rooms'))->with('error','Room couldn\'t create');
+            Toastr::error('Room couldn\'t delete','Internal error');
+            return redirect(route('admin.academic.structure.rooms'));
         }
         $classRoom->delete();
-        return redirect(route('admin.academic.structure.rooms'))->with('success','Room successfully deleted');
+        Toastr::success('Room deleted successfully','Deleted');
+        return redirect(route('admin.academic.structure.rooms'));
     }
 }

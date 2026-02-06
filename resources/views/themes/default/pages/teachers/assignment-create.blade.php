@@ -105,7 +105,7 @@
         </form>
 
         <script>
-            $(document).ready(function() {
+            document.addEventListener('DOMContentLoaded',function() {
                 let clID = uri = null;
                 $('#edu_class_id').change(function(key) {
                     clID = key.target.value;

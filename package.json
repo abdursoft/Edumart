@@ -9,7 +9,7 @@
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
         "@tailwindcss/vite": "^4.0.0",
-        "axios": "^1.11.0",
+        "axios": "^1.13.4",
         "bootstrap": "^5.2.3",
         "concurrently": "^9.0.1",
         "laravel-datatables-vite": "^0.6.2",
@@ -38,6 +38,7 @@
         "quill-better-table": "^1.2.10",
         "select2": "^4.0.13",
         "sweetalert2": "^11.26.18",
-        "tiny-slider": "^2.9.4"
+        "tiny-slider": "^2.9.4",
+        "toastr": "^2.1.4"
     }
 }

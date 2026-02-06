@@ -10,10 +10,10 @@
 
         <!-- Header -->
         <div class="flex items-center justify-between mb-6">
-            <h1 class="text-2xl font-bold text-gray-800">Student Admit cards</h1>
-            <button class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
+            <h1 class="text-2xl font-bold text-gray-800">Student invoices</h1>
+            <a href="{{route('logout')}}" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
                 Signout
-            </button>
+            </a>
         </div>
 
         <!-- Attendance -->
