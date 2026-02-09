@@ -66,7 +66,7 @@
             <p class="text-gray-500">Admission request</p>
             <div class="flex items-center justify-between w-full">
                 <p class="text-xl font-semibold">{{$admissions}}</p>
-                <a href="" class="p-1 md:p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+                <a href="{{route('admin.admission.request')}}" class="p-1 md:p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
             </div>
         </div>
     </div>

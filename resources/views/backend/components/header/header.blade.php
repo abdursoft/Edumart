@@ -57,14 +57,14 @@
 
         <!-- Profile -->
         <div class="relative">
-            <button id="profile-btn" class="flex items-center space-x-2 text-white cursor-pointer">
+            <button id="profile-btn" class="flex items-center space-x-2 text-white cursor-pointer"  data-title="Profile">
                 <iconify-icon icon="healthicons:ui-user-profile" width="34" height="34"></iconify-icon>
             </button>
             <div id="profile-dropdown"
                 class="hidden absolute right-0 mt-2 w-48 rounded-lg bg-white py-2 shadow-lg 800">
                 <a href="#"
                     class="block px-4 py-2 text-sm text-gray-600  hover:bg-gray-700 hover:text-white">Profile</a>
-                <a href="#"
+                <a href="{{route('logout')}}"
                     class="block px-4 py-2 text-sm text-gray-600  hover:bg-gray-700 hover:text-white">Logout</a>
             </div>
         </div>

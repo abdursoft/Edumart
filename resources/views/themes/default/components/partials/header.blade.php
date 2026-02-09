@@ -2,12 +2,12 @@
 <div class="w-full">
     <div class="w-full">
         <div class="w-full flex items-center justify-between py-2">
-            <div class="flex items-center justify-between md:justify-start gap-2 w-full md:w-1/2">
-                <p><a href="mailto:{{ site()->contact_email }}"><i class="ri-mail-line"></i>
+            <div class="flex items-center justify-between md:justify-start gap-2 w-full md:w-1/2 pl-1">
+                <p><a class="flex items-center gap-1" href="mailto:{{ site()->contact_email }}"><iconify-icon icon="fontisto:email" width="24" height="24"></iconify-icon>
                         {{ site()->contact_email }}</a></p>
-                <p><a href="tel:{{ site()->contact_phone }}"><i class="ri-phone-line"></i> {{ site()->contact_phone }}</a></p>
+                <p><a class="flex items-center gap-1" href="tel:{{ site()->contact_phone }}"><iconify-icon icon="line-md:phone-loop" width="24" height="24"></iconify-icon> {{ site()->contact_phone }}</a></p>
             </div>
-            <div class="w-1/2 hidden md:flex items-center justify-end gap-3 text-sm">
+            <div class="w-1/2 hidden md:flex items-center justify-end gap-3 text-sm pr-1">
                 <a href="{{route('login')}}" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="solar:login-linear" width="24" height="24"></iconify-icon> Login</a>
                 <a href="{{route('register')}}" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="hugeicons:user-add-01" width="24" height="24"></iconify-icon> Register</a>
                 <a href="{{route('admission')}}" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="mage:contact-book" width="24" height="24"></iconify-icon> Admission</a>

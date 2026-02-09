@@ -49,6 +49,11 @@
                                     </label>
                                 </div>
                             </div>
+                            <div class="col-md-6 offset-md-4">
+                                <a class="text-white" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
+                            </div>
                         </div>
 
                         <div class="row mb-0">

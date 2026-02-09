@@ -22,8 +22,8 @@
 </head>
 
 <body class="w-full flex items-center justify-center"
-    style="background:url('{{ asset('assets/home/assets/bg_main.gif') }}')center no-repeat;background-size:cover;">
-    <div class="w-full max-w-[1300px]">
+    style="background:url('{{ asset('assets/images/background/bg-pattern.gif') }}')">
+    <div class="w-full max-w-[1480px] bg-white">
         <!-- Loading the latest news marquee -->
         @include(theme('components.marquee.latest'))
         <!-- Loading Navbar -->

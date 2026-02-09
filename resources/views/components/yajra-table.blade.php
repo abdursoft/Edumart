@@ -54,9 +54,12 @@
                                 payload[`{{$key}}`] = $(`#{{$key}}`).val();
                             }
                         @endforeach
-                    }
+                    },
                 },
-                columns: data
+                columns: data,
+                drawCallback: function(settings) {
+                    loadPopper();
+                }
             });
         });
     </script>

@@ -1,6 +1,15 @@
 <?php
 
 return [
+    'fee_group' => 'Fee Group',
+    'fee_heads' => 'Fee Head',
+    'heads' => 'Expense Head',
+    'cost' => 'Expense Cost',
+    'role_permission' => 'Role Permission',
+    'create_page' => 'Create Page',
+    'manage_page' => 'Manage Page',
+    'media' => 'Media',
+    'admission.request' => 'Admission',
     'dashboard' => 'Dashboard',
     'academic' => 'Academic',
     'people' => 'People',
@@ -26,6 +35,9 @@ return [
     'syllabus' => 'Syllabus',
     'evaluation' => 'Evaluation & Examination',
     'exams' => 'Examinations',
+    'exam_fee' => 'Exam Fee',
+    'exam_subject' => 'Exam Subjects',
+    'mark_sheet' => 'Mark sheets',
     'admit_cards' => 'Admit Cards',
     'results' => 'Results',
     'certificates' => 'Certificates',

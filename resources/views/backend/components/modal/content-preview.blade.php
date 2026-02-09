@@ -5,7 +5,7 @@
             icon="pepicons-pencil:times-circle"
             width="26"
             height="26"
-            class="absolute top-2 right-2 cursor-pointer text-red-600 w-[46px] h-[46px]"
+            class="absolute top-2 right-2 cursor-pointer text-red-600 hover:rounded-md bg-white w-[46px] h-[46px]"
             onclick="$('.previewContainer').toggleClass('hidden')"
         ></iconify-icon>
 

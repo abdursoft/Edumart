@@ -16,7 +16,7 @@
                 class="flex items-center text-slate-600 hover:text-white !text-sm !px-3 !py-2 rounded hover:bg-gray-500">
                     {{ $item->title }}
                     @if($item->children->count())
-                        <i class="ri-arrow-drop-down-fill ml-1"></i>
+                        <iconify-icon icon="cuida:caret-down-outline" width="14" height="14"></iconify-icon>
                     @endif
                 </a>
 
@@ -71,6 +71,7 @@
   </ul>
 </nav>
 
+@push('scripts')
 <script>
   // Mobile toggle
   const btn = document.getElementById('mobile-btn');
@@ -88,3 +89,4 @@
     });
   });
 </script>
+@endpush

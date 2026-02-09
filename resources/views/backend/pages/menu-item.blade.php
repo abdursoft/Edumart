@@ -8,6 +8,4 @@
 
 @section('content')
     @include(backend('components.forms.menu-item'))
-    @include(backend('components.tables.menu-item'))
-
 @endsection

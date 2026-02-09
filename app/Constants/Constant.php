@@ -26,6 +26,9 @@ const MENUS = [
     // Dashboard
     "dashboard" => "Dashboard",
 
+    // Admission
+    "admission.request" => "Admission",
+
     // 🎓 Academic Management
     "academic" => [
 
@@ -222,5 +225,5 @@ const FRONT_MENU=[
     "staffs" => 'Staff',
     "committees" => 'Committee',
     "contact" => 'Contact us',
-    
+
 ];

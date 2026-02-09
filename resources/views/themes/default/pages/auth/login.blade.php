@@ -81,8 +81,14 @@
                                         </span>
                                     </div>
                                 </div>
+                                <!-- captcha -->
+                                <div class="w-full flex items-center justify-between gap-2">
+                                    <input type="text" name="captcha" class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent py-2.5 pl-4 pr-11 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800" placeholder="captcha text" id="captcha">
+                                    <img src="{{route("captcha")}}" class="w-[150px] h-[40px] rounded-md" alt="" id="captchaImg">
+                                    <button type="button" id="captchaReloader" class="rounded-md text-white cursor-pointer bg-slate-600 p-2 flex items-center justify-center"><iconify-icon icon="mdi:reload" width="24" height="24" class="text-white"></iconify-icon></button>
+                                </div>
                                 <!-- Checkbox -->
-                                <div>
+                                <div class="w-full grid grid-cols-1 md:grid-cols-2">
                                     <div x-data="{ checkboxToggle: false }">
                                         <label for="checkboxLabelOne"
                                             class="flex items-start text-sm font-normal text-gray-700 cursor-pointer select-none dark:text-gray-400">
@@ -107,6 +113,11 @@
                                             </p>
                                         </label>
                                     </div>
+                                    <div class="text-white text-right">
+                                        <a class="text-gray-500 hover:text-white" href="{{ route('password.request') }}">
+                                            {{ __('Forgot Your Password?') }}
+                                        </a>
+                                    </div>
                                 </div>
                                 <!-- Button -->
                                 <div class="">
@@ -117,10 +128,7 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="w-full flex items-center justify-center px-3 py-2 rounded-md text-yellow-600 font-semibold text-lg bg-slate-800 hidden">
-                            Public registration not allowed!
-                        </div>
-                        <div class="mt-5">
+                        <div class="mt-5 flex items-center justify-center">
                             <p class="text-sm font-normal text-center text-gray-700 dark:text-gray-400 sm:text-start">
                                 Already have an account?
                                 <a href="{{route('login')}}"
@@ -137,22 +145,32 @@
 
 @push('scripts')
 <script type="module">
+    function refreshCaptcha() {
+        document.getElementById('captchaImg').src = '{{route("captcha")}}?' + Date.now();
+    }
+
+    $("#captchaReloader").on('click',function(){
+        refreshCaptcha();
+    });
+
     $("#loginForm").on('submit', (e) => {
         e.preventDefault();
 
         const form = $("#loginForm").serialize();
 
-        axios.post('{{route('login.action')}}', form)
+        axios.post('{{route('login.action')}}', form, { withCredentials: true })
         .then(function(response){
             if(response.status === 200){
                 toastr.success(response.data.message, 'Success');
                 window.location.href = response.data.redirect;
+            }else{
+                refreshCaptcha();
             }
         })
         .catch(function(error){
+            refreshCaptcha();
             if(error.response.status === 422){
                 let errors = error.response.data.errors;
-                console.log(errors)
                 for (const key in errors) {
                     const element = errors[key];
                     toastr.error(errors[key],key);

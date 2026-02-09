@@ -57,6 +57,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
 /**
+ * admission routes
+ */
+Route::prefix('admission')->name('admission.')->group(function(){
+    Route::get('requests', [AdmissionController::class, 'index'])->name('request');
+    Route::get('action/{type}/{id}', [AdmissionController::class, 'action'])->name('request.action');
+});
+
+/**
  * Academic Management
  */
 

@@ -82,6 +82,10 @@ window.toastr = toastr;
 import axios from 'axios';
 window.axios = axios;
 
+// popper js
+import { createPopper  } from '@popperjs/core';
+window.popper = createPopper ;
+
 // Alpine + FullCalendar
 import Alpine from 'alpinejs';
 import { Calendar } from '@fullcalendar/core';
@@ -91,6 +95,51 @@ window.calender = Calendar;
 window.dayGrid = dayGridPlugin;
 Alpine.start();
 
+
+// Select all elements with data-title
+function loadPopper(){
+    document.querySelectorAll('[data-title]').forEach((el) => {
+        // Create a tooltip element
+        const tooltip = document.createElement('div');
+        tooltip.className = 'tooltip'; // you can style this in CSS
+        tooltip.innerText = el.getAttribute('data-title');
+        tooltip.style.position = 'absolute';
+        tooltip.style.background = '#333';
+        tooltip.style.color = '#fff';
+        tooltip.style.padding = '5px 10px';
+        tooltip.style.borderRadius = '4px';
+        tooltip.style.fontSize = '13px';
+        tooltip.style.zIndex = '9999';
+        tooltip.style.pointerEvents = 'none';
+        tooltip.style.opacity = '0';
+        tooltip.style.transition = 'opacity 0.2s';
+
+        document.body.appendChild(tooltip);
+
+        // Initialize Popper
+        const popperInstance = createPopper (el, tooltip, {
+            placement: 'top', // default placement
+            modifiers: [
+                {
+                    name: 'offset',
+                    options: {
+                        offset: [0, 8],
+                    },
+                },
+            ],
+        });
+
+        // Show/hide on hover
+        el.addEventListener('mouseenter', () => {
+            tooltip.style.opacity = '1';
+        });
+        el.addEventListener('mouseleave', () => {
+            tooltip.style.opacity = '0';
+        });
+    });
+}
+
+window.loadPopper = loadPopper;
 // DOM ready
 document.addEventListener('DOMContentLoaded', () => {
     console.log('jQuery version:', $.fn.jquery);
@@ -98,6 +147,5 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('DataTables loaded:', $.fn.dataTable);
     console.log('Quill editor loaded:', Quill);
 
-    console.log($.fn.owlCarousel)
-
+    loadPopper();
 });

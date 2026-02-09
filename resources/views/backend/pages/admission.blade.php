@@ -3,12 +3,8 @@
 @section('title', 'Admission Requests')
 
 @section('content')
+    @include(backend('components.modal.content-preview'));
     <div class="w-full flex items-start flex-col lg:flex-row gap-3">
-        <div class="w-full lg:w-1/4">
-            {{-- @include(backend('components.forms.asset')) --}}
-        </div>
-        <div class="w-full lg:w-3/4">
-            {{-- @include(backend('components.tables.asset')) --}}
-        </div>
+        @include(backend('components.tables.admission'))
     </div>
 @endsection

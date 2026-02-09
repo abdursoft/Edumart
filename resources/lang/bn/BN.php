@@ -1,6 +1,15 @@
 <?php
 
 return [
+    'fee_group' => 'ফি গ্রুপ',
+    'fee_heads' => 'ফি হিডস্',
+    'heads' => 'ব্যায় হিডস্',
+    'cost' => 'ব্যায়',
+    'role_permission' => 'Role Permission',
+    'create_page' => 'Create Page',
+    'manage_page' => 'Manage Page',
+    'media' => 'Media',
+    'admission.request' => 'এডমিশন',
     'dashboard' => 'ড্যাশবোর্ড',
     'academic' => 'একাডেমিক',
     'people' => 'মানুষ',
@@ -337,6 +346,9 @@ return [
     "date" => "তারিখ",
     "head_person" => "প্রধান ব্যক্তি",
     "exam" => "পরীক্ষা",
+    'exam_fee' => 'পারিক্ষার ফি',
+    'exam_subject' => 'পরিক্ষার বিষয় সমূহ',
+    'mark_sheet' => 'মার্ক শীট',
     "attendence" => "উপস্থিতি",
     "exam_name" => "পরীক্ষার নাম",
     "examinee" => "পরীক্ষার্থী",

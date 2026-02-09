@@ -19,7 +19,6 @@
     <link href="{{asset('ui/admin.css')}}" rel="stylesheet">
 
     {{-- editor assets  --}}
-    <link rel="stylesheet" href="{{asset('ui/editor/quil.css')}}">
     <link rel="stylesheet" href="{{asset('ui/editor/table.css')}}">
 
     {{tableStyle()}}
@@ -69,8 +68,6 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     {{-- custom override js and css  --}}
     <script src="{{asset('ui/admin.js')}}"></script>
-    {{-- load custom js  --}}
-    @yield('scripts')
     <!-- Push Scripts -->
     @stack('scripts')
 

@@ -7,10 +7,11 @@
 @endsection
 
 @section('content')
-
     <div class="w-full max-w-7xl">
+        <h3 class="text-center text-xl md:text-2xl font-bold">Online admission form</h3>
         <div class="w-full px-2 md:px-5 rounded-md bg-white shadow-md py-5">
             <form method="post" enctype="multipart/form-data" id="applicationForm">
+                @csrf
                 <div class="row">
                     <div class="w-full">
                         <div class="w-full">
@@ -51,7 +52,8 @@
                                         class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1">
                                 </div>
                                 <div class="flex flex-col w-full">
-                                    <label for="gender" style="text-transform: capitalize !important;"> {{ text('sex') }}*
+                                    <label for="gender" style="text-transform: capitalize !important;">
+                                        {{ text('sex') }}*
                                     </label>
                                     <select
                                         class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
@@ -147,7 +149,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 mt-3">
+                    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
                         <div class="w-full">
                             <h3 class="text-center text-lg md:text-xl lg:text:2xl ">{{ text('present_address') }}</h3>
                             <hr class="text-gray-300 mb-3">
@@ -159,6 +161,9 @@
                                     <select
                                         class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1 permanent_division"
                                         id="permanent_division" name="permanent_division" required>
+                                        @foreach (division() as $div)
+                                            <option value="{{ $div->id }}">{{ $div->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="flex flex-col w-full">
@@ -265,9 +270,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full mt-3">
+                    <div class="w-full mt-5">
                         <div class="w-full">
-                            <h3 class="text-center text-lg md:text-xl lg:text:2xl ">{{ text('previous_education') }}* </h3>
+                            <h3 class="text-center text-lg md:text-xl lg:text:2xl ">{{ text('previous_education') }}*
+                            </h3>
                             <hr class="text-gray-300 mb-3">
                             <div class="w-full">
                                 <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4">
@@ -319,8 +325,8 @@
                                         <select
                                             class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                             id="previous_result_type" name="previous_result_type" required>
-                                            <option value="gpa">{{ text('gpa') }}</option>
-                                            <option value="cgpa">{{ text('cgpa') }}</option>
+                                            <option value="GPA">{{ text('gpa') }}</option>
+                                            <option value="CGPA">{{ text('cgpa') }}</option>
                                         </select>
                                     </div>
                                     <div class="flex flex-col w-full">
@@ -376,7 +382,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full mt-3">
+                    <div class="w-full mt-5">
                         <div class="col-md-12">
                             <h3 class="text-center text-lg md:text-xl lg:text:2xl ">{{ text('parent_information') }}</h3>
                             <hr class="text-gray-300 mb-3">
@@ -387,7 +393,7 @@
                                     </label>
                                     <select
                                         class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
-                                        id="gurdian_relation" name="gurdian_relation" required>
+                                        id="gurdian_relation" name="guardian_relation" required>
                                         <option value="father">{{ text('father') }}</option>
                                         <option value="mother">{{ text('mother') }}</option>
                                         <option value="brother">{{ text('brother') }}</option>
@@ -399,7 +405,7 @@
                                     <label for="gurdian_bangla"
                                         style="text-transform: capitalize !important;">{{ text('gurdian_name') . ' (' . text('bangla') . ')' }}*
                                     </label>
-                                    <input type="text" name="gurdian_bangla" required
+                                    <input type="text" name="guardian_bangla" required
                                         class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="gurdian_bangla">
                                 </div>
@@ -407,7 +413,7 @@
                                     <label for="gurdian_english"
                                         style="text-transform: capitalize !important;">{{ text('gurdian_name') . ' (' . text('english') . ')' }}*
                                     </label>
-                                    <input type="text" required name="gurdian_english"
+                                    <input type="text" required name="guardian_english"
                                         class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="gurdian_english">
                                 </div>
@@ -415,7 +421,7 @@
                                     <label for="gurdian_mobile"
                                         style="text-transform: capitalize !important;">{{ text('gurdian_phone') }}
                                     </label>
-                                    <input type="text" required name="gurdian_mobile"
+                                    <input type="text" required name="guardian_mobile"
                                         class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="gurdian_mobile">
                                 </div>
@@ -423,7 +429,7 @@
                                     <label for="gurdian_nid"
                                         style="text-transform: capitalize !important;">{{ text('gurdian_nid') }}
                                     </label>
-                                    <input type="text" required name="gurdian_nid"
+                                    <input type="text" required name="guardian_nid"
                                         class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1"
                                         id="gurdian_nid">
                                 </div>
@@ -431,18 +437,18 @@
                                     <label for="gurdian_birth_date"
                                         style="text-transform: capitalize !important;">{{ text('gurdian_birth_date') }}
                                     </label>
-                                    <input type="text" required name="gurdian_birth_date" id="gurdian_date_picker"
+                                    <input type="text" required name="guardian_birth_date" id="gurdian_date_picker"
                                         class="w-full border-[0.5px] border-gray-300 focus:outline-red-500 focus:outline-1 rounded-[4px] px-2 py-1">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="w-full mt-3">
+                    <div class="w-full mt-5">
                         <div class="w-full">
                             <h3 class="text-center text-lg md:text-xl lg:text:2xl ">{{ text('eligibility_condition') }}
                             </h3>
                             <hr class="text-gray-300 mb-3">
-                            <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
                                 <div class="flex flex-col w-full">
                                     <label for="student_relation"
                                         style="text-transform: capitalize !important;">{{ text('cost_bear') }}
@@ -502,7 +508,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 mt-3">
+                    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 mt-5">
                         <div class="col-md-6">
                             <h3 class="text-center text-lg md:text-xl lg:text:2xl "> {{ text('applicant_photo') }}</h3>
                             <hr class="text-gray-300 mb-3">
@@ -511,13 +517,14 @@
                                     <label for="aplicant_photo"
                                         style="text-transform: capitalize !important;">{{ text('attach_applicant_photo') }}
                                     </label>
-                                    <input type="file" required id="aplicant_photo" name="aplicant_photo">
+                                    <input type="file" required id="aplicant_photo" name="photo">
                                     <div class="form_label">{{ text('max_size') }}</div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <h3 class="text-center text-lg md:text-xl lg:text:2xl "> {{ text('relevent_certificate') }}</h3>
+                            <h3 class="text-center text-lg md:text-xl lg:text:2xl "> {{ text('relevent_certificate') }}
+                            </h3>
                             <hr class="text-gray-300 mb-3">
                             <div class="col-md-6">
                                 <div class="flex flex-col w-full">
@@ -535,7 +542,8 @@
                     </div>
                     <div class="w-full">
                         <div class="flex flex-col w-full text-center text-lg md:text-xl lg:text:2xl">
-                            <input type="submit" name="btn-save" class="cursor-pointer bg-green-400 text-white hover:bg-green-600 hover:shadow-md rounded-md px-3 py-2"
+                            <input type="submit" name="btn-save"
+                                class="cursor-pointer bg-green-400 text-white hover:bg-green-600 hover:shadow-md rounded-md px-3 py-2"
                                 value="{{ text('submits') }}">
                         </div>
                     </div>
@@ -545,3 +553,212 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script type="module">
+        // $("select").select2();
+
+        let lang = '{{ config('app.locale') }}';
+        let divisionArray = [];
+        let districtArray = [];
+        let thanaArray = [];
+        let unionArray = [];
+
+        var dvSelector = document.querySelectorAll('select');
+        dvSelector.forEach(item => {
+            if (item != undefined) {
+                var div = item.getAttribute('id');
+                if (div.indexOf('_division') != -1) {
+                    getDivision(div);
+                    item.addEventListener('change', (e) => {
+                        let id = getIndex("div" + e.target.value.replace(' ', '_'), 'div', item);
+                    })
+                }
+
+                if (div.indexOf('_zilla') != -1) {
+                    item.addEventListener('change', (e) => {
+                        let id = getIndex("dis" + e.target.value.replace(' ', '_'), 'dis', item);
+                    })
+                }
+
+                if (div.indexOf('_thana') != -1) {
+                    item.addEventListener('change', (e) => {
+                        let id = getIndex("th" + e.target.value.replace(' ', '_'), 'th', item);
+                    })
+                }
+            }
+        })
+
+        function getDivision(element) {
+            var division = `<option selected disabled value=''>{{ text('division') }}</option>`;
+            fetch('{{ asset('assets/json/division.json') }}')
+                .then((response) => response.json())
+                .then((response) => {
+                    if (Array.isArray(response)) {
+                        response.forEach(element => {
+                            let el = element.data;
+                            el.forEach(item => {
+                                if (lang == 'bn') {
+                                    division +=
+                                        `<option class='div${item.bn_name.replace(' ','_')}' data-id='${item.id}' value='${item.bn_name}'>${item.bn_name}</option>`;
+                                } else {
+                                    division +=
+                                        `<option class='div${item.name.replace(' ','_')}' data-id='${item.id}' value='${item.name}'>${item.name}</option>`;
+                                }
+                            })
+                        });
+                    }
+                    $("#" + element).html(division);
+                }).catch(error => {
+                    console.log(error);
+                })
+        }
+
+        function getDistrict(element, id) {
+            var district = `<option selected disabled value=''>{{ text('zilla') }}</option>`;
+            districtArray = [];
+            fetch('{{ asset('assets/json/district.json') }}')
+                .then((response) => response.json())
+                .then((response) => {
+                    if (Array.isArray(response)) {
+                        response.forEach(element => {
+                            let el = element.data;
+                            el.forEach(item => {
+                                if (lang == 'bn' && id == item.division_id) {
+                                    district +=
+                                        `<option class='dis${item.bn_name.replace(' ','_')}' data-id='${item.id}' value='${item.bn_name}'>${item.bn_name}</option>`;
+                                } else {
+                                    if (id == item.division_id) {
+                                        district +=
+                                            `<option class='dis${item.name.replace(' ','_')}' data-id='${item.id}' value='${item.name}'>${item.name}</option>`;
+                                    }
+                                }
+                            })
+                        });
+                    }
+                    $("#" + element).html(district);
+                }).catch(error => {
+                    console.log(error);
+                })
+        }
+
+        function getThana(element, id) {
+            var thana = `<option selected disabled value=''>{{ text('thana') }}</option>`;
+            thanaArray = [];
+            fetch('{{ asset('assets/json/thana.json') }}')
+                .then((response) => response.json())
+                .then((response) => {
+                    if (Array.isArray(response)) {
+                        response.forEach(element => {
+                            let el = element.data;
+                            el.forEach(item => {
+                                if (lang == 'bn' && id == item.district_id) {
+                                    thana +=
+                                        `<option class='th${item.bn_name.replace(' ','_')}' data-id='${item.id}' value='${item.bn_name}' data='${item.id}'>${item.bn_name}</option>`;
+                                } else {
+                                    if (id == item.district_id) {
+                                        thana +=
+                                            `<option class='th${item.name.replace(' ','_')}' data-id='${item.id}' value='${item.name}' data='${item.id}'>${item.name}</option>`;
+                                    }
+                                }
+                            })
+                        });
+                    }
+                    $("#" + element).html(thana);
+                }).catch(error => {
+                    console.log(error);
+                })
+        }
+
+        function getUnion(element, id) {
+            var union = `<option value='' selected disabled>{{ text('area') }}</option>`;
+            unionArray = [];
+            fetch('{{ asset('assets/json/union.json') }}')
+                .then((response) => response.json())
+                .then((response) => {
+                    if (Array.isArray(response)) {
+                        response.forEach(element => {
+                            let el = element.data;
+                            el.forEach(item => {
+                                if (lang == 'bn' && id == item.upazilla_id) {
+                                    union +=
+                                        `<option class='un${item.bn_name.replace(' ','_')}' data-id='${item.id}' value='${item.bn_name}'>${item.bn_name}</option>`;
+                                } else {
+                                    if (id == item.upazilla_id) {
+                                        union +=
+                                            `<option class='un${item.name.replace(' ','_')}' data-id='${item.id}' value='${item.name}'>${item.name}</option>`;
+                                    }
+                                }
+                            })
+                        });
+                    }
+                    $("#" + element).html(union);
+                }).catch(error => {
+                    console.log(error);
+                })
+        }
+
+        function attachArray(arrayName, item) {
+            if (arrayName.indexOf(item) == -1) {
+                arrayName.push(item);
+            }
+        }
+
+        function getIndex(item, key, element) {
+            let el = $(`.${item}`);
+            if (el != undefined) {
+                let id = el.attr('data-id');
+                swithListener(item, key, id, element);
+            } else {
+                return false;
+            }
+        }
+
+        function swithListener(item, key, id, area) {
+            var ids = area.getAttribute('id');
+            switch (key) {
+                case 'div':
+                    var zilla = ids.replace('_division', '_zilla');
+                    getDistrict(zilla, id);
+                    break;
+                case 'dis':
+                    var th = ids.replace('_zilla', '_thana');
+                    console.log(th)
+                    getThana(th, id);
+                    break;
+                case 'th':
+                    var un = ids.replace('_thana', '_union');
+                    console.log(un)
+                    getUnion(un, id);
+            }
+        }
+        $(document).ready(function() {
+            $("#applicationForm").on('submit', (e) => {
+                $(".status").html('<span class="loader">');
+                $(".loader").css({
+                    display: 'inline-block'
+                });
+
+                var myForm = document.getElementById("applicationForm");
+                e.preventDefault();
+                $.ajax({
+                    url: "{{route('admission.action')}}",
+                    method: 'POST',
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    data: new FormData(myForm),
+                    success: (response) => {
+                        if (response.status === 201) {
+                            toastr.success('Application successfully submitted!');
+                            $("#applicationForm")[0].reset();
+                        } else {
+                            $(".status").addClass('text-danger');
+                            $(".status").text(response.message);
+                        }
+                    }
+                })
+            })
+        })
+    </script>
+@endpush
