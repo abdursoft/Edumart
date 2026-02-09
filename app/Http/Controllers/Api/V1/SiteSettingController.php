@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\SiteSetting;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -48,6 +49,7 @@ class SiteSettingController extends Controller
             'navbar_color'   => 'nullable',
             'sidebar_color'  => 'nullable',
             'text_color'     => 'nullable',
+            'map'            => 'nullable',
             'maintenance'    => 'nullable|in:active,inactive',
         ]);
 
@@ -66,6 +68,11 @@ class SiteSettingController extends Controller
         if ($request->hasFile('favicon')) {
             $settings->favicon = $request->file('favicon')->store('site', 'public');
         }
+
+        $map = str_replace('style="border:0;"', ' ', $request->map );
+        $map = str_replace('<p>', '', $map );
+        $map = str_replace('</p>', '', $map );
+        $map = str_replace('<iframe', '<iframe style="width:100%;height:100%;border:0;"', $map );
 
         $settings->site_name      = $request->site_name;
         $settings->theme          = $request->theme ?? 'default';
@@ -89,13 +96,14 @@ class SiteSettingController extends Controller
         $settings->set_timezone   = $request->set_timezone;
         $settings->maintenance    = $request->maintenance ?? 'inactive';
         $settings->establish_date = $request->establish_date;
+        $settings->map            = $map;
 
         if ($request->social_links) {
             $settings->social_links = $request->social_links;
         }
 
         $settings->save();
-
-        return redirect()->back()->with('success', 'Site Information updated successfully.');
+        Toastr::success('Site information saved successfully', 'Success');
+        return back();
     }
 }

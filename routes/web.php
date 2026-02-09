@@ -44,6 +44,8 @@ Route::middleware(['web'])->group(function () {
     Route::get('media/{type?}/{id?}', [SiteController::class, 'gallery'])->name('media');
     Route::get('administrative/{role}/{id?}', [SiteController::class, 'administrative'])->name('administrative');
 
+    Route::get('contact', [SiteController::class, 'contact'])->name('contact');
+
 });
 
 

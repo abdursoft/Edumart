@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\V1\ClassPromotionController;
 use App\Http\Controllers\Api\V1\ClassRoomController;
 use App\Http\Controllers\Api\V1\ClassRoutineController;
 use App\Http\Controllers\Api\V1\CommitteeController;
+use App\Http\Controllers\Api\V1\ContactController;
 use App\Http\Controllers\Api\V1\DepartmentController;
 use App\Http\Controllers\Api\V1\DesignationController;
 use App\Http\Controllers\Api\V1\EduClassController;
@@ -394,9 +395,9 @@ Route::get('finance/transactions', function () {
 
 // Communication & Collaboration
 Route::prefix('communication')->name('communication.')->group(function () {
-    Route::get('email', function () {
-        return 'Email';
-    })->name('email');
+    Route::get('contacts/{id?}', [ContactController::class, 'index'])->name('email');
+    Route::post('contacts/message/send/{id?}', [ContactController::class, 'store'])->name('email.send');
+    Route::get('contacts/message/{id}/delete', [ContactController::class, 'destroy'])->name('email.delete');
     Route::get('send-message', [SmsController::class, 'messageForm'])->name('sms');
     Route::post('send-message', [SmsController::class, 'sendMessage'])->name('sms.send');
     Route::get('notifications', function () {

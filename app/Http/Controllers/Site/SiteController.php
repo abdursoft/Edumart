@@ -85,6 +85,13 @@ class SiteController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * Contact us page
+     */
+    public function contact(){
+        return view(theme('pages.contact'));
+    }
+
     public function quill(Request $request)
     {
         $path = $request->file('image')->store('quill', 'public');

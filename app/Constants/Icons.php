@@ -23,5 +23,6 @@ const ICONS = [
     'print' => '<iconify-icon icon="noto:printer" width="24" height="24"></iconify-icon>',
     'view' => '<iconify-icon icon="emojione-monotone:eye" width="24" height="24"></iconify-icon>',
     'reject' => '<iconify-icon icon="mage:file-minus" width="24" height="24"></iconify-icon>',
-    'approve' => '<iconify-icon icon="mdi:approve" width="24" height="24"></iconify-icon>'
+    'approve' => '<iconify-icon icon="mdi:approve" width="24" height="24"></iconify-icon>',
+    'send' => '<iconify-icon icon="streamline:send-email-remix" width="24" height="24"></iconify-icon>'
 ];

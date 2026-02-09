@@ -139,17 +139,25 @@
             ],
 
             [
+                'label' => 'Google map',
+                'name' => 'map',
+                'type' => 'textarea',
+                'height' => '120px',
+                'required' => false,
+            ],
+
+            [
                 'label' => '',
                 'name' => '',
                 'type' => 'break',
-                'default' => 1,
+                'default' => 9,
             ],
             [
                 'label' => '',
                 'name' => '',
                 'type' => 'break',
                 'margin' => '20',
-                'default' => 2,
+                'default' => 1,
             ],
 
             [
