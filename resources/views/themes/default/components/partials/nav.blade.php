@@ -34,6 +34,31 @@
                 @endif
             </li>
         @endforeach
+        @foreach(FRONT_MENU as $key=>$item)
+
+            <li class="relative group  class">
+                <a href="{{$key}}"
+                class="flex items-center text-slate-600 hover:text-white !text-sm !px-3 !py-2 rounded hover:bg-gray-500">
+                    {{ is_array($item) ? $item['title'] : $item }}
+                    @if(is_array($item))
+                        <iconify-icon icon="cuida:caret-down-outline" width="14" height="14"></iconify-icon>
+                    @endif
+                </a>
+
+                @if(is_array($item))
+                    <ul class="absolute left-0 mt-4 w-44 bg-gray-600 rounded-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 z-50">
+                        @foreach($item['children'] as $chKey=>$child)
+                            <li>
+                                <a href="{{ route("$key", [$item['parameter'] => $chKey]) }}"
+                                class="block !px-3 !py-2 text-white !text-sm hover:bg-gray-700">
+                                    {{ $child}}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
+            </li>
+        @endforeach
     </ul>
 
   </div>

@@ -8,10 +8,12 @@ use App\Models\Attendance;
 use App\Models\ClassRoutine;
 use App\Models\Designation;
 use App\Models\EduClass;
+use App\Models\Profile;
 use App\Models\Subject;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 use function Symfony\Component\Clock\now;

@@ -4,12 +4,17 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 
 class ProfileController extends Controller
 {
     // List all profiles
-    public function index()
+    public function index($id=null)
     {
         return Profile::with('user')->get();
     }
@@ -17,9 +22,9 @@ class ProfileController extends Controller
     // Store a new profile
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'user_id'      => 'required|exists:users,id',
-            'avatar'       => 'nullable|string',
+            'avatar'       => 'nullable|files|mimes:jpeg,jpg,png',
             'first_name'   => 'required|string',
             'last_name'    => 'nullable|string',
             'phone'        => 'nullable|string',
@@ -33,9 +38,33 @@ class ProfileController extends Controller
             'village'      => 'nullable|string',
         ]);
 
-        $profile = Profile::create($request->all());
+        if($request->hasFile('avatar')){
+                $file = $request->file('avatar');
 
-        return response()->json($profile, 201);
+                $dir = public_path('uploads/profile');
+
+                if (!File::exists($dir)) {
+                    File::makeDirectory($dir, 0755, true);
+                }
+
+                $filename = uniqid() . '.webp';
+                $path = public_path('uploads/profile/' . $filename);
+
+                $manager = new ImageManager(new Driver());
+
+                $manager->read($file)
+                    ->resize(1200, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    })
+                    ->toWebp(80)
+                    ->save($path);
+                $validated['avatar'] = 'uploads/profile/' . $filename;
+            }
+
+        Profile::create($validated);
+        Toastr::success('Profile data updated successfully', 'Success');
+        return redirect()->back();
     }
 
     // Show a single profile
@@ -45,10 +74,10 @@ class ProfileController extends Controller
     }
 
     // Update a profile
-    public function update(Request $request, Profile $profile)
+    public function update(Request $request)
     {
-        $request->validate([
-            'avatar'       => 'nullable|string',
+        $validated = $request->validate([
+            'avatar'       => 'nullable|file|mimes:jpeg,jpg,png',
             'first_name'   => 'sometimes|required|string',
             'last_name'    => 'nullable|string',
             'phone'        => 'nullable|string',
@@ -62,9 +91,35 @@ class ProfileController extends Controller
             'village'      => 'nullable|string',
         ]);
 
-        $profile->update($request->all());
+        $profile = Profile::where('user_id', Auth::id())->first();
 
-        return response()->json($profile);
+        if($request->hasFile('avatar')){
+                $file = $request->file('avatar');
+
+                $dir = public_path('uploads/profile');
+
+                if (!File::exists($dir)) {
+                    File::makeDirectory($dir, 0755, true);
+                }
+
+                $filename = uniqid() . '.webp';
+                $path = public_path('uploads/profile/' . $filename);
+
+                $manager = new ImageManager(new Driver());
+
+                $manager->read($file)
+                    ->resize(1200, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    })
+                    ->toWebp(80)
+                    ->save($path);
+                $validated['avatar'] = 'uploads/profile/' . $filename;
+            }
+
+        $profile->update($validated);
+        Toastr::success('Profile data updated successfully', 'Success');
+        return back();
     }
 
     // Delete a profile
@@ -73,5 +128,14 @@ class ProfileController extends Controller
         $profile->delete();
 
         return response()->json(null, 204);
+    }
+
+    /**
+     * Teacher profile update
+     */
+    public function profile(){
+        $profile = $this->profile;
+        $profileData = Profile::where('user_id', Auth::id())->first();
+        return view(theme('pages.profile'), compact('profile', 'profileData'));
     }
 }

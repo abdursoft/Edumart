@@ -46,3 +46,7 @@
         });
     </script>
 @endpush
+
+@push('styles')
+{{tableStyle()}}
+@endpush

@@ -217,13 +217,21 @@ const TIMEZONES = [
 
 
 const FRONT_MENU=[
-    "Media" => [
-        'gallery' => 'Gallery',
-        'slider'  => 'Slider'
+    "media" => [
+        'title' => 'Media',
+        'children' => [
+            'gallery' => 'Gallery',
+        ],
+        'parameter' => 'type'
     ],
-    "teachers" => 'Teacher',
-    "staffs" => 'Staff',
-    "committees" => 'Committee',
+    "administrative" => [
+        'title' => 'Administrative',
+        'children' => [
+            "teacher" => 'Teacher',
+            "staff" => 'Staff',
+            "committee" => 'Committee',
+        ],
+        'parameter' => 'role'
+    ],
     "contact" => 'Contact us',
-
 ];

@@ -72,8 +72,8 @@ class AdmissionController extends Controller
             ->addColumn('action', function($row){
                 return '<div class="flex items-center gap-1">
                                 <a data-title="Approve" href="'. route('admin.admission.request.action',['id' => $row->id,'type' => 'approve']).'" class="py-1 px-2 rounded-[15px] shadow-md hover:bg-green-600 text-green-600 hover:text-white transition">'. icons('approve') .'</a>
-                                <a data-title="Reject" href="'. route('admin.admission.request.action',['id' => $row->id,'type' => 'reject']) .'" class="py-1 px-2 text-red-600 rounded-[15px] shadow-md hover:bg-red-600 hover:text-white transition" onclick="return confirm(`Are you sure you want to delete this exam-subject`)">'.icons('reject') .'</a>
-                                <a data-title="View" href="'. route('admin.admission.request.action',['id' => $row->id,'type' => 'view']) .'" target="_blank" class="py-1 px-2 rounded-[15px] md:shadow-md hover:bg-yellow-600 text-orange-600 hover:text-white transition">'. icons('view') .'</a>
+                                <a data-title="Reject" href="'. route('admin.admission.request.action',['id' => $row->id,'type' => 'reject']) .'" class="py-1 px-2 text-red-600 rounded-[15px] shadow-md hover:bg-red-600 hover:text-white transition" onclick="return confirm(`Are you sure you want to delete this application`)">'.icons('reject') .'</a>
+                                <a data-title="View" href="'. route('admin.admission.request.show',['id' => $row->id]) .'" target="_blank" class="py-1 px-2 rounded-[15px] md:shadow-md hover:bg-yellow-600 text-orange-600 hover:text-white transition">'. icons('view') .'</a>
                             </div>';
             })
 
@@ -224,7 +224,8 @@ class AdmissionController extends Controller
     // Show a single admission
     public function show($id)
     {
-        return Admission::findOrFail($id);
+        $student = Admission::findOrFail($id);
+        return view(backend('pages.admission-preview'), compact('student'));
     }
 
     // Update an admission

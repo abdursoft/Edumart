@@ -61,6 +61,7 @@ Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard'
  */
 Route::prefix('admission')->name('admission.')->group(function(){
     Route::get('requests', [AdmissionController::class, 'index'])->name('request');
+    Route::get('action/view/{id}', [AdmissionController::class, 'show'])->name('request.show');
     Route::get('action/{type}/{id}', [AdmissionController::class, 'action'])->name('request.action');
 });
 

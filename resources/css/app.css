@@ -15,7 +15,7 @@
 
 /* Tailwind styling for DataTables pagination */
 .tableBottom{
-    @apply flex items-center justify-between gap-2 mt-3;
+    @apply flex items-center justify-between gap-2 mt-3 flex-col md:flex-row;
 }
 .tableBottom .dt-paging>nav{
     @apply flex items-center gap-2 justify-end;
@@ -38,7 +38,7 @@
 }
 
 .tableTop{
-    @apply mb-3 flex items-center justify-between gap-4;
+    @apply mb-3 flex items-center justify-between gap-4 flex-col md:flex-row;
 }
 .tableTop .dt-search{
     @apply h-[46px] flex items-center gap-1;
@@ -79,6 +79,10 @@
 
 .smartmarquee{
     @apply min-h-[150px];
+}
+
+.tns-nav{
+    display: none !important;
 }
 
 .dt-container{

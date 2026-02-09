@@ -18,6 +18,7 @@ import pdfFonts from 'pdfmake/build/vfs_fonts';
 
 // DataTables + Buttons
 import 'datatables.net';
+import 'datatables.net-responsive'
 import 'datatables.net-buttons'; // includes buttons functionality
 import 'datatables.net-buttons/js/buttons.html5.js';
 import 'datatables.net-buttons/js/buttons.print';

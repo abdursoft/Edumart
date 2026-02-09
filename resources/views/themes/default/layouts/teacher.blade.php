@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ theme_asset('css/smart-marquee.css') }}">
 
     @yield('styles') <!-- Loading page specific styles -->
+    @stack('styles') <!-- Loading page specific styles -->
 </head>
 
 <body class="w-full flex items-center justify-center">

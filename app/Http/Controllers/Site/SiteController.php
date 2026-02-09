@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Models\Designation;
+use App\Models\Gallery;
+use App\Models\GalleryContent;
 use App\Models\NewsNotice;
 use App\Models\Page;
 use App\Models\Slider;
+use App\Models\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
@@ -110,5 +113,27 @@ class SiteController extends Controller
         Permission::create([
             'name' => $permission,
         ]);
+    }
+
+    /**
+     * Show administrative persons
+     */
+    public function administrative($role){
+        $persons = User::where('role', $role)->whereHas('profile')->paginate(10,['*'],'page');
+        return view(theme('pages.administrative'), compact('persons', 'role'));
+    }
+
+    /**
+     * Show gallery details
+     */
+    public function gallery($type='gallery',$id=null){
+        $gallery = null;
+        if($id){
+            $gallery = Gallery::with('contents')->find($id);
+            $contents = GalleryContent::where('gallery_id', $gallery->id)->paginate(12);
+            return view(theme('pages.media-view'), compact('gallery', 'contents'));
+        }
+        $galleries = Gallery::where('status', 'Public')->paginate(10);
+        return view(theme('pages.media'), compact('galleries'));
     }
 }

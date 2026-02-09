@@ -39,6 +39,11 @@ Route::middleware(['web'])->group(function () {
 
     Route::post('upload-quill-image', [SiteController::class, 'quillUpload']);
 
+    // administrative routes
+    Route::get('contact-us', [SiteController::class, 'administrative'])->name('contact');
+    Route::get('media/{type?}/{id?}', [SiteController::class, 'gallery'])->name('media');
+    Route::get('administrative/{role}/{id?}', [SiteController::class, 'administrative'])->name('administrative');
+
 });
 
 
