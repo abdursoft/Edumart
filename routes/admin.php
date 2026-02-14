@@ -177,7 +177,7 @@ Route::prefix('academic/activities')->name('academic.activities.')->group(functi
     Route::get('attendance', [AttendanceController::class, 'index'])->name('attendance');
     Route::post('attendance', [AttendanceController::class, 'store'])->name('attendance.add');
     Route::get('attendance/{id}/edit', [AttendanceController::class, 'show'])->name('attendance.edit');
-    Route::get('attendance/{id}/update', [AttendanceController::class, 'update'])->name('attendance.update');
+    Route::post('attendance/{id}/update', [AttendanceController::class, 'update'])->name('attendance.update');
     Route::get('attendance/{id}/delete', [AttendanceController::class, 'destroy'])->name('attendance.destroy');
 
     // assignment routes

@@ -10,8 +10,8 @@
 
     <!-- Desktop Menu -->
     <ul class="hidden md:flex md:items-center md:space-x-2">
-        @foreach($mainMenu?->items ?? [] as $item)
-            <li class="relative group  class {{$item->is_active == 0 ? 'hidden' : ''}}">
+        @foreach(menu()->items as $item)
+            <li class="relative group  class @if($item->is_active == '0') hidden @endif">
                 <a href="{{ $item->attributes == 'page' ? (route('page', ['slug' => $item->url])) : $item->url }}" target="{{ $item->target ?? '_self' }}"
                 class="flex items-center text-slate-600 hover:text-white !text-sm !px-3 !py-2 rounded hover:bg-gray-500">
                     {{ $item->title }}
@@ -27,6 +27,31 @@
                                 <a href="{{ $child->attributes == 'page' ? route('page', ['slug' => $child->url]) : $child->url }}" target="{{ $child->target ?? '_self' }}"
                                 class="block !px-3 !py-2 text-white !text-sm hover:bg-gray-700">
                                     {{ $child->title }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
+            </li>
+        @endforeach
+        @foreach(administrative() ?? [] as $key=>$item)
+
+            <li class="relative group  class">
+                <a href="@if(is_array($item)) {{$key}} @else {{route($key)}} @endif"
+                class="flex items-center text-slate-600 hover:text-white !text-sm !px-3 !py-2 rounded hover:bg-gray-500">
+                    {{ is_array($item) ? $item['title'] : $item }}
+                    @if(is_array($item))
+                        <iconify-icon icon="cuida:caret-down-outline" width="14" height="14"></iconify-icon>
+                    @endif
+                </a>
+
+                @if(is_array($item))
+                    <ul class="absolute left-0 mt-4 w-44 bg-gray-600 rounded-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 z-50">
+                        @foreach($item['children'] as $chKey=>$child)
+                            <li>
+                                <a href="{{ route("$key", [$item['parameter'] => $chKey]) }}"
+                                class="block !px-3 !py-2 text-white !text-sm hover:bg-gray-700">
+                                    {{ $child}}
                                 </a>
                             </li>
                         @endforeach

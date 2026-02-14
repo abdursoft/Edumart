@@ -53,7 +53,6 @@
                 </thead>
                 <tbody>
                     @foreach($routines as $key => $routine)
-                     {{$routine->status}}
                         <tr>
                             <td class="py-2">{{$routine?->eduClass->name}}</td>
                             <td>{{$routine?->subject->name}}</td>

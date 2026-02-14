@@ -224,14 +224,5 @@ const FRONT_MENU=[
         ],
         'parameter' => 'type'
     ],
-    "administrative" => [
-        'title' => 'Administrative',
-        'children' => [
-            "teacher" => 'Teacher',
-            "staff" => 'Staff',
-            "committee" => 'Committee',
-        ],
-        'parameter' => 'role'
-    ],
     "contact" => 'Contact us',
 ];

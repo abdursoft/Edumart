@@ -8,8 +8,13 @@
                 <p><a class="flex items-center gap-1" href="tel:{{ site()->contact_phone }}"><iconify-icon icon="line-md:phone-loop" width="24" height="24"></iconify-icon> {{ site()->contact_phone }}</a></p>
             </div>
             <div class="w-1/2 hidden md:flex items-center justify-end gap-3 text-sm pr-1">
-                <a href="{{route('login')}}" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="solar:login-linear" width="24" height="24"></iconify-icon> Login</a>
-                <a href="{{route('register')}}" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="hugeicons:user-add-01" width="24" height="24"></iconify-icon> Register</a>
+                @if(auth()->check())
+                    <a href="{{route('logout')}}" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="solar:login-linear" width="24" height="24"></iconify-icon> Logout</a>
+                    <a href="{{route(auth()->user()->role.'.dashboard')}}" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="material-symbols:empty-dashboard-rounded" width="24" height="24"></iconify-icon></iconify-icon> Dashboard</a>
+                @else
+                    <a href="{{route('login')}}" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="solar:login-linear" width="24" height="24"></iconify-icon> Login</a>
+                    <a href="{{route('register')}}" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="hugeicons:user-add-01" width="24" height="24"></iconify-icon> Register</a>
+                @endif
                 <a href="{{route('admission')}}" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="mage:contact-book" width="24" height="24"></iconify-icon> Admission</a>
                 <a href="/invoice" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="fluent-emoji-high-contrast:e-mail" width="24" height="24"></iconify-icon> Webmail</a>
             </div>

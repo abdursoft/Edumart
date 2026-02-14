@@ -8,9 +8,11 @@ use App\Models\Attendance;
 use App\Models\ClassRoutine;
 use App\Models\Designation;
 use App\Models\EduClass;
+use App\Models\LeaveManagement;
 use App\Models\Profile;
 use App\Models\Subject;
 use App\Models\User;
+use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -169,12 +171,17 @@ class TeacherController extends Controller
             ->whereTime('start_time', '<=', $now)
             ->whereTime('end_time', '>=', $now)
             ->first();
-        $attendance = Attendance::where('subject_id', $sub)
-                    ->where('attendance_date', now()->format('Y-m-d'))
-                    ->where('teacher_id', $profile->id)
-                    ->where('edu_class_id', $class->id)
-                    ->first();
-        return view(theme('pages.teachers.attendance'), compact('profile','class', 'subject', 'students','attendance','routine'));
+
+        if(!$routine){
+            Toastr::error('Invalid class routine', 'Invalid routine');
+            return back();
+        }
+
+        $leave = (new LeaveManagement)->userLeave('Student');
+
+        $attendance = (new Attendance())->todayPresent($subject->id, $profile->id, $class->id);
+
+        return view(theme('pages.teachers.attendance'), compact('profile','class', 'subject', 'students','attendance','routine','leave'));
     }
 }
 

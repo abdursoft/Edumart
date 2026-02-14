@@ -5,10 +5,14 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\Attendance;
 use App\Models\ClassRoutine;
+use App\Models\LeaveManagement;
+use App\Models\StudentProfile;
 use App\Models\Subject;
+use App\Models\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use function Symfony\Component\Clock\now;
 
@@ -43,16 +47,34 @@ class AttendanceController extends Controller
             ->whereTime('end_time', '>=', $now)
             ->first();
 
+        $students = StudentProfile::where('edu_class_id', $routine->edu_class_id)->get();
+        $users = User::whereHas('student')
+            ->whereIn('id', $request->students)
+            ->get()
+            ->pluck('student.id')
+            ->toArray();
+        $leave = (new LeaveManagement())->userLeave('Student');
 
-        dd($routine->eduClass->student);
+        $todayAttendance = (new Attendance())->todayAttendance($request->subject_id, $request->teacher_id, $request->edu_class_id);
 
         if($request->has('students') && $routine){
-            foreach($request->students as $student){
-                $validated['student_id'] = $student;
-                $validated['status'] = 'Present';
-                $validated['class_room_id'] = $routine->class_room_id;
-                Attendance::create($validated);
+
+            foreach($students as $student){
+                if(!in_array($student->id, $todayAttendance)){
+                    $validated['student_id'] = $student->id;
+                    $validated['status'] = (in_array($student->id, $leave) || in_array($student->id, $users)) ? 'Present' : 'Absent';
+                    $validated['class_room_id'] = $routine->class_room_id;
+                    Attendance::create($validated);
+                }
             }
+
+            Attendance::where('edu_class_id', $request->edu_class_id)
+                ->where('subject_id', $request->subject_id)
+                ->where('teacher_id', $request->teacher_id)
+                ->where('attendance_date', now()->format('Y-m-d'))
+                ->whereIn('student_id', $users)
+                ->get();
+
             Toastr::success('Attendance submitted successfully','Success');
             return redirect()->back();
         }
@@ -79,6 +101,7 @@ class AttendanceController extends Controller
             'remarks'         => 'nullable|string',
         ]);
         $attendance = Attendance::findOrFail($attendance);
+        $leave = (new LeaveManagement())->userLeave('Student');
         $attendance->update($validated);
         Toastr::success('Attendance updated successfully','Success');
         return redirect()->back();

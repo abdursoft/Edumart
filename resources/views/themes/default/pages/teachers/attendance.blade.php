@@ -33,16 +33,16 @@
                 </div>
             </div>
             <p class="text-sm mt-[3rem]">Select present students</p>
-            <form action="@if($attendance){{route('admin.academic.activities.attendance.update', ['id' => $attendance->id])}}@else{{route('admin.academic.activities.attendance.add')}}@endif" method="post">
+            <form action="{{route('admin.academic.activities.attendance.add')}}" method="post">
                 @csrf
                 <input type="hidden" name="subject_id" value="{{$subject->id}}">
                 <input type="hidden" name="teacher_id" value="{{$profile->id}}">
                 <input type="hidden" name="edu_class_id" value="{{$class->id}}">
                 <input type="hidden" name="class_room_id" value="{{$routine->class_room_id}}">
-                <div class="w-full mt-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
+                <div class="w-full mt-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2">
                     @foreach($students as $student)
                         <label class="shadow-md rounded-md p-2 flex items-center gap-2 hover:shadow-lg cursor-pointer">
-                            <input type="checkbox" name="students[]" value="{{$student->user->id}}" id=""> <img class="w-10 h-10 rounded-full" src="{{asset($student->avatar)}}"/> <span>{{$student->name}}</span>
+                            <input type="checkbox" name="students[]" value="{{$student->user->id}}" id="" @if(in_array($student->id, $attendance) || in_array($student->id, $leave)) checked @endif> <img class="w-10 h-10 rounded-full" src="{{asset($student->avatar)}}"/> <span>{{$student->name}}</span> @if(in_array($student->id, $leave)) <sup class="text-sm sup text-green-600 bg-green-100 rounded-md p-2">leaved</sup> @endif
                         </label>
                     @endforeach
                 </div>

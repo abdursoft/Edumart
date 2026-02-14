@@ -36,20 +36,10 @@ class AppServiceProvider extends ServiceProvider
             $mainMenu = Menu::where('location', 'header')
                 ->where('status', 'active')
                 ->with(['items.children'])
-                ->first();
-
-            $news = NewsNotice::where('type', 'news')
-                ->where('status', 'published')
-                ->orderBy('created_at', 'desc')
-                ->take(5)
-                ->get();
+                ->first() ?? [];
 
             if($mainMenu){
                 $view->with('mainMenu', $mainMenu);
-            }
-
-            if($news){
-                $view->with('newses', $news);
             }
         });
     }

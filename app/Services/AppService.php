@@ -266,6 +266,51 @@ if(!function_exists('emailStats')){
     }
 }
 
+/**
+ * new notice
+ */
+if(!function_exists('notice')){
+    function notice($limit=5, $type='news'){
+        return \App\Models\NewsNotice::where('type', $type)
+                ->where('status', 'published')
+                ->orderBy('created_at', 'desc')
+                ->take($limit)
+                ->get() ?? [];
+    }
+}
+
+/**
+ * menu
+ */
+if(!function_exists('menu')){
+    function menu(){
+        return \App\Models\Menu::where('location', 'header')
+                ->where('status', 'active')
+                ->with(['items.children'])
+                ->first() ?? [];
+    }
+}
+
+
+/**
+ * Administrative
+ */
+if(!function_exists('administrative')){
+    function administrative(){
+        $roles = \App\Models\User::whereNotIn('role', ['student','guardian','parent'])->orderBy('role', 'asc')->get()->mapWithKeys(function($user){
+            return [$user->role => ucfirst($user->role)];
+        })->toArray();
+
+        return [
+            "administrative" => [
+                "title" => 'Administration',
+                'children' => $roles,
+                'parameter' => 'role'
+            ]
+        ];
+    }
+}
+
     /**
  * CGPA calculations
  */

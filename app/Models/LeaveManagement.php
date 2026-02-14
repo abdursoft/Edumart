@@ -44,4 +44,16 @@ class LeaveManagement extends Model
     public function student(){
         return $this->belongsTo(StudentProfile::class, 'student_id');
     }
+
+
+    /**
+     * Models functionalities
+     * @param $userType leaved user type
+     */
+    public function userLeave($userType){
+        return $this->whereDate('start_date', '<=', now())
+            ->whereDate('end_date', '>=', now())
+            ->where('user_type', $userType)
+            ->get()->pluck('student_id')->toArray();
+    }
 }

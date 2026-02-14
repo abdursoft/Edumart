@@ -20,6 +20,7 @@ class Attendance extends Model
         'attendance_date',
         'status',
         'remarks',
+        'teacher_id',
         'class_room_id'
     ];
 
@@ -42,5 +43,34 @@ class Attendance extends Model
     public function subject()
     {
         return $this->belongsTo(Subject::class);
+    }
+
+    /**
+     * Attendance internal functions
+     * @param $sub subject id
+     * @param $teacher teacher profile id
+     * @param $class student class id
+     */
+    public function todayAttendance($sub, $teacher, $class){
+        return $this->where('subject_id', $sub)
+                    ->where('attendance_date', now()->format('Y-m-d'))
+                    ->where('teacher_id', $teacher)
+                    ->where('edu_class_id', $class)
+                    ->get()->pluck('student_id')->toArray();
+    }
+
+    /**
+     * Attendance internal functions
+     * @param $sub subject id
+     * @param $teacher teacher profile id
+     * @param $class student class id
+     */
+    public function todayPresent($sub, $teacher, $class){
+        return $this->where('subject_id', $sub)
+                    ->where('attendance_date', now()->format('Y-m-d'))
+                    ->where('teacher_id', $teacher)
+                    ->where('edu_class_id', $class)
+                    ->where('status', 'Present')
+                    ->get()->pluck('student_id')->toArray();
     }
 }

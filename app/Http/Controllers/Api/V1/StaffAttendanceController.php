@@ -18,9 +18,7 @@ class StaffAttendanceController extends Controller
     {
         $staffs = User::whereNotIn('role',['user','student','guardian','parents','committee','chairman','governing','author','admin'])->get()->groupBy('role');
         $attendance = StaffAttendance::where('attendance_date', now()->format('Y-m-d'))->where('status', 'Present')->pluck('user_id')->toArray();
-        $leave = LeaveManagement::whereDate('start_date', '<=', now())
-            ->whereDate('end_date', '>=', now())
-            ->get()->pluck('user_id')->toArray();
+        $leave = (new LeaveManagement)->userLeave('Administration');
         return view(backend('pages.attendance'), compact('staffs', 'attendance', 'leave'));
     }
 
@@ -48,9 +46,7 @@ class StaffAttendanceController extends Controller
         }
 
         $present = StaffAttendance::where('attendance_date', now()->format('Y-m-d'))->pluck('user_id')->toArray();
-        $leave = LeaveManagement::whereDate('start_date', '<=', now())
-            ->whereDate('end_date', '>=', now())
-            ->get()->pluck('user_id')->toArray();
+        $leave = (new LeaveManagement)->userLeave('Administration');
 
         foreach($request->users as $key=>$user){
             if(in_array($user, $present) || in_array($user, $leave)){
@@ -96,9 +92,7 @@ class StaffAttendanceController extends Controller
         }
 
         $present = StaffAttendance::where('attendance_date', now()->format('Y-m-d'))->pluck('user_id')->toArray();
-        $leave = LeaveManagement::whereDate('start_date', '<=', now())
-            ->whereDate('end_date', '>=', now())
-            ->get()->pluck('user_id')->toArray();
+        $leave = (new LeaveManagement)->userLeave('Administration');
 
         foreach($request->users as $key=>$user){
             if(in_array($user, $present) || in_array($user, $leave)){
