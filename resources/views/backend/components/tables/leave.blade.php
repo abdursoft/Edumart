@@ -17,7 +17,7 @@
                 <tbody>
                     @foreach($leaves as $key => $leave)
                         <tr>
-                            <td>{{ $leave->user->name }}</td>
+                            <td>{{ $leave->user->name ?? $leave->student->name }} <small class="text-sm">({{$leave->user->role ?? $leave->student->user->role}})</small></td>
                             <td>{{ date('d M, Y', strtotime($leave->start_date ?? time())) }}</td>
                             <td>{{ date('d M, Y', strtotime($leave->end_date ?? time())) }}</td>
                             <td>{{$leave->reason}}</td>

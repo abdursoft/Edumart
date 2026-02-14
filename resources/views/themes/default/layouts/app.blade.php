@@ -19,6 +19,7 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
     @yield('styles') <!-- Loading page specific styles -->
+    @stack('styles') <!-- Loading page specific styles -->
 </head>
 
 <body class="w-full flex items-center justify-center"

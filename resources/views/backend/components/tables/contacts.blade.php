@@ -22,7 +22,7 @@
                             <td>{{$contact->name}}</td>
                             <td>{{$contact->email}}</td>
                             <td>{{$contact->subject}}</td>
-                            <td>{{$contact->message}}</td>
+                            <td>{!! $contact->message !!}</td>
                             <td>{!! $contact->reply ?? 'N/A' !!}</td>
                             <td>
                                 <div class="flex items-center gap-1">

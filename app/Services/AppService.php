@@ -257,6 +257,15 @@
     }
     }
 
+/**
+ * Email stats
+ */
+if(!function_exists('emailStats')){
+    function emailStats(){
+        return (new \App\Http\Controllers\Api\V1\ContactController)->noReplay();
+    }
+}
+
     /**
  * CGPA calculations
  */

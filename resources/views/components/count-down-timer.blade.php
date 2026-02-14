@@ -17,20 +17,25 @@
 <!-- Bell sound -->
 <audio id="bellSound" src="/sounds/bell.mp3" preload="auto"></audio>
 
+@push('scripts')
+<script src="{{asset(theme_asset('js/clock.js'))}}"></script>
 <script>
-    const timer = new ClassTimeRangeTimer(
-        '{{$start}}',
-        '{{$end}}',
-        document.getElementById('classTimer'),
-        document.getElementById('progressBar'),
-        document.getElementById('bellSound'),
-        {
-            warningMinutes: 5,
-            onWarning: () => {
-                console.log('⚠️ 5 minutes remaining!');
-            },
-        }
-    );
+    document.addEventListener("DOMContentLoaded", function(){
+        const timer = new ClassTimeRangeTimer(
+            '{{$start}}',
+            '{{$end}}',
+            document.getElementById('classTimer'),
+            document.getElementById('progressBar'),
+            document.getElementById('bellSound'),
+            {
+                warningMinutes: 5,
+                onWarning: () => {
+                    console.log('⚠️ 5 minutes remaining!');
+                },
+            }
+        );
 
-    timer.start();
+        timer.start();
+    })
 </script>
+@endpush

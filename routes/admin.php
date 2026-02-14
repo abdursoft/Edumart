@@ -396,6 +396,7 @@ Route::get('finance/transactions', function () {
 // Communication & Collaboration
 Route::prefix('communication')->name('communication.')->group(function () {
     Route::get('contacts/{id?}', [ContactController::class, 'index'])->name('email');
+    Route::get('contacts/stats/no-replay', [ContactController::class, 'noReplay'])->name('email.stats');
     Route::post('contacts/message/send/{id?}', [ContactController::class, 'store'])->name('email.send');
     Route::get('contacts/message/{id}/delete', [ContactController::class, 'destroy'])->name('email.delete');
     Route::get('send-message', [SmsController::class, 'messageForm'])->name('sms');

@@ -14,7 +14,7 @@
 <div class="flex flex-col md:flex-row gap-4">
 
     <!-- Left Column -->
-    <div class="md:w-1/3 2xl:w-1/5 w-full space-y-4 gap-3 shadow-md bg-white">
+    <div class="md:w-1/3 2xl:w-1/5 w-full space-y-4 gap-3 shadow-md bg-white px-2">
         @include(theme('components.marquee.news'))
         @include(theme('components.marquee.notice'))
         <h1 class="mt-2 text-sm md:text-base font-semibold">Calender</h1>

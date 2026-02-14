@@ -37,7 +37,7 @@
         @foreach(FRONT_MENU as $key=>$item)
 
             <li class="relative group  class">
-                <a href="{{$key}}"
+                <a href="@if(is_array($item)) {{$key}} @else {{route($key)}} @endif"
                 class="flex items-center text-slate-600 hover:text-white !text-sm !px-3 !py-2 rounded hover:bg-gray-500">
                     {{ is_array($item) ? $item['title'] : $item }}
                     @if(is_array($item))

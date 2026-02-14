@@ -33,10 +33,19 @@
         <div class="relative">
             <button id="notify-btn" class="relative p-2 text-white transition cursor-pointer">
                 <iconify-icon icon="ion:notifications" width="24" height="24"></iconify-icon>
+                <small class="absolute top-0 right-0 emailStats">{{count(emailStats())}}</small>
             </button>
             <div id="notify-dropdown"
-                class="hidden absolute left-0 md:right-0 mt-2 w-50 md:w-64 rounded-lg bg-white p-4 shadow-lg 800">
-                <p class="text-sm text-gray-700">No new notifications</p>
+                class="hidden absolute left-0 right-3 mt-2 w-50 md:w-64 rounded-lg bg-white p-1 shadow-lg 800 notification overflow-auto max-h-[400px]">
+                @forelse(emailStats() as $contactEmail)
+                    <a href="{{route('admin.communication.email', $contactEmail->id)}}" class="my-1 bg-gray-200 relative block px-5 py-2 pr-7">
+                        <h6 class="text-base font-semibold">{{$contactEmail->name}}</h6>
+                        <p class="text-sm text-gray-700">{{$contactEmail->name}}</p>
+                        <p class="text-sm text-gray-700 text-right">{{date('d M, Y', strtotime($contactEmail->created_at))}}</p>
+                    </a>
+                @empty
+                    <p class="text-sm text-gray-700">No new notifications</p>
+                @endforelse
             </div>
         </div>
 

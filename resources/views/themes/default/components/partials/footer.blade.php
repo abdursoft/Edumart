@@ -14,18 +14,18 @@
             </div>
         </div>
         <div class="w-full md:w-3/12 hidden md:block">
-            <div class="footer_box text-center md:text-left">
-                <h5 class="text-base md:text-lg mb-4">Importance Link</h5>
+            <div class="footer_box text-center md:text-left pr-3">
+                <h5 class="text-base md:text-lg md:font-bold mb-4">Importance Link</h5>
                 <p class="mb-1">
-                    <a class="hover:text-gray-200" target="_blank" href="http://www.moedu.gov.bd/">{{ ('ministry_of_education') }}
+                    <a class="hover:text-orange-600" target="_blank" href="http://www.moedu.gov.bd/">{{ text('ministry_of_education') }}
                     </a>
                 </p>
                 <p class="mb-1">
-                    <a class="hover:text-gray-200" target="_blank" href="{{ board_url('din') }}">{{ ('din') }}
+                    <a class="hover:text-orange-600" target="_blank" href="{{ board_url('din') }}">{{ text('din') }}
                     </a>
                 </p>
                 <p class="mb-1">
-                    <a class="hover:text-gray-200" target="_blank" href="http://www.dshe.gov.bd/">{{ ('dir_seconday_higher_edu') }}
+                    <a class="hover:text-orange-600" target="_blank" href="http://www.dshe.gov.bd/">{{ text('dir_seconday_higher_edu') }}
                     </a>
                 </p>
             </div>
@@ -33,30 +33,28 @@
         <div class="w-full md:w-5/12 mt-4 md:mt-0">
             <div class="flex px-2 md:px-0">
                 <div class="w-1/2">
-                    <div class=" ">
-                        <h5 class="text-base md:text-lg mb-4">Social Links</h5>
-                        <p class="mb-1"><a class="hover:text-gray-200" href="{{ site()->youtube }}" target="_blank"><i class="ri-youtube-fill"></i> Youtube</a>
-                        </p>
-                        <p class="mb-1"><a class="hover:text-gray-200" href="{{ site()->facebook }}" target="_blank"><i class="ri-facebook-circle-fill"></i>
-                                Facebook</a></p>
-                        <p class="mb-1"><a class="hover:text-gray-200" href="{{ site()->instagram }}" target="_blank"><i class="ri-instagram-fill"></i>
-                                Instagram</a></p>
+                    <div class="pl-0 md:pl-10">
+                        <h5 class="text-base md:text-lg mb-4 md:font-bold">Social Links</h5>
+                        @foreach(site()->social_links as $link=>$url)
+                            <p class="mb-1 flex items-center gap-1"><a class="hover:text-orange-600 flex items-center gap-1" href="{{ $url }}" target="_blank">{!! icons($link) !!}
+                                {{ucfirst($link)}}</a></p>
+                        @endforeach
                     </div>
                 </div>
                 <div class="w-1/2">
                     <div class="footer_box ">
-                        <h5 class="text-base md:text-lg mb-4">Latest post</h5>
-                        <p class="mb-1"><i class="ri-global-line"></i> <a class="hover:text-gray-200" href="https://abdursoft.com">abdursoft</a></p>
-                        <p class="mb-1"><i class="ri-phone-fill"></i> +8801892311511</p>
-                        <p class="mb-1"><i class="ri-mail-line"></i> me@abdursoft.com</p>
+                        <h5 class="text-base md:text-lg mb-4 md:font-bold">Contact</h5>
+                        <p class="mb-1 flex items-center gap-1"><iconify-icon icon="line-md:phone-loop" width="24" height="24"></iconify-icon> {{site()->contact_phone}}</p>
+                        <p class="mb-1 flex items-center gap-1"><iconify-icon icon="fontisto:email" width="24" height="24"></iconify-icon> {{site()->contact_email}}</p>
+                        <p class="mb-1 flex items-center gap-1"><iconify-icon icon="qlementine-icons:address-book-16" width="24" height="24"></iconify-icon> {{site()->address}}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="flex flex-col items-center lg:flex-row justify-center lg:justify-between py-1 md:py-3 px-3">
-        <h4 class="copyText">{{ ('copy') }} ©
+    <div class="flex flex-col items-center justify-center py-1 md:py-3 px-3">
+        <h4 class="copyText">{{ text('copy') }} ©
             {{ date('Y') . ' ' . (session('lang') == 'bn' ? site()->name_bn : site()->site_name) }} </h4>
         <a class="hover:text-red-500 text-sm text-red-600" href="https://abdursoft.com" target="_blank">Developed by abdursoft</a>
     </div>

@@ -70,7 +70,7 @@
     <script src="{{asset('ui/admin.js')}}"></script>
     <!-- Push Scripts -->
     @stack('scripts')
-
+    
     <!-- flash message  -->
     {!! Toastr::message() !!}
   </body>

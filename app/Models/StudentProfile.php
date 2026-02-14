@@ -105,4 +105,11 @@ class StudentProfile extends Model
     public function Fees(){
         return $this->hasMany(StudentFee::class, 'student_profile_id');
     }
+
+    /**
+     * Relation with leave table
+     */
+    public function leave(){
+        return $this->hasMany(LeaveManagement::class, 'student_id');
+    }
 }

@@ -42,7 +42,7 @@
                                 <span class="p-2 text-gray-400 bg-white dark:bg-gray-900 sm:px-5 sm:py-2">Or</span>
                             </div>
                         </div>
-                        <form action="{{route('login.action')}}" id="loginForm" method="post">
+                        <form action="{{route('login.action')}}" autocomplete="off" id="loginForm" method="post">
                             @csrf
                             <div class="space-y-5">
                                 <!-- Email -->

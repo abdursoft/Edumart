@@ -1,4 +1,6 @@
 <div class="{{$styleClass}}" id="{{$id}}"></div>
+
+@push('scripts')
 <script>
 let currentTimezone = "{{site()->set_timezone ?? 'Asia/Dhaka'}}";
 
@@ -21,3 +23,4 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 </script>
+@endpush

@@ -24,5 +24,12 @@ const ICONS = [
     'view' => '<iconify-icon icon="emojione-monotone:eye" width="24" height="24"></iconify-icon>',
     'reject' => '<iconify-icon icon="mage:file-minus" width="24" height="24"></iconify-icon>',
     'approve' => '<iconify-icon icon="mdi:approve" width="24" height="24"></iconify-icon>',
-    'send' => '<iconify-icon icon="streamline:send-email-remix" width="24" height="24"></iconify-icon>'
+    'send' => '<iconify-icon icon="streamline:send-email-remix" width="24" height="24"></iconify-icon>',
+    'facebook' => '<iconify-icon icon="streamline-flex:facebook-1-solid" width="24" height="24"></iconify-icon>',
+    'twitter' => '<iconify-icon icon="entypo-social:twitter-with-circle" width="24" height="24"></iconify-icon>',
+    'instagram' => '<iconify-icon icon="f7:logo-instagram" width="24" height="24"></iconify-icon>',
+    'linkedin' => '<iconify-icon icon="entypo-social:linkedin-with-circle" width="24" height="24"></iconify-icon>',
+    'reddit' => '<iconify-icon icon="ant-design:reddit-circle-filled" width="24" height="24"></iconify-icon>',
+    'x' => '<iconify-icon icon="streamline-logos:x-twitter-logo-block" width="24" height="24"></iconify-icon>',
+    'tiktok' => '<iconify-icon icon="mage:tiktok-circle" width="24" height="24"></iconify-icon>'
 ];

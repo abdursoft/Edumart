@@ -16,6 +16,8 @@ class LeaveManagement extends Model
         'end_date',
         'reason',
         'user_id',
+        'user_type',
+        'student_id',
         'leaved_by',
     ];
 
@@ -36,5 +38,10 @@ class LeaveManagement extends Model
     public function leavedBy()
     {
         return $this->belongsTo(User::class, 'leaved_by');
+    }
+
+    // student profile
+    public function student(){
+        return $this->belongsTo(StudentProfile::class, 'student_id');
     }
 }

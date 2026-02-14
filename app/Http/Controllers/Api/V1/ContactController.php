@@ -7,6 +7,7 @@ use App\Jobs\ContactEmail;
 use App\Models\Contact;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
@@ -35,19 +36,21 @@ class ContactController extends Controller
 
         if($request->filled('id')){
             $msg = Contact::find($request->id);
-            $contact = Contact::create([
+            Contact::create([
                 'name' => $msg->name,
                 'email' => $msg->email,
                 'subject' => $msg->subject,
                 'message' => $msg->message,
                 'reply' => $request->message
             ]);
+            $msg->reply = $request->message;
+            $msg->save();
             ContactEmail::dispatch($request->message, $request->subject, $msg->name, $msg->email);
             Toastr::success('Replay sent successfully', 'Message sent');
             return redirect()->route('admin.communication.email');
         }
 
-        $contact = Contact::create([
+        Contact::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'subject' => $request->subject,
@@ -96,5 +99,54 @@ class ContactController extends Controller
         $contact->restore();
 
         return response()->json($contact);
+    }
+
+    /**
+     * Email stats
+     */
+    public function noReplay(){
+        return Contact::where('reply',NULL)->select('id','subject','name','created_at')->get() ?? [];
+    }
+
+    /**
+     * public contact add
+     */
+    public function contactPost(Request $request){
+        $validator = Validator::make($request->all(), [
+            'email'    => 'required|email',
+            'subject' => 'required|string',
+            'message' => 'required|string',
+            'captcha' => 'required|string'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+
+        if ($request->captcha !== session('captcha_code') ) {
+            return response()->json([
+                'status'  => 'error',
+                'message' => 'Invalid security captcha',
+            ], 401);
+        }
+
+        Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
+        ]);
+
+        if(site('contact_email')){
+            ContactEmail::dispatch($request->subject, 'New message received from contact form!', $request->name, site('contact_email'));
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'We will contact you asap, thanks for stay with us!'
+        ]);
     }
 }

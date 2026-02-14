@@ -89,3 +89,24 @@ function tablePicker(table) {
         }
     }
 }
+
+
+function loadEmailStats(route){
+    fetch(`${route}`, {
+        method: "GET",
+        headers: {
+            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]')
+                .content,
+        }
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            if(data.contacts.length > 0){
+                document.querySelector('.emailStats').textContent = data.contacts.length;
+                data?.contacts.map(contact => {
+                    console.log(contact);
+                })
+            }
+        })
+        .catch((err) => console.error(err));
+}

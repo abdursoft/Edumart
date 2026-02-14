@@ -28,10 +28,24 @@
                 'placeholder' => 'Wedding leave',
             ],
             [
+                'label' => 'Select user',
+                'name' => 'user_type',
+                'type' => 'select',
+                'options' => ['Administration', 'Student'],
+            ],
+            [
                 'label' => 'Select Staff',
                 'name' => 'user_id',
                 'type' => 'select',
                 'options' => $users,
+                'className' => 'staff'
+            ],
+            [
+                'label' => 'Select Student',
+                'name' => 'student_id',
+                'type' => 'select',
+                'options' => $students,
+                'className' => 'hidden student'
             ],
         ]" :form="$leave" cols="1" />
 
@@ -65,20 +79,15 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        $("#exam_id").on('change', function(event) {
-            const id = event.target.value;
-            $.ajax({
-                url: `http://127.0.0.1:8000/admin/academic/evaluation/mark-sheet/${id}/student`,
-                method: 'get',
-                success: (data) => {
-                    $("#student_id").empty();
-                    for (const key in data) {
-                        const element = data[key];
-                        $('#student_id').append(new Option(element, key, true, true))
-                            .trigger('change');
-                    }
-                }
-            })
+        $("#user_type").on('change', function(event) {
+            const tgValue = event.target.value;
+            if(tgValue == 'Student'){
+                $(".staff").addClass('hidden');
+                $(".student").removeClass('hidden');
+            }else{
+                $(".staff").removeClass('hidden');
+                $(".student").addClass('hidden');
+            }
         });
     });
 </script>
