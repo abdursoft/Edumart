@@ -60,3 +60,7 @@ Route::get('json/{file}', function($file){
         $model::create($item);
     }
 });
+
+Route::get('/test-flash', function() {
+    return view('certificate')->with('success', 'Flash is working!');
+});

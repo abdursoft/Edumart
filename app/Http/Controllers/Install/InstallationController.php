@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Traits\ActivationClass;
 use App\Traits\SettingsTrait;
 use App\Utility\InstallationHelper;
+use Brian2694\Toastr\Facades\Toastr;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -89,10 +90,10 @@ class InstallationController extends Controller
         $trimmedCode = trim($request->purchase_code);
         if (! preg_match($pattern, $trimmedCode)) {
             if (preg_match("/\s+/", $request->purchase_code)) {
-                Session::flash('error', 'Invalid code format with leading or trailing whitespace');
+                Toastr::error('Invalid code format with leading or trailing whitespace', 'Error');
                 return back();
             } else {
-                Session::flash('error', 'Code format is incorrect (error code: 1020)');
+                Toastr::error('Code format is incorrect (error code: 1020)', 'Invalid code');
                 return back();
             }
         }
@@ -137,8 +138,6 @@ class InstallationController extends Controller
             $key      = base64_encode(random_bytes(32));
             $jwtKEY   = base64_encode(random_bytes(32));
             $sslKey   = base64_encode(random_bytes(32));
-            $videoKey = Str::random(32);
-            $videoIV  = Str::random(16);
 
             $output =
             'APP_NAME=eduMart' . time() . '
@@ -161,7 +160,7 @@ class InstallationController extends Controller
             BROADCAST_DRIVER=log
             CACHE_DRIVER=file
             SESSION_DRIVER=file
-            SESSION_LIFETIME=60
+            SESSION_LIFETIME=120
             QUEUE_DRIVER=sync
             QUEUE_CONNECTION=database
 
@@ -177,10 +176,6 @@ class InstallationController extends Controller
             AWS_DEFAULT_REGION=us-east-1
             AWS_BUCKET=
 
-
-            SESSION_DRIVER=file
-            SESSION_LIFETIME=120
-
             REDIS_HOST=127.0.0.1
             REDIS_PASSWORD=null
             REDIS_PORT=6379
@@ -192,16 +187,12 @@ class InstallationController extends Controller
 
             JWT_SECRET=' . str_replace('/', 'x', $jwtKEY) . '
             OPEN_SSL_KEY=' . str_replace('/', 'x', $sslKey) . '
-            FRONT_END=
-            R_GUEST=
 
             PURCHASE_CODE=' . str_replace(' ', '', Session::get(base64_decode('cHVyY2hhc2VfY29kZQ=='))) . '
             BUYER_USERNAME=' . str_replace(' ', '', Session::get(base64_decode('dXNlcm5hbWU='))) . '
             SOFTWARE_ID=UFJfMmszMzIzNDMyNA==
 
             SOFTWARE_VERSION=' . SOFTWARE_VERSION . '
-            VIDEO_KEY=' . $videoKey . '
-            VIDEO_IV=' . $videoIV . '
             ';
 
             $xEnv = file_get_contents(base_path('.env.example'));
@@ -214,10 +205,12 @@ class InstallationController extends Controller
                 return redirect('install/step4');
             } else {
                 file_put_contents(base_path('.env'), $xEnv);
-                return redirect('install/step3')->with('error', 'Database error! Environment variable file path doesn\'t exists');
+                Toastr::error('Database error! Environment variable file path doesn\'t exists', 'Database error');
+                return redirect('install/step3');
             }
         } else {
-            return back()->with('error', 'Database error or Invalid database credentials!');
+            Toastr::error('Database error or Invalid database credentials!', 'Database Error!');
+            return back();
         }
     }
 
@@ -226,10 +219,11 @@ class InstallationController extends Controller
         try {
             $sql_path = base_path('installation/sql/database.sql');
             DB::unprepared(file_get_contents($sql_path));
-            $this->updateProvider();
-            return redirect('install/step5')->with('success', 'Database migrated successfully');
+            Toastr::success('Database migration successful', 'Success');
+            return redirect('install/step5');
         } catch (\Exception $exception) {
-            return redirect()->back()->with('error', 'Your database is not clean, do you want to clean the database then import?');
+            Toastr::error('Your database is not clean, do you want to clean the database then import?', 'Database in not empty');
+            return redirect()->back()->with('error', 'Database is not empty!');
         }
     }
 
@@ -239,8 +233,8 @@ class InstallationController extends Controller
             Artisan::call('db:wipe');
             $sql_path = base_path('installation/sql/database.sql');
             DB::unprepared(file_get_contents($sql_path));
-            $this->updateProvider();
-            return redirect('install/step5')->with('success', 'Database migrated successfully');
+            Toastr::success('Database migration successful', 'Success');
+            return redirect('install/step5');
         } catch (\Exception $exception) {
             return back()->with('error', 'Please check your database permission!');
         }
@@ -277,7 +271,9 @@ class InstallationController extends Controller
             if (! empty($request->role) && $request->role == 'admin') {
                 $count = User::where('role', 'admin')->count();
                 if ($count >= 1) {
-                    return redirect('install/step6')->with('error', 'Admin registration limit over');
+                    $this->updateProvider();
+                    Toastr::error('Admin registration limit over', 'Admin is over');
+                    return redirect('install/step6');
                 }
             }
             User::create(
@@ -291,11 +287,12 @@ class InstallationController extends Controller
                     "password"    => password_hash($request->input('password'), PASSWORD_DEFAULT),
                 ]
             );
-            Session::put(['admin' => $request->name]);
-            Session::forget('installation');
-            return redirect('install/step6')->with('success','The admin was successfully created.');
+            $this->updateProvider();
+            Toastr::success('The admin was successfully created.', 'Success');
+            return redirect('install/step6');
         } catch (\Throwable $th) {
-            return back()->with('error','Internal server error!');
+            Toastr::error('Internal server error!', 'Error');
+            return back();
         }
     }
 
@@ -307,6 +304,11 @@ class InstallationController extends Controller
         $file = fopen(base_path('app/Providers/AppServiceProvider.php'), 'w');
         fwrite($file, $provider);
         fclose($file);
+
+        $appFile = file_get_contents(base_path('installation/files/app.txt'));
+        $app = fopen(base_path('bootstrap/app.php'), 'w');
+        fwrite($app, $appFile);
+        fclose($app);
     }
 
     public function check_database_connection($db_host = "", $db_name = "", $db_user = "", $db_pass = "")

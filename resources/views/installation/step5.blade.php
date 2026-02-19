@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="w-full flex items-center justify-center mt-[30px]">
-                    <button type="submit" class="bg-[#F85D24] p-3 rounded-md text-white w-full text-center cursor-pointer">
+                    <button type="submit" class="bg-[#155A92] p-3 rounded-md text-white w-full text-center cursor-pointer">
                         {{ 'Complete Installation' }}
                     </button>
                 </div>

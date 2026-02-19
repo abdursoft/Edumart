@@ -22,11 +22,10 @@
 </head>
 
 <body class="bg-slate-100 min-h-[100vh] flex items-center justify-center w-full p-3">
-    @include('components.flash-message')
     <section class="w-full md:max-w-[53vw] min-h-[90vh] bg-white rounded-lg shadow-lg px-10 py-3 md:py-10 2xl:pt-20 2xl:pb-10">
 
         <div class="text-center w-full flex items-center justify-center">
-            <img src="https://cdn.abdursoft.com/assets/ott/images/rstream.png" alt="rstream" class="w-[290px] h-[70px]">
+            <img src="{{asset('static/images/educraft.png')}}" alt="educraft" class="w-[290px] h-[250px]">
         </div>
 
         <div class="min-h-[550px]">
@@ -40,7 +39,7 @@
         </div>
         <footer class="w-full">
             <div class="flex flex-col md:flex-row items-center justify-between border-t-[1px] border-gray-300 p-2">
-                <img src="https://cdn.abdursoft.com/assets/ott/images/rstream.png" alt="rstream" class="w-[110px] h-[31px]">
+                <img src="{{asset('static/images/educraft1.png')}}" alt="educraft" class="w-[110px] h-[61px]">
                 <p class="copyright-text mb-0">© {{ date('Y') }} | {{ 'All Rights Reserved' }}</p>
             </div>
         </footer>

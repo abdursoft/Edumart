@@ -28,7 +28,7 @@ class SoftwareActivation
 
         // Don't apply installation check to the installer routes
         if (
-            !env('APP_INSTALL') &&
+            env('PURCHASE_CODE') == null &&
             !$request->is('install*')
         ) {
             Session::put('installation', 'init');

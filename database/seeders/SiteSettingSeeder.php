@@ -9,7 +9,7 @@ class SiteSettingSeeder extends Seeder
     public function run()
     {
         DB::table('site_settings')->insert([
-            'site_name' => 'My Awesome Website',
+            'site_name' => 'EduCraft Learning Master',
             'logo' => 'uploads/logo.png',
             'favicon' => 'uploads/favicon.ico',
             'theme' => 'default',

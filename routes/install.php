@@ -27,3 +27,8 @@ Route::get('import-sql', [InstallationController::class, 'import_sql'])->name('i
 Route::get('force-import-sql', [InstallationController::class, 'force_import_sql'])->name('force-import-sql')->middleware(InstallationMiddleware::class);
 Route::post('system-settings', [InstallationController::class, 'systemSettings'])->name('system_settings');
 Route::post('purchase-code', [InstallationController::class, 'purchase_code'])->name('purchase.code');
+
+
+Route::get('/test-flash', function() {
+    return redirect('/')->with('success', 'Flash is working!');
+});

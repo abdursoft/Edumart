@@ -13,16 +13,21 @@ class SmsMethod extends Model
         'attributes',
     ];
 
+    protected $casts = [
+        'attributes' => 'array',
+    ];
+
+
     // relation with active sms method
     public function smsActiveMethod(){
         return $this->hasOne(SmsActiveMethod::class, 'sms_method_id');
     }
 
-    public function attributes(): Attribute{
-        return Attribute::make(
-            get: fn($value) => json_decode($value, true),
-            set: fn($value) => json_encode($value)
-        );
-    }
+    // public function attributes(): Attribute{
+    //     return Attribute::make(
+    //         get: fn($value) => json_decode($value, true),
+    //         set: fn($value) => json_encode($value)
+    //     );
+    // }
 
 }

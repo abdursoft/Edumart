@@ -6,8 +6,8 @@
     <div class="card text-slate-600">
         <div class="p-4 mb-md-3 mx-xl-4 px-md-5">
             <div class="flex justify-between mb-2">
-                <h5 class="text-base md:text-xl">{{ "Product Purchase Information" }}</h5>
-                <a href="https://help.market.envato.com/hc/en-us/articles/202822600-Where-Is-My-Purchase-Code-"
+                <h5 class="text-base md:text-xl font-semibold">{{ "Product Purchase Information" }}</h5>
+                <a href="https://evanto.abdursoft.com/registration"
                    class="flex items-center gap-1" target="_blank">
                     {{ "How can I get this information?" }}
                     <iconify-icon icon="cuida:info-outline" width="24" height="24"></iconify-icon>
@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="text-center w-full">
-                    <button type="submit" class="bg-[#F85D24] p-3 rounded-md text-white w-full text-center cursor-pointer">{{ "Continue" }}</button>
+                    <button type="submit" class="bg-[#155A92] p-3 rounded-md text-white w-full text-center cursor-pointer">{{ "Continue" }}</button>
                 </div>
             </form>
         </div>

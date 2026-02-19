@@ -35,7 +35,7 @@
                             $fields[] = ['label' => '', 'name' => 'keyword', 'type' => 'hidden', 'value' => $sms->keyword];
                         @endphp
 
-                        @foreach($sms->attributes as $attr)
+                        @foreach(json_decode($sms->attributes, true) ?? [] as $attr)
                             @php
                                 $fields[] = ['label' => $attr['name'], 'name' => "attributes[{$attr['code']}]", 'default' => $attr['value'], 'type' => 'text', 'required' => true];
                             @endphp

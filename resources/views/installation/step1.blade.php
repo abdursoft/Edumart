@@ -71,7 +71,7 @@
             <div class="flex gap-2 items-center flex-col w-full my-2">
                 <p>{{ "All the permissions are provided successfully ?" }}</p>
                 @if ($permission['curl_enabled'] == 1 && $permission['db_file_write_perm'] == 1 && $phpVersion >= 8.1)
-                    <a href="{{ route('install.step2') }}" class="bg-[#F85D24] p-3 rounded-md text-white w-full text-center">
+                    <a href="{{ route('install.step2') }}" class="bg-[#155A92] p-3 rounded-md text-white w-full text-center">
                         {{ 'Proceed Next' }}
                     </a>
                 @endif

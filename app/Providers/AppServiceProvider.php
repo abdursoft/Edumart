@@ -31,16 +31,5 @@ class AppServiceProvider extends ServiceProvider
         Auth::viaRemember();
         config(['session.lifetime' => 60 * 24 * 365]);
 
-        // Share "Main Menu" globally
-        View::composer('*', function ($view) {
-            $mainMenu = Menu::where('location', 'header')
-                ->where('status', 'active')
-                ->with(['items.children'])
-                ->first() ?? [];
-
-            if($mainMenu){
-                $view->with('mainMenu', $mainMenu);
-            }
-        });
     }
 }

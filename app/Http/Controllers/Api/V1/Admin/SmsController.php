@@ -21,6 +21,7 @@ class SmsController extends Controller
         $default    = SmsActiveMethod::find(1);
         $methods    = SmsMethod::pluck('name', 'id')->toArray();
         $smsMethods = SmsMethod::get();
+        // return response()->json($smsMethods);
         return view(backend('pages.sms'), compact('methods', 'smsMethods', 'default'));
     }
 

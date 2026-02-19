@@ -6,7 +6,7 @@
     if (! function_exists('site')) {
     function site($key = null)
     {
-        $settings = \App\Models\SiteSetting::first();
+        $settings = \App\Models\SiteSetting::first() ?? [];
 
         if (! $settings) {
             return null;
@@ -405,7 +405,7 @@ if(!function_exists('slider')){
     function metaContent($title = null, $description = null, $image = null, $keywords = null)
     {
         ob_start();
-        $keywords = '' . ($keywords ?? site()->meta_keywords ?? 'education, online courses, learning, e-learning, tutorials, classes, training, skills, knowledge, study, academic, professional development, certification, workshops, webinars, elearning platform, online education') . ' ';
+        $keywords = '' . ($keywords ?? site('meta_keywords') ?? 'education, online courses, learning, e-learning, tutorials, classes, training, skills, knowledge, study, academic, professional development, certification, workshops, webinars, elearning platform, online education') . ' ';
         ?>
         <meta name="description" content="<?php echo $description ?>" />
         <meta property="og:title" content="<?php echo $title ?>" />
@@ -471,8 +471,8 @@ if(!function_exists('slider')){
                             exportOptions: commonExportOptions,
                             customize: function(csv) {
                                 return `
-                                <?= site()->site_name ?? 'Edumart Technology' ?>
-                                <?= site()->division->name ?? 'Rangpur' ?>, <?= site()->country->name ?>
+                                <?= site('site_name') ?? 'Edumart Technology' ?>
+                                <?= site('division')?->name ?? 'Rangpur' ?>, <?= site('country')?->name ?>
                                 <?= $title; ?>
 
                                 ${csv}`;
@@ -485,8 +485,8 @@ if(!function_exists('slider')){
                             customize: function(xlsx) {
                                 const sheet = xlsx.xl.worksheets['sheet1.xml'];
                                 const rows = `
-                                <row r="1"><c t="inlineStr" r="A1"><is><t><?= site()->site_name ?? 'Edumart Technology' ?></t></is></c></row>
-                                <row r="2"><c t="inlineStr" r="A2"><is><t><?= site()->division->name ?? 'Rangpur' ?>, <?= site()->country->name ?></t></is></c></row>
+                                <row r="1"><c t="inlineStr" r="A1"><is><t><?= site('site_name') ?? 'Edumart Technology' ?></t></is></c></row>
+                                <row r="2"><c t="inlineStr" r="A2"><is><t><?= site('division')?->name ?? 'Rangpur' ?>, <?= site('country')?->name ?></t></is></c></row>
                                 <row r="3"><c t="inlineStr" r="A3"><is><t><?= $title; ?></t></is></c></row>`;
                                 sheet.childNodes[0].childNodes[1].innerHTML =
                                     rows + sheet.childNodes[0].childNodes[1].innerHTML;
@@ -522,7 +522,7 @@ if(!function_exists('slider')){
 
                                 doc.content.unshift(
                                     {
-                                        text: '<?= site()->site_name ?? "Edumart Technology" ?>',
+                                        text: '<?= site('site_name') ?? "Edumart Technology" ?>',
                                         fontSize: 14,
                                         bold: true,
                                         alignment: 'center',
@@ -530,8 +530,8 @@ if(!function_exists('slider')){
                                     },
                                     {
                                         text:
-                                            '<?= site()->division->name ?? "Rangpur" ?>, ' +
-                                            '<?= site()->country->name ?>\n' +
+                                            '<?= site('division')?->name ?? "Rangpur" ?>, ' +
+                                            '<?= site('country')?->name ?>\n' +
                                             '<?= $title; ?>\n\n',
                                         alignment: 'center',
                                         margin: [0, 0, 0, 10]
@@ -547,8 +547,8 @@ if(!function_exists('slider')){
                                 $(win.document.body)
                                     .prepend(`
                                     <div style="text-align:center; margin-bottom:20px;">
-                                    <h2><?= site()->site_name ?? 'Edumart Technology' ?></h2>
-                                    <p><?= site()->division->name ?? 'Rangpur' ?>, <?= site()->country->name ?></p>
+                                    <h2><?= site('site_name') ?? 'Edumart Technology' ?></h2>
+                                    <p><?= site('division')?->name ?? 'Rangpur' ?>, <?= site('country')?->name ?></p>
                                     <p><strong><?= $title; ?></strong></p>
                                     </div>`);
                                 $(win.document.body).find('table')

@@ -52,7 +52,7 @@
 
             <div class="text-center flex flex-col gap-3">
                 <p>{{ "Are you ready to start installation process ?" }}</p>
-                <a href="{{ route('install.step1') }}" class="bg-[#F85D24] p-3 rounded-md text-white">
+                <a href="{{ route('install.step1') }}" class="bg-[#155A92] p-3 rounded-md text-white">
                     {{ "Get Started" }}
                 </a>
             </div>

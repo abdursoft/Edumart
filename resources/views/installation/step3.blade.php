@@ -12,16 +12,6 @@
                 </a>
             </div>
 
-            @if (isset($error) || session()->has('error'))
-                <div class="mt-[20px] w-full p-3 bg-red-600 rounded-md shadow-md text-white">
-                    {{ $error ?? session('error') }}
-                </div>
-            @elseif(session()->has('success'))
-                <div class="mt-[20px] w-full p-3 bg-green-600 rounded-md shadow-md text-white">
-                    {{ session('success') }}
-                </div>
-            @endif
-
             <form method="POST" action="{{ route('install.install.db') }}" autocomplete="off">
                 @csrf
                 <div class="bg-slate-100 p-4 rounded-md mb-4 mt-5">
@@ -68,7 +58,7 @@
                 </div>
 
                 <div class="text-center w-full">
-                    <button type="submit" class="bg-[#F85D24] p-3 rounded-md text-white w-full text-center cursor-pointer">{{ "Continue" }}</button>
+                    <button type="submit" class="bg-[#155A92] p-3 rounded-md text-white w-full text-center cursor-pointer">{{ "Continue" }}</button>
                 </div>
             </form>
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Brian2694\Toastr\Facades\Toastr;
 use Closure;
 use Illuminate\Support\Facades\Session;
 
@@ -16,12 +17,14 @@ class InstallationMiddleware
      */
     public function handle($request, Closure $next)
     {
-        // if (Session::get('purchase_code') == false && env('PURCHASE_CODE') == null) {
-        //     Session::flash('error', 'Invalid product purchase code');
-        //     return redirect('install/step2');
-        // }elseif(env('PURCHASE_CODE') != null){
-        //     return $next($request);
-        // }
+        if (
+            !session()->has('error') &&
+            Session::get('purchase_code') == false &&
+            env('PURCHASE_CODE') == null
+        ) {
+            Toastr::error('Invalid product purchase code', 'Invalid Code');
+            return redirect('install/step2');
+        }
 
         return $next($request);
     }

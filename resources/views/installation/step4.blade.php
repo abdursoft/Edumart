@@ -13,18 +13,15 @@
             </p>
 
             @if(session('error'))
-                <div class="mt-[20px] w-full p-3 bg-red-600 rounded-md shadow-md text-white mb-[90px]">
-                    {{ $error ?? session('error') }}
-                </div>
-
-                <div class="text-center">
-                    <a href="{{ route('install.force-import-sql') }}" class="bg-[#F85D24] p-3 rounded-md text-white w-full text-center">
-                        {{ "Yes, Import Database" }}
+                <div class="text-center  mt-[150px]">
+                    <h1 class="mb-5 font-semibold text-red-500">Your database isn't empty, would you want to wipe database?</h1>
+                    <a href="{{ route('install.force-import-sql') }}" class="bg-[#F85D24] p-3 rounded-md text-white w-full text-center mt-5">
+                        {{ "Yes, Wipe & Import Database" }}
                     </a>
                 </div>
             @else
                 <div class="text-center mt-[150px]">
-                    <a href="{{ route('install.import_sql') }}" class="bg-[#F85D24] p-3 rounded-md text-white w-full text-center">
+                    <a href="{{ route('install.import_sql') }}" class="bg-[#155A92] p-3 rounded-md text-white w-full text-center">
                         {{ "Import Database" }}
                     </a>
                 </div>
