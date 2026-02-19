@@ -80,11 +80,6 @@
 @endsection
 
 
-@section('styles')
-	 {{ tableStyle()}}
-@endSection
-
-
 @push('scripts')
-    {{loadDataTable('permissionList')}}
+    {{loadDataTable('permissionList', 'Role & Permissions')}}
 @endpush

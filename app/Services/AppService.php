@@ -569,7 +569,7 @@ if(!function_exists('slider')){
                 ob_start();
             ?>
         <script>
-            const commonExportOptions = {
+            var commonExportOptions = {
                 columns: ':visible:not(.no-export)'
             };
 

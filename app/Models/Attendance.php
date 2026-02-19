@@ -45,6 +45,10 @@ class Attendance extends Model
         return $this->belongsTo(Subject::class);
     }
 
+    public function teacher(){
+        return $this->belongsTo(User::class, 'teacher_id');
+    }
+
     /**
      * Attendance internal functions
      * @param $sub subject id

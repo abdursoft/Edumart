@@ -22,8 +22,8 @@
                             <td>{{$group->description}}</td>
                             <td>
                                 <div class="flex items-center gap-1">
-                                    <a href="{{ route('admin.academic.structure.groups.edit',$group->id) }}" class="py-1 px-2 rounded-[15px] shadow-md hover:bg-green-600 text-green-600 hover:text-white transition">{!! icons('edit') !!}</a>
-                                    <a href="{{ route('admin.academic.structure.groups.delete',$group->id) }}" class="py-1 px-2 text-red-600 rounded-[15px] shadow-md hover:bg-red-600 hover:text-white transition" onclick="return confirm('Are you sure you want to delete this group')">{!! icons('delete') !!}</a>
+                                    <a href="{{ route('admin.academic.structure.group.edit',$group->id) }}" class="py-1 px-2 rounded-[15px] shadow-md hover:bg-green-600 text-green-600 hover:text-white transition">{!! icons('edit') !!}</a>
+                                    <a href="{{ route('admin.academic.structure.group.delete',$group->id) }}" class="py-1 px-2 text-red-600 rounded-[15px] shadow-md hover:bg-red-600 hover:text-white transition" onclick="return confirm('Are you sure you want to delete this group')">{!! icons('delete') !!}</a>
                                 </div>
                             </td>
                         </tr>

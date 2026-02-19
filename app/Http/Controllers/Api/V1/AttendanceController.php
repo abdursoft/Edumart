@@ -21,9 +21,13 @@ class AttendanceController extends Controller
     // List all attendance records
     public function index()
     {
-        return Attendance::with(['student', 'eduClass', 'subject'])
+        $attendances = Attendance::with(['student', 'eduClass', 'subject'])
             ->orderBy('attendance_date', 'desc')
-            ->get();
+            ->orderBy('edu_class_id', 'asc')
+            ->get()
+            ->groupBy('attendance_date');
+
+        return view(backend('pages.attendance-student'), compact('attendances'));
     }
 
     // Store a new attendance record
@@ -104,6 +108,19 @@ class AttendanceController extends Controller
         $leave = (new LeaveManagement())->userLeave('Student');
         $attendance->update($validated);
         Toastr::success('Attendance updated successfully','Success');
+        return redirect()->back();
+    }
+
+    // attendance action for admin
+    public function attendanceAction($type, $id){
+        if(in_array(ucfirst($type), ['Present', 'Absent', 'Excuse'])){
+            $attendance = Attendance::findOrFail($id);
+            $attendance->status = ucfirst($type);
+            $attendance->save();
+            Toastr::success('Attendance updated successfully', 'Success');
+            return redirect()->back();
+        }
+        Toastr::error('Invalid present action', 'Invalid action');
         return redirect()->back();
     }
 

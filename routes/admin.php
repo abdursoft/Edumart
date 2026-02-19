@@ -143,11 +143,11 @@ Route::prefix('academic/structure')->name('academic.structure.')->group(function
     Route::get('sections/{id}/delete', [SectionController::class, 'destroy'])->name('sections.delete');
 
     // group routes
-    Route::get('groups/{id?}', [GroupController::class, 'index'])->name('groups');
-    Route::post('groups', [GroupController::class, 'store'])->name('groups.add');
-    Route::get('groups/{id}/edit', [GroupController::class, 'show'])->name('groups.edit');
-    Route::post('groups/{id}/update', [GroupController::class, 'update'])->name('groups.update');
-    Route::get('groups/{id}/delete', [GroupController::class, 'destroy'])->name('groups.delete');
+    Route::get('groups/{id?}', [GroupController::class, 'index'])->name('group');
+    Route::post('groups', [GroupController::class, 'store'])->name('group.add');
+    Route::get('groups/{id}/edit', [GroupController::class, 'show'])->name('group.edit');
+    Route::post('groups/{id}/update', [GroupController::class, 'update'])->name('group.update');
+    Route::get('groups/{id}/delete', [GroupController::class, 'destroy'])->name('group.delete');
 
     // subject routes
     Route::get('subjects', [SubjectController::class, 'index'])->name('subjects');
@@ -178,7 +178,8 @@ Route::prefix('academic/activities')->name('academic.activities.')->group(functi
     Route::post('attendance', [AttendanceController::class, 'store'])->name('attendance.add');
     Route::get('attendance/{id}/edit', [AttendanceController::class, 'show'])->name('attendance.edit');
     Route::post('attendance/{id}/update', [AttendanceController::class, 'update'])->name('attendance.update');
-    Route::get('attendance/{id}/delete', [AttendanceController::class, 'destroy'])->name('attendance.destroy');
+    Route::get('attendance/{id}/delete', [AttendanceController::class, 'destroy'])->name('attendance.delete');
+    Route::get('attendance/manage/{type}/{id}', [AttendanceController::class, 'attendanceAction'])->name('attendance.manage');
 
     // assignment routes
     Route::get('assignments', [AssignmentController::class, 'index'])->name('assignments');
@@ -477,9 +478,7 @@ Route::prefix('settings')->name('settings.')->group(function () {
     Route::post('sms-methods/configuration', [SmsController::class, 'store'])->name('sms.add');
     Route::post('sms-methods/default', [SmsController::class, 'activeSMS'])->name('sms.default');
 
-    Route::get('backup', function () {
-        return 'Database Backup';
-    })->name('backup');
+    Route::get('backup', [AdminController::class, 'database'])->name('backup');
     Route::get('language', function () {
         return 'Language Settings';
     })->name('language');

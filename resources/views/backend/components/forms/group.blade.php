@@ -1,5 +1,5 @@
 <form
-    action="@if ($group) {{ route('admin.academic.structure.groups.update', ['id' => $group['id']]) }}@else{{ route('admin.academic.structure.groups.add') }} @endif"
+    action="@if ($group) {{ route('admin.academic.structure.group.update', ['id' => $group['id']]) }}@else{{ route('admin.academic.structure.group.add') }} @endif"
     method="POST">
 
     <x-fieldset title="New group">
@@ -49,7 +49,7 @@
                 'type' => 'button',
                 'style' =>
                     'bg-green-500 text-white rounded-md px-3 py-2 cursor-pointer hover:bg-green-800 hover:text-white',
-                'click' => 'window.location.href=`' . route('admin.academic.structure.groups') . '`',
+                'click' => 'window.location.href=`' . route('admin.academic.structure.group') . '`',
             ],
         ]" position="end"></x-button>
 

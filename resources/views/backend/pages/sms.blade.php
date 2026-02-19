@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Staff management')
+@section('title', 'Sms gateway management')
 
 
 @section('content')

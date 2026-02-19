@@ -48,7 +48,7 @@ const MENUS = [
             "departments" => "Departments",
             "classes" => "Classes",
             "sections" => "Sections",
-            "groups" => "Groups",
+            "group" => "Groups",
             "subjects" => "Subjects",
             "rooms" => "Rooms",
             "routines" => "Class Routines",
@@ -125,9 +125,9 @@ const MENUS = [
     //  Reports
     "reports" => [
         "student_reports" => "Student Reports",
-        "attendance_reports" => "Attendance Reports",
-        "exam_reports" => "Exam Reports",
-        "finance_reports" => "Finance Reports",
+        // "attendance_reports" => "Attendance Reports",
+        // "exam_reports" => "Exam Reports",
+        // "finance_reports" => "Finance Reports",
         // "library_reports" => "Library Reports",
     ],
 
@@ -142,10 +142,10 @@ const MENUS = [
     // System Settings
     "settings" => [
         'role_permission' => "Role & Permissions",
-        "system_settings" => "System Settings",
+        // "system_settings" => "System Settings",
         "email_sms_settings" => "Email/SMS Configuration",
         "backup" => "Database Backup",
-        "language" => "Language Settings",
+        // "language" => "Language Settings",
     ],
 
     // Frontend Pages
@@ -161,11 +161,11 @@ const MENUS = [
     ],
 
     // Public / External Access
-    "public" => [
-        "admission_form" => "Online Admission Form",
-        "results_portal" => "Results Portal",
-        "downloads" => "Download Center",
-    ],
+    // "public" => [
+    //     "admission_form" => "Online Admission Form",
+    //     "results_portal" => "Results Portal",
+    //     "downloads" => "Download Center",
+    // ],
 
     // Menu builder
     "menu.add" => "Menu Builder",

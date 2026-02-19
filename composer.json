@@ -17,6 +17,7 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
         "phpmailer/phpmailer": "^7.0",
+        "spatie/db-dumper": "^4.0",
         "spatie/laravel-permission": "^6.24",
         "twilio/sdk": "^8.10",
         "yajra/laravel-datatables-export": "12.0",
