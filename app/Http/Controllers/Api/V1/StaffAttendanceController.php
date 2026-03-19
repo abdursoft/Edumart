@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\LeaveManagement;
 use App\Models\StaffAttendance;
 use App\Models\User;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -57,7 +58,8 @@ class StaffAttendanceController extends Controller
             }
         }
 
-        return back()->with('success', 'Attendance successfully submitted');
+        Toastr::success('Attendance submitted successfully', 'Success');
+        return back();
     }
 
     /**
@@ -103,7 +105,8 @@ class StaffAttendanceController extends Controller
             }
         }
 
-        return back()->with('success', 'Attendance successfully updated');
+        Toastr::success('Attendance updated successfully', 'Success');
+        return back();
     }
 
     /**

@@ -8,7 +8,7 @@
     </h2>
 
     <form
-        action="{{ isset($profileData) ? route('teacher.profile.update', $profileData->id) : route('teacher.profile.add') }}"
+        action="{{ isset($profileData) ? route('profile.update', $profileData->id) : route('profile.add') }}"
         method="POST"
         enctype="multipart/form-data"
         class="space-y-6">
@@ -127,6 +127,9 @@
                        class="w-full border rounded px-3 py-2">
             </div>
         </div>
+
+        {{-- user profile id  --}}
+        <input type="hidden" name="user_id" value="{{ $profile->id ?? '' }}">
 
         {{-- Submit --}}
         <div class="text-right">

@@ -6,6 +6,7 @@
             @endif"
     method="POST">
 
+    @csrf
     <x-fieldset title="Add new asset">
 
         <x-input-form

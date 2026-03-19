@@ -31,19 +31,19 @@
                         <div class="my-3">
                             <div class="flex gap-2 items-center flex-wrap bg-gray-1 p-2 rounded-md shadow-md">
                                 <iconify-icon icon="mdi:database-lock-outline" width="24" height="24"></iconify-icon>
-                                <div class="text-base md:text-semibold">{{ "Database Password" }}</div>
+                                <div class="text-base md:text-semibold">{{ "Password" }}</div>
                             </div>
                         </div>
                         <div class="my-3">
                             <div class="flex gap-2 items-center flex-wrap bg-gray-1 p-2 rounded-md shadow-md">
                                 <iconify-icon icon="fluent:database-person-24-regular" width="24" height="24"></iconify-icon>
-                                <div class="text-base md:text-semibold">{{ "Database Username" }}</div>
+                                <div class="text-base md:text-semibold">{{ "Username" }}</div>
                             </div>
                         </div>
                         <div class="my-3">
                             <div class="flex gap-2 items-center flex-wrap bg-gray-1 p-2 rounded-md shadow-md">
                                 <iconify-icon icon="jam:database" width="24" height="24"></iconify-icon>
-                                <div class="text-base md:text-semibold">{{ "Database Host Name" }}</div>
+                                <div class="text-base md:text-semibold">{{ "Host Name" }}</div>
                             </div>
                         </div>
                     </div>

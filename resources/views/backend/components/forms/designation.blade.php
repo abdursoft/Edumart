@@ -1,5 +1,6 @@
 <form action="@if($designation){{route('admin.academic.people.designations.edit', ['id' => $designation['id']])}}@else{{route('admin.academic.people.designations.add')}} @endif" method="POST">
 
+    @csrf
     <x-fieldset
     title="New Designation">
 

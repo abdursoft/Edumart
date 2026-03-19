@@ -1,5 +1,6 @@
 <form action="@if($head){{route('admin.finance.fees.fee_heads.update', ['id' => $head['id']])}}@else{{route('admin.finance.fees.fee_heads.add')}}@endif" method="POST">
 
+    @csrf
     <x-fieldset
     title="Add new head">
 

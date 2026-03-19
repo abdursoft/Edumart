@@ -123,4 +123,11 @@ class User extends Authenticatable
         return $this->hasMany(Attendance::class, 'student_id');
     }
 
+    /**
+     * Relation with children on student profile table
+     */
+    public function children(){
+        return $this->hasMany(StudentProfile::class, 'parent_id');
+    }
+
 }

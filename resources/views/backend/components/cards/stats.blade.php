@@ -38,14 +38,14 @@
             <p class="text-gray-500">Students</p>
             <div class="flex items-center justify-between w-full">
                 <p class="text-xl font-semibold">{{$students}}</p>
-                <a href="" class="p-1 md:p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+                <a href="{{route('admin.academic.people.students')}}" class="p-1 md:p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
             </div>
         </div>
         <div class="bg-white p-6 rounded-xl shadow">
             <p class="text-gray-500">Subjects</p>
             <div class="flex items-center justify-between w-full">
                 <p class="text-xl font-semibold">{{$subjects}}</p>
-                <a href="{{route('admin.academic.people.students')}}" class="p-1 md:p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
+                <a href="{{route('admin.academic.structure.subjects')}}" class="p-1 md:p-2 bg-green-500 hover:bg-green-700 transition-all rounded-md text-white text-sm">View</a>
             </div>
         </div>
         <div class="bg-white p-6 rounded-xl shadow">

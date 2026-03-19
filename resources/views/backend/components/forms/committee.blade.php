@@ -1,5 +1,6 @@
 <form action="@if($committee){{route('admin.academic.people.committees.update', ['id' => $committee['id']])}}@else{{route('admin.academic.people.committees.add')}} @endif" method="POST">
 
+    @csrf
     <x-fieldset
     title="New Committee">
 

@@ -78,7 +78,7 @@
 
     {{-- copyright  --}}
     <div class="mt-auto mb-6 text-center text-xs text-gray-100">
-        abdursoft &copy; {{ date('Y') }} EduMart.
+        abdursoft &copy; {{ date('Y') }} EduCraft.
     </div>
 
 </aside>

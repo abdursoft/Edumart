@@ -1,5 +1,6 @@
 <form action="@if($teacher){{route('admin.academic.people.teachers.edit', ['id' => $teacher['id']])}}@else{{route('admin.academic.people.teachers.add')}} @endif" method="POST">
 
+    @csrf
     <x-fieldset
     title="Teacher">
 

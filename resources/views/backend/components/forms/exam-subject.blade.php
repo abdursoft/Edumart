@@ -2,6 +2,7 @@
     action="@if ($examSubject) {{ route('admin.academic.evaluation.exam_subject.update', ['id' => $examSubject['id']]) }}@else{{ route('admin.academic.evaluation.exam_subject.add') }} @endif"
     method="POST">
 
+    @csrf
     <x-fieldset title="Exam">
 
         <x-input-form :fields="[

@@ -10,8 +10,10 @@ use App\Models\ExamAdmitCard;
 use App\Models\StudentFee;
 use App\Models\StudentProfile;
 use App\Models\User;
+use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
@@ -27,11 +29,18 @@ class StudentController extends Controller
     //show student list
     public function index()
     {
-        $students = StudentProfile::with('parent','user')->get();
+        $students = StudentProfile::with('parent', 'user')->get();
+        return view(backend('pages.student'), compact('students'));
+    }
+
+    // Show form to create a new student
+    public function newStudent()
+    {
+        $students = StudentProfile::with('parent')->get();
         $student  = null;
         $parents  = User::where('role', 'guardian')->get();
         $class    = EduClass::all();
-        return view(backend('pages.student'), compact('students', 'student', 'parents', 'class'));
+        return view(backend('pages.student-new'), compact('students', 'student', 'parents', 'class'));
     }
 
     // Store a new student
@@ -88,7 +97,7 @@ class StudentController extends Controller
 
             $validated['student_id'] = $student->id;
 
-            if($request->hasFile('avatar')){
+            if ($request->hasFile('avatar')) {
                 $file = $request->file('avatar');
 
                 $dir = public_path('uploads');
@@ -114,7 +123,8 @@ class StudentController extends Controller
 
             StudentProfile::create($validated);
             DB::commit();
-            return redirect()->back()->with('success', 'Student created successfully!');
+            Toastr::success('Student created successfully!', 'Success');
+            return back();
         } catch (\Throwable $th) {
             DB::rollBack();
             dd($th->getMessage());
@@ -178,37 +188,38 @@ class StudentController extends Controller
             $student->user->save();
         }
 
-        if($request->hasFile('avatar')){
-                $file = $request->file('avatar');
+        if ($request->hasFile('avatar')) {
+            $file = $request->file('avatar');
 
-                $dir = public_path('uploads');
+            $dir = public_path('uploads');
 
-                if (!File::exists($dir)) {
-                    File::makeDirectory($dir, 0755, true);
-                }
-
-                $filename = uniqid() . '.webp';
-                $path = public_path('uploads/' . $filename);
-
-                $manager = new ImageManager(new Driver());
-
-                $manager->read($file)
-                    ->resize(1200, null, function ($constraint) {
-                        $constraint->aspectRatio();
-                        $constraint->upsize();
-                    })
-                    ->toWebp(80)
-                    ->save($path);
-                $validated['avatar'] = 'uploads/' . $filename;
-
-                if(!empty($student->avatar) && Storage::disk('public')->exists($student->avatar)){
-                    Storage::disk('public')->delete($student->avatar);
-                }
+            if (!File::exists($dir)) {
+                File::makeDirectory($dir, 0755, true);
             }
 
-        $student->update($validated);
+            $filename = uniqid() . '.webp';
+            $path = public_path('uploads/' . $filename);
 
-        return redirect()->back()->with('success', 'Student updated successfully!');
+            $manager = new ImageManager(new Driver());
+
+            $manager->read($file)
+                ->resize(1200, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                })
+                ->toWebp(80)
+                ->save($path);
+            $validated['avatar'] = 'uploads/' . $filename;
+
+            if (!empty($student->avatar) && Storage::disk('public')->exists($student->avatar)) {
+                Storage::disk('public')->delete($student->avatar);
+            }
+        }
+
+        $student->update($validated);
+        Toastr::success('Student updated successfully!', 'Success');
+
+        return back();
     }
 
     // Delete a student
@@ -216,106 +227,126 @@ class StudentController extends Controller
     {
         $student = StudentProfile::find($id);
         if (! $student) {
-            return back()->withErrors(['error' => 'Student ID couldn\'t found']);
+            Toastr::error('Student ID couldn\'t found', 'Student not found');
+            return back();
         }
         $student->delete();
-        return back()->with('success', 'Student successfully deleted');
+        Toastr::success('Student deleted successfully!', 'Success');
+        return back();
     }
 
     /**
      * Student dashboard
      */
-    public function dashboard(){
+    public function dashboard()
+    {
         $profile = auth()->user();
         $student = $profile->student;
-        $admits = $profile->admitCard()->where('status','issued')->orderBy('id','desc')->get();
+        if($student == null) {
+            Toastr::error('Student profile not found', 'Error');
+            Auth::logout();
+            return redirect()->route('home');
+        }
+        $admits = $profile->admitCard()->where('status', 'issued')->orderBy('id', 'desc')->get();
 
         $invoices = $profile->fee();
-        $marksheets = $profile->marksheet()->where('status','published')->orderBy('id','desc')->get();
+        $marksheets = $profile->marksheet()->where('status', 'published')->orderBy('id', 'desc')->get();
         $certificates = $profile->certificate();
 
         $now = Carbon::now();
 
-        $attendances = $student->eduClass
-        ->attendance()
-        ->where('student_id', $student->student_id)
-        ->whereMonth('created_at', $now->month)
-        ->whereYear('created_at', $now->year)
-        ->get();
+        $attendances = [];
+        if ($profile?->student?->eduClass) {
+            $attendances = $student->eduClass
+                ->attendance()
+                ->where('student_id', $student->student_id)
+                ->whereMonth('created_at', $now->month)
+                ->whereYear('created_at', $now->year)
+                ->get();
+        }
 
         $attendance  = [];
-        $totalDays   = $attendances->count();
-        $attendance['present'] = $attendances->whereIn('status',['Present','Excused'])->count();
-        $attendance['absent']  = $attendances->where('status', 'Absent')->count();
-        $attendance['leave']   = $attendances->where('status', 'Excused')->count();
+        $totalDays   = ($attendances) ? $attendances->count() : 0;
+        $attendance['present'] = ($attendances) ? $attendances->whereIn('status', ['Present', 'Excused'])->count() : 0;
+        $attendance['absent']  = ($attendances) ? $attendances->where('status', 'Absent')->count() : 0;
+        $attendance['leave']   = ($attendances) ? $attendances->where('status', 'Excused')->count() : 0;
         $attendance['total']   = $totalDays;
 
 
         $attendance['percentage'] = $totalDays > 0
-        ? round(($attendance['present'] / $totalDays) * 100)
-        : 0;
+            ? round(($attendance['present'] / $totalDays) * 100)
+            : 0;
 
-        $routines = $student->eduClass
-            ->routine()
-            ->where('day', now()->format('l'))
-            ->get();
+        $routines = [];
+        if ($profile?->student?->eduClass) {
+            $routines = $student->eduClass
+                ->routine()
+                ->where('day', now()->format('l'))
+                ->get();
+        }
 
-        return view(theme('pages.students.dashboard'), compact('profile','routines','admits','attendance','student','invoices','marksheets','certificates'));
+        return view(theme('pages.students.dashboard'), compact('profile', 'routines', 'admits', 'attendance', 'student', 'invoices', 'marksheets', 'certificates'));
     }
 
     /**
      * Student admit cards
      */
-    public function admitCard(){
+    public function admitCard()
+    {
         $profile = auth()->user();
-        $admits = $profile->admitCard()->where('status','issued')->orderBy('id','desc')->get();
-        return view(theme('pages.students.admitcard'),compact('profile','admits'));
+        $admits = $profile->admitCard()->where('status', 'issued')->orderBy('id', 'desc')->get();
+        return view(theme('pages.students.admitcard'), compact('profile', 'admits'));
     }
 
     /**
      * Student admit card downloads
      */
-    public function admitCardDownload($examCode, $admitCard){
+    public function admitCardDownload($examCode, $admitCard)
+    {
         $admit   = ExamAdmitCard::findOrFail($admitCard);
         $exam    = Exam::where('code', $examCode)->first();
         $profile = auth()->user();
 
-        return view(theme('pages.students.admitcard-download'), compact('admit','exam','profile'));
+        return view(theme('pages.students.admitcard-download'), compact('admit', 'exam', 'profile'));
     }
 
     /**
      * Student marksheet
      */
-    public function marksheet(){
+    public function marksheet()
+    {
         $profile = auth()->user();
-        $marksheets = $profile->marksheet()->where('status','Published')->orderBy('id','desc')->get();
-        return view(theme('pages.students.marksheet'), compact('profile','marksheets'));
+        $marksheets = $profile->marksheet()->where('status', 'Published')->orderBy('id', 'desc')->get();
+        return view(theme('pages.students.marksheet'), compact('profile', 'marksheets'));
     }
 
     /**
      * Student marksheet download
      */
-    public function markSheetDownload($id){
+    public function markSheetDownload($id)
+    {
         $profile = auth()->user();
-        $marksheet = $profile->marksheet()->where('status','Published')->where('id',$id)->first();
+        $marksheet = $profile->marksheet()->where('status', 'Published')->where('id', $id)->first();
         return view(theme('pages.students.marksheet-download'), compact('marksheet'));
     }
 
     /**
      * Student certificates
      */
-    public function certificate(){
+    public function certificate()
+    {
         $profile = auth()->user();
-        $certificates = $profile->certificate()->where('status','active')->orderBy('id','desc')->get();
-        return view(theme('pages.students.certificate'), compact('profile','certificates'));
+        $certificates = $profile->certificate()->where('status', 'active')->orderBy('id', 'desc')->get();
+        return view(theme('pages.students.certificate'), compact('profile', 'certificates'));
     }
 
     /**
      * Student fee and invoices
      */
-    public function invoices($id=null){
+    public function invoices($id = null)
+    {
         $profile = $this->profile;
-        $fees = StudentFee::with(['feeHead','feeCollection.collectedBy'])->where('student_id', $profile->id)->latest()->get();
-        return view(theme('pages.students.fee'), compact('profile','fees'));
+        $fees = StudentFee::with(['feeHead', 'feeCollection.collectedBy'])->where('student_id', $profile->id)->latest()->get();
+        return view(theme('pages.students.fee'), compact('profile', 'fees'));
     }
 }

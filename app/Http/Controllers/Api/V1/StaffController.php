@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\Designation;
 use App\Models\User;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -41,7 +42,8 @@ class StaffController extends Controller
             'login_permit' => $validate['login_permit'],
             'designation_id' => $validate['designation_id']
         ]);
-        return back()->with('success', 'Staff successfully created');
+        Toastr::success('Staff created successfully', 'Success');
+        return back();
     }
 
     // Show a single staff
@@ -76,7 +78,8 @@ class StaffController extends Controller
             'login_permit' => $validate['login_permit'],
             'designation_id' => $validate['designation_id']
         ]);
-        return back()->with('success', 'Staff data successfully updated');
+        Toastr::success('Staff data updated successfully', 'Success');
+        return back();
     }
 
     // Delete a staff
@@ -87,6 +90,7 @@ class StaffController extends Controller
             return back()->withErrors(['error' => 'Staff ID couldn\'t found']);
         }
         $staff->delete();
-        return back()->with('success', 'Staff successfully deleted');
+        Toastr::success('Staff deleted successfully', 'Success');
+        return back();
     }
 }

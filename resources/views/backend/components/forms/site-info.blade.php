@@ -3,6 +3,7 @@
     enctype="multipart/form-data"
     method="POST">
 
+    @csrf
     <img src="{{Storage::url(site()->logo)}}" alt="" class="previewImg {{site()->logo != '' ? '' : 'hidden'}} w-[100px] h-[100px]">
 
     <x-fieldset title="Site Information">
@@ -86,6 +87,21 @@
             ],
 
             [
+                'label' => 'Weekend Days',
+                'name' => 'weekend',
+                'type' => 'checkbox',
+                'required' => true,
+                'options' => ['Friday', 'Saturday', 'Sunday']
+            ],
+
+            [
+                'label' => '',
+                'name' => '',
+                'type' => 'break',
+                'default' => 3,
+            ],
+
+            [
                 'label' => ADDRESS['division'],
                 'name' => 'division_id',
                 'type' => 'select',
@@ -150,7 +166,7 @@
                 'label' => '',
                 'name' => '',
                 'type' => 'break',
-                'default' => 9,
+                'default' => 8,
             ],
             [
                 'label' => '',

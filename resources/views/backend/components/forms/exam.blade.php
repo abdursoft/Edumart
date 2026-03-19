@@ -1,5 +1,6 @@
 <form action="@if($exam){{route('admin.academic.evaluation.exams.update', ['id' => $exam['id']])}}@else{{route('admin.academic.evaluation.exams.add')}} @endif" method="POST">
 
+    @csrf
     <x-fieldset
     title="Exam">
 

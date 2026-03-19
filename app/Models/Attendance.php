@@ -34,6 +34,11 @@ class Attendance extends Model
         return $this->belongsTo(StudentProfile::class, 'student_id');
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'student_id');
+    }
+
     public function eduClass()
     {
         return $this->belongsTo(EduClass::class, 'edu_class_id');
@@ -76,5 +81,60 @@ class Attendance extends Model
                     ->where('edu_class_id', $class)
                     ->where('status', 'Present')
                     ->get()->pluck('student_id')->toArray();
+    }
+
+    /**
+     * Monthly attendance subject percentage for a student in a subject
+     * @param $studentId student profile id
+     * @param $sub subject id
+     * @param $month month number (1-12)
+     * @param $year year number (e.g., 2024)
+     * @return float attendance percentage  
+     */
+    public function monthlyAttendanceSubjectPercentage($studentId, $sub, $month, $year){
+        $totalDays = $this->where('student_id', $studentId)
+                            ->where('subject_id', $sub)
+                            ->whereYear('attendance_date', $year)
+                            ->whereMonth('attendance_date', $month)
+                            ->count();
+
+        if ($totalDays == 0) {
+            return 0; // Avoid division by zero
+        }
+
+        $presentDays = $this->where('student_id', $studentId)
+                            ->where('subject_id', $sub)
+                            ->whereYear('attendance_date', $year)
+                            ->whereMonth('attendance_date', $month)
+                            ->whereIn('status', ['Present'. 'Late', 'Excused'])
+                            ->count();
+
+        return round(($presentDays / $totalDays) * 100, 2);
+    }
+
+    /**
+     * Monthly attendance percentage for a student in a subject
+     * @param $studentId student profile id
+     * @param $month month number (1-12)
+     * @param $year year number (e.g., 2024)
+     * @return float attendance percentage  
+     */
+    public function monthlyAttendancePercentage($studentId, $month, $year){
+        $totalDays = $this->where('student_id', $studentId)
+                            ->whereYear('attendance_date', $year)
+                            ->whereMonth('attendance_date', $month)
+                            ->count();
+
+        if ($totalDays == 0) {
+            return 0; // Avoid division by zero
+        }
+
+        $presentDays = $this->where('student_id', $studentId)
+                            ->whereYear('attendance_date', $year)
+                            ->whereMonth('attendance_date', $month)
+                            ->whereIn('status',['Present', 'Late', 'Excused'])
+                            ->count();
+
+        return round(($presentDays / $totalDays) * 100, 2). '%';
     }
 }

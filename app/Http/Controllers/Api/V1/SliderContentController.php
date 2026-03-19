@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\Slider;
 use App\Models\SliderContent;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -47,7 +48,8 @@ class SliderContentController extends Controller
 
         $slider = Slider::with('contents')->findOrFail($request->slider_id);
 
-        return redirect()->route('admin.media.slider.content', ['slider' => $slider])->with('success', 'Slider content updated successfully');
+        Toastr::success('Slider content created successfully', 'Success');
+        return redirect()->route('admin.media.slider.content', ['slider' => $slider]);
     }
 
     // Show a single slider content
@@ -86,7 +88,8 @@ class SliderContentController extends Controller
         }
         $sliderContent->update($validated);
 
-        return redirect()->route('admin.media.slider.content', ['slider' => $sliderContent->slider_id])->with('success', 'Slider content updated successfully');
+        Toastr::success('Slider content updated successfully', 'Success');
+        return redirect()->route('admin.media.slider.content', ['slider' => $sliderContent->slider_id]);
     }
 
     // Delete a slider content (soft delete)
@@ -98,7 +101,8 @@ class SliderContentController extends Controller
         }
         $sliderContent->delete();
 
-        return redirect()->route('admin.media.slider.content', ['slider' => $slider])->with('success', 'Slider content deleted successfully');
+        Toastr::success('Slider content deleted successfully', 'Success');
+        return redirect()->route('admin.media.slider.content', ['slider' => $slider]);
     }
 
     // Restore a soft-deleted slider content

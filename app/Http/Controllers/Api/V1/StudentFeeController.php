@@ -6,6 +6,7 @@ use App\Models\EduClass;
 use App\Models\FeeHead;
 use App\Models\StudentFee;
 use App\Models\StudentProfile;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -74,9 +75,9 @@ class StudentFeeController extends Controller
                 }
             }
 
+            Toastr::success('Student fee added successfully', 'Success');
             return redirect()
-                ->route('admin.finance.fees.student_due')
-                ->with('success', 'Student fee added successfully');
+                ->route('admin.finance.fees.student_due');
         } catch (\Throwable $th) {
             dd($th->getMessage());
         }
@@ -120,9 +121,9 @@ class StudentFeeController extends Controller
             'edu_group_id',
         ]));
 
+        Toastr::success('Student fee updated successfully', 'Success');
         return redirect()
-            ->route('student-fees.index')
-            ->with('success', 'Student fee updated successfully');
+            ->route('student-fees.index');
     }
 
     /**
@@ -133,9 +134,9 @@ class StudentFeeController extends Controller
         $studentFee = StudentFee::findOrFail($id);
         $studentFee->delete();
 
+        Toastr::success('Student fee deleted successfully', 'Success');
         return redirect()
-            ->route('admin.finance.fees.student_due')
-            ->with('success', 'Student due deleted successfully');
+            ->route('admin.finance.fees.student_due');
     }
 
     /**
@@ -147,7 +148,8 @@ class StudentFeeController extends Controller
             $studentFee->update(['status' => 'Paid']);
         });
 
-        return back()->with('success', 'Fee marked as paid');
+        Toastr::success('Fee marked as paid', 'Success');
+        return back();
     }
 
     /**

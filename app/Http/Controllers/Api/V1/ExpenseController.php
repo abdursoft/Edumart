@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\Expense;
 use App\Models\ExpenseHead;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -61,9 +62,9 @@ class ExpenseController extends Controller
             'added_by' => Auth::id(),
         ]);
 
+        Toastr::success('Expense added successfully', 'Success');   
         return redirect()
-            ->route('admin.finance.expenses.cost')
-            ->with('success', 'Expense added successfully.');
+            ->route('admin.finance.expenses.cost');
     }
 
     /**
@@ -94,9 +95,9 @@ class ExpenseController extends Controller
             'expense_head_id',
         ]));
 
+        Toastr::success('Expense updated successfully', 'Success');
         return redirect()
-            ->route('admin.finance.expenses.cost')
-            ->with('success', 'Expense updated successfully.');
+            ->route('admin.finance.expenses.cost');
     }
 
     /**
@@ -106,9 +107,9 @@ class ExpenseController extends Controller
     {
         $expense = Expense::findOrFail($id);
         $expense->delete();
-
+        
+        Toastr::success('Expense deleted successfully', 'Success');
         return redirect()
-            ->route('admin.finance.expenses.cost')
-            ->with('success', 'Expense deleted successfully.');
+            ->route('admin.finance.expenses.cost');
     }
 }

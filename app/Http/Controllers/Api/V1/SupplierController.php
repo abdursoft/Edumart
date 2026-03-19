@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Supplier;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,8 +52,8 @@ class SupplierController extends Controller
             'added_by'     => Auth::id(),
         ]);
 
-        return redirect()->route('admin.administration.suppliers')
-            ->with('success', 'Supplier created successfully.');
+        Toastr::success('Supplier created successfully', 'Success');
+        return redirect()->route('admin.administration.suppliers');
     }
 
     /**
@@ -98,8 +99,8 @@ class SupplierController extends Controller
             'company_name' => $request->company_name,
         ]);
 
-        return redirect()->route('admin.administration.suppliers')
-            ->with('success', 'Supplier updated successfully.');
+        Toastr::success('Supplier updated successfully', 'Success');
+        return redirect()->route('admin.administration.suppliers');
     }
 
     /**
@@ -110,7 +111,7 @@ class SupplierController extends Controller
         $supplier = Supplier::findOrFail($id);
         $supplier->delete();
 
-        return redirect()->route('admin.administration.suppliers')
-            ->with('success', 'Supplier deleted successfully.');
+        Toastr::success('Supplier deleted successfully', 'Success');
+        return redirect()->route('admin.administration.suppliers');
     }
 }

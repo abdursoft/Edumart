@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\MenuItem;
 use App\Models\Menu;
 use App\Models\Page;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -73,11 +74,12 @@ class MenuItemController extends Controller
                 }
             }
             DB::commit();
-
-            return redirect()->route('admin.menu.items',['id' => $id])->with('success', 'Menu item created successfully!');
+            Toastr::success('Menu item created successfully!', 'Success');
+            return redirect()->route('admin.menu.items',['id' => $id]);
         } catch (\Throwable $th) {
             DB::rollBack();
-            return redirect()->route('admin.menu.items', ['id' => $id])->with('error', $th->getMessage());
+            Toastr::error('Failed to create menu item!', 'Error');
+            return redirect()->route('admin.menu.items', ['id' => $id]);
         }
 
 

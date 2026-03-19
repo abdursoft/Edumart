@@ -1,5 +1,6 @@
 <form action="@if($collection){{route('admin.finance.fees.fee_collection.update', ['id' => $collection['id']])}}@else{{route('admin.finance.fees.fee_collection.add')}}@endif" method="POST">
 
+    @csrf
     <x-fieldset
     title="Add collection">
 

@@ -13,8 +13,8 @@ class SiteSettingSeeder extends Seeder
             'logo' => 'uploads/logo.png',
             'favicon' => 'uploads/favicon.ico',
             'theme' => 'default',
-            'contact_email' => 'admin@example.com',
-            'contact_phone' => '+1234567890',
+            'contact_email' => 'abdursoft@gmail.com',
+            'contact_phone' => '+880192311511',
             'address' => '123 Main Street, City, Country',
             'social_links' => json_encode([
                 'facebook' => 'https://facebook.com/example',

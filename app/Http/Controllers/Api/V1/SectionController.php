@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\EduClass;
 use App\Models\EduSection;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class SectionController extends Controller
@@ -32,7 +33,8 @@ class SectionController extends Controller
 
         EduSection::create($request->only('name','description','edu_class_id'));
 
-        return back()->with('success', 'Section successfully created');
+        Toastr::success('Section created successfully', 'Success');
+        return redirect();
     }
 
     // Show a single section
@@ -53,7 +55,8 @@ class SectionController extends Controller
         $section = EduSection::findOrFail($id);
         $section->update($request->only('name','description','edu_class_id'));
 
-        return redirect()->route('admin.academic.structure.sections')->with('success', 'Section successfully updated');
+        Toastr::success('Section updated successfully', 'Success');
+        return redirect()->route('admin.academic.structure.sections');
     }
 
     // Delete a section
@@ -64,6 +67,8 @@ class SectionController extends Controller
             return back()->withErrors(['error' => 'Section ID couldn\'t found']);
         }
         $section->delete();
-        return redirect()->route('admin.academic.structure.sections')->with('success', 'Section successfully deleted');
+
+        Toastr::success('Section deleted successfully', 'Success');
+        return redirect()->route('admin.academic.structure.sections');
     }
 }

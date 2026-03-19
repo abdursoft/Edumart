@@ -1,5 +1,6 @@
 <form action="@if($expense){{route('admin.finance.expenses.cost.update', ['id' => $expense['id']])}}@else{{route('admin.finance.expenses.cost.add')}}@endif" method="POST">
 
+    @csrf
     <x-fieldset
     title="Add Expense">
 

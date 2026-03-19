@@ -20,6 +20,7 @@ class RoleSeeder extends Seeder
             ['name' => 'Teacher', 'description' => 'Handles teaching and student grading'],
             ['name' => 'Student', 'description' => 'Learner enrolled in the school'],
             ['name' => 'Parent', 'description' => 'Guardian access to student progress'],
+            ['name' => 'Guardian', 'description' => 'Guardian access to student progress'],
             ['name' => 'Accountant', 'description' => 'Manages finances and fees'],
             ['name' => 'Librarian', 'description' => 'Manages school library system'],
             ['name' => 'Receptionist', 'description' => 'Manages communications and front desk'],

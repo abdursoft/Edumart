@@ -20,7 +20,7 @@
     </div>
 
     <!-- Table -->
-    <x-yajratable ajaxRoute="admin.admission.request" :columns="[
+    <x-yajra-table ajaxRoute="admin.admission.request" :columns="[
         [
             'data' => 'DT_RowIndex',
             'name' => 'DT_RowIndex',
@@ -32,37 +32,44 @@
         ['data' => 'birth_date', 'name' => 'birth_date', 'title' => 'BOD'],
         ['data' => 'gender', 'name' => 'gender', 'title' => 'Gender'],
         ['data' => 'father_english', 'name' => 'father_english', 'title' => 'Father'],
-        ['data' => 'father_mobile', 'name' => 'father_mobile', 'title' => 'F.Mobile'],
+        ['data' => 'father_mobile', 'name' => 'father_mobile', 'title' => 'F.Mobile', 'class' => 'no-export'],
         ['data' => 'current_address', 'name' => 'current_address', 'title' => 'C.Address'],
-        ['data' => 'previous_institute', 'name' => 'previous_institute', 'title' => 'Previous Institute'],
+        ['data' => 'previous_institute', 'name' => 'previous_institute', 'title' => 'Previous Institute', 'class' => 'no-export'],
         ['data' => 'previous_exam', 'name' => 'previous_exam', 'title' => 'Exam'],
         ['data' => 'previous_result', 'name' => 'previous_result', 'title' => 'Result'],
-        ['data' => 'photo', 'name' => 'photo', 'title' => 'Photo', 'orderable' => false, 'searchable' => false],
+        ['data' => 'photo', 'name' => 'photo', 'title' => 'Photo', 'orderable' => false, 'searchable' => false, 'class' => 'no-export'],
         ['data' => 'status', 'name' => 'status', 'title' => 'Status'],
         ['data' => 'is_paid', 'name' => 'is_paid', 'title' => 'Paid'],
-        ['data' => 'payment_id', 'name' => 'payment_id', 'title' => 'Payment ID'],
+        ['data' => 'payment_id', 'name' => 'payment_id', 'title' => 'Payment ID', 'class' => 'no-export'],
         ['data' => 'created_at', 'name' => 'created_at', 'title' => 'Date'],
-        ['data' => 'action', 'name' => 'action', 'title' => 'Action', 'orderable' => 'false', 'searchable' => 'false', 'class' => 'no-export']
+        [
+            'data' => 'action',
+            'name' => 'action',
+            'title' => 'Action',
+            'orderable' => 'false',
+            'searchable' => 'false',
+            'class' => 'no-export',
+        ],
     ]" title="Admission request list" />
 
 </div>
 
 @push('scripts')
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    let tableReloadTimeout = null;
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let tableReloadTimeout = null;
 
-    $("#startDate, #endDate, #keyword").on('change keyup', function() {
-        clearTimeout(tableReloadTimeout);
-        tableReloadTimeout = setTimeout(() => {
-            try {
-                window.dataTables.yajraTable.ajax.reload();
-                loadPopper();
-            } catch (error) {
-                console.log(error);
-            }
-        }, 300);
-    });
-});
-</script>
+            $("#startDate, #endDate, #keyword").on('change keyup', function() {
+                clearTimeout(tableReloadTimeout);
+                tableReloadTimeout = setTimeout(() => {
+                    try {
+                        window.dataTables.yajraTable.ajax.reload();
+                        loadPopper();
+                    } catch (error) {
+                        console.log(error);
+                    }
+                }, 300);
+            });
+        });
+    </script>
 @endpush

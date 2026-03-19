@@ -1,5 +1,6 @@
 <form action="@if($assignment){{route('admin.academic.activities.assignments.update', ['id' => $assignment['id']])}}@else{{route('admin.academic.activities.assignments.add')}} @endif" enctype="multipart/form-data" method="POST">
 
+    @csrf
     <x-fieldset
     title="Assignment">
 

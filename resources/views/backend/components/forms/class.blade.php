@@ -1,5 +1,6 @@
 <form action="@if($class){{route('admin.academic.structure.classes.update', ['id' => $class['id']])}}@else{{route('admin.academic.structure.classes.add')}} @endif" method="POST">
 
+    @csrf
     <x-fieldset
     title="New Class">
         <x-input-form

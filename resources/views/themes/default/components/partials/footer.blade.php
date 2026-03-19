@@ -17,15 +17,15 @@
             <div class="footer_box text-center md:text-left pr-3">
                 <h5 class="text-base md:text-lg md:font-bold mb-4">Importance Link</h5>
                 <p class="mb-1">
-                    <a class="hover:text-orange-600" target="_blank" href="http://www.moedu.gov.bd/">{{ text('ministry_of_education') }}
+                    <a class="hover:font-semibold" target="_blank" href="http://www.moedu.gov.bd/">{{ text('ministry_of_education') }}
                     </a>
                 </p>
                 <p class="mb-1">
-                    <a class="hover:text-orange-600" target="_blank" href="{{ board_url('din') }}">{{ text('din') }}
+                    <a class="hover:font-semibold" target="_blank" href="{{ board_url('din') }}">{{ text('din') }}
                     </a>
                 </p>
                 <p class="mb-1">
-                    <a class="hover:text-orange-600" target="_blank" href="http://www.dshe.gov.bd/">{{ text('dir_seconday_higher_edu') }}
+                    <a class="hover:font-semibold" target="_blank" href="http://www.dshe.gov.bd/">{{ text('dir_seconday_higher_edu') }}
                     </a>
                 </p>
             </div>
@@ -36,7 +36,7 @@
                     <div class="pl-0 md:pl-10">
                         <h5 class="text-base md:text-lg mb-4 md:font-bold">Social Links</h5>
                         @foreach(site()->social_links as $link=>$url)
-                            <p class="mb-1 flex items-center gap-1"><a class="hover:text-orange-600 flex items-center gap-1" href="{{ $url }}" target="_blank">{!! icons($link) !!}
+                            <p class="mb-1 flex items-center gap-1"><a class="hover:font-semibold flex items-center gap-1" href="{{ $url }}" target="_blank">{!! icons($link) !!}
                                 {{ucfirst($link)}}</a></p>
                         @endforeach
                     </div>

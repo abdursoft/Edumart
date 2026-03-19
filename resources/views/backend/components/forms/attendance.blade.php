@@ -3,6 +3,7 @@
     <h2 class="text-lg md:text-xl mb-4"></h2>
 
     <form action="@if(!$attendance){{route('admin.administration.attendance_staff.add')}}@else{{route('admin.administration.attendance_staff.update')}}@endif" method="post">
+        @csrf
         @foreach($staffs as $key=>$staff)
             <x-fieldset :title="ucfirst($key)">
                 <div class="w-full mt-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">

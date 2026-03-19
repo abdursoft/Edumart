@@ -37,6 +37,6 @@
 <!--/container-->
 
 
-@section('scripts')
+@push('scripts')
 	{{ loadDataTable('example', 'Department list')}}
-@endsection
+@endpush

@@ -73,6 +73,27 @@
                         @endforeach
                     </select>
 
+                @elseif($type === 'checkbox')
+                    <div class="flex items-center gap-1">
+                        @foreach($field['options'] as $key => $option)
+                            @php
+                                $isAssoc = array_keys($field['options']) !== range(0, count($field['options']) - 1);
+                                $optionValue = $isAssoc ? $key : $option;
+                            @endphp
+
+                            <label class="inline-flex items-center mr-4">
+                                <input
+                                    type="checkbox"
+                                    name="{{ $field['name'] }}[]"
+                                    value="{{ $optionValue }}"
+                                    @if(is_array($value) && in_array($optionValue, $value)) checked @endif
+                                    class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+                                >
+                                <span class="ml-1 text-gray-700 text-sm italic">{{ ucfirst($option) }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+
 
                 @elseif ($type === 'textarea')
                     <div

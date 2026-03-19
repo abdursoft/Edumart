@@ -1,0 +1,30 @@
+{
+    "name": "nwidart/bkash",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Bkash\\": "app/",
+            "Modules\\Bkash\\Database\\Factories\\": "database/factories/",
+            "Modules\\Bkash\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Bkash\\Tests\\": "tests/"
+        }
+    }
+}

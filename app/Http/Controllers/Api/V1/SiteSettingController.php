@@ -51,6 +51,7 @@ class SiteSettingController extends Controller
             'text_color'     => 'nullable',
             'map'            => 'nullable',
             'maintenance'    => 'nullable|in:active,inactive',
+            'weekend'        => 'nullable|array|in:Friday,Saturday,Sunday,Monday,Tuesday,Wednesday,Thursday',
         ]);
 
         if ($validator->fails()) {
@@ -97,6 +98,7 @@ class SiteSettingController extends Controller
         $settings->maintenance    = $request->maintenance ?? 'inactive';
         $settings->establish_date = $request->establish_date;
         $settings->map            = $map;
+        $settings->weekend        = $request->weekend ? $request->weekend : null;
 
         if ($request->social_links) {
             $settings->social_links = $request->social_links;

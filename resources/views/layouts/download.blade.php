@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="text/html; charset=iso-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @yield('meta') <!-- Loading meta data here -->
-    <link rel="shortcut icon" href="{{ site()->favicon ?? '' }}" type="image/x-icon"> <!-- Loading Favicon -->
+    <link rel="shortcut icon" href="{{ site('favicon') ? asset(site('favicon')) : asset('images/favicon.png') }}" type="image/x-icon">
     <link rel="canonical" href="{{ config('app.url') }}" /> <!-- Site base url -->
     <title>@yield('title')</title> <!-- Loading page title -->
 

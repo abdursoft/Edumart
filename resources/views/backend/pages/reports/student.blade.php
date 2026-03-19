@@ -24,7 +24,7 @@
                     type="text" name="" id="keyword" placeholder="Name, Class, Section, Group, Reg, Roll">
             </div>
         </div>
-        <x-yajratable ajaxRoute="admin.reports.student_reports" :columns="[
+        <x-yajra-table ajaxRoute="admin.reports.student_reports" :columns="[
             [
                 'data' => 'DT_RowIndex',
                 'name' => 'DT_RowIndex',

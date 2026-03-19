@@ -1,5 +1,6 @@
 <form action="@if($gallery){{route('admin.media.gallery.update', ['id' => $gallery['id']])}}@else{{route('admin.media.gallery.add')}}@endif" method="POST">
 
+    @csrf
     <x-fieldset
     title="Add new gallery">
 

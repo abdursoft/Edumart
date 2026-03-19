@@ -32,16 +32,6 @@ const MENUS = [
     // 🎓 Academic Management
     "academic" => [
 
-        // People Management
-        "people" => [
-            "designations" => "Designations",
-            "teachers" => "Teachers",
-            "staff" => "Staff",
-            "committees" => "Committees",
-            "guardians" => "Guardians",
-            "students" => "Students",
-            // "profiles" => "Profiles",
-        ],
 
         // Academic Structure
         "structure" => [
@@ -52,6 +42,17 @@ const MENUS = [
             "subjects" => "Subjects",
             "rooms" => "Rooms",
             "routines" => "Class Routines",
+        ],
+        
+        // People Management
+        "people" => [
+            "designations" => "Designations",
+            "teachers" => "Teachers",
+            "staff" => "Staff",
+            "committees" => "Committees",
+            "guardians" => "Guardians",
+            "students" => "Students",
+            // "profiles" => "Profiles",
         ],
 
         // Learning Activities

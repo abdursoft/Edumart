@@ -2,9 +2,11 @@
     action="@if ($student) {{ route('admin.academic.people.students.update', ['id' => $student['id']]) }}@else{{ route('admin.academic.people.students.add') }} @endif"
     method="POST" enctype="multipart/form-data">
 
+    @csrf
+
     <img src="{{!empty($student->avatar) ? asset($student->avatar) : ''}}" alt="" class="previewImg {{!empty($student->avatar) ? '' : 'hidden'}} w-[100px] h-[100px]">
 
-    <x-fieldset title="Student">
+    <x-fieldset title="Student Information">
 
         <x-input-form :fields="[
             [
@@ -196,14 +198,14 @@
                 'name' => 'mo_name_en',
                 'type' => 'text',
                 'required' => true,
-                'placeholder' => 'Jhon Doe',
+                'placeholder' => 'ken Doe',
             ],
             [
                 'label' => PARENTS['name_bn'],
                 'name' => 'mo_name_bn',
                 'type' => 'text',
                 'required' => true,
-                'placeholder' => 'Jhon Doe',
+                'placeholder' => 'Ken Doe',
             ],
             [
                 'label' => PARENTS['mobile'],
@@ -250,7 +252,7 @@
                 'type' => 'select',
                 'options' => division()->pluck('name', 'id')->toArray(),
                 'required' => true,
-                'placeholder' => 'Jhon Doe',
+                'placeholder' => 'Select a division',
             ],
             [
                 'label' => ADDRESS['district'],
@@ -258,7 +260,7 @@
                 'type' => 'select',
                 'options' => [],
                 'required' => true,
-                'placeholder' => 'Jhon Doe',
+                'placeholder' => 'Select a district',
             ],
             [
                 'label' => ADDRESS['thana'],
@@ -266,7 +268,7 @@
                 'type' => 'select',
                 'options' => [],
                 'required' => true,
-                'placeholder' => '01X-------XXX',
+                'placeholder' => 'Select a thana',
             ],
             [
                 'label' => ADDRESS['union'],
@@ -274,7 +276,7 @@
                 'type' => 'select',
                 'options' => [],
                 'required' => true,
-                'placeholder' => 'Jhon Doe',
+                'placeholder' => 'Select a union',
             ],
             [
                 'label' => ADDRESS['post'],

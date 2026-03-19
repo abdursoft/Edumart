@@ -21,7 +21,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'email'    => 'required|email|exists:users,email',
+            'email'    => 'required|email',
             'password' => 'required|string',
         ]);
 
@@ -37,6 +37,14 @@ class AuthController extends Controller
                 'status'  => 'error',
                 'message' => 'Invalid security captcha',
             ], 401);
+        }
+
+        $exsits = User::where('email', $request->email)->first();
+        if(!$exsits){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Invalid email address'
+            ],400);
         }
 
         session()->forget('captcha_code');

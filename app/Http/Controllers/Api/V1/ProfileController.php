@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\File;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 
+
 class ProfileController extends Controller
 {
     // List all profiles
@@ -37,6 +38,8 @@ class ProfileController extends Controller
             'post'         => 'nullable|string',
             'village'      => 'nullable|string',
         ]);
+
+        
 
         if($request->hasFile('avatar')){
                 $file = $request->file('avatar');

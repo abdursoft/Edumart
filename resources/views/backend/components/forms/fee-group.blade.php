@@ -1,5 +1,6 @@
 <form action="@if($group){{route('admin.finance.fees.fee_group.update', ['id' => $group['id']])}}@else{{route('admin.finance.fees.fee_group.add')}}@endif" method="POST">
 
+    @csrf
     <x-fieldset
     title="Add new group">
 

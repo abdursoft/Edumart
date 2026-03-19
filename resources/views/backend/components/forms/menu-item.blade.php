@@ -364,6 +364,7 @@
 
             newIdCount++;
             updateOutput($('#nestable'));
+            $("#addButton").text('Add Item');
         });
 
 
@@ -378,6 +379,7 @@
             $('#addInputVisible').val(Number(item.data('visible')));
             $('#addInputPage').val(item.data('page')).trigger('change');
             $('#addInputAttribute').val(item.data('attribute')).trigger('change');
+            $("#addButton").text('Update Item');
         });
 
         // DELETE ITEM

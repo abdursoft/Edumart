@@ -15,6 +15,7 @@ use App\Models\Language;
 use App\Models\Subject;
 use App\Models\User;
 use App\Utility\EncryptHelper;
+use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
@@ -277,15 +278,10 @@ class AdminController extends Controller
             $encryptedPath     = EncryptHelper::encrypt($publicPath);
             $secureDownloadUrl = url("/database-download?token=" . urlencode($encryptedPath));
 
-            return response()->json([
-                'status' => 'success',
-                'url'    => $secureDownloadUrl,
-            ], 200);
+            return redirect()->away($secureDownloadUrl);
         } catch (\Exception $e) {
-            return response()->json([
-                'status'  => 'error',
-                'message' => 'Backup failed: ' . $e->getMessage(),
-            ], 500);
+            Toastr::error('Database backup failed: ' . $e->getMessage());
+            return back();
         }
     }
 

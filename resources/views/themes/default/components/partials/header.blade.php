@@ -16,6 +16,7 @@
                     <a href="{{route('register')}}" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="hugeicons:user-add-01" width="24" height="24"></iconify-icon> Register</a>
                 @endif
                 <a href="{{route('admission')}}" class="flex items-center gap-2 hover:text-red-500 transition-all delay-100"><iconify-icon icon="mage:contact-book" width="24" height="24"></iconify-icon> Admission</a>
+                <p class="{{ isOpen() ? 'text-green-600 font-semibold' : 'text-red-500 text-semibold italic' }}">{{ isOpen() ? 'Open' : 'Closed' }}</p>
             </div>
         </div>
         <div class="w-full flex items-center justify-center gap-3 md:justify-between" style="background: {{site()->header_color ?? 'oklch(0.4 0.06 188.43)'}};color:{{site()->text_color ?? '#333'}}">

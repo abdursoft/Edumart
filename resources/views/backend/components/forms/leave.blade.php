@@ -2,6 +2,7 @@
     action="@if ($leave) {{ route('admin.administration.leave_management.update', ['id' => $leave['id']]) }}@else{{ route('admin.administration.leave_management.add') }} @endif"
     method="POST">
 
+    @csrf
     <x-fieldset title="New leave">
 
         <x-input-form :fields="[

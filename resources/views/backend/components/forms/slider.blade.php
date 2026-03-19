@@ -2,6 +2,7 @@
     action="@if ($slider) {{ route('admin.media.slider.update', ['id' => $slider['id']]) }}@else{{ route('admin.media.slider.add') }} @endif"
     method="POST">
 
+    @csrf
     <x-fieldset title="Slider">
 
         <x-input-form :fields="[

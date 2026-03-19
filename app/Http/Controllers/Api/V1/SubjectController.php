@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\EduClass;
 use App\Models\Subject;
 use App\Models\User;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
@@ -33,8 +34,8 @@ class SubjectController extends Controller
         ]);
 
         Subject::create($request->only('name','code','type','period','edu_class_id','teacher_id'));
-
-        return back()->with('success', 'Subject successfully created');
+        Toastr::success('Subject created successfully', 'Success');
+        return back();
     }
 
     // Show a single subject
@@ -62,7 +63,8 @@ class SubjectController extends Controller
         $subject = Subject::findOrFail($id);
         $subject->update($request->only('name','code','type','period','edu_class_id','teacher_id'));
 
-        return back()->with('success', 'Subject successfully updated');
+        Toastr::success('Subject updated successfully', 'Success');
+        return back();
     }
 
     // Delete a subject
@@ -73,7 +75,8 @@ class SubjectController extends Controller
             return back()->withErrors(['error' => 'Subject ID couldn\'t found']);
         }
         $subject->delete();
-        return back()->with('success', 'Subject successfully deleted');
+        Toastr::success('Subject deleted successfully', 'Success');
+        return back();
     }
 
     /**

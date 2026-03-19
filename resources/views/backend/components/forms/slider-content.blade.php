@@ -2,6 +2,7 @@
     action="@if ($content) {{ route('admin.media.slider.content.update', ['id' => $content['id']]) }}@else{{ route('admin.media.slider.content.upload') }}@endif"
     method="POST" enctype="multipart/form-data">
 
+    @csrf
     <x-fieldset title="{{$slider?->name ?? 'content'}}">
 
         <x-input-form :fields="[

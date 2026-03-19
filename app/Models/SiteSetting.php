@@ -29,11 +29,13 @@ class SiteSetting extends Model
         'header_color', 'navbar_color', 'footer_color', 'sidebar_color', 'auth_bg_image', 'set_timezone',
         'text_color',
         'country_id',
-        'map'
+        'map', 
+        'weekend',
     ];
 
     protected $casts = [
         'social_links' => 'array',
+        'weekend' => 'array',
     ];
 
     // Relationships

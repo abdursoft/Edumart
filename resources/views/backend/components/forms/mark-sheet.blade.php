@@ -1,5 +1,6 @@
 <form action="@if($marksheet){{route('admin.academic.evaluation.mark_sheet.update', ['id' => $marksheet['id']])}}@else{{route('admin.academic.evaluation.mark_sheet.add')}}@endif" method="POST">
 
+    @csrf
     <x-fieldset
     title="Mark Sheet">
 

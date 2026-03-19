@@ -1,0 +1,11 @@
+{
+    "name": "SSlCommerz",
+    "alias": "sslcommerz",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\SSlCommerz\\Providers\\SSlCommerzServiceProvider"
+    ],
+    "files": []
+}

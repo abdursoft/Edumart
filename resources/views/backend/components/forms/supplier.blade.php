@@ -6,6 +6,7 @@
             @endif"
     method="POST">
 
+    @csrf
     <x-fieldset title="New Supplier">
 
         <x-input-form

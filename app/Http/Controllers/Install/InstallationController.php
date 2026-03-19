@@ -141,10 +141,8 @@ class InstallationController extends Controller
 
             $output =
             'APP_NAME=eduMart' . time() . '
-            APP_ENV=live
             APP_KEY=base64:' . $key . '
-            APP_DEBUG=true
-            APP_INSTALL=true
+            APP_DEBUG=false
             APP_LOG_LEVEL=debug
             APP_MODE=local
             APP_URL=' . URL::to('/') . '
@@ -156,6 +154,16 @@ class InstallationController extends Controller
             DB_USERNAME=' . $request->username . '
             DB_PASSWORD=' . $request->password . '
             MYSQL_DUMP_PATH=' . $dump . '
+
+
+            MAIL_MAILER=smtp
+            MAIL_SCHEME=null
+            MAIL_HOST=' . URL::to('/') . '
+            MAIL_PORT=465
+            MAIL_USERNAME=null
+            MAIL_PASSWORD=null
+            MAIL_FROM_ADDRESS="info@example.com"
+            MAIL_FROM_NAME="${APP_NAME}"
 
             BROADCAST_DRIVER=log
             CACHE_DRIVER=file

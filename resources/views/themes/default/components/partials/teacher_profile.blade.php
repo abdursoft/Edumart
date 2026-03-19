@@ -4,8 +4,8 @@
             <img src="{{asset($profile?->profile?->avatar)}}" alt="{{ $profile?->first_name }}"
                 class="!w-[120px] !h-[120px] border-[1.4px] border-gray-300" />
             <div>
-                <h3 class="text-xl mt-2 font-bold">Name: <span class="italic">{{ $profile->profile->first_name }}
-                        {{ $profile->profile->last_name }}</span></h3>
+                <h3 class="text-xl mt-2 font-bold">Name: <span class="italic">{{ $profile?->profile?->first_name ?? 'N/A' }}
+                        {{ $profile?->profile?->last_name ?? '' }}</span></h3>
                 <p class="text-base text-gray-600">Designation: {{ $profile?->designation?->name }}</p>
                 <p class="text-base text-gray-600">Serial ID: {{ $profile->serial }}</p>
                 <p class="text-base text-gray-600">Email: {{ $profile->email }}</p>
@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="mt-15 w-full">
-        <a href="{{ route('teacher.profile') }}"
+        <a href="{{ route('profile') }}"
             class="p-3 rounded-[14px] border-gray-300 text-center !w-full border-1 hover:bg-slate-600 hover:text-white block">Edit
             profile</a>
     </div>

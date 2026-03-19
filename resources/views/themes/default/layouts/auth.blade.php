@@ -19,8 +19,6 @@
 </head>
 
 <body class="w-full flex items-center justify-center">
-    {{-- loading flash message  --}}
-    @include('components.flash-message')
     <div class="w-full">
         <!-- Loading page content -->
         @yield('content')

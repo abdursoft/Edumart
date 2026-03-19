@@ -1,5 +1,6 @@
 <form action="@if($fee){{route('admin.finance.fees.student_due.update', ['id' => $fee['id']])}}@else{{route('admin.finance.fees.student_due.add')}}@endif" method="POST">
 
+    @csrf
     <x-fieldset
     title="Student due management">
 

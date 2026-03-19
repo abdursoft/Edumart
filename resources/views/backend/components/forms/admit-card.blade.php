@@ -1,5 +1,6 @@
 <form action="@if($admitCard){{route('admin.academic.evaluation.admit_cards.update', ['id' => $admitCard['id']])}}@else{{route('admin.academic.evaluation.admit_cards.add')}} @endif" method="POST">
 
+    @csrf
     <x-fieldset
     title="Admit card">
         <x-input-form

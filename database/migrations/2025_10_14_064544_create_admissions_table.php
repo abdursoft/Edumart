@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('admissions', function (Blueprint $table) {
             $table->id();
             $table->string('token');
-            $table->string('student_id');
+            $table->string('student_id')->nullable();
             $table->string('name_bangla');
             $table->string('name_english');
             $table->string('birth_certificate_number');
@@ -66,7 +66,7 @@ return new class extends Migration
             $table->enum('stipend',['yes','no'])->default('no');
             $table->enum('disability',['yes','no'])->default('no');
             $table->string('photo')->nullable();
-            $table->string('documents');
+            $table->string('documents')->nullable();
 
             // ✅ Replaced is_approved and is_rejected with a single status field
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');

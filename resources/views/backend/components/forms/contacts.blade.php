@@ -1,5 +1,6 @@
 <form action="{{route('admin.communication.email.send', ['id' => $contact['id'] ?? '' ])}}" method="POST">
 
+    @csrf
     <x-fieldset
     title="Contact Replay">
 

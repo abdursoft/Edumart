@@ -25,8 +25,8 @@ use App\Http\Controllers\Api\V1\ExpenseController;
 use App\Http\Controllers\Api\V1\ExpenseHeadController;
 use App\Http\Controllers\Api\V1\FeeHeadController;
 use App\Http\Controllers\Api\V1\LeaveManagementController;
-use App\Http\Controllers\Api\V1\MarkSheetController;
-use App\Http\Controllers\Api\V1\MarkSheetItemController;
+use App\Http\Controllers\Api\V1\MarksheetController;
+use App\Http\Controllers\Api\V1\MarksheetItemController;
 use App\Http\Controllers\Api\V1\MenuController;
 use App\Http\Controllers\Api\V1\MenuItemController;
 use App\Http\Controllers\Api\V1\NewsNoticeController;
@@ -81,6 +81,7 @@ Route::prefix('academic/people')->name('academic.people.')->group(function () {
 
     // student routes
     Route::get('students', [StudentController::class, 'index'])->name('students');
+    Route::get('students/new', [StudentController::class, 'newStudent'])->name('students.new');
     Route::post('students', [StudentController::class, 'store'])->name('students.add');
     Route::get('students/{id}/edit', [StudentController::class, 'show'])->name('students.edit');
     Route::post('students/{id}/update', [StudentController::class, 'update'])->name('students.update');
@@ -231,20 +232,20 @@ Route::prefix('academic/evaluation')->name('academic.evaluation.')->group(functi
     Route::get('admit-cards/{id}/delete', [ExamAdmitCardController::class, 'destroy'])->name('admit_cards.delete');
 
     // mark sheet routes
-    Route::get('mark-sheet', [MarkSheetController::class, 'index'])->name('mark_sheet');
-    Route::post('mark-sheet', [MarkSheetController::class, 'store'])->name('mark_sheet.add');
-    Route::get('mark-sheet/{id}/edit', [MarkSheetController::class, 'show'])->name('mark_sheet.edit');
-    Route::post('mark-sheet/{id}/update', [MarkSheetController::class, 'update'])->name('mark_sheet.update');
-    Route::get('mark-sheet/{id}/delete', [MarkSheetController::class, 'destroy'])->name('mark_sheet.delete');
-    Route::get('mark-sheet/{id}/print', [MarkSheetController::class, 'printMarkSheet'])->name('mark_sheet.print');
-    Route::get('mark-sheet/{id}/student', [MarkSheetController::class, 'getStudent'])->name('mark_sheet.student');
+    Route::get('mark-sheet', [MarksheetController::class, 'index'])->name('mark_sheet');
+    Route::post('mark-sheet', [MarksheetController::class, 'store'])->name('mark_sheet.add');
+    Route::get('mark-sheet/{id}/edit', [MarksheetController::class, 'show'])->name('mark_sheet.edit');
+    Route::post('mark-sheet/{id}/update', [MarksheetController::class, 'update'])->name('mark_sheet.update');
+    Route::get('mark-sheet/{id}/delete', [MarksheetController::class, 'destroy'])->name('mark_sheet.delete');
+    Route::get('mark-sheet/{id}/print', [MarksheetController::class, 'printMarksheet'])->name('mark_sheet.print');
+    Route::get('mark-sheet/{id}/student', [MarksheetController::class, 'getStudent'])->name('mark_sheet.student');
 
-    // marksheet items route
-    Route::get('mark-sheet/item/{id}', [MarkSheetItemController::class, 'index'])->name('mark_sheet.item');
-    Route::post('mark-sheet/item/{id}', [MarkSheetItemController::class, 'store'])->name('mark_sheet.item.add');
-    Route::get('mark-sheet/item/{id}/edit', [MarkSheetItemController::class, 'show'])->name('mark_sheet.item.edit');
-    Route::post('mark-sheet/item/{id}/update', [MarkSheetItemController::class, 'update'])->name('mark_sheet.item.update');
-    Route::get('mark-sheet/item/{id}/delete', [MarkSheetItemController::class, 'destroy'])->name('mark_sheet.item.delete');
+    // Marksheet items route
+    Route::get('mark-sheet/item/{id}', [MarksheetItemController::class, 'index'])->name('mark_sheet.item');
+    Route::post('mark-sheet/item/{id}', [MarksheetItemController::class, 'store'])->name('mark_sheet.item.add');
+    Route::get('mark-sheet/item/{id}/edit', [MarksheetItemController::class, 'show'])->name('mark_sheet.item.edit');
+    Route::post('mark-sheet/item/{id}/update', [MarksheetItemController::class, 'update'])->name('mark_sheet.item.update');
+    Route::get('mark-sheet/item/{id}/delete', [MarksheetItemController::class, 'destroy'])->name('mark_sheet.item.delete');
 
     // exam results routes
     Route::get('results', [ExamResultController::class, 'index'])->name('results');
@@ -549,7 +550,7 @@ Route::prefix('media')->name('media.')->group(function () {
 Route::get('get-users/{type}/{id?}', [UserController::class, 'getUserList'])->name('user.list');
 Route::get('get-subjects/{class}', [SubjectController::class, 'getSubjectList'])->name('subject.list');
 Route::get('get-fee/{invoice}', [StudentFeeController::class, 'getFee'])->name('get.fee');
-Route::get('exam-subject/{subject}/{marksheet}', [MarkSheetItemController::class, 'examSubject'])->name('get.subject.marksheet');
+Route::get('exam-subject/{subject}/{Marksheet}', [MarksheetItemController::class, 'examSubject'])->name('get.subject.Marksheet');
 
 // classes routes
 Route::get('sections/{id}', [EduClassController::class, 'getSection'])->name('get.sections');

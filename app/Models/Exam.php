@@ -44,6 +44,13 @@ class Exam extends Model
     }
 
     /**
+     * Relation with marksheet
+     */
+    public function marksheet(){
+        return $this->hasMany(ExamMarksheet::class, 'exam_id');
+    }
+
+    /**
      * Relation with exam results
      */
     public function examResults()

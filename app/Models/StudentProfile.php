@@ -52,7 +52,8 @@ class StudentProfile extends Model
     /**
      * Relations
      */
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class, 'student_id');
     }
     public function parent()
@@ -88,28 +89,32 @@ class StudentProfile extends Model
     /**
      * Relation with edu section
      */
-    public function eduSection(){
+    public function eduSection()
+    {
         return $this->belongsTo(EduSection::class, 'edu_section_id');
     }
 
     /**
      * Relation with edu group
      */
-    public function eduGroup(){
+    public function eduGroup()
+    {
         return $this->belongsTo(EduGroup::class, 'edu_group_id');
     }
 
     /**
      * Relation with fees
      */
-    public function Fees(){
+    public function Fees()
+    {
         return $this->hasMany(StudentFee::class, 'student_profile_id');
     }
 
     /**
      * Relation with leave table
      */
-    public function leave(){
+    public function leave()
+    {
         return $this->hasMany(LeaveManagement::class, 'student_id');
     }
 }

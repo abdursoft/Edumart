@@ -7,19 +7,29 @@ use Illuminate\Database\Eloquent\Model;
 class ExamMarksheet extends Model
 {
     protected $fillable = [
-        'exam_id', 'student_id', 'total_marks_obtained', 'total_full_marks',
-        'percentage', 'grade', 'is_passed', 'remarks', 'status'
+        'exam_id',
+        'student_id',
+        'total_marks_obtained',
+        'total_full_marks',
+        'percentage',
+        'grade',
+        'is_passed',
+        'remarks',
+        'status'
     ];
 
-    public function exam() {
+    public function exam()
+    {
         return $this->belongsTo(Exam::class, 'exam_id');
     }
 
-    public function student() {
-        return $this->belongsTo(StudentProfile::class,'student_id');
+    public function student()
+    {
+        return $this->belongsTo(StudentProfile::class, 'student_id');
     }
 
-    public function items() {
+    public function items()
+    {
         return $this->hasMany(ExamMarksheetItem::class);
     }
 }

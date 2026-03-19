@@ -120,6 +120,7 @@ class RolePermissionSeeder extends Seeder
             'accountant',
             'moderator',
             'committee',
+            'guardian'
         ];
 
         foreach ($roles as $role) {
@@ -166,6 +167,13 @@ class RolePermissionSeeder extends Seeder
 
         // PARENT
         Role::findByName('parent')->givePermissionTo([
+            'view_dashboard',
+            'view_results',
+            'view_attendance',
+        ]);
+
+        // PARENT
+        Role::findByName('guardian')->givePermissionTo([
             'view_dashboard',
             'view_results',
             'view_attendance',

@@ -2,6 +2,7 @@
     action="@if ($section) {{ route('admin.academic.structure.sections.update', ['id' => $section['id']]) }}@else{{ route('admin.academic.structure.sections.add') }} @endif"
     method="POST">
 
+    @csrf
     <x-fieldset title="New Section">
 
         <x-input-form :fields="[

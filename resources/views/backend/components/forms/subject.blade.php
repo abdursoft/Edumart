@@ -1,5 +1,6 @@
 <form action="@if($subject){{route('admin.academic.structure.subjects.update', ['id' => $subject['id']])}}@else{{route('admin.academic.structure.subjects.add')}} @endif" method="POST">
 
+    @csrf
     <x-fieldset
         title="New Subject">
 

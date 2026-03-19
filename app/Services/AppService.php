@@ -45,8 +45,28 @@
         }
         return $action;
     }
-    }
+}
 
+/**
+ * Student monthly attendance
+ */
+if (! function_exists('studentMonthlyAttendance')) {
+    function studentMonthlyAttendance($studentId, $month, $year)    {
+        $attendance = new \App\Models\Attendance();
+        return $attendance->monthlyAttendancePercentage($studentId, $month, $year);
+    }
+}  
+
+/**
+ * Student subject attendance by month
+ */
+if (! function_exists('studentSubjectMonthlyAttendance')) {
+    function studentSubjectMonthlyAttendance($studentId, $subjectId, $month, $year)    {
+        $attendance = new \App\Models\Attendance();
+        return $attendance->monthlyAttendanceSubjectPercentage($studentId, $subjectId, $month, $year);
+    }
+}
+                    
     /**
  * Checking the role
  */
@@ -80,6 +100,26 @@
 
         return $now->between($startTime, $endTime);
     }
+    }
+
+    /***
+     * Is institute open
+     */
+    if(!function_exists('isOpen')){
+        function isOpen(){
+            $site = site();
+            if($site->maintenance === 'active'){
+                return false;
+            }
+
+            $today = now()->format('l');
+            $weekend = $site->weekend ?? [];
+            if(in_array($today, $weekend)){
+                return false;
+            }
+
+            return true;
+        }
     }
 
     /**
@@ -457,7 +497,7 @@ if(!function_exists('slider')){
 
         // table scripts
         if (! function_exists('tableScript')) {
-            function tableScript($title="Reports")
+            function tableScript($title="Reports",$orientation='landscape')
             {
                 ob_start();
                 ?>
@@ -496,7 +536,7 @@ if(!function_exists('slider')){
                             extend: 'pdfHtml5',
                             text: 'PDF',
                             title: '',
-                            orientation: 'landscape',
+                            orientation: '<?= $orientation ?>',
                             pageSize: 'A4',
                             exportOptions: commonExportOptions,
 
@@ -542,6 +582,8 @@ if(!function_exists('slider')){
                         {
                             extend: 'print',
                             title:'',
+                            orientation: '<?= $orientation ?>',
+                            pageSize: 'A4',
                             exportOptions: commonExportOptions,
                             customize: function(win) {
                                 $(win.document.body)

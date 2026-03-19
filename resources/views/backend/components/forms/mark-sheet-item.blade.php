@@ -2,6 +2,7 @@
     action="@if ($marksheet) {{ route('admin.academic.evaluation.mark_sheet.item.update', ['id' => $marksheet['id']]) }}@else{{ route('admin.academic.evaluation.mark_sheet.item.add',['id' => $exam_marksheet_id]) }}@endif"
     method="POST">
 
+    @csrf
     <x-fieldset title="Mark Sheet">
 
         <x-input-form :fields="[

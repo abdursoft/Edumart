@@ -2,6 +2,7 @@
     action="@if ($room) {{ route('admin.academic.structure.rooms.update', ['id' => $room['id']]) }}@else{{ route('admin.academic.structure.rooms.add') }} @endif"
     method="POST">
 
+    @csrf
     <x-fieldset title="New Room">
 
         <x-input-form :fields="[

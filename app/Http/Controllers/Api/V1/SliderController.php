@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Page;
 use App\Models\Post;
 use App\Models\Slider;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller
@@ -35,7 +36,8 @@ class SliderController extends Controller
 
         Slider::create($validated);
 
-        return redirect()->route('admin.media.slider')->with('success', 'Slider created successfully');
+        Toastr::success('Slider created successfully', 'Success');
+        return redirect()->route('admin.media.slider');
     }
 
     // Show a single slider
@@ -63,7 +65,8 @@ class SliderController extends Controller
 
         $slider->update($validated);
 
-        return redirect()->route('admin.media.slider')->with('success', 'Slider updated successfully');
+        Toastr::success('Slider updated successfully', 'Success');
+        return redirect()->route('admin.media.slider');
     }
 
     // Delete a slider
@@ -76,6 +79,7 @@ class SliderController extends Controller
         $slider->contents()->delete();
         $slider->delete();
 
-        return redirect()->route('admin.media.slider')->with('success', 'Slider deleted successfully');
+        Toastr::success('Slider deleted successfully', 'Success');
+        return redirect()->route('admin.media.slider');
     }
 }

@@ -541,10 +541,11 @@
                         </div>
                     </div>
                     <div class="w-full">
-                        <div class="flex flex-col w-full text-center text-lg md:text-xl lg:text:2xl">
+                        <div class="flex flex-col w-full items-center justify-center text-center text-lg md:text-xl lg:text:2xl">
                             <input type="submit" name="btn-save"
                                 class="cursor-pointer bg-green-400 text-white hover:bg-green-600 hover:shadow-md rounded-md px-3 py-2"
                                 value="{{ text('submits') }}">
+                            <iconify-icon icon="svg-spinners:3-dots-move" width="60" height="60" class="loading hidden"></iconify-icon>
                         </div>
                     </div>
                 </div>
@@ -556,7 +557,6 @@
 
 @push('scripts')
     <script type="module">
-        // $("select").select2();
 
         let lang = '{{ config('app.locale') }}';
         let divisionArray = [];
@@ -738,7 +738,7 @@
                 $(".loader").css({
                     display: 'inline-block'
                 });
-
+                $(".loading").removeClass('hidden');
                 var myForm = document.getElementById("applicationForm");
                 e.preventDefault();
                 $.ajax({
@@ -749,13 +749,18 @@
                     processData: false,
                     data: new FormData(myForm),
                     success: (response) => {
-                        if (response.status === 201) {
+                        if (Number(response.id)) {
                             toastr.success('Application successfully submitted!');
                             $("#applicationForm")[0].reset();
                         } else {
                             $(".status").addClass('text-danger');
                             $(".status").text(response.message);
                         }
+                        $(".loading").addClass('hidden');
+                    },
+                    error: (error) => {
+                        toastr.error('Something went wrong!');
+                        $(".loading").addClass('hidden');
                     }
                 })
             })

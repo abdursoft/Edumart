@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\FeeCollection;
 use App\Models\StudentFee;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -79,9 +80,9 @@ class FeeCollectionController extends Controller
             }
         });
 
+        Toastr::success('Fee collected successfully', 'Success');
         return redirect()
-            ->route('admin.finance.fees.fee_collection')
-            ->with('success', 'Fee collected successfully');
+            ->route('admin.finance.fees.fee_collection');
     }
 
     /**
@@ -99,8 +100,8 @@ class FeeCollectionController extends Controller
     {
         $feeCollection->delete();
 
+        Toastr::success('Fee collection deleted successfully', 'Success');
         return redirect()
-            ->route('admin.finance.fees.fee_collection')
-            ->with('success', 'Fee collection deleted successfully');
+            ->route('admin.finance.fees.fee_collection');
     }
 }

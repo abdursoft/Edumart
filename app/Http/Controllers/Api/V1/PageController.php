@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Page;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -32,7 +33,8 @@ class PageController extends Controller
 
         Page::create($validated);
 
-        return back()->with('success', 'Page created successfully.');
+        Toastr::success('Page created successfully', 'Success');
+        return back();
     }
 
     // Show a single page
@@ -67,7 +69,8 @@ class PageController extends Controller
         $page = Page::findOrFail($id);
         $page->update($validated);
 
-        return redirect()->route('admin.page.manage_page')->with('success', 'Page updated successfully.');
+        Toastr::success('Page updated successfully', 'Success');
+        return redirect()->route('admin.page.manage_page');
     }
 
     // Delete a page (soft delete)
@@ -76,7 +79,8 @@ class PageController extends Controller
         $page = Page::findOrFail($id);
         $page->delete();
 
-        return redirect()->route('admin.page.manage_page')->with('success', 'Page deleted successfully.');
+        Toastr::success('Page deleted successfully', 'Success');
+        return redirect()->route('admin.page.manage_page');
     }
 
     // Restore a soft-deleted page
@@ -85,6 +89,7 @@ class PageController extends Controller
         $page = Page::withTrashed()->findOrFail($id);
         $page->restore();
 
-        return redirect()->route('admin.page.manage_page')->with('success', 'Page restored successfully.');
+        Toastr::success('Page restored successfully', 'Success');
+        return redirect()->route('admin.page.manage_page');
     }
 }

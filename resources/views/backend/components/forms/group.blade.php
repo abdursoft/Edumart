@@ -2,6 +2,7 @@
     action="@if ($group) {{ route('admin.academic.structure.group.update', ['id' => $group['id']]) }}@else{{ route('admin.academic.structure.group.add') }} @endif"
     method="POST">
 
+    @csrf
     <x-fieldset title="New group">
 
         <x-input-form :fields="[
