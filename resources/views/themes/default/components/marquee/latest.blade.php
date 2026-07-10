@@ -1,14 +1,24 @@
-<div class="scroll1">
-    <div class="scrollbox">
-    <span class="latest">{{text('latest')}}</span>
-    <h3>
-        <marquee direction="left" scrollamount="4">
-            @foreach(notice() as $key=>$news)
-                <a href="/news/{{$news->id}}/{{$news->title}}" class="latest-news-item !hover:underline !hover:text-orange-300">
-                    {{ $news->title }}
-                </a> {{ $key < count(notice()) - 1 ? '|' : '' }}
-            @endforeach
-        </marquee>
-    </h3>
+    <div class="mx-auto flex h-10 max-w-7xl items-center">
+
+        <!-- Latest -->
+        <div class="flex h-full items-center bg-amber-500 px-5 font-semibold uppercase tracking-wide text-black">
+            Latest
+        </div>
+
+        <!-- News -->
+        <div class="flex-1 overflow-hidden">
+
+            <div class="marquee whitespace-nowrap">
+
+                @foreach (notice() as $key => $news)
+                    <a href="/news/{{ $news->id }}/{{ $news->title }}"
+                        class="mx-8 hover:text-amber-400 transition-all delay-100">
+                        {{ $news->title }}
+                    </a> {{ $key < count(notice()) - 1 ? '|' : '' }}
+                @endforeach
+
+            </div>
+
+        </div>
+
     </div>
-</div>

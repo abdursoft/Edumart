@@ -34,7 +34,7 @@ class SectionController extends Controller
         EduSection::create($request->only('name','description','edu_class_id'));
 
         Toastr::success('Section created successfully', 'Success');
-        return redirect();
+        return back();
     }
 
     // Show a single section

@@ -12,6 +12,7 @@
                     <th data-priority="4">Teacher</th>
                     <th data-priority="4">Start date</th>
                     <th data-priority="5">Due Date</th>
+                    <th data-priority="5">Status</th>
                     <th data-priority="5" class="no-export">Actions</th>
                 </tr>
             </thead>
@@ -24,6 +25,7 @@
                         <td>{{$assignment->teacher->name}}</td>
                         <td>{{ date('F d, Y', strtotime($assignment->assigned_date)) }}</td>
                         <td>{{ date('F d, Y', strtotime($assignment->due_date)) }}</td>
+                        <td><span class="rounded-full px-3 py-1 text-sm shadow-md {{ $assignment->status == 'Pending' ? 'bg-yellow-500/30' : ($assignment->status == 'Completed' ? 'bg-green-600/20' : 'bg-red-600/30') }}">{{ $assignment->status }}</span></td>
                         <td>
                             <div class="flex items-center gap-1">
                                 <a href="{{ route('admin.academic.activities.assignments.edit',$assignment->id) }}" class="py-1 px-2 rounded-[15px] shadow-md hover:bg-green-600 text-green-600 hover:text-white transition">{!! icons('edit') !!}</a>

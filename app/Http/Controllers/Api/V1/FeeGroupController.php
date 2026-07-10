@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\FeeGroup;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -45,9 +46,9 @@ class FeeGroupController extends Controller
             'description'       => strip_tags($request->description),
         ]);
 
+        Toastr::success('Fee group created successfully', 'Success');
         return redirect()
-            ->route('admin.finance.fees.fee_group')
-            ->with('success', 'Fee group created successfully');
+            ->route('admin.finance.fees.fee_group');
     }
 
     /**
@@ -73,9 +74,10 @@ class FeeGroupController extends Controller
             'description',
         ]));
 
+        Toastr::success('Fee group updated successfully', 'Success');
+
         return redirect()
-            ->route('admin.finance.fees.fee_group')
-            ->with('success', 'Fee group updated successfully');
+            ->route('admin.finance.fees.fee_group');
     }
 
     /**
@@ -86,8 +88,9 @@ class FeeGroupController extends Controller
         $feeHead = FeeGroup::findOrFail($id);
         $feeHead->delete();
 
+        Toastr::success('Fee group deleted successfully', 'Deleted');
+
         return redirect()
-            ->route('admin.finance.fees.fee_group')
-            ->with('success', 'Fee group deleted successfully');
+            ->route('admin.finance.fees.fee_group');
     }
 }

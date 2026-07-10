@@ -9,10 +9,11 @@ use Illuminate\View\Component;
 class Fieldset extends Component
 {
     public $title;
-
-    public function __construct($title = null)
+    public $css;
+    public function __construct($title = null, $css=null)
     {
         $this->title = $title;
+        $this->css = $css;
     }
 
     /**

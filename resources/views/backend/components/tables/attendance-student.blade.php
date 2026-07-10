@@ -22,11 +22,11 @@
                     <tbody>
                         @forelse($attendance as $item)
                         <tr>
-                            <td>{{$item->student->name}}</td>
-                            <td>{{$item->eduClass->name}}</td>
-                            <td>{{$item->student->class_roll}}</td>
-                            <td>{{$item->subject->name}}</td>
-                            <td>{{$item->teacher->name}}</td>
+                            <td>{{$item->student?->name}}</td>
+                            <td>{{$item->eduClass?->name}}</td>
+                            <td>{{$item->student?->class_roll}}</td>
+                            <td>{{$item->subject?->name}}</td>
+                            <td>{{$item->teacher?->name}}</td>
                             <td>{{$item->status}}</td>
                             <td>{{ date('d M l, Y', strtotime($item->attendance_date)) }}</td>
                             <td>

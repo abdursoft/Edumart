@@ -32,7 +32,7 @@
         </div>
 
         <div>
-            <h2 class="text-lg font-semibold border-gray-200 border-b-[0.5px]">This class exam statistics</h2>
+            <h2 class="text-lg font-semibold border-gray-200 border-b-[0.5px]">Class exam statistics</h2>
             <div class="mt-3 w-full grid grid-cols-1 gap-4">
                 @forelse ($results as $class)
                     <h3 class="text-md font-medium border-b-[.5px] border-gray-200">{{ $class->name ?? 'N/A' }}</h3>

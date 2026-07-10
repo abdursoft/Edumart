@@ -22,13 +22,20 @@
     @stack('styles') <!-- Loading page specific styles -->
 </head>
 
-<body class="w-full flex items-center justify-center"
-    style="background:url('{{ asset('assets/images/background/bg-pattern.gif') }}')">
-    <div class="w-full max-w-[1480px] bg-white">
-        <!-- Loading the latest news marquee -->
-        @include(theme('components.marquee.latest'))
+<body class="w-full flex items-center justify-center scroll-smooth">
+    <div class="w-full mx-auto">
         <!-- Loading Navbar -->
         @include(theme('components.partials.header'))
+
+
+
+
+
+        
+
+
+
+
 
         <!-- Loading page content -->
         <div class="w-full  px-2 md:px-0">
@@ -36,7 +43,8 @@
         </div>
 
         <!-- Loading Footer -->
-        @include(theme('components.partials.footer'))
+        {{-- @include(theme('components.partials.footer')) --}}
+        <x-ui.footer :company="config('app.name')" :version="'v1.0.0'" />
     </div>
 
     <script src="{{ theme_asset('js/wav.js') }}"></script>

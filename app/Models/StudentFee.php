@@ -85,4 +85,9 @@ class StudentFee extends Model
             ->where('status', '!=', 'Paid')
             ->whereDate('due_date', '<', now());
     }
+
+    public function invoice()
+    {
+        return $this->belongsTo(Invoice::class, 'invoice_id');
+    }
 }

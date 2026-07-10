@@ -61,12 +61,12 @@ class SiteSettingController extends Controller
         $settings = SiteSetting::firstOrNew([]);
 
         // Upload logo
-        if ($request->hasFile('logo')) {
+        if ($request->hasFile('logo') && !empty($request->file('logo'))) {
             $settings->logo = $request->file('logo')->store('site', 'public');
         }
 
         // Upload favicon
-        if ($request->hasFile('favicon')) {
+        if ($request->hasFile('favicon') && !empty($request->file('favicon'))) {
             $settings->favicon = $request->file('favicon')->store('site', 'public');
         }
 

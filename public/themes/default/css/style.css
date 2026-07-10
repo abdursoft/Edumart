@@ -2,7 +2,6 @@
 
 body {
     /*! background: url("../images/bg_main.gif") scroll repeat-y center !important; */
-    max-width: 1800px;
     margin: 0 auto;
     font-family: "Noto Sans", sans-serif;
     font-optical-sizing: auto;

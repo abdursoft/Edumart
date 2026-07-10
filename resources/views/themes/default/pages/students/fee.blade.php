@@ -21,10 +21,12 @@
             <div class="overflow-x-auto">
                 @forelse($fees as $key => $fee)
                     <x-accordion key="fee_{{$key}}" :title="$fee->feeHead->name.' ('.$fee->status.')'">
-                        <p>Due amount: {{$fee->feeHead->amount - $fee->feeCollection->sum('paid_amount')}}</p>
-                        <p>Paid amount: {{$fee->feeCollection->sum('paid_amount')}}</p>
-                        <p>Total amount: {{$fee->feeHead->amount}}</p>
-                        <p>Invoice Status: {{$fee->status}}</p>
+                        <div class="w-full flex flex-col gap-2 md:flex-row items-center justify-between mb-3 bg-gray-100 py-2 px-2 rounded-md">
+                            <p>Due amount: {{$fee->feeHead->amount - $fee->feeCollection->sum('paid_amount')}}</p>
+                            <p>Paid amount: {{$fee->feeCollection->sum('paid_amount')}}</p>
+                            <p>Total amount: {{$fee->feeHead->amount}}</p>
+                            <p>Invoice Status: {{$fee->status}}</p>
+                        </div>
 
                         <x-accordion key="summery_{{$key}}" title="Collections">
                             @foreach($fee->feeCollection as $collection)
@@ -38,6 +40,11 @@
                                 </div>
                             @endforeach
                         </x-accordion>
+                        @if($fee->status == 'Due')
+                            <a href="{{route('student.invoice.payment', $fee->invoice_id)}}" class="hidden px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 float-right my-1">
+                                Pay Now
+                            </a>
+                        @endif
                     </x-accordion>
                 @empty
                     <tr>

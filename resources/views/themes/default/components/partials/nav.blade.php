@@ -1,7 +1,7 @@
-<nav class="px-2 relative" style="background:{{ site()->navbar_color ?? 'oklch(0.45 0.08 188.22)' }};">
+<nav class="sticky top-0 w-full z-50 shadow-sm">
     <div class="flex justify-between items-center h-16 !px-4">
         <!-- Logo -->
-        <a href="/" class="flex md:hidden text-white !text-sm font-bold text-2xl"></a>
+        <a href="/" class="flex md:hidden text-gray-600 !text-sm font-bold text-2xl"></a>
 
         <!-- Mobile Menu Button -->
         <button id="mobile-btn" class="md:hidden text-black !text-sm text-3xl cursor-pointer mr-2">
@@ -12,9 +12,9 @@
         <ul class="hidden md:flex md:items-center md:space-x-2">
             @foreach (menu()->items as $item)
                 <li class="relative group  class @if ($item->is_active == '0') hidden @endif">
-                    <a href="{{ $item->attributes == 'page' ? route('page', ['slug' => $item->url]) : $item->url }}"
+                    <a href="{{ $item->attributes == 'page' ? route('page', ['slug' => trim($item->url,'/')]) : $item->url }}"
                         target="{{ $item->target ?? '_self' }}"
-                        class="flex items-center text-white !text-sm !px-3 !py-2 rounded hover:bg-gray-500">
+                        class="flex items-center text-gray-600!text-sm !px-3 !py-2 rounded hover:bg-gray-100">
                         {{ $item->title }}
                         @if ($item->children->count())
                             <iconify-icon icon="cuida:caret-down-outline" width="14" height="14"></iconify-icon>
@@ -23,12 +23,12 @@
 
                     @if ($item->children->count())
                         <ul
-                            class="absolute left-0 mt-4 w-44 bg-gray-600 rounded-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 z-50">
+                            class="absolute left-0 mt-4 w-44 bg-gray-100 rounded-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 z-50">
                             @foreach ($item->children as $child)
                                 <li class="{{ $child->is_active == 0 ? 'hidden' : '' }}">
-                                    <a href="{{ $child->attributes == 'page' ? route('page', ['slug' => $child->url]) : $child->url }}"
+                                    <a href="{{ $child->attributes == 'page' ? route('page', ['slug' => trim($child->url,'/')]) : $child->url }}"
                                         target="{{ $child->target ?? '_self' }}"
-                                        class="block !px-3 !py-2 text-white !text-sm hover:bg-gray-700">
+                                        class="block !px-3 !py-2 text-gray-600 !text-sm hover:bg-gray-300">
                                         {{ $child->title }}
                                     </a>
                                 </li>
@@ -40,7 +40,7 @@
             @foreach (administrative() ?? [] as $key => $item)
                 <li class="relative group  class">
                     <a href="@if (is_array($item)) {{ $key }} @else {{ route($key) }} @endif"
-                        class="flex items-center text-white !text-sm !px-3 !py-2 rounded hover:bg-gray-500">
+                        class="flex items-center text-gray-600 !text-sm !px-3 !py-2 rounded hover:bg-gray-100">
                         {{ is_array($item) ? $item['title'] : $item }}
                         @if (is_array($item))
                             <iconify-icon icon="cuida:caret-down-outline" width="14" height="14"></iconify-icon>
@@ -49,11 +49,11 @@
 
                     @if (is_array($item))
                         <ul
-                            class="absolute left-0 mt-4 w-44 bg-gray-600 rounded-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 z-50">
+                            class="absolute left-0 mt-4 w-44 bg-gray-100 rounded-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 z-50">
                             @foreach ($item['children'] as $chKey => $child)
                                 <li>
                                     <a href="{{ route("$key", [$item['parameter'] => $chKey]) }}"
-                                        class="block !px-3 !py-2 text-white !text-sm hover:bg-gray-700">
+                                        class="block !px-3 !py-2 text-gray-600 !text-sm hover:bg-gray-300">
                                         {{ $child }}
                                     </a>
                                 </li>
@@ -65,7 +65,7 @@
             @foreach (FRONT_MENU as $key => $item)
                 <li class="relative group  class">
                     <a href="@if (is_array($item)) {{ $key }} @else {{ route($key) }} @endif"
-                        class="flex items-center text-white !text-sm !px-3 !py-2 rounded hover:bg-gray-500">
+                        class="flex items-center text-gray-600 !text-sm !px-3 !py-2 rounded hover:bg-gray-100">
                         {{ is_array($item) ? $item['title'] : $item }}
                         @if (is_array($item))
                             <iconify-icon icon="cuida:caret-down-outline" width="14" height="14"></iconify-icon>
@@ -74,11 +74,11 @@
 
                     @if (is_array($item))
                         <ul
-                            class="absolute left-0 mt-4 w-44 bg-gray-600 rounded-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 z-50">
+                            class="absolute left-0 mt-4 w-44 bg-gray-100 rounded-md opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-300 z-50">
                             @foreach ($item['children'] as $chKey => $child)
                                 <li>
                                     <a href="{{ route("$key", [$item['parameter'] => $chKey]) }}"
-                                        class="block !px-3 !py-2 text-white !text-sm hover:bg-gray-700">
+                                        class="block !px-3 !py-2 text-gray-600 !text-sm hover:bg-gray-300">
                                         {{ $child }}
                                     </a>
                                 </li>
@@ -100,7 +100,7 @@
             @if ($item->children->count())
                 <li class="{{ $item->is_active == 0 ? 'hidden' : '' }}">
                     <button
-                        class="w-full flex justify-between items-center text-white !text-sm !px-3 !py-2 rounded hover:bg-teal-600 dropdown-btn">
+                        class="w-full flex justify-between items-center text-gray-600 !text-sm !px-3 !py-2 rounded hover:bg-teal-600 dropdown-btn">
                         {{ $item->title }} <iconify-icon icon="cuida:caret-down-outline" width="14"
                             height="14"></iconify-icon>
                     </button>
@@ -109,7 +109,7 @@
                             <li class="pl-3 {{ $child->is_active == 0 ? 'hidden' : '' }}">
                                 <a href="{{ $child->attributes == 'page' ? route('page', ['slug' => $child->url]) : $child->url }}"
                                     target="{{ $child->target ?? '_self' }}"
-                                    class="block text-white !text-sm py-1 hover:bg-teal-600 rounded">
+                                    class="block text-gray-600 !text-sm py-1 hover:bg-teal-600 rounded">
                                     {{ $child->title }}
                                 </a>
                             </li>
@@ -120,7 +120,7 @@
                 <li class="{{ $item->is_active == 0 ? 'hidden' : '' }}">
                     <a href="{{ $item->attributes == 'page' ? route('page', ['slug' => $item->url]) : $item->url }}"
                         target="{{ $item->target ?? '_self' }}"
-                        class="text-white !text-sm !px-3 !py-2 rounded hover:bg-teal-600 block">
+                        class="text-gray-600 !text-sm !px-3 !py-2 rounded hover:bg-teal-600 block">
                         {{ $item->title }}
                     </a>
                 </li>
@@ -131,7 +131,7 @@
             <li class="relative group  class">
                 @if (is_array($item))
                     <button
-                        class="w-full flex justify-between items-center text-white !text-sm !px-3 !py-2 rounded hover:bg-teal-600 dropdown-btn">
+                        class="w-full flex justify-between items-center text-gray-600 !text-sm !px-3 !py-2 rounded hover:bg-teal-600 dropdown-btn">
                         {{ is_array($item) ? $item['title'] : $item }} <iconify-icon icon="cuida:caret-down-outline"
                             width="14" height="14"></iconify-icon>
                     </button>
@@ -140,7 +140,7 @@
                         @foreach ($item['children'] as $chKey => $child)
                             <li>
                                 <a href="{{ route("$key", [$item['parameter'] => $chKey]) }}"
-                                    class="block !px-3 !py-2 text-white !text-sm hover:bg-gray-700">
+                                    class="block !px-3 !py-2 text-gray-600 !text-sm hover:bg-gray-700">
                                     {{ $child }}
                                 </a>
                             </li>
@@ -148,7 +148,7 @@
                     </ul>
                 @else
                     <a href="@if (is_array($item)) {{ $key }} @else {{ route($key) }} @endif"
-                        class="text-white !text-sm !px-3 !py-2 rounded hover:bg-teal-600 block">
+                        class="text-gray-600 !text-sm !px-3 !py-2 rounded hover:bg-teal-600 block">
                         {{ is_array($item) ? $item['title'] : $item }}
                     </a>
                 @endif
@@ -159,7 +159,7 @@
             <li>
                 @if (is_array($item))
                     <button
-                        class="w-full flex justify-between items-center text-white !text-sm !px-3 !py-2 rounded hover:bg-teal-600 dropdown-btn">
+                        class="w-full flex justify-between items-center text-gray-600 !text-sm !px-3 !py-2 rounded hover:bg-teal-600 dropdown-btn">
                         {{ is_array($item) ? $item['title'] : $item }} <iconify-icon icon="cuida:caret-down-outline"
                             width="14" height="14"></iconify-icon>
                     </button>
@@ -168,7 +168,7 @@
                         @foreach ($item['children'] as $chKey => $child)
                             <li>
                                 <a href="{{ route("$key", [$item['parameter'] => $chKey]) }}"
-                                    class="block !px-3 !py-2 text-white !text-sm hover:bg-gray-700">
+                                    class="block !px-3 !py-2 text-gray-600 !text-sm hover:bg-gray-700">
                                     {{ $child }}
                                 </a>
                             </li>
@@ -176,13 +176,37 @@
                     </ul>
                 @else
                     <a href="@if (is_array($item)) {{ $key }} @else {{ route($key) }} @endif"
-                        class="text-white !text-sm !px-3 !py-2 rounded hover:bg-teal-600 block">
+                        class="text-gray-600 !text-sm !px-3 !py-2 rounded hover:bg-teal-600 block">
                         {{ is_array($item) ? $item['title'] : $item }}
                     </a>
                 @endif
             </li>
         @endforeach
 
+        @if (auth()->check())
+            <li>
+                <a href="{{ route('logout') }}"
+                class="flex items-center gap-2 text-gray-600 hover:text-gray-500 transition-all delay-100"><iconify-icon
+                    icon="solar:login-linear" width="24" height="24"></iconify-icon> Logout</a>
+            </li>
+            <li>
+                <a href="{{ route(auth()->user()->role . '.dashboard') }}"
+                    class="flex items-center gap-2 text-gray-600 hover:text-gray-500 transition-all delay-100"><iconify-icon
+                        icon="material-symbols:empty-dashboard-rounded" width="24"
+                        height="24"></iconify-icon></iconify-icon> Dashboard</a>
+            </li>
+        @else
+            <li>
+                <a href="{{ route('login') }}"
+                    class="flex items-center gap-2 text-gray-600 hover:text-gray-500 transition-all delay-100"><iconify-icon
+                        icon="solar:login-linear" width="24" height="24"></iconify-icon> Login</a>
+            </li>
+            <li>
+                <a href="{{ route('register') }}"
+                    class="flex items-center gap-2 text-gray-600 hover:text-gray-500 transition-all delay-100"><iconify-icon
+                        icon="hugeicons:user-add-01" width="24" height="24"></iconify-icon> Register</a>
+            </li>
+        @endif
     </ul>
 </nav>
 

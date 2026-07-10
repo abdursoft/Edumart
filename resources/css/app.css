@@ -91,3 +91,92 @@
 .dt-type-numeric{
     text-align: left !important;
 }
+
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-up {
+    animation: fade-up .45s ease-out both;
+}
+
+.animate-delay-100 {
+    animation-delay: .1s;
+}
+
+.animate-delay-200 {
+    animation-delay: .2s;
+}
+
+.animate-delay-300 {
+    animation-delay: .3s;
+}
+
+.animate-delay-400 {
+    animation-delay: .4s;
+}
+
+.animate-delay-500 {
+    animation-delay: .5s;
+}
+@keyframes shimmer {
+
+    0%{
+        background-position:-600px 0;
+    }
+
+    100%{
+        background-position:600px 0;
+    }
+
+}
+
+.skeleton{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#e2e8f0;
+
+}
+
+.skeleton::after{
+
+    content:'';
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.7),
+        transparent
+    );
+
+    transform:translateX(-100%);
+
+    animation:shimmer 1.4s infinite;
+
+}
+
+@keyframes shimmer{
+
+    100%{
+
+        transform:translateX(100%);
+
+    }
+
+}

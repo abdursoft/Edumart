@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\FeeGroup;
 use App\Models\FeeHead;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -52,9 +53,10 @@ class FeeHeadController extends Controller
             'user_id'      => Auth::id(),
         ]);
 
+        Toastr::success('Fee head created successfully', 'Success');
+
         return redirect()
-            ->route('admin.finance.fees.fee_heads')
-            ->with('success', 'Fee head created successfully');
+            ->route('admin.finance.fees.fee_heads');
     }
 
     /**
@@ -93,9 +95,10 @@ class FeeHeadController extends Controller
             'is_recurring',
         ]));
 
+        Toastr::success('Fee head updated successfully', 'Success');
+
         return redirect()
-            ->route('admin.finance.fees.fee_heads')
-            ->with('success', 'Fee head updated successfully');
+            ->route('admin.finance.fees.fee_heads');
     }
 
     /**
@@ -105,9 +108,8 @@ class FeeHeadController extends Controller
     {
         $feeHead = FeeHead::findOrFail($id);
         $feeHead->delete();
-
+        Toastr::success('Fee head deleted successfully', 'Deleted');
         return redirect()
-            ->route('admin.finance.fees.fee_heads')
-            ->with('success', 'Fee head deleted successfully');
+            ->route('admin.finance.fees.fee_heads');
     }
 }

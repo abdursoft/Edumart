@@ -1,0 +1,1 @@
+<div class="my-2 border-t border-slate-200"></div>

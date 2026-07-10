@@ -63,6 +63,8 @@ class AuthController extends Controller
 
             $user = auth()->user();
             $user->assignRole($user->role);
+            auth()->login($user);
+            
             return response()->json([
                 'status'   => 'success',
                 'redirect' => route($user->role . '.dashboard'),

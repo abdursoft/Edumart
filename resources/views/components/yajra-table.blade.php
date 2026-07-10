@@ -4,10 +4,10 @@
 
 <!-- Container -->
 <div class="w-full text-slate-800">
-    <h2 class="text-xl md:text-2xl mt-5 font-semibold">{{$title}}</h2>
-
+    
     <!-- Card -->
     <div id="recipients" class="w-full p-4 mt-2 lg:mt-0 rounded shadow bg-white overflow-x-auto max-w-screen">
+        <h2 class="text-xl md:text-2xl mt-5 font-semibold">{{$title}}</h2>
         <table id="{{ $tableID }}" class="stripe hover w-full"
             style="width:100%; padding-top: 1em; padding-bottom: 1em;">
             <thead>

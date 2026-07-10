@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('invoice_number')->unique();               // Unique invoice number
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete(); // Linked user
             $table->decimal('amount', 10, 2);                        // Total amount
-            $table->enum('status', ['pending', 'paid', 'cancelled'])->default('pending'); // Payment status
+            $table->enum('status', ['pending', 'paid', 'cancelled', 'partial'])->default('pending'); // Payment status
             $table->date('due_date')->nullable();                     // Due date
             $table->text('notes')->nullable();                        // Optional notes
             $table->timestamps();

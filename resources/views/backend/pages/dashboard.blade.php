@@ -16,16 +16,16 @@
 
                     <!-- Spark Boxes -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 mb-4">
-                        <div class="bg-white rounded-xl shadow p-4">
-                            <div id="spark1"></div>
+                        <div class="bg-slate-700 text-white rounded-xl shadow p-4">
+                            <div id="spark1" class="!text-white"></div>
                         </div>
 
-                        <div class="bg-white rounded-xl shadow p-4">
-                            <div id="spark2"></div>
+                        <div class="bg-slate-700 text-white rounded-xl shadow p-4">
+                            <div id="spark2" class="!text-white"></div>
                         </div>
 
-                        <div class="bg-white rounded-xl shadow p-4">
-                            <div id="spark3"></div>
+                        <div class="bg-slate-700 text-white rounded-xl shadow p-4">
+                            <div id="spark3" class="!text-white"></div>
                         </div>
                     </div>
 
@@ -46,7 +46,7 @@
     </div>
 
     <!-- event calender -->
-    <x-calender eventRoute='/api/events' container='adminCalender' ></x-calender>
+    {{-- <x-calender eventRoute='/api/events' container='adminCalender' ></x-calender> --}}
 @endsection
 
 
@@ -82,8 +82,12 @@
                 },
                 series: [{
                     name: 'Expense',
-                    data: expenseSpark.data
+                    data: expenseSpark.data,
+                    style: 'color:#000'
                 }],
+                tooltip: {
+                    theme: 'dark'
+                },
                 labels: expenseSpark.labels,
                 xaxis: {
                     type: 'datetime'
@@ -91,19 +95,21 @@
                 yaxis: {
                     min: 0
                 },
-                colors: ['#DCE6EC'],
+                colors: ['#000'],
                 title: {
                     text: '৳' + expenseSpark.total.toLocaleString(),
                     offsetX: 30,
                     style: {
-                        fontSize: '24px'
+                        fontSize: '24px',
+                        color: '#fff'
                     }
                 },
                 subtitle: {
                     text: 'Expenses',
                     offsetX: 30,
                     style: {
-                        fontSize: '14px'
+                        fontSize: '14px',
+                        color: '#fff'
                     }
                 }
             };
@@ -112,25 +118,36 @@
                 ...spark1,
                 chart: {
                     ...spark1.chart,
-                    id: 'sparkline-earning'
+                    id: 'sparkline-earning',
+                    style: {
+                        color: '#000'
+                    }
                 },
                 series: [{
                     name: 'Earnings',
-                    data: earningSpark.data
+                    data: earningSpark.data,
+                    style: {
+                        color: '#000'
+                    }
                 }],
+                tooltip: {
+                    theme: 'dark'
+                },
                 labels: earningSpark.labels,
                 title: {
                     text: '৳' + earningSpark.total.toLocaleString(),
                     offsetX: 30,
                     style: {
-                        fontSize: '24px'
+                        fontSize: '24px',
+                        color: '#fff'
                     }
                 },
                 subtitle: {
                     text: 'Earnings',
                     offsetX: 30,
                     style: {
-                        fontSize: '14px'
+                        fontSize: '14px',
+                        color: '#fff'
                     }
                 }
             };
@@ -145,19 +162,24 @@
                     name: 'Profits',
                     data: profitSparkData.data
                 }],
+                tooltip: {
+                    theme: 'dark'
+                },
                 labels: profitSparkData.labels,
                 title: {
                     text: '৳' + profitSparkData.total.toLocaleString(),
                     offsetX: 30,
                     style: {
-                        fontSize: '24px'
+                        fontSize: '24px',
+                        color: '#fff'
                     }
                 },
                 subtitle: {
                     text: 'Profit',
                     offsetX: 30,
                     style: {
-                        fontSize: '14px'
+                        fontSize: '14px',
+                        color: '#fff'
                     }
                 }
             };

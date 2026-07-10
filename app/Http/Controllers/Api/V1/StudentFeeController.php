@@ -1,9 +1,11 @@
 <?php
+
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\EduClass;
 use App\Models\FeeHead;
+use App\Models\Invoice;
 use App\Models\StudentFee;
 use App\Models\StudentProfile;
 use Brian2694\Toastr\Facades\Toastr;
@@ -17,7 +19,7 @@ class StudentFeeController extends Controller
      */
     public function index($id = null)
     {
-        $fees = StudentFee::with(['student', 'feeHead','eduClass','eduSection','eduGroup'])
+        $fees = StudentFee::with(['student', 'feeHead', 'eduClass', 'eduSection', 'eduGroup'])
             ->latest()
             ->get();
         $fee = null;
@@ -61,17 +63,26 @@ class StudentFeeController extends Controller
             foreach ($validate['students'] as $student) {
                 $user = StudentProfile::where('id', $student)->first();
                 if ($user) {
-                    StudentFee::create([
-                        'invoice_id'         => uniqueID(StudentFee::class, 'invoice_id', 12),
-                        'student_id'         => $user->student_id,
-                        'student_profile_id' => $student,
-                        'fee_head_id'        => $validate['fee_head_id'],
-                        'edu_class_id'       => $validate['edu_class_id'],
-                        'edu_section_id'     => $validate['edu_section_id'],
-                        'edu_group_id'       => empty($validate['edu_group_id']) ? $user->edu_group_id : $validate['edu_group_id'],
-                        'due_date'           => $validate['due_date'],
-                        'status'             => 'Due',
-                    ]);
+                    DB::transaction(function () use ($validate, $user, $student) {
+                        $invoice = Invoice::create([
+                            'invoice_number' => "INV-".uniqueID(Invoice::class, 'invoice_number', 32),
+                            'user_id' => $user->student_id,
+                            'amount'     => $validate['fee_head_id'] ? FeeHead::find($validate['fee_head_id'])->amount : 0,
+                            'status'     => 'pending',
+                        ]);
+
+                        StudentFee::create([
+                            'invoice_id'     => $invoice->id,
+                            'student_id'         => $user->student_id,
+                            'student_profile_id' => $student,
+                            'fee_head_id'        => $validate['fee_head_id'],
+                            'edu_class_id'       => $validate['edu_class_id'],
+                            'edu_section_id'     => $validate['edu_section_id'],
+                            'edu_group_id'       => empty($validate['edu_group_id']) ? $user->edu_group_id : $validate['edu_group_id'],
+                            'due_date'           => $validate['due_date'],
+                            'status'             => 'Due',
+                        ]);
+                    });
                 }
             }
 
@@ -79,7 +90,9 @@ class StudentFeeController extends Controller
             return redirect()
                 ->route('admin.finance.fees.student_due');
         } catch (\Throwable $th) {
-            dd($th->getMessage());
+            Toastr::error('Failed to add student fee: ' . $th->getMessage(), 'Error');
+            return redirect()
+                ->route('admin.finance.fees.student_due');
         }
     }
 
@@ -155,14 +168,15 @@ class StudentFeeController extends Controller
     /**
      * Get fee by invoice
      */
-    public function getFee($invoice){
-        $fee = StudentFee::with('studentProfile','feeHead')->where('id', $invoice)->first();
-        $student = $fee->studentProfile->load('eduClass','eduSection','eduGroup');
+    public function getFee($invoice)
+    {
+        $fee = StudentFee::with('studentProfile', 'feeHead')->where('id', $invoice)->first();
+        $student = $fee->studentProfile->load('eduClass', 'eduSection', 'eduGroup');
         $template = view(backend('components.cards.student'), compact('fee', 'student'))->render();
         return response()->json([
             'view' => $template,
             'head' => $fee->feeHead,
             'status' => empty($fee) ? 'failed' : 'success',
-       ]);
+        ]);
     }
 }

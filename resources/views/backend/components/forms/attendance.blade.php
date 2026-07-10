@@ -5,8 +5,8 @@
     <form action="@if(!$attendance){{route('admin.administration.attendance_staff.add')}}@else{{route('admin.administration.attendance_staff.update')}}@endif" method="post">
         @csrf
         @foreach($staffs as $key=>$staff)
-            <x-fieldset :title="ucfirst($key)">
-                <div class="w-full mt-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
+            <x-fieldset :title="ucfirst($key)" css='my-3'>
+                <div class="w-full my-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
                     @foreach($staff as $person)
                         <label  class="shadow-md rounded-md p-2 flex items-center gap-2 hover:shadow-lg cursor-pointer">
                             <input type="checkbox" name="users[]" value="{{$person->id}}" id="" @if(in_array($person->id, $attendance) || in_array($person->id, $leave)) checked @endif > <span>{{$person->name}}</span> @if(in_array($person->id, $leave)) <sup class="text-sm sup text-green-600 bg-green-100 rounded-md p-2">leaved</sup> @endif

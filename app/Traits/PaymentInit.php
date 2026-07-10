@@ -10,6 +10,7 @@ use App\Http\Controllers\Payment\RazorpayController;
 use App\Http\Controllers\Payment\SSlCommerzController;
 use App\Http\Controllers\Payment\StripeController;
 use App\Http\Controllers\Payment\TwoCheckoutController;
+use App\Models\Invoice;
 use App\Models\Payment;
 use App\Models\PaymentMethod;
 use App\Models\UserDetail;
@@ -119,17 +120,17 @@ trait PaymentInit
     }
 
     public function makePayment($id,$trans_id,$user,$amount,$status,$plan){
-        Payment::create([
-            'txn_id' => $id,
-            'user_id' => $user,
-            'plan_id' => $plan,
-            'payment_intent' => $trans_id,
-            'payment_method_id' => $this->pay->id,
-            'amount' => $amount,
-            'payment_date' => date('Y-m-d'),
-            'status' => strtolower($status)
-        ]);
+        $invoice = Invoice::where('invoice_number',$trans_id)->first();
+        if($invoice){
+            $invoice->update([
+                'trans_id' => $id,
+                'payment_method' => $this->pay->name,
+                'payment_response' => json_encode($this->paymentMethod->response),
+                'status' => $status,
+            ]);
+        }
     }
+
 
     public function getAttributes($key){
         foreach($this->pay->attributes as $item){

@@ -504,10 +504,12 @@ if(!function_exists('slider')){
                 [{
                             extend: 'copy',
                             title:'',
-                            exportOptions: commonExportOptions
+                            text:'<iconify-icon icon="mynaui:copy" width="16" height="16"></iconify-icon> Copy',
+                            exportOptions: commonExportOptions,
                         },
                         {
                             extend: 'csv',
+                            text: '<iconify-icon icon="hugeicons:csv-02" width="16" height="16"></iconify-icon> CSV',
                             exportOptions: commonExportOptions,
                             customize: function(csv) {
                                 return `
@@ -521,6 +523,9 @@ if(!function_exists('slider')){
                         {
                             extend: 'excel',
                             title:'',
+                            text: '<iconify-icon icon="hugeicons:csv-02" width="16" height="16"></iconify-icon> Excel',
+                            orientation: '<?= $orientation ?>',
+                            pageSize: 'A4',
                             exportOptions: commonExportOptions,
                             customize: function(xlsx) {
                                 const sheet = xlsx.xl.worksheets['sheet1.xml'];
@@ -534,7 +539,7 @@ if(!function_exists('slider')){
                         },
                         {
                             extend: 'pdfHtml5',
-                            text: 'PDF',
+                            text: '<iconify-icon icon="proicons:pdf" width="16" height="16"></iconify-icon> PDF',
                             title: '',
                             orientation: '<?= $orientation ?>',
                             pageSize: 'A4',
@@ -582,6 +587,7 @@ if(!function_exists('slider')){
                         {
                             extend: 'print',
                             title:'',
+                            text: '<iconify-icon icon="mynaui:printer" width="16" height="16"></iconify-icon> Print',
                             orientation: '<?= $orientation ?>',
                             pageSize: 'A4',
                             exportOptions: commonExportOptions,

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\FeeCollection;
+use App\Models\Invoice;
 use App\Models\StudentFee;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class FeeCollectionController extends Controller
             ->get();
         $collection = null;
         $invoices = StudentFee::latest()->get()->mapWithKeys(function($fee){
-            return [$fee->id => $fee->invoice_id];
+            return [$fee->id => $fee->invoice->invoice_number];
         })->toArray();
         if($id){
             $collection = FeeCollection::with('collectedBy')->findOrFail($id);
@@ -69,6 +70,17 @@ class FeeCollectionController extends Controller
                 'payment_date'   => now()->format('Y-m-d'),
                 'collected_by'   => Auth::id(),
             ]);
+
+            $invoice = Invoice::where('invoice_number', $fee->invoice_id)->first();
+            if($invoice){
+                $invoice->amount = $invoice->amount - $request->paid_amount;
+                if($invoice->amount <= 0){
+                    $invoice->status = 'paid';
+                }else{
+                    $invoice->status = 'partial';
+                }
+                $invoice->save();
+            }
 
             $fee->amount = $fee->amount + $request->paid_amount;
             if($dueAmount <= 0){

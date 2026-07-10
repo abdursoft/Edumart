@@ -25,7 +25,7 @@ class ProfileController extends Controller
     {
         $validated = $request->validate([
             'user_id'      => 'required|exists:users,id',
-            'avatar'       => 'nullable|files|mimes:jpeg,jpg,png',
+            'avatar'       => 'nullable|file|mimes:jpeg,jpg,png',
             'first_name'   => 'required|string',
             'last_name'    => 'nullable|string',
             'phone'        => 'nullable|string',

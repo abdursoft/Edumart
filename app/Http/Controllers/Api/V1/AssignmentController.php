@@ -18,7 +18,7 @@ class AssignmentController extends Controller
     public function index()
     {
         $assignments = Assignment::with(['eduClass', 'subject', 'teacher'])
-            ->orderBy('assigned_date', 'desc')
+            ->orderBy('id', 'desc')
             ->get();
         $assignment = null;
         $classes = EduClass::all();
@@ -59,7 +59,7 @@ class AssignmentController extends Controller
     {
         $assignment = Assignment::findOrFail($id);
         $assignments = Assignment::with(['eduClass', 'subject', 'teacher'])
-            ->orderBy('assigned_date', 'desc')
+            ->orderBy('id', 'desc')
             ->get();
         $classes = EduClass::all();
         return view(backend('pages.assignment'),compact('assignment','assignments','classes'));

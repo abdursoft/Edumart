@@ -1,24 +1,20 @@
-<header class="sticky top-0 z-50 flex w-full items-center justify-between bg-[#424242] px-4 py-3 shadow-md md:px-6">
+<header class="sticky top-0 z-50 flex w-full items-center justify-between bg-[#fff] text-black px-4 py-3 shadow-md md:px-6">
     <!-- Left Section -->
     <div class="flex items-center md:space-x-3">
         <!-- Toggle Button (for small screens) -->
         <div class="flex-1 flex items-center justify-between flex-col-revers md:flex-col-wrap md:space-x-3">
             <button id="sidebarToggleButton"
-                class="flex h-10 w-10 items-center justify-center rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 lg:hidden cursor-pointer">
+                class="flex h-10 w-10 items-center justify-center rounded-md bg-gray-100 text-gray-900 hover:bg-gray-200 lg:hidden cursor-pointer">
                 <iconify-icon icon="line-md:arrow-right" width="24" height="24"></iconify-icon>
             </button>
         </div>
-         <!-- site logo -->
-        <img src="https://abdursoft.com/assets/images/instructor.png" alt="eduMart" class="w-[60px] h-[46px]">
-        <!-- site title -->
-        <h1 class="hidden lg:block text-lg md:text-xl lg:text-2xl font-bold text-white">{{site()->site_name ?? 'EduMart'}}</h1>
     </div>
 
     <!-- Right Section -->
     <div class="flex items-center space-x-3 md:space-x-5">
         <!-- Search Icon (Mobile) -->
         <button id="search-toggle"
-            class="rounded-md p-2 transition text-gray-700 hover:bg-gray-200 md:hidden cursor-pointer">
+            class="rounded-md p-2 transition text-slate-700 hover:bg-gray-200 md:hidden cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -27,11 +23,11 @@
         </button>
 
         <!-- homepage view -->
-        <a href="/" target="_blank"><iconify-icon icon="streamline-plump:code-monitor-2-solid" class="text-white" width="24" height="24"></iconify-icon></a>
+        <a href="/" target="_blank"><iconify-icon icon="streamline-plump:code-monitor-2-solid" class="text-gray-800" width="24" height="24"></iconify-icon></a>
 
         <!-- Notifications -->
         <div class="relative">
-            <button id="notify-btn" class="relative p-2 text-white transition cursor-pointer">
+            <button id="notify-btn" class="relative p-2 text-gray-800 transition cursor-pointer">
                 <iconify-icon icon="ion:notifications" width="24" height="24"></iconify-icon>
                 <small class="absolute top-0 right-0 emailStats">{{count(emailStats())}}</small>
             </button>
@@ -40,11 +36,11 @@
                 @forelse(emailStats() as $contactEmail)
                     <a href="{{route('admin.communication.email', $contactEmail->id)}}" class="my-1 bg-gray-200 relative block px-5 py-2 pr-7">
                         <h6 class="text-base font-semibold">{{$contactEmail->name}}</h6>
-                        <p class="text-sm text-gray-700">{{$contactEmail->name}}</p>
-                        <p class="text-sm text-gray-700 text-right">{{date('d M, Y', strtotime($contactEmail->created_at))}}</p>
+                        <p class="text-sm text-slate-700">{{$contactEmail->name}}</p>
+                        <p class="text-sm text-slate-700 text-right">{{date('d M, Y', strtotime($contactEmail->created_at))}}</p>
                     </a>
                 @empty
-                    <p class="text-sm text-gray-700">No new notifications</p>
+                    <p class="text-sm text-slate-700">No new notifications</p>
                 @endforelse
             </div>
         </div>
@@ -52,29 +48,29 @@
         <!-- language -->
         <div class="relative">
             <button id="language-btn"
-                class="flex items-center space-x-2 cursor-pointer p-2 text-white">
+                class="flex items-center space-x-2 cursor-pointer p-2 text-gray-800">
                 <iconify-icon icon="ion:language" width="24" height="24"></iconify-icon> <span class="text-sm font-medium">{{ LANGUAGE[app()->getLocale()] }}</span>
             </button>
             <div id="language-dropdown"
                 class="hidden absolute right-0 mt-2 w-48 rounded-lg bg-white py-2 shadow-lg 800">
                 <a href="{{ route('lang', ['lang' => 'bn']) }}"
-                    class="block px-4 py-2 text-sm text-gray-600  hover:bg-gray-700 hover:text-white">BN</a>
+                    class="block px-4 py-2 text-sm text-gray-600  hover:bg-slate-700 hover:text-gray-800">BN</a>
                 <a href="{{ route('lang', ['lang' => 'en']) }}"
-                    class="block px-4 py-2 text-sm text-gray-600  hover:bg-gray-700 hover:text-white">EN</a>
+                    class="block px-4 py-2 text-sm text-gray-600  hover:bg-slate-700 hover:text-gray-800">EN</a>
             </div>
         </div>
 
         <!-- Profile -->
         <div class="relative">
-            <button id="profile-btn" class="flex items-center space-x-2 text-white cursor-pointer"  data-title="Profile">
+            <button id="profile-btn" class="flex items-center space-x-2 text-gray-800 cursor-pointer"  data-title="Profile">
                 <iconify-icon icon="healthicons:ui-user-profile" width="34" height="34"></iconify-icon>
             </button>
             <div id="profile-dropdown"
                 class="hidden absolute right-0 mt-2 w-48 rounded-lg bg-white py-2 shadow-lg 800">
                 <a href="#"
-                    class="block px-4 py-2 text-sm text-gray-600  hover:bg-gray-700 hover:text-white">Profile</a>
+                    class="block px-4 py-2 text-sm text-gray-600  hover:bg-slate-700 hover:text-gray-800">Profile</a>
                 <a href="{{route('logout')}}"
-                    class="block px-4 py-2 text-sm text-gray-600  hover:bg-gray-700 hover:text-white">Logout</a>
+                    class="block px-4 py-2 text-sm text-gray-600  hover:bg-slate-700 hover:text-gray-800">Logout</a>
             </div>
         </div>
     </div>

@@ -23,4 +23,5 @@ Route::controller(StudentController::class)->group(function(){
 
     // due and invoices
     Route::get('invoices/{id?}', 'invoices')->name('invoices');
+    Route::get('pay-invoices/{id}', 'payInvoice')->name('invoice.payment');
 });

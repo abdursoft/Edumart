@@ -44,7 +44,7 @@
 @endsection
 
 @push('scripts')
-    {{loadDataTable('childrenTable', $profile?->profile->first_name.' '.$profile?->profile->last_name.', Children list')}}
+    {{loadDataTable('childrenTable', $profile?->profile?->first_name.' '.$profile?->profile?->last_name.', Children list')}}
 @endpush
 
 @push('styles')

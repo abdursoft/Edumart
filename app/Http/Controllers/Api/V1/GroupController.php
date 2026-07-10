@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\EduClass;
 use App\Models\EduGroup;
 use App\Models\EduSection;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -34,8 +35,8 @@ class GroupController extends Controller
         ]);
 
         EduGroup::create($request->only('name','description','edu_section_id'));
-
-        return back()->with('success', 'Group successfully created');
+        Toastr::success('Group created successfully', 'Success');
+        return back();
     }
 
     // Show a single group
@@ -56,7 +57,8 @@ class GroupController extends Controller
         $group = EduGroup::findOrFail($id);
         $group->update($request->only('name','description','edu_section_id'));
 
-        return redirect()->route('admin.academic.structure.groups')->with('success', 'Group successfully updated');
+        Toastr::success('Group updated successfully', 'Success');
+        return redirect()->route('admin.academic.structure.groups');
     }
 
     // Delete a group
@@ -67,6 +69,7 @@ class GroupController extends Controller
             return back()->withErrors(['error' => 'Group ID couldn\'t found']);
         }
         $group->delete();
-        return redirect()->route('admin.academic.structure.groups')->with('success', 'Group successfully deleted');
+        Toastr::success('Group deleted successfully', 'Success');
+        return redirect()->route('admin.academic.structure.groups');
     }
 }

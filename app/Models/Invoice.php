@@ -29,4 +29,9 @@ class Invoice extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function studentFee()
+    {
+        return $this->hasOne(StudentFee::class, 'invoice_id');
+    }
 }

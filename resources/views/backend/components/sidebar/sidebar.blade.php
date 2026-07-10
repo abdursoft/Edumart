@@ -1,8 +1,12 @@
 <aside id="sidebar"
-    class="sidebar fixed left-0 top-0 z-50 flex h-screen w-[250px] text-sm md:text-base flex-col overflow-y-hidden border-r border-gray-200 transform transition-transform duration-300 ease-linear -translate-x-full lg:translate-x-0 bg-[#424242] shadow-md">
+    class="sidebar fixed left-0 top-0 z-[9999] flex h-screen w-[250px] text-sm md:text-base flex-col overflow-y-hidden border-r border-gray-200 transform transition-transform duration-300 ease-linear -translate-x-full lg:translate-x-0 bg-[#141C34] shadow-md">
 
     <!-- SIDEBAR MENU -->
     <div class="flex flex-col overflow-y-auto no-scrollbar pt-22 text-white">
+                 <!-- site logo -->
+        <img src="https://abdursoft.com/assets/images/instructor.png" alt="eduMart" class="hidden w-[60px] h-[46px]">
+        <!-- site title -->
+        <h1 class="text-lg md:text-xl lg:text-2xl font-bold text-white line-clamp-1">{{site()->site_name ?? 'EduMart'}}</h1>
         <nav>
             <ul class="flex flex-col gap-4 mb-6">
 

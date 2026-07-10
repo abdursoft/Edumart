@@ -7,6 +7,7 @@ use App\Models\Attendance;
 use App\Models\EduClass;
 use App\Models\Exam;
 use App\Models\ExamAdmitCard;
+use App\Models\Invoice;
 use App\Models\StudentFee;
 use App\Models\StudentProfile;
 use App\Models\User;
@@ -20,12 +21,13 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
+use App\Traits\PaymentInit;
 
 use function Symfony\Component\Clock\now;
 
 class StudentController extends Controller
 {
-
+    use PaymentInit;
     //show student list
     public function index()
     {
@@ -349,4 +351,18 @@ class StudentController extends Controller
         $fees = StudentFee::with(['feeHead', 'feeCollection.collectedBy'])->where('student_id', $profile->id)->latest()->get();
         return view(theme('pages.students.fee'), compact('profile', 'fees'));
     }
+
+    /**
+     * Pay invoice
+     */
+    public function payInvoice($id)
+    {
+        $profile = $this->profile;
+        $invoice = Invoice::findOrFail($id);
+        if($invoice->user_id != $profile->id) {
+            Toastr::error('Invoice not found', 'Error');
+            return back();
+        }
+        dd($invoice);
+    }   
 }

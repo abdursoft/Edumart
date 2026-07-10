@@ -46,4 +46,8 @@ class FeeCollection extends Model
     {
         return $this->due_amount <= 0;
     }
+
+    public function invoice(){
+        return $this->hasOneThrough(Invoice::class, StudentFee::class, 'id', 'id', 'fee_id', 'invoice_id');
+    }
 }
