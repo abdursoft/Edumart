@@ -10,33 +10,32 @@ class RoleRedirectMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
-        $user = auth()->user();
-
-        if (! $user) {
+        if (!auth()->check()) {
             return redirect()->route('auth.login');
         }
 
-        // Admin
+        $user = auth()->user();
+
         if ($user->hasRole('admin')) {
             return redirect()->route('admin.dashboard');
         }
 
-        // Teacher
         if ($user->hasRole('teacher')) {
             return redirect()->route('teacher.dashboard');
         }
 
-        // Student
         if ($user->hasRole('student')) {
             return redirect()->route('student.dashboard');
         }
 
-        // Parent
         if ($user->hasRole('parent')) {
             return redirect()->route('parent.dashboard');
         }
 
-        // Fallback
-        return redirect('/dashboard');
+        auth()->logout();
+
+        return redirect()
+            ->route('auth.login')
+            ->with('error', 'Your account does not have a valid role.');
     }
 }

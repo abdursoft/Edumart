@@ -501,12 +501,7 @@ if(!function_exists('slider')){
             {
                 ob_start();
                 ?>
-                [{
-                            extend: 'copy',
-                            title:'',
-                            text:'<iconify-icon icon="mynaui:copy" width="16" height="16"></iconify-icon> Copy',
-                            exportOptions: commonExportOptions,
-                        },
+                [
                         {
                             extend: 'csv',
                             text: '<iconify-icon icon="hugeicons:csv-02" width="16" height="16"></iconify-icon> CSV',

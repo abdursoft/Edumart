@@ -50,7 +50,7 @@
             <!-- ===== Header End ===== -->
 
             <!-- ===== Main Content Start ===== -->
-            <main class="lg:pl-[250px]">
+            <main class="lg:pl-[250px] min-h-screen relative h-auto">
                 <div class="p-4 mx-auto md:p-6 w-full">
                     @yield('content')
                 </div>

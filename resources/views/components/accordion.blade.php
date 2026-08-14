@@ -2,7 +2,7 @@
     <div class="border rounded-md overflow-hidden">
         <!-- Header -->
         <button type="button"
-            class="accordion-btn w-full flex justify-between items-center px-4 py-3 bg-gray-100 hover:bg-gray-200 transition"
+            class="accordion-btn w-full cursor-pointer flex justify-between items-center px-4 py-3 bg-gray-300 hover:bg-gray-200 transition"
             data-target="accordion-{{ $key }}">
             <span class="font-semibold text-left">
                 {{ $title }}

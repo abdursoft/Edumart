@@ -23,6 +23,7 @@ class AuthController extends Controller
         $validator = Validator::make($request->all(), [
             'email'    => 'required|email',
             'password' => 'required|string',
+            'captcha'  => 'required|string',
         ]);
 
         if ($validator->fails()) {
@@ -32,49 +33,45 @@ class AuthController extends Controller
             ], 422);
         }
 
-        if ($request->captcha !== session('captcha_code') ) {
+        if ($request->captcha !== session('captcha_code')) {
             return response()->json([
                 'status'  => 'error',
                 'message' => 'Invalid security captcha',
             ], 401);
         }
 
-        $exsits = User::where('email', $request->email)->first();
-        if(!$exsits){
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
             return response()->json([
-                'status' => 'error',
-                'message' => 'Invalid email address'
-            ],400);
+                'status'  => 'error',
+                'message' => 'Invalid email address',
+            ], 400);
         }
 
         session()->forget('captcha_code');
 
-        if (! Auth::attempt($request->only('email', 'password'))) {
+        // Authenticate only ONCE
+        if (!Auth::attempt(
+            $request->only('email', 'password'),
+            $request->boolean('remember')
+        )) {
             return response()->json([
                 'status'  => 'error',
                 'message' => 'Invalid email or password',
             ], 401);
         }
 
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials, $request->boolean('remember'))) {
+        // Regenerate only ONCE
+        $request->session()->regenerate();
 
-            $request->session()->regenerate();
+        $user = Auth::user();
 
-            $user = auth()->user();
-            $user->assignRole($user->role);
-            auth()->login($user);
-            
-            return response()->json([
-                'status'   => 'success',
-                'redirect' => route($user->role . '.dashboard'),
-                'message'  => 'Login successful!',
-            ]);
-        }
         return response()->json([
-            'status'  => 'error',
-            'message' => 'Login successful!',
-        ], 401);
+            'status'   => 'success',
+            'redirect' => route($user->role . '.dashboard'),
+            'message'  => 'Login successful!',
+        ]);
     }
 
     /**
